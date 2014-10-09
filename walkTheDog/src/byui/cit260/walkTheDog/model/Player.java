@@ -35,7 +35,7 @@ public class Player implements Serializable {
         return highScore;
     }
 
-    public void setBestTime(double bestTime) {
+    public void setBestTime(double highScore) {
         this.highScore = highScore;
     }
 
