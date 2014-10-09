@@ -16,8 +16,8 @@ public class Player implements Serializable {
     
     // class instance variables
     private String name;
-    private double highScore;
-
+    private double highScore; /* Will add to UML (Gab and Idel agreed to put
+                               this in here and in the UML. */
     public Player() {
     }
     
