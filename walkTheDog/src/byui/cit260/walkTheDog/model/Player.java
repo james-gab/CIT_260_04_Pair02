@@ -16,7 +16,7 @@ public class Player implements Serializable {
     
     // class instance variables
     private String name;
-    private double bestTime;
+    private double highScore;
 
     public Player() {
     }
@@ -31,24 +31,24 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public double getBestTime() {
-        return bestTime;
+    public double getHighScore() {
+        return highScore;
     }
 
     public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
+        this.highScore = highScore;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
+        return "Player{" + " name = " + name + ", High Score = " + highScore + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.highScore) ^ (Double.doubleToLongBits(this.highScore) >>> 32));
         return hash;
     }
 
@@ -64,7 +64,7 @@ public class Player implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
+        if (Double.doubleToLongBits(this.highScore) != Double.doubleToLongBits(other.highScore)) {
             return false;
         }
         return true;
