@@ -21,7 +21,7 @@ public class WalkTheDog {
         Player playerOne = new Player();
         
         playerOne.setName("Fred Flintsone");
-        playerOne.setBestTime(7.00);
+        playerOne.sethighScore(7.00);
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);

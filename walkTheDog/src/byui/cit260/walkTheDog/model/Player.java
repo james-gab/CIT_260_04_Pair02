@@ -31,11 +31,11 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public double getHighScore() {
+    public double gethighScore() {
         return highScore;
     }
 
-    public void setBestTime(double highScore) {
+    public void sethighScore(double highScore) {
         this.highScore = highScore;
     }
 
