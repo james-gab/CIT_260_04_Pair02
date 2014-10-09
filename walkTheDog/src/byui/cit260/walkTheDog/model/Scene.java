@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Idel
+ * @authors Idel Pagan and gab James
  */
 public class Scene implements Serializable {
     private String name; 
