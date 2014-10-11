@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Idel and gab
+ * @authors Idel Pagan and gab James
  */
 public class Player implements Serializable {
     
@@ -31,11 +31,11 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public double getHighScore() {
+    public double gethighScore() {
         return highScore;
     }
 
-    public void setBestTime(double highScore) {
+    public void sethighScore(double highScore) {
         this.highScore = highScore;
     }
 
