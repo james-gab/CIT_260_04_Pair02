@@ -20,7 +20,6 @@ public class Scene implements Serializable {
     }
 
     
-    
     public String getName() {
         return name;
     }
