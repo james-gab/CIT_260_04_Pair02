@@ -18,20 +18,31 @@ package byui.cit260.walkTheDog.control;
 
 
 public class EventControlIdel {
-    public int generateFidoMood(int numberOfTurns, int leashLength);
+    public int generateFidoMood(int numberOfTurns, int leashLength, int mood){
+        
+    if (leashLength < 0 || leashLength > 15){
+        return -1; // testing for valid leash length
+    }
     
-    int mood;
+    if (mood < 1 || mood > 9){   // checks if mood is valid
+        return -1;
+    }
     
-    if (leashLength <= 4 && numberOfTurns > 1)
-    mood =- 2; // fido is mad
+    if (numberOfTurns < 0){
+        return -1;
+    }
     
-    if (mood <= 0)
-    return -1 //lose life point!
+    if (leashLength <= 4 && numberOfTurns > 1){   // testing leash length is less than four and more than one turn
+    return mood -= 2; // fido is mad                 less freedom for fido (he gets mad)  
+    }                                        
     
-    else if (leashLength > 4)
-    mood =+ 1; //fido is happy
+    if (mood < 9){   // 
+    return mood+= 1;
+    }
     
-
+    return mood; //fido is happy
+    
+    }
     
    
 }
