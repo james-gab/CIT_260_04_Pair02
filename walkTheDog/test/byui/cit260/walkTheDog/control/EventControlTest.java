@@ -127,7 +127,7 @@ public class EventControlTest {
         */
         System.out.println("\tTest case #1");
         double noExploreCounter = 5.0;
-        int idealLeashLength = 9;
+        int idealLeashLength = 7;
         double userDefinedNumber = 7.0;
         EventControl instance = new EventControl();
         int expResult = 1;
@@ -150,9 +150,9 @@ public class EventControlTest {
         */
         System.out.println("\tTest case #3");
         noExploreCounter = 2.0;
-        idealLeashLength = 8;
+        idealLeashLength = 7;
         userDefinedNumber = 19.0;
-        expResult = 0;
+        expResult = 1;
         result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
         assertEquals(expResult, result);
         
@@ -161,7 +161,7 @@ public class EventControlTest {
         */
         System.out.println("\tTest case #4");
         noExploreCounter = 0.0;
-        idealLeashLength = 6;
+        idealLeashLength = 4;
         userDefinedNumber = 19.0;
         expResult = 1;
         result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);

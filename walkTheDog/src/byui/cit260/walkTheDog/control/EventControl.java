@@ -53,9 +53,13 @@ public class EventControl {
             return -1;                                          // test for good userDefinedNumber
             }
         
+        if (noExploreCounter == 0){                             // test noExploreCounter not zero if zero add 1
+            noExploreCounter = 1;
+        }
+        
         double fidoLeashOverlap = minLeashLenght + .1 * noExploreCounter * userDefinedNumber;
         
-        if(fidoLeashOverlap>=idealLeashLength){      // test for overlap
+        if(fidoLeashOverlap<idealLeashLength){      // test for overlap
             return 0;
             }
         
