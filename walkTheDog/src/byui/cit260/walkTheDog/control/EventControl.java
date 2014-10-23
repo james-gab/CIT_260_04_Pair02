@@ -30,7 +30,7 @@ public class EventControl {
         
         double upperBase = 10;          //define an upperBase integer
 	double lowerBase = 0.1 ;          //define an lowerBase integer	
-	double idealLeashLengthD = idealLeashLength;
+	double idealLeashLengthD = idealLeashLength;      //change int to double
         
         idealLeashLengthD = leashLength * lowerBase * idealLeashLengthD / leashLength * upperBase;	
         
