@@ -77,16 +77,19 @@ public class EventControl {
             return -1;
             }
     
-        if (leashLength <= 4 && numberOfTurns > 1){   // testing leash length is less than four and more than one turn
+        if (leashLength <= 4 && numberOfTurns > 1){ //testing leash length is less than four and more than one turn
+            if (mood <= 2){ 
+                mood = 0;
+               return mood;
+                } 
+           
             return mood -= 2; // fido is mad                 less freedom for fido (he gets mad)  
-            }                                        
+        }                                        
     
-        if (mood < 9){   // 
+        if (mood < 9){   
             return mood+= 1;
             }
-        if (mood <= 0){
-            return mood = 0;
-        }
+       
         
         return mood; //fido is happy
     
