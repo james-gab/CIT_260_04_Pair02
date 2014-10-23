@@ -42,7 +42,7 @@ public class EventControl {
  
     }
     
-    public int eventOnNoExplore(double noExploreCounter, int idealLeashLength, double userDefinedNumber){
+    public int eventOnNoExplore(double noExploreCounter, int idealLeashLength, int userDefinedNumber){
         
         double minLeashLenght = 4;
         
@@ -62,7 +62,9 @@ public class EventControl {
             noExploreCounter = 1;
         }
         
-        double fidoLeashOverlap = minLeashLenght + .1 * noExploreCounter * userDefinedNumber;
+        double userDefinedNumberD = userDefinedNumber;          // cast int to double
+        
+        double fidoLeashOverlap = minLeashLenght + .1 * noExploreCounter * userDefinedNumberD;
         
         if(fidoLeashOverlap<idealLeashLength){      // test for overlap
             return 0;
