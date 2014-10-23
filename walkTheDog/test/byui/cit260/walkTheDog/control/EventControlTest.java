@@ -128,7 +128,7 @@ public class EventControlTest {
         System.out.println("\tTest case #1");
         double noExploreCounter = 5.0;
         int idealLeashLength = 9;
-        double userDefinedNumber = 10.0;
+        double userDefinedNumber = 7.0;
         EventControl instance = new EventControl();
         int expResult = 1;
         int result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
@@ -141,7 +141,7 @@ public class EventControlTest {
         noExploreCounter = 1.0;
         idealLeashLength = -6;
         userDefinedNumber = 5.0;
-        expResult = 1;
+        expResult = -1;
         result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
         assertEquals(expResult, result);
         
@@ -149,12 +149,46 @@ public class EventControlTest {
         * Test Case #3
         */
         System.out.println("\tTest case #3");
+        noExploreCounter = 2.0;
+        idealLeashLength = 8;
+        userDefinedNumber = 19.0;
+        expResult = 0;
+        result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
+        assertEquals(expResult, result);
+        
+        /************************
+        * Test Case #4
+        */
+        System.out.println("\tTest case #4");
         noExploreCounter = 0.0;
         idealLeashLength = 6;
-        userDefinedNumber = 5.0;
+        userDefinedNumber = 19.0;
         expResult = 1;
         result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
         assertEquals(expResult, result);
+        
+        /************************
+        * Test Case #5
+        */
+        System.out.println("\tTest case #5");
+        noExploreCounter = 10.0;
+        idealLeashLength = 15;
+        userDefinedNumber = 19.0;
+        expResult = 1;
+        result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
+        assertEquals(expResult, result);
+        
+        /************************
+        * Test Case #6
+        */
+        System.out.println("\tTest case #6");
+        noExploreCounter = 1.0;
+        idealLeashLength = 4;
+        userDefinedNumber = 15.0;
+        expResult = 1;
+        result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
+        assertEquals(expResult, result);
+
     }
 
     /**
