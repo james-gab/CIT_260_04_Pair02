@@ -24,12 +24,18 @@ public class EventControl {
             return -1;
             }
         
-        if (leashLength <= idealLeashLength){
-            return 0;                                 // return 0 for no overlap
+        if (idealLeashLength < 4 || idealLeashLength > 15){      // test for good idealLeashLength
+            return -1;
             }
         
-        return 1;                                    // return 1 for yes overlap
-        }
+        
+        if(leashLength>=idealLeashLength){
+            return 1;                                 // return 1 for yes overlap
+            }
+        
+        return 0;                                    // return 0 for no overlap
+ 
+    }
     
     public int eventOnNoExplore(double noExploreCounter, int idealLeashLength, double userDefinedNumber){
         
@@ -49,7 +55,7 @@ public class EventControl {
         
         double fidoLeashOverlap = minLeashLenght + .1 * noExploreCounter * userDefinedNumber;
         
-        if(fidoLeashOverlap>=idealLeashLength){
+        if(fidoLeashOverlap>=idealLeashLength){      // test for overlap
             return 0;
             }
         

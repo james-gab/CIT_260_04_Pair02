@@ -23,14 +23,96 @@ public class EventControlTest {
     @Test
     public void testEventOnExplore() {
         System.out.println("eventOnExplore");
+        
+        /************************
+        * Test Case #1
+        */
+        System.out.println("\tTest case #1");
         int leashLength = 12;
         int idealLeashLength = 5;
         EventControl instance = new EventControl();
         int expResult = 1;
         int result = instance.eventOnExplore(leashLength, idealLeashLength);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
+        /************************
+        * Test Case #2
+        */
+        System.out.println("\tTest case #2");
+        leashLength = 4;
+        idealLeashLength = 15;
+        expResult = 0;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
+        
+        /************************
+        * Test Case #3
+        */
+        System.out.println("\tTest case #3");
+        leashLength = -7;
+        idealLeashLength = 8;
+        expResult = -1;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
+        
+        /************************
+        * Test Case #4
+        */
+        System.out.println("\tTest case #4");
+        leashLength = 5;
+        idealLeashLength = 20;
+        expResult = -1;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
+        
+        /************************
+        * Test Case #5
+        */
+        System.out.println("\tTest case #5");
+        leashLength = 16;
+        idealLeashLength = 11;
+        expResult = -1;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
+        
+        /************************
+        * Test Case #6
+        */
+        System.out.println("\tTest case #6");
+        leashLength = 15;
+        idealLeashLength = 4;
+        expResult = 1;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
+        
+        /************************
+        * Test Case #7
+        */
+        System.out.println("\tTest case #7");
+        leashLength = 4;
+        idealLeashLength = 4;
+        expResult = 1;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
+        
+        
+        /************************
+        * Test Case #8
+        */
+        System.out.println("\tTest case #8");
+        leashLength = 15;
+        idealLeashLength = 15;
+        expResult = 1;
+        result = instance.eventOnExplore(leashLength, idealLeashLength);
+        assertEquals(expResult, result);
+        
     }
 
     /**
@@ -39,15 +121,40 @@ public class EventControlTest {
     @Test
     public void testEventOnNoExplore() {
         System.out.println("eventOnNoExplore");
-        double noExploreCounter = 0.0;
-        int idealLeashLength = 0;
-        double userDefinedNumber = 0.0;
+
+        /************************
+        * Test Case #1
+        */
+        System.out.println("\tTest case #1");
+        double noExploreCounter = 5.0;
+        int idealLeashLength = 9;
+        double userDefinedNumber = 10.0;
         EventControl instance = new EventControl();
-        int expResult = 0;
+        int expResult = 1;
         int result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        /************************
+        * Test Case #2
+        */
+        System.out.println("\tTest case #2");
+        noExploreCounter = 1.0;
+        idealLeashLength = -6;
+        userDefinedNumber = 5.0;
+        expResult = 1;
+        result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
+        assertEquals(expResult, result);
+        
+        /************************
+        * Test Case #3
+        */
+        System.out.println("\tTest case #3");
+        noExploreCounter = 0.0;
+        idealLeashLength = 6;
+        userDefinedNumber = 5.0;
+        expResult = 1;
+        result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -56,15 +163,13 @@ public class EventControlTest {
     @Test
     public void testGenerateFidoMood() {
         System.out.println("generateFidoMood");
-        int numberOfTurns = 0;
-        int leashLength = 0;
-        int mood = 0;
+        int numberOfTurns = 4;
+        int leashLength = 2;
+        int mood = 5;
         EventControl instance = new EventControl();
-        int expResult = 0;
+        int expResult = 3;
         int result = instance.generateFidoMood(numberOfTurns, leashLength, mood);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
