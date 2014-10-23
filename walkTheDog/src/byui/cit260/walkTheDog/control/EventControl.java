@@ -13,7 +13,7 @@ package byui.cit260.walkTheDog.control;
  * individual: 
  * gab - eventOnNoExplore()
  * 
- * Idel - 
+ * Idel - generateFidoMood()
  * 
  */
 public class EventControl {
