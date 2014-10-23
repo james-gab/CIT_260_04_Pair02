@@ -73,7 +73,7 @@ public class EventControl {
             return -1; // testing for valid leash length
             }
     
-        if (mood < 1 || mood > 9){   // checks if mood is valid
+        if (mood < 0 || mood > 9){   // checks if mood is valid
             return -1;
             }
     
