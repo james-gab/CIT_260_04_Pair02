@@ -84,7 +84,10 @@ public class EventControl {
         if (mood < 9){   // 
             return mood+= 1;
             }
-    
+        if (mood <= 0){
+            return mood = 0;
+        }
+        
         return mood; //fido is happy
     
         }
