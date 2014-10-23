@@ -1,13 +1,13 @@
 /*
  * Project author: Ideal Pagen and gab James.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
  */
 package byui.cit260.walkTheDog.control;
 
 /**
  *
  * @author gab & Idel 
+ * 
  * Team Effort: eventOnExplore()
  * 
  * individual: 
@@ -28,8 +28,13 @@ public class EventControl {
             return -1;
             }
         
+        double upperBase = 10;          //define an upperBase integer
+	double lowerBase = 0.1 ;          //define an lowerBase integer	
+	double idealLeashLengthD = idealLeashLength;
         
-        if(leashLength>=idealLeashLength){
+        idealLeashLengthD = leashLength * lowerBase * idealLeashLengthD / leashLength * upperBase;	
+        
+        if(leashLength>=idealLeashLengthD){
             return 1;                                 // return 1 for yes overlap
             }
         
