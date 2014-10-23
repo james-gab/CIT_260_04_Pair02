@@ -260,8 +260,8 @@ public class EventControlTest {
         System.out.println("\tTest case #6");
         numberOfTurns = 4;
         leashLength = 2;
-        mood = 5;
-        expResult = 3;
+        mood = 10;
+        expResult = -1;
         result = instance.generateFidoMood(numberOfTurns, leashLength, mood);
         assertEquals(expResult, result);
         
