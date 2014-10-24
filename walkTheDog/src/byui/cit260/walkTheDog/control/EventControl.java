@@ -3,7 +3,7 @@
  * 
  */
 package byui.cit260.walkTheDog.control;
-
+import java.util.Random;
 /**
  *
  * @author gab & Idel 
@@ -12,6 +12,8 @@ package byui.cit260.walkTheDog.control;
  * 
  * individual: 
  * gab - eventOnNoExplore()
+ * gab - generateIdealLeashLength()
+ * gab - randomNumberGenerator()
  * 
  * Idel - generateFidoMood()
  * 
@@ -110,8 +112,21 @@ public class EventControl {
     
         }
  
+    public int generateIdealLeashLength(int randomNumber){     //create Ideal LeashLenght for actor
+        
+        if (randomNumber < 0 || randomNumber > 11){
+            return -1;
+        }
+        
+        int idealLeashLength = randomNumber + 4;
+        
+        return idealLeashLength;
+    }
     
-    
-    
+    public int randomNumberGenerator (){
+        Random rand = new Random();  
+        int randomMultiplyer = rand.nextInt(15);
+        return randomMultiplyer;
+    }
     
 }
