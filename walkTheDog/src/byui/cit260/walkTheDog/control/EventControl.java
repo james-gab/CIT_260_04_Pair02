@@ -20,6 +20,8 @@ import java.util.Random;
  */
 public class EventControl {
     
+    
+    // Generate event on an explore
     public int eventOnExplore(int leashLength, int idealLeashLength){
         
         if (leashLength < 0 || leashLength > 15){      // test for good leashlenght
@@ -44,6 +46,7 @@ public class EventControl {
  
     }
     
+    // Generate event on No Explore
     public int eventOnNoExplore(double noExploreCounter, int idealLeashLength, int userDefinedNumber){
         
         double minLeashLenght = 4;
@@ -76,6 +79,7 @@ public class EventControl {
 
         }
     
+    // Determin Fido Mood
     public int generateFidoMood(int numberOfTurns, int leashLength, int mood){
         
         if (leashLength < 0 || leashLength > 15){
@@ -112,22 +116,31 @@ public class EventControl {
     
         }
  
+    //create Ideal LeashLenght for actor
     public int generateIdealLeashLength(int randomNumber){     //create Ideal LeashLenght for actor
         
-        if (randomNumber < 0 || randomNumber > 11){
+        if (randomNumber < 0 || randomNumber > 15){
             return -1;
         }
         
-        int idealLeashLength = randomNumber + 4;
+        double newNumber = 0.0;
+        double minimumLength = 4.0;
+        double randomNumberD = (double) randomNumber;
         
-        return idealLeashLength;
+        if (randomNumberD < 4.0){
+            return (int) randomNumberD + (int) minimumLength + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
+        }
+        
+        return (int) randomNumberD + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
+        
     }
     
-    public int randomNumberGenerator15_0to14 (){
+    //Generate a random number
+    public int randomNumberGenerator16_0to15 (){
         Random rand = new Random();  
-//        int randomMultiplyer = rand.nextInt(15);
+//        int randomMultiplyer = rand.nextInt(16);
 //        return randomMultiplyer;
-        return (int) rand.nextInt(15);
+        return (int) rand.nextInt(16);
     }
     
 }
