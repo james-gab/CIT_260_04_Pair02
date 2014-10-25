@@ -127,7 +127,7 @@ public class EventControl {
         double minimumLength = 4.0;
         double randomNumberD = (double) randomNumber;
         
-        if (randomNumberD < 4.0){
+        if (randomNumberD < minimumLength){
             return (int) randomNumberD + (int) minimumLength + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
         }
         
