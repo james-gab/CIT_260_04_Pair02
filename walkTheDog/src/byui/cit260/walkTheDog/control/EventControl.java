@@ -123,10 +123,11 @@ public class EventControl {
         return idealLeashLength;
     }
     
-    public int randomNumberGenerator (){
+    public int randomNumberGenerator15_0to14 (){
         Random rand = new Random();  
-        int randomMultiplyer = rand.nextInt(15);
-        return randomMultiplyer;
+//        int randomMultiplyer = rand.nextInt(15);
+//        return randomMultiplyer;
+        return (int) rand.nextInt(15);
     }
     
 }
