@@ -237,9 +237,9 @@ public class EventControlTest {
         */
         System.out.println("\tTest case #4");
         numberOfTurns = 2;
-        leashLength = 15;
-        mood = 0;
-        expResult = 1;
+        leashLength = 4;
+        mood = 2;
+        expResult = 0;
         result = instance.generateFidoMood(numberOfTurns, leashLength, mood);
         assertEquals(expResult, result);
         
@@ -247,10 +247,10 @@ public class EventControlTest {
         * Test Case #5
         */
         System.out.println("\tTest case #5");
-        numberOfTurns = 0;
-        leashLength = 0;
+        numberOfTurns = 1;
+        leashLength = 3;
         mood = 5;
-        expResult = 5;
+        expResult = 3;
         result = instance.generateFidoMood(numberOfTurns, leashLength, mood);
         assertEquals(expResult, result);
         
@@ -260,8 +260,8 @@ public class EventControlTest {
         System.out.println("\tTest case #6");
         numberOfTurns = 4;
         leashLength = 2;
-        mood = 10;
-        expResult = -1;
+        mood = 9;
+        expResult = 7;
         result = instance.generateFidoMood(numberOfTurns, leashLength, mood);
         assertEquals(expResult, result);
         
