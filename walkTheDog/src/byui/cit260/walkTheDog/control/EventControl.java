@@ -109,7 +109,7 @@ public class EventControl {
             if (mood <= 2){ 
                 mood = 0;
                return mood;
-                } 
+            } 
            
             return mood -= 2; // fido is mad                 less freedom for fido (he gets mad)  
         }                                        
