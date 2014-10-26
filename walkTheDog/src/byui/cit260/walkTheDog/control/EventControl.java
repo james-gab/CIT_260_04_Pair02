@@ -93,7 +93,14 @@ public class EventControl {
         if (numberOfTurns < 0){
             return -1;
             }
-    
+       	double low = 0.0;
+        double high = 1.0;
+        double numberOfTurnTotal;
+        
+        numberOfTurnTotal = ((((double)mood / (double)leashLength)) * low) + high;
+        
+        numberOfTurns = (int) (numberOfTurns * numberOfTurnTotal);
+        
         if (leashLength <= 4 && numberOfTurns == 0){
             return mood;
         }
