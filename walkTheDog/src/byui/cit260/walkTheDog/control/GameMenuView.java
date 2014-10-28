@@ -7,7 +7,7 @@ package byui.cit260.walkTheDog.control;
 
 /**
  *
- * @author gab
+ * @author gab James and Idel Pagen
  */
 class GameMenuView {
     
