@@ -68,7 +68,13 @@ public class StartProgramView {
         }
         return playersName;
     }
+//N - New Game
+//R - Resume saved game 
+//H - Help Menu
+//S - Save game 
+//E - Exit 
 
+   
     private void displayWelcomeMessage(Player player) {
         
         System.out.println("\n\n==========================");
