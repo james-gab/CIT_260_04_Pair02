@@ -5,7 +5,9 @@
  */
 package walkthedog;
 
+import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.view.StartProgramView;
 import java.util.Random;
 
 /**
@@ -13,34 +15,44 @@ import java.util.Random;
  * @authors Idel Pagan and gab James
  */
 public class WalkTheDog {
+    private static Game CurrentName = null;
+    private static Player player = null;
+
+    public static Game getCurrentName() {
+        return CurrentName;
+    }
+
+    public static void setCurrentName(Game CurrentName) {
+        WalkTheDog.CurrentName = CurrentName;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        WalkTheDog.player = player;
+    }
+    
     
   
-    
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
-        Player playerOne = new Player();
+       StartProgramView startProgramView = new StartProgramView();
+       startProgramView.startProgram();        
         
-        playerOne.setName("Fred Flintsone");
-        playerOne.sethighScore(7.00);
-        
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
-        
-        
-        int minNumber = 4;
-        Random rand = new Random();  
-        int randomMultiplyer = rand.nextInt(16);
-        System.out.println(randomMultiplyer);
-        if (randomMultiplyer < minNumber){
-            randomMultiplyer += minNumber;
-        }
-        System.out.println(randomMultiplyer);
-        
-        
-        
+//        
+//        int minNumber = 4;
+//        Random rand = new Random();  
+//        int randomMultiplyer = rand.nextInt(16);
+//        System.out.println(randomMultiplyer);
+//        if (randomMultiplyer < minNumber){
+//            randomMultiplyer += minNumber;
+//        }
+//        System.out.println(randomMultiplyer);
+//        
+//        
+//        
     }
     
 }
