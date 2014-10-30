@@ -5,7 +5,10 @@
  */
 package byui.cit260.walkTheDog.view;
 
+import byui.cit260.walkTheDog.control.GameMenuView;
+import byui.cit260.walkTheDog.control.GameControl;
 import java.util.Scanner;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -54,13 +57,11 @@ public class MainMenuView {
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - try typing something different");
+                System.out.println("Invalid entry - space is not an option");
                 continue;
             }
-            System.out.println("passed input Lenght");
             break;
         }
-        System.out.println("passed to return playersInput");
         return playersInput;
     }
 
@@ -75,10 +76,11 @@ public class MainMenuView {
             case 'n': // create and Start a new Game
                 this.startNewGame();
                 break;
+            case 'R': // resume saved game
             case 'R': // get and Start a new Game
                 this.startExistingGame();
                 break;
-            case 'r': // get and Start a new Game
+            case 'r': // resume saved game
                 this.startExistingGame();
                 break;
             case 'H': // display the Help Menu
@@ -103,13 +105,18 @@ public class MainMenuView {
                 }
     }
     
-    
+   
 
     
     private void startNewGame(){
         System.out.println("*** startNewGame function called ***");
-    }
-    
+        GameControl.createNewGame(WalkTheDog.getPlayer());
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }   
+     
     private void startExistingGame(){
         System.out.println("*** startExistingGame function called ***");
     }
