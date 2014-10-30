@@ -5,7 +5,10 @@
  */
 package byui.cit260.walkTheDog.view;
 
+import byui.cit260.walkTheDog.control.GameMenuView;
+import byui.cit260.walkTheDog.control.GameControl;
 import java.util.Scanner;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -35,7 +38,7 @@ public class MainMenuView {
         selection = input.charAt(0);
  	this.doAction(selection);
 
-        } while (selection != 'E'); // a selection is not "Exit"
+        } while (selection != 'E' || selection != 'e'); // a selection is not "Exit"
 
     }
 
@@ -73,10 +76,10 @@ public class MainMenuView {
             case 'n': // create and Start a new Game
                 this.startNewGame();
                 break;
-            case 'G': // get and Start a new Game
+            case 'R': // resume saved game
                 this.startExistingGame();
                 break;
-            case 'g': // get and Start a new Game
+            case 'r': // resume saved game
                 this.startExistingGame();
                 break;
             case 'H': // display the Help Menu
@@ -106,8 +109,13 @@ public class MainMenuView {
     
     private void startNewGame(){
         System.out.println("*** startNewGame function called ***");
-    }
-    
+        GameControl.createNewGame(WalkTheDog.getPlayer());
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }   
+     
     private void startExistingGame(){
         System.out.println("*** startExistingGame function called ***");
     }
