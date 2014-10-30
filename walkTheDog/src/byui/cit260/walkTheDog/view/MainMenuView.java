@@ -54,13 +54,11 @@ public class MainMenuView {
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - try typing something different");
+                System.out.println("Invalid entry - space is not an option");
                 continue;
             }
-            System.out.println("passed input Lenght");
             break;
         }
-        System.out.println("passed to return playersInput");
         return playersInput;
     }
 
