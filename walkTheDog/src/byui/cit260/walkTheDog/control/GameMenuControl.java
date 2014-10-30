@@ -9,9 +9,9 @@ package byui.cit260.walkTheDog.control;
  *
  * @author Idel
  */
-public class GameMenuView {
+public class GameMenuControl {
     
-    void displayMenu(){
+    public void displayMenu(){
         System.out.println("\n*** displayMenu stub function called ***");
     }
     

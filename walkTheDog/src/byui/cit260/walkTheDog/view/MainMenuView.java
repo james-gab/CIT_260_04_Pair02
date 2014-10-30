@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.walkTheDog.view;
 
-import byui.cit260.walkTheDog.control.GameMenuView;
+import byui.cit260.walkTheDog.control.GameMenuControl;
 import byui.cit260.walkTheDog.control.GameControl;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
 
 /**
  *
- * @author Idel
+ * @author Idel and gab James
  */
 public class MainMenuView {
 
@@ -77,7 +72,6 @@ public class MainMenuView {
                 this.startNewGame();
                 break;
             case 'R': // resume saved game
-            case 'R': // get and Start a new Game
                 this.startExistingGame();
                 break;
             case 'r': // resume saved game
@@ -113,7 +107,7 @@ public class MainMenuView {
         GameControl.createNewGame(WalkTheDog.getPlayer());
         
         //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
+        GameMenuControl gameMenu = new GameMenuControl();
         gameMenu.displayMenu();
     }   
      
@@ -122,12 +116,14 @@ public class MainMenuView {
     }
     
     private void displayHelpMenu(){
-        System.out.println("*** displayHelpMenu function called ***");
+        HelpMenuView gameMenuHelp = new HelpMenuView();
+        gameMenuHelp.displayHelpMenu();
     }
     
     private void saveGame(){
         System.out.println("*** saveGame function called ***");
     }
+
     
 
 
