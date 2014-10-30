@@ -27,7 +27,6 @@ public class MainMenuView {
     public void displayMenu(){
         
         char selection = ' ';
-        
         do{
 
  	System.out.println(MENU); // display the main menu
@@ -38,9 +37,8 @@ public class MainMenuView {
 
         } while (selection != 'E'); // a selection is not "Exit"
 
-}
+    }
 
-//       
     public String getInput() {
        boolean valid = false;
        String playersInput = null;
@@ -48,92 +46,25 @@ public class MainMenuView {
 
         while(!valid){
             
-//            String data[] = {"E","e","N","n","R","r","H","h","S","s"};
-//            
-//            String  eE = "E", 
-//                    ee = "e", 
-//                    nN = "N", 
-//                    nn = "n", 
-//                    rR = "R",
-//                    rr = "r", 
-//                    hH = "H", 
-//                    hh = "h", 
-//                    sS = "S", 
-//                    ss = "s";
 
             System.out.println("Enter a Menu choice below:");
 
             playersInput = keyboard.nextLine();
             playersInput = playersInput.trim();
 
-//            if (       !ee.equals(playersInput) 
-//                    || !eE.equals(playersInput) 
-//                    || !nN.equals(playersInput)
-//                    || !nn.equals(playersInput) 
-//                    || !rR.equals(playersInput) 
-//                    || !rr.equals(playersInput) 
-//                    || !hH.equals(playersInput) 
-//                    || !hh.equals(playersInput) 
-//                    || !sS.equals(playersInput) 
-//                    || !ss.equals(playersInput)    
-
-//            if (       playersInput != "E " 
-//                    || playersInput != "e "    
-//                    || playersInput != "N "    
-//                    || playersInput != "n "    
-//                    || playersInput != "R "    
-//                    || playersInput != "r "    
-//                    || playersInput != "H "    
-//                    || playersInput != "h "    
-//                    || playersInput != "S "    
-//                    || playersInput != "s "    
-
-
-//            if (       !"E".equals(playersInput) 
-//                    || !"e".equals(playersInput) 
-//                    || !"N".equals(playersInput)
-//                    || !"n".equals(playersInput) 
-//                    || !"R".equals(playersInput) 
-//                    || !"r".equals(playersInput) 
-//                    || !"H".equals(playersInput) 
-//                    || !"h".equals(playersInput) 
-//                    || !"S".equals(playersInput) 
-//                    || !"s".equals(playersInput)    
-
-//            if( 
-//                    data[0].equals(playersInput) || 
-//                    data[1].equals(playersInput) ||
-//                    data[2].equals(playersInput) || 
-//                    data[3].equals(playersInput) || 
-//                    data[4].equals(playersInput) || 
-//                    data[5].equals(playersInput) || 
-//                    data[6].equals(playersInput) || 
-//                    data[7].equals(playersInput) || 
-//                    data[8].equals(playersInput) || 
-//                    data[9].equals(playersInput)   
-//
-//            if( 
-//                    playersInput.equals(data[0]) || 
-//                    playersInput.equals(data[1]) ||
-//                    playersInput.equals(data[2]) || 
-//                    playersInput.equals(data[3]) || 
-//                    playersInput.equals(data[4]) || 
-//                    playersInput.equals(data[5]) || 
-//                    playersInput.equals(data[6]) || 
-//                    playersInput.equals(data[7]) || 
-//                    playersInput.equals(data[8]) || 
-//                    playersInput.equals(data[9])   
-//                    ){
-//                
 
             if (playersInput.length() < 1){    
                 System.out.println("Invalid entry - try typing something different");
                 continue;
             }
+            System.out.println("passed input Lenght");
             break;
         }
+        System.out.println("passed to return playersInput");
         return playersInput;
     }
+
+
 
     private void doAction(char choice) {
         
@@ -169,13 +100,10 @@ public class MainMenuView {
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
                 break;
-                
-        }
-    
-    
-    
-    
+                }
     }
+    
+    
 
     
     private void startNewGame(){
