@@ -35,7 +35,7 @@ public class MainMenuView {
         selection = input.charAt(0);
  	this.doAction(selection);
 
-        } while (selection != 'E'); // a selection is not "Exit"
+        } while (selection != 'E' || selection != 'e'); // a selection is not "Exit"
 
     }
 
@@ -66,7 +66,7 @@ public class MainMenuView {
 
 
 
-    private void doAction(char choice) {
+    public void doAction(char choice) {
         
         switch (choice){
             case 'N': // create and Start a new Game
@@ -75,10 +75,10 @@ public class MainMenuView {
             case 'n': // create and Start a new Game
                 this.startNewGame();
                 break;
-            case 'G': // get and Start a new Game
+            case 'R': // get and Start a new Game
                 this.startExistingGame();
                 break;
-            case 'g': // get and Start a new Game
+            case 'r': // get and Start a new Game
                 this.startExistingGame();
                 break;
             case 'H': // display the Help Menu
