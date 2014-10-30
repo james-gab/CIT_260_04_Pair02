@@ -66,7 +66,7 @@ public class MainMenuView {
 
 
 
-    private void doAction(char choice) {
+    public void doAction(char choice) {
         
         switch (choice){
             case 'N': // create and Start a new Game
@@ -103,7 +103,7 @@ public class MainMenuView {
                 }
     }
     
-    
+   
 
     
     private void startNewGame(){
