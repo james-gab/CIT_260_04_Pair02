@@ -30,47 +30,47 @@ public class MapControl {
     }
     
     public int visitSceanL1 (int fido, int scean1){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL1 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL2 (int fido, int scean2){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL2 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL3 (int fido, int scean3){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL3 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL4 (int fido, int scean4){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL4 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL5 (int fido, int scean5){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL5 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL6 (int fido, int scean6){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL6 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL7 (int fido, int scean7){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL7 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL8 (int fido, int scean8){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL8 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL9 (int fido, int scean9){
-        // not sure what goes here yet
+        System.out.println("*** visitSceanL9 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
