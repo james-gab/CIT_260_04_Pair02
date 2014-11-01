@@ -16,6 +16,7 @@ import walkthedog.WalkTheDog;
  */
 public class GameMenuView {
     
+public int playerSatisfaction = 0;
 
     private final String GAMEMENU = "\n"
             + "\n________________________________"
@@ -38,6 +39,14 @@ public class GameMenuView {
 //Q - Quit Game
 
    
+//USED to satisfy Lesson 06 Individual assignment
+//  RUBIC
+//      Used the Java switch, and do-while statements  
+//      to implemented the view for one end user story 
+//      that contains a menu.
+//    
+//      This impliments the do-while statment 
+//      see lines 108-170 for rest of requirement
     public void displayGameMenu(){
         
         char selection = ' ';
@@ -53,6 +62,7 @@ public class GameMenuView {
 
     }
 
+    
     public String getInput() {
        boolean valid = false;
        String playersInput = null;
@@ -83,6 +93,17 @@ public class GameMenuView {
 //S - Save Game
 //Q - Quit Game
 
+    
+    
+//USED to satisfy Lesson 06 Individual assignment
+//  RUBIC
+//      Used the Java switch, and do-while statements  
+//      to implemented the view for one end user story 
+//      that contains a menu.
+//    
+//      Lines 108-170 impliments the Java switch 
+//      see lines 50-63 for rest of requirement
+    
 
     public void doGameAction(char choice) {
         
@@ -155,6 +176,45 @@ public class GameMenuView {
         int  i = (int) choice; // cast from a char to an int
         System.out.println("*** startExistingGame function called ***");
         System.out.println("The location choice was:   " + i );
+        
+//      User input question Did you enjoy your experience in this location Y/N?
+//USED to satisfy Lesson 06 Individual assignment
+//  RUBIC
+//        Lines 190-211
+//        Used either the Java if-else or if-else-if ladder statements  
+//        and the while statements to implement the view for one end user  
+//        story that prompts for and retrieves input from the end user  
+//        for one or more non-menu related items.
+        
+        
+        char userExperienceInput = ' ';
+        boolean experienceValidCheck = false;
+        
+        while (!experienceValidCheck){
+        
+            System.out.println("Before you leave , did you enjoy your\nexperience in this location Y/N?");
+            String input = this.getInput(); // get first charecter of string
+            userExperienceInput = input.charAt(0);
+        
+            if (userExperienceInput == 'Y' || userExperienceInput == 'y'){
+                playerSatisfaction += 1;
+                break;
+            }
+            else if (userExperienceInput == 'N' || userExperienceInput == 'n'){
+                playerSatisfaction -= 1;
+                break;
+            }
+            else {
+                System.out.println("Invalid entry - please try again");
+//                continue;          // NetBeans indicates this 'continue' is not needed
+            }
+        }
+        
+        
+// END of Lesson 06 Individual assignment     
+        
+        
+        
         
         int a = 1, b = 2;
         
