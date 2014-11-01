@@ -71,7 +71,7 @@ public int playerSatisfaction = 0;
         while(!valid){
             
 
-            System.out.println("Enter a Menu choice below:");
+            System.out.println("Enter a choice below:");
 
             playersInput = keyboard.nextLine();
             playersInput = playersInput.trim();

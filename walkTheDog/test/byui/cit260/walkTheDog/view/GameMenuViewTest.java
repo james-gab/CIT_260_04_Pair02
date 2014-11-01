@@ -82,6 +82,6 @@ public class GameMenuViewTest {
         
         System.out.println("\n" + choice + " passed");
 
-}
-    
+}    
+
 }
