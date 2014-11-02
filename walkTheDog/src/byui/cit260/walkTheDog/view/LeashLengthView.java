@@ -30,7 +30,7 @@ public class LeashLengthView {
 //    
 //      This impliments the do-while statment 
 //      see lines 108-170 for rest of requirement
-    public void displayLeashLengthInput(){
+    public int displayLeashLengthInput(){
         
         char selection = ' ';
         int userLL = -2; //-2 so that it enters the do while statement
@@ -44,7 +44,7 @@ public class LeashLengthView {
             System.out.println("Invalid Leash Length! Try again!");
         }
         } while (userLL < 0 || userLL > 15); // a selection is not "valid"
-
+    return userLL;
     }
     
     
