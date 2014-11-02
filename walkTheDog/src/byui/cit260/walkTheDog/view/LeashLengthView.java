@@ -36,14 +36,13 @@ public class LeashLengthView {
         int userLL = -2;
         do{
 
- 	System.out.println("Please enter a leash length between 0 and 15: "); // display the main menu
+ 	//System.out.println("Please enter a leash length between 0 and 15: "); // display the main menu
  	 
  	String input = this.getLLInput(); // get first charecter of string
         selection = input.charAt(0);
- 	//this.eventcontrol(selection);
-        EventControl userEventOnExplore = new EventControl();
-        userEventOnExplore.eventOnExplore(leashLength,idealLeashLength);
-        } while (selection != false); // a selection is not "valid"
+        userLL = (int) selection;
+        this.userLeashLengthInput(selection);
+        } while (userLL != -1); // a selection is not "valid"
 
     }
 
@@ -56,7 +55,7 @@ public class LeashLengthView {
         while(!valid){
             
 
-            System.out.println("Enter a choice below:");
+            System.out.println("\nPlease enter a leash length between 0 and 15: ");
 
             playersInput = keyboard.nextLine();
             playersInput = playersInput.trim();
