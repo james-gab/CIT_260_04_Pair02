@@ -14,13 +14,6 @@ import java.util.Scanner;
  */
  
 public class LeashLengthView {
-    
-
-
-  
-    
-    
-
    
 //USED to satisfy Lesson 06 Individual assignment
 //  RUBIC
@@ -70,3 +63,4 @@ public class LeashLengthView {
         }
         return playersInput;
     }
+}
