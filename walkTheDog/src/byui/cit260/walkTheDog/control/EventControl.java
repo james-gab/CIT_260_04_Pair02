@@ -142,6 +142,24 @@ public class EventControl {
         
     }
     
+    //create Ideal LeashLenght for actor
+    public int userLeashLength(int randomNumber){     //create userLeashLenght for actor
+        
+        if (randomNumber < 0 || randomNumber > 15){
+            return -1;
+        }
+        
+        double newNumber = 0.0;
+        double minimumLength = 4.0;
+        double randomNumberD = (double) randomNumber;
+        
+        if (randomNumberD < minimumLength){
+            return (int) randomNumberD + (int) minimumLength + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
+        }
+        
+        return (int) randomNumberD + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
+        
+    }
     //Generate a random number
     public int randomNumberGenerator16_0to15 (){
         Random rand = new Random();  
