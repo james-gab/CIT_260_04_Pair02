@@ -178,7 +178,7 @@ public int playerSatisfaction = 0;
         System.out.println("The location choice was:   " + i );
         
 //      User input question Did you enjoy your experience in this location Y/N?
-//USED to satisfy Lesson 06 Individual assignment
+//      USED to satisfy Lesson 06 Individual assignment
 //  RUBIC
 //        Lines 190-211
 //        Used either the Java if-else or if-else-if ladder statements  
@@ -262,13 +262,7 @@ public int playerSatisfaction = 0;
     private void userEventOnExplore(){
         System.out.println("*** userEventOnExplore function called ***");
 
-        int leashLength = 4;            // will be replaced with function that calls user entered leash length
-        
-        EventControl randNumForILL = new EventControl();
-        int idealLeashLength = randNumForILL.randomNumberGenerator16_0to15 ();  // function that calls idealLeashLength generator
-
-        EventControl userEventOnExplore = new EventControl();
-        userEventOnExplore.eventOnExplore(leashLength,idealLeashLength);
+       //event view function called.
     }
          
     private void userLeashLength(){         //This Function is in development by my Team member at the time of writing this code
@@ -292,12 +286,7 @@ public int playerSatisfaction = 0;
     
     
     
-    
-    
-    
-    
-    
-    
+     
     
     
 //    These are un used in this menu

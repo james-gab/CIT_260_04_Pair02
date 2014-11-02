@@ -2,13 +2,6 @@ package byui.cit260.walkTheDog.view;
 
 import java.util.Scanner;
 
-
-
-
-
-
-
-
 public class HelpMenuView {
 
     private final String HELPMENU = "\n"
