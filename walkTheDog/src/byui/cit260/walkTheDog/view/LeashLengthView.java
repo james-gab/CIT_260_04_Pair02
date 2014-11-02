@@ -33,19 +33,18 @@ public class LeashLengthView {
     public void displayLeashLengthInput(){
         
         char selection = ' ';
-        int userLL = -2;
+        int userLL = -2; //-2 so that it enters the do while statement
         do{
 
- 	//System.out.println("Please enter a leash length between 0 and 15: "); // display the main menu
- 	 
+ 	System.out.println("")
  	String input = this.getLLInput(); // get first charecter of string
         selection = input.charAt(0);
         userLL = (int) selection;
-        this.userLeashLengthInput(selection);
-        } while (userLL != -1); // a selection is not "valid"
+        userLeashLengthInput(userLL);
+        } while (userLL < 0 && userLL > 15); // a selection is not "valid"
 
     }
-
+    
     
     public String getLLInput() {
        boolean valid = false;
