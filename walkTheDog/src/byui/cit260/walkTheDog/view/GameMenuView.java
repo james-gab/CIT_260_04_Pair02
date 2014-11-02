@@ -1,7 +1,7 @@
 /*
  * Project author: gab James.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
  */
 package byui.cit260.walkTheDog.view;
 
@@ -12,7 +12,7 @@ import walkthedog.WalkTheDog;
 
 /**
  *
- * @author gab
+ * @author gab James
  */
 public class GameMenuView {
     
