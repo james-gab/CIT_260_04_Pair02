@@ -174,6 +174,8 @@ public int playerSatisfaction = 0;
     
     private void visitSceanL(char choice){
         int  i = (int) choice; // cast from a char to an int
+        System.out.println("*** startExistingGame function called ***");
+        System.out.println("The location choice was:   " + i );
         
 //      User input question Did you enjoy your experience in this location Y/N?
 //      USED to satisfy Lesson 06 Individual assignment
@@ -206,10 +208,6 @@ public int playerSatisfaction = 0;
                 System.out.println("Invalid entry - please try again");
 //                continue;          // NetBeans indicates this 'continue' is not needed
             }
-        
-        System.out.println("*** startExistingGame function called ***");
-        System.out.println("The location choice was:   " + i );
-
         }
         
         
@@ -275,11 +273,8 @@ public int playerSatisfaction = 0;
     }
     
     private void displayHelpMenu(){
-        System.out.println("*** displayHelpMenu function called ***"); //This function works properly verified through a different test.
-                                                                        //however casues problems in this test due to a second input required.
-
-//        HelpMenuView gameMenuHelp = new HelpMenuView();
-//        gameMenuHelp.displayHelpMenu();
+        HelpMenuView gameMenuHelp = new HelpMenuView();
+        gameMenuHelp.displayHelpMenu();
     }
     
     private void saveGame(){
