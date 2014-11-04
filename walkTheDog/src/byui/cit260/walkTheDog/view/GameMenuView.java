@@ -17,6 +17,8 @@ import walkthedog.WalkTheDog;
 public class GameMenuView {
     
 public int playerSatisfaction = 0;
+public int playerLeashLenght = 0;
+
 
     private final String GAMEMENU = "\n"
             + "\n________________________________"
@@ -136,10 +138,10 @@ public int playerSatisfaction = 0;
                 this.visitSceanL(choice);
                 break;
             case 'E': // User chooses to Explore
-                this.userEventOnExplore();
+                this.userExplore();
                 break;
             case 'e': // User chooses to Explore
-                this.userEventOnExplore();
+                this.userExplore();
                 break;
             case 'L': // User Estimates Leash Length needed
                 this.userLeashLength();
@@ -263,8 +265,10 @@ public int playerSatisfaction = 0;
         }
     }
         
-    private void userEventOnExplore(){
+    private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
+//        userLeashLength userLeashLength = new userLeashLength();
+//        userLeashLength.userLeashLength();
 
        //event view function called.
     }
