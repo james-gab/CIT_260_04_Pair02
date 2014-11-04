@@ -6,7 +6,7 @@
 package byui.cit260.walkTheDog.view;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 /**
  *
@@ -45,7 +45,7 @@ public class GameMenuViewTest {
 // Test Case #2
         System.out.println("\ndoGameAction Test Case #2");
         
-         choice = 'e';
+         choice = '1';
         instance.doGameAction(choice);
         
         System.out.println("\n" + choice + " passed");
@@ -66,21 +66,6 @@ public class GameMenuViewTest {
         
         System.out.println("\n" + choice + " passed");
 
-// Test Case #5
-        System.out.println("\ndoGameAction Test Case #5");
-        
-         choice = 'Q';
-        instance.doGameAction(choice);
-        
-        System.out.println("\n" + choice + " passed");
-
-// Test Case #6
-        System.out.println("\ndoGameAction Test Case #6");
-        
-         choice = 's';
-        instance.doGameAction(choice);
-        
-        System.out.println("\n" + choice + " passed");
 
 }    
 
