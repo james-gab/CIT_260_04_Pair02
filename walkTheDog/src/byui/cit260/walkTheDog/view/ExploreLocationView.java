@@ -18,12 +18,9 @@ public class ExploreLocationView {
    
     public void  display(){
 //    private final String OPTION = ' ';
-    
-    System.out.println("\nDo you wish to explore a new area of the map (y/n)?");
         char selection = ' ';
-        
         do{
-
+        System.out.println("\nDo you wish to explore a new area of the map (y/n)?");
  	String input = this.getInput(); // get first charecter of string
         selection = input.charAt(0);
  	this.doGameAction(selection);
@@ -31,15 +28,14 @@ public class ExploreLocationView {
         } while (selection != 'N' || selection != 'n'); // a selection is not "Exit"
 
     if (selection == 'N' |selection == 'n' ){
-        Random randomGenerator = new Random();
-        int randomeEvent = randomGenerator.nextInt(100);
-        if (randomeEvent <= 50){
-                this.exploreLocation();
+        System.out.println("not exploring function called.");
+        //under development:
+        //Random randomGenerator = new Random();
+        //int randomeEvent = randomGenerator.nextInt(100);
+        //if (randomeEvent <= 50){
+         //   this.exploreLocation();
         }
        
-    }
-    
-        
     }
     
     public String getInput() {
@@ -64,17 +60,15 @@ public class ExploreLocationView {
         }
         return playersInput;
     }
-
-   
-
+    
     public void doGameAction(char choice) {
         
         switch (choice){
             case 'y': // User moves to location 1
-                this.exploreLocation(choice);
+                this.exploreLocation();
                 break;
             case 'Y': // User moves to location 1
-                this.exploreLocation(choice);
+                this.exploreLocation();
                 break;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
@@ -82,28 +76,21 @@ public class ExploreLocationView {
                 }
     }
 
-    private void exploreLocation(char choice) {
-        
+    private void exploreLocation() {
+        System.out.println("exploreLocation function called.");
        // Random randomGenerator = new Random();
        // int randomeEvent = randomGenerator.nextInt(100);
         
        // if (randomeEvent >= 0 && randomeEvent <= 25){
-        int leashLength = 4;            // will be replaced with function that calls user entered leash length
         
-        EventControl randNumForILL = new EventControl();
-        int idealLeashLength = randNumForILL.randomNumberGenerator16_0to15 ();  // function that calls idealLeashLength generator
+        // this part is under development:
+        //int leashLength = 4;            // will be replaced with function that calls user entered leash length
+        
+        //EventControl randNumForILL = new EventControl();
+        //int idealLeashLength = randNumForILL.randomNumberGenerator16_0to15 ();  // function that calls idealLeashLength generator
 
-        EventControl userEventOnExplore = new EventControl();
-        userEventOnExplore.eventOnExplore(leashLength,idealLeashLength);
+        //EventControl userEventOnExplore = new EventControl();
+        //userEventOnExplore.eventOnExplore(leashLength,idealLeashLength);
         
-    }
-
-    private void moveOn(char choice) {
-        Random randomGenerator = new Random();
-        int randomeEvent = randomGenerator.nextInt(100);
-        
-        if (randomeEvent >= 0 && randomeEvent <= 50){
-        
-        }
     }
 }

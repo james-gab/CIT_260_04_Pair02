@@ -28,8 +28,7 @@ public class StatisticsMenuView {
         char selection = ' ';
         do{
 
- 	System.out.println(MENU); // display the main menu
- 	 
+ 	System.out.println(MENU); //display the statistic menu
  	String input = this.getInput(); // get first charecter of string
         selection = input.charAt(0);
  	this.doAction(selection);
@@ -92,8 +91,7 @@ public class StatisticsMenuView {
     }
          
     private void lifePoint(){     //display the player's Life Points
-        System.out.println("*** lifePoint function called ***");
-        
+        System.out.println("*** lifePoint function called ***");   
     }
     
     private void generateFidoMood(){     //Fido's mood function called
