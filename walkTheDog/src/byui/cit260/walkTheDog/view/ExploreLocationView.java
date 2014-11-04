@@ -64,10 +64,10 @@ public class ExploreLocationView {
     public void doGameAction(char choice) {
         
         switch (choice){
-            case 'y': // User moves to location 1
+            case 'y': 
                 this.exploreLocation();
                 break;
-            case 'Y': // User moves to location 1
+            case 'Y': 
                 this.exploreLocation();
                 break;
             default:
