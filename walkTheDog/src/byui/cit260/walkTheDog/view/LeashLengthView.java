@@ -40,7 +40,6 @@ public class LeashLengthView {
     return userLL;
     }
     
-    
     public String getLLInput() {
        boolean valid = false;
        String playersInput = null;
