@@ -176,53 +176,12 @@ public int playerLeashLenght = 0;
     
     private void visitSceanL(char choice){
         int  i = (int) choice; // cast from a char to an int
-        
-//      User input question Did you enjoy your experience in this location Y/N?
-//      USED to satisfy Lesson 06 Individual assignment
-//  RUBIC
-//        Lines 190-211
-//        Used either the Java if-else or if-else-if ladder statements  
-//        and the while statements to implement the view for one end user  
-//        story that prompts for and retrieves input from the end user  
-//        for one or more non-menu related items.
-        
-        
-        char userExperienceInput = ' ';
-        boolean experienceValidCheck = false;
-        
-        while (!experienceValidCheck){
-        
-            System.out.println("Before you leave , did you enjoy your\nexperience in this location Y/N?");
-            String input = this.getInput(); // get first charecter of string
-            userExperienceInput = input.charAt(0);
-        
-            if (userExperienceInput == 'Y' || userExperienceInput == 'y'){
-                playerSatisfaction += 1;
-                break;
-            }
-            else if (userExperienceInput == 'N' || userExperienceInput == 'n'){
-                playerSatisfaction -= 1;
-                break;
-            }
-            else {
-                System.out.println("Invalid entry - please try again");
-//                continue;          // NetBeans indicates this 'continue' is not needed
-            }
-            
+
         
         System.out.println("*** startExistingGame function called ***");
         System.out.println("The location choice was:   " + i );
 
-        
-        }
-        
-        
-// END of Lesson 06 Individual assignment     
-        
-        
-        
-        
-        int a = 1, b = 2;
+        int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I understand how ot pass Global variables.
         
         if (i == 1){
             MapControl visitSceanL1 = new MapControl();
@@ -291,29 +250,6 @@ public int playerLeashLenght = 0;
 
     
     
-    
-    
-    
-     
-    
-    
-//    These are un used in this menu
-    
-/*    
-    private void startNewGame(){
-        System.out.println("*** startNewGame function called ***");
-        GameControl.createNewGame(WalkTheDog.getPlayer());
-        
-        //display the game menu
-        GameMenuControl gameMenu = new GameMenuControl();
-        gameMenu.displayMenu();
-    }   
-     
-    private void startExistingGame(){
-        System.out.println("*** startExistingGame function called ***");
-    }
-    
-*/
-
+ 
 
 }
