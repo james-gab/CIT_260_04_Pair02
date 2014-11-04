@@ -16,11 +16,31 @@ import java.util.Scanner;
  */
 public class ExploreLocationView {
    
-    public void display();
-    private final String OPTION = ' ';
-    System.out.println("Do you wish to explore a new area of the map?");
+    public void  display(){
+//    private final String OPTION = ' ';
+    
+    System.out.println("\nDo you wish to explore a new area of the map (y/n)?");
+        char selection = ' ';
+        
+        do{
 
+ 	String input = this.getInput(); // get first charecter of string
+        selection = input.charAt(0);
+ 	this.doGameAction(selection);
 
+        } while (selection != 'N' || selection != 'n'); // a selection is not "Exit"
+
+    if (selection == 'N' |selection == 'n' ){
+        Random randomGenerator = new Random();
+        int randomeEvent = randomGenerator.nextInt(100);
+        if (randomeEvent <= 50){
+                this.exploreLocation();
+        }
+       
+    }
+    
+        
+    }
     
     public String getInput() {
        boolean valid = false;
@@ -30,7 +50,7 @@ public class ExploreLocationView {
         while(!valid){
             
 
-            System.out.println("Enter a choice below (y/n):");
+            System.out.println("Enter a choice below:");
 
             playersInput = keyboard.nextLine();
             playersInput = playersInput.trim();
@@ -44,6 +64,7 @@ public class ExploreLocationView {
         }
         return playersInput;
     }
+
    
 
     public void doGameAction(char choice) {
@@ -52,8 +73,8 @@ public class ExploreLocationView {
             case 'y': // User moves to location 1
                 this.exploreLocation(choice);
                 break;
-            case 'n': // User moves to location 2
-                this.moveOn(choice);
+            case 'Y': // User moves to location 1
+                this.exploreLocation(choice);
                 break;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
