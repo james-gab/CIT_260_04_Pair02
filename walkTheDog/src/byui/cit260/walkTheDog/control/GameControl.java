@@ -17,3 +17,6 @@ public class GameControl {
     }
             
 }
+// make game function statistic 
+//create stud 
+//have it look like his
