@@ -14,13 +14,16 @@ import walkthedog.WalkTheDog;
  *
  * @author gab James
  */
-public class GameMenuView {
+public class GameMenuView  extends View {
     
 public int playerSatisfaction = 0;
 public int playerLeashLenght = 0;
 
 
-    private final String GAMEMENU = "\n"
+    //private final String GAMEMENU = 
+            
+    public GameMenuView() {
+        super("\n"
             + "\n________________________________"
             + "\nMain Menu"
             + "\n________________________________"
@@ -30,8 +33,8 @@ public int playerLeashLenght = 0;
             + "\n  H   - Help Menu "
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
-            + "\n________________________________";
-    
+            + "\n________________________________");
+    }
     
 //[1-9] - Move to new location
 //E - Explore location 
@@ -49,7 +52,7 @@ public int playerLeashLenght = 0;
 //    
 //      This impliments the do-while statment 
 //      see lines 108-170 for rest of requirement
-    public void displayGameMenu(){
+/*    public void displayGameMenu(){
         
         char selection = ' ';
         do{
@@ -87,7 +90,7 @@ public int playerLeashLenght = 0;
         }
         return playersInput;
     }
-
+*/
 //[1-9] - Move to new location
 //E - Explore location 
 //L - Estimate the leash length allowed in their current location
@@ -107,7 +110,7 @@ public int playerLeashLenght = 0;
 //      see lines 50-63 for rest of requirement
     
 
-    public void doGameAction(char choice) {
+    public void doAction(char choice) {
         
         switch (choice){
             case '1': // User moves to location 1
