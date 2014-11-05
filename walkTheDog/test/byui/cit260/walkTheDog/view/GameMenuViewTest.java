@@ -39,14 +39,14 @@ public class GameMenuViewTest {
 // Test Case #1
         char choice = ' ';
         GameMenuView instance = new GameMenuView();
-        instance.doGameAction(choice);
+        instance.doAction(choice);
         System.out.println("\n" + choice + " passed");
 
 // Test Case #2
         System.out.println("\ndoGameAction Test Case #2");
         
          choice = '1';
-        instance.doGameAction(choice);
+        instance.doAction(choice);
         
         System.out.println("\n" + choice + " passed");
 
@@ -54,7 +54,7 @@ public class GameMenuViewTest {
         System.out.println("\ndoGameAction Test Case #3");
         
          choice = 'L';
-        instance.doGameAction(choice);
+        instance.doAction(choice);
         
         System.out.println("\n" + choice + " passed");
 
@@ -62,7 +62,7 @@ public class GameMenuViewTest {
         System.out.println("\ndoGameAction Test Case #4");
         
          choice = 'Z';
-        instance.doGameAction(choice);
+        instance.doAction(choice);
         
         System.out.println("\n" + choice + " passed");
 
