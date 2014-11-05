@@ -9,9 +9,11 @@ import walkthedog.WalkTheDog;
  *
  * @author Idel and gab James
  */
-public class MainMenuView {
+public class MainMenuView extends View {
 
-    private final String MENU = "\n"
+    //private final String MENU =
+    public MainMenuView() {
+        super("\n"
             + "\n___________________________"
             + "\nMain Menu"
             + "\n___________________________"
@@ -20,9 +22,11 @@ public class MainMenuView {
             + "\nH - Help Menu"
             + "\nS - Save game " 
             + "\nE - Exit "
-            + "\n___________________________";
+            + "\n___________________________");
+            
+    }
     
-    public void displayMenu(){
+/*    public void displayMenu(){
         
         char selection = ' ';
         do{
@@ -59,7 +63,7 @@ public class MainMenuView {
         }
         return playersInput;
     }
-
+*/
 
 
     public void doAction(char choice) {
@@ -89,9 +93,9 @@ public class MainMenuView {
             case 's': // save the current Game
                 this.saveGame();
                 break;
-            case 'E': // Exit the program
+            case 'Q': // Exit the program
                 return;
-            case 'e': // Exit the program
+            case 'q': // Exit the program
                 return;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
@@ -123,7 +127,6 @@ public class MainMenuView {
     private void saveGame(){
         System.out.println("*** saveGame function called ***");
     }
-
     
 
 
