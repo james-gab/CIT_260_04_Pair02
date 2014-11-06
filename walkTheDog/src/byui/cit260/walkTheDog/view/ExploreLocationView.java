@@ -29,6 +29,14 @@ public class ExploreLocationView {
 
     if (selection == 'N' |selection == 'n' ){
         System.out.println("not exploring function called.");
+        
+        /* Instructor: 
+         * Create and call a stub function 
+         * Control Layer class for this action. The Control Layer
+         * is responsible for performaing all actions of the game.
+         */
+            if (
+        
         //under development:
         //Random randomGenerator = new Random();
         //int randomeEvent = randomGenerator.nextInt(100);
@@ -64,6 +72,17 @@ public class ExploreLocationView {
     public void doGameAction(char choice) {
         
         switch (choice){
+            
+            /* Instructor: 
+             * It does not make any sense to use a switch statement when there
+             * really is only one choice or action. It would have been better
+             * to use and if-else selection statement here, or even better move
+             * the "No" option to a switch statement here and then call the 
+             * control layer stub function for each action. The control layer is
+             * responsible for performing the actions. The Model Layer only
+             * gets the input from the user and displays the output to the user.
+             */
+            
             case 'y': 
                 this.exploreLocation();
                 break;
@@ -78,6 +97,13 @@ public class ExploreLocationView {
 
     private void exploreLocation() {
         System.out.println("exploreLocation function called.");
+        
+        /* Instructor: 
+         * Create and call a stub function in the appropriate
+         * Control Layer class for this action. The Control Layer
+         * is responsible for performaing all actions of the game.
+         */
+        
        // Random randomGenerator = new Random();
        // int randomeEvent = randomGenerator.nextInt(100);
         

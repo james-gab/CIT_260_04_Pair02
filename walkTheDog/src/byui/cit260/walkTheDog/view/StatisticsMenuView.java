@@ -66,6 +66,12 @@ public class StatisticsMenuView {
         
         switch (choice){
             
+            /* Instructor: 
+             * A better solution is to use the String uppercase() function to
+             * always convert the choice into an upper case letter. That way
+             * you do not need to check for both upper and lower case letters.
+             */
+            
             case 'L': // User chooses to Explore
                 this.lifePoint();
                 break;
@@ -89,8 +95,16 @@ public class StatisticsMenuView {
                 break;
                 }
     }
-         
+    
+    
+    /* Instructor: 
+         * Create and call a stub functions in the appropriate 
+         * Control Layer class for the action associated with each of these 
+         * functions. The Control Layer is responsible for performaing all 
+         * actions of the game.
+         */
     private void lifePoint(){     //display the player's Life Points
+        
         System.out.println("*** lifePoint function called ***");   
     }
     

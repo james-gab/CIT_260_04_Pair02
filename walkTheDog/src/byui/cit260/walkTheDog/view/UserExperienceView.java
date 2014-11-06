@@ -33,7 +33,14 @@ public class UserExperienceView {
             System.out.println("Before you leave , did you enjoy your\nexperience in this location Y/N?");
             String input = this.getInput(); // get first charecter of string
             userExperienceInput = input.charAt(0);
-        
+            
+            /* Instructor: 
+             * Create and call a stub function in the appropriate 
+             * Control Layer class for now for each of these actions. You will
+             * need to record the playerSatisfaction in some Model Lager object
+             * (e.g., the ProgramContro). Creating, updating and deleting Model
+             * Layer objects is a function of the Control Layer.
+             */
             if (userExperienceInput == 'Y' || userExperienceInput == 'y'){
                 playerSatisfaction += 1;
                 break;

@@ -226,7 +226,14 @@ public int playerLeashLenght = 0;
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
         }
     }
-        
+    
+    
+    
+    /* Instructor: 
+     * Each of these functions should be calling some Control Layer function to 
+     * perform some task. Create and call stub functions in the appropriate 
+     * Control Layer class for now. 
+     */
     private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
 //        userLeashLength userLeashLength = new userLeashLength();
