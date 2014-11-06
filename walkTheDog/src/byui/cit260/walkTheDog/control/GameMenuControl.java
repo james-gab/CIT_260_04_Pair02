@@ -11,7 +11,7 @@ package byui.cit260.walkTheDog.control;
  */
 public class GameMenuControl {
     
-    public void displayMenu(){
+    public void displayNewGameMenu(){
         System.out.println("\n*** displayMenu stub function called ***");
     }
     

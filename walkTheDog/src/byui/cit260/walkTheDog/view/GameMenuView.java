@@ -236,11 +236,29 @@ public int playerLeashLenght = 0;
      */
     private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
-//        userLeashLength userLeashLength = new userLeashLength();
-//        userLeashLength.userLeashLength();
 
-       //event view function called.
+        int leashLength = 4;                        // Will update when calling GLOBAL integers is discussed
+//        int idealLeashLength = 15;                  // Will update when calling GLOBAL integers is discussed
+        
+        EventControl randNum = new EventControl();
+        randNum.randomNumberGenerator16_0to15();
+        
+//        int randomNumber = (int) randNum;
+//        
+        System.out.println("*** Random number generated  " + randNum + " ***");
+//
+//        EventControl idealLeashLength = new EventControl();
+//        idealLeashLength.idealLeashLength(randomNumber);
+//        
+//        int iLL = (int) idealLeashLength;
+//        
+//        EventControl eventOnExplore = new EventControl();
+//        eventOnExplore.eventOnExplore(leashLength, iLL);
+//        
+        
     }
+
+    
          
     private void userLeashLength(){         //This Function is in development by my Team member at the time of writing this code
         System.out.println("*** userLeashLength function called ***");

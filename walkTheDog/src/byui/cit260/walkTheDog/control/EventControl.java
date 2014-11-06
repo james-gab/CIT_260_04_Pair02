@@ -143,7 +143,7 @@ public class EventControl {
     }
     
     //create Ideal LeashLenght for actor
-    public int userLeashLength(int randomNumber){     //create userLeashLenght for actor
+    public int idealLeashLength(int randomNumber){     //create userLeashLenght for actor
         
         if (randomNumber < 0 || randomNumber > 15){
             return -1;
@@ -167,5 +167,6 @@ public class EventControl {
 //        return randomMultiplyer;
         return (int) rand.nextInt(16);
     }
+
     
 }

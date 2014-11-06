@@ -21,7 +21,7 @@ public class MainMenuView extends View {
             + "\nR - Resume saved game" 
             + "\nH - Help Menu"
             + "\nS - Save game " 
-            + "\nE - Exit "
+            + "\nQ - Exit "
             + "\n___________________________");
             
     }
@@ -108,11 +108,11 @@ public class MainMenuView extends View {
     
     private void startNewGame(){
         System.out.println("*** startNewGame function called ***");
-        GameControl.createNewGame(WalkTheDog.getPlayer());
+    //    GameControl.createNewGame(WalkTheDog.getPlayer());
         
         //display the game menu
         GameMenuControl gameMenu = new GameMenuControl();
-        gameMenu.displayMenu();
+        gameMenu.displayNewGameMenu();
     }   
      
     private void startExistingGame(){
