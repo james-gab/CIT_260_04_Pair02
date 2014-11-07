@@ -5,6 +5,9 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.view.GameMenuView;
+
+
 /**
  *
  * @author Idel
@@ -13,6 +16,9 @@ public class GameMenuControl {
     
     public void displayNewGameMenu(){
         System.out.println("\n*** displayMenu stub function called ***");
+        GameMenuView aNewGame = new GameMenuView ();
+        aNewGame.display();
+        
     }
     
 }

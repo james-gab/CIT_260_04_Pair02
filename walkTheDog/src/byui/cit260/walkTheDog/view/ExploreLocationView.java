@@ -35,18 +35,18 @@ public class ExploreLocationView {
          * Control Layer class for this action. The Control Layer
          * is responsible for performaing all actions of the game.
          */
-            if (
+//            if (
         
         //under development:
         //Random randomGenerator = new Random();
         //int randomeEvent = randomGenerator.nextInt(100);
         //if (randomeEvent <= 50){
          //   this.exploreLocation();
-        }
+        //}
        
     }
     
-    public String getInput() {
+    public String getInput(){
        boolean valid = false;
        String playersInput = null;
        Scanner keyboard = new Scanner(System.in);

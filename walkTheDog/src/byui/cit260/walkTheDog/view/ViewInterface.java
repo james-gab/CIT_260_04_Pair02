@@ -12,6 +12,7 @@ package byui.cit260.walkTheDog.view;
 public interface ViewInterface {
     public void display();
     public String getInput();
-    public void doAction(String value);
+//    public void doAction(String value);
+    public void doAction(char value);
     
 }

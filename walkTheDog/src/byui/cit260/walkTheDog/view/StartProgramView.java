@@ -76,11 +76,23 @@ public class StartProgramView {
 
    
     private void displayWelcomeMessage(Player player) {
-        
+/*        
         System.out.println("\n\n==========================");
         System.out.println("Welcome to the game " + player.getName());
         System.out.println("Have fun walking your dog in the park!");
         System.out.println("\n==========================\n");
+*/      
+
+        System.out.println("\n=========================="           // 26 
+                + "\n   Welcome to the game"
+                + "\n  "
+                +   player.getName()
+                + "\n  Have fun walking your"
+                + "\n     dog in the park!"
+                + "\n==========================");                        
+        
+        
+        
     }
 
   

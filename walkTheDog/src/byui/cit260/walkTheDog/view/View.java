@@ -23,14 +23,20 @@ public abstract class View implements ViewInterface {
     @Override
     public void display(){
         String value;
+        char selection = ' ';
         
         do{
+
             System.out.println(this.promtMessage);  //display promt message
             value = this.getInput();        // get the user selection
-            this.doAction(value);           // do action based on selection
+//            this.doAction(value);           // do action based on selection
+
+            selection = value.charAt(0);
+            this.doAction(selection);
                 
         }while (!value.equals("Q")||!value.equals("q"));
             
+        
     }
 
     @Override
@@ -61,11 +67,15 @@ public abstract class View implements ViewInterface {
         
     }
     
-    
     @Override
-    public void doAction(String value){
+    public void doAction(char selection){
         
     }
+
+//    @Override
+//    public void doAction(String value){
+//        
+//    }
     
    
 }

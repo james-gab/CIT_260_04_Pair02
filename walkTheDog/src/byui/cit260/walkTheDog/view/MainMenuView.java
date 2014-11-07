@@ -66,6 +66,7 @@ public class MainMenuView extends View {
 */
 
 
+    @Override
     public void doAction(char choice) {
         
         switch (choice){
