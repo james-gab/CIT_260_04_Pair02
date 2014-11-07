@@ -280,12 +280,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 
         
         EventControl number = new EventControl();                              // calls random number generator
-        int randomNumber = number.randomNumberGenerator16_0to15();             // passes a random generated number to a variable
- 
-        System.out.println("*** Random number generated  " + randomNumber + " ***");
-
         EventControl idealLeashLength = new EventControl();                     // generates a random ideal leash length
-        gameIdealLeashLength = idealLeashLength.idealLeashLength(randomNumber); // passes a random generated idealLeashLength to a variable
+        gameIdealLeashLength = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated idealLeashLength to a variable
         
         EventControl eventOnExplore = new EventControl();                       // determin if an event happened during a user initiated explore
         int eOE = eventOnExplore.eventOnExplore(playerLeashLenght, gameIdealLeashLength);
@@ -297,15 +293,19 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 // int playerCurrentScore could go either up or down by 1
         }
         else if (eOE == 0){
+            playerCurrentScore +=1;
+            if(gameFidoMood < 9){
+                gameFidoMood += 1;
+            }
             // player chose a good leash length, 
             //no event happened 
             //int playerCurrentScore increased by 1
             System.out.println("Fido Leash Length: " + playerLeashLenght 
                     + "\nClosest object: " + gameIdealLeashLength
+                    + "\nPLayers Current Score increases by 1 to " + playerCurrentScore
+                    + "\nFido's Mood is now: " + gameFidoMood
                     + "\n*** Fido was not interested in "
                     + "\nanything in the area it could reach ");
-            playerCurrentScore +=1;
-            gameFidoMood += 1;
         }
         else {
             System.out.println("*** Our appologies, something went wrong. ***"

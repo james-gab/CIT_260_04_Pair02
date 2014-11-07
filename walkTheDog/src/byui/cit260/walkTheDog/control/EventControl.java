@@ -154,10 +154,10 @@ public class EventControl {
         double randomNumberD = (double) randomNumber;
         
         if (randomNumberD < minimumLength){
-            return (int) randomNumberD + (int) minimumLength + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
+            return (int) randomNumberD + (int) minimumLength; // + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
         }
         
-        return (int) randomNumberD + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
+        return (int) randomNumberD; // + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
         
     }
     //Generate a random number
