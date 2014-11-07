@@ -11,7 +11,7 @@ public class HelpMenuView {
             + "\n___________________________"
             + "\n"
             + "\nGetting Help\n"
-            + "\nUse the following mune for Help\n"
+            + "\nUse the following menu for Help\n"
             + "\nG - What is the Goal of the game?"
             + "\nM - How to move"
             + "\nL - Leash Lenght control"
