@@ -19,6 +19,7 @@ public class GameMenuView extends View {
     
 public int playerSatisfaction = 0;
 public int playerLeashLenght = 4;
+public int gameUserExplore = 0;
 public int gameIdealLeashLength = 0;
 public int gameNumberOfTurns = 0;
 public int gameFidoMood = 5;
@@ -198,7 +199,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void visitSceanL(char choice){
         int  i = (int) choice; // cast from a char to an int
-
+        gameUserExplore = 0;  //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
+                                //ZERO IS NO EXPLORE   1 IS EXPLORE. COUNTER MUST BE RETURNED TO ZERO BEFORE MOVING TO NEXT SCEAN
         
         System.out.println("*** startExistingGame function called ***");
         System.out.println("The location choice was:   " + i );
@@ -218,20 +220,22 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
                 System.out.println("Fido does not like a short leash"
                         + "\nand is starting to get unhappy");
                 gameFidoMood = getFidoMood;
+                gameNumberOfTurns +=1;
             }
             else if (getFidoMood == gameFidoMood){
                 System.out.println(" Fido fido does not like a short leash "
                         + "\nlucily Fido is not that mad yet."
                         + "\nConsider keeping the leash longer than 3.");
+                gameNumberOfTurns +=1;
             }
             else {
                 System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java in ***"
-                        + "\n       visitSceanL() if(playerLeashLength<4)");
-// develop code that restarts the game for this spot
+                    + "\n*** ERROR in GameMenuView.java ***"
+                        + "\nin       visitSceanL() if(playerLeashLength<4)");
+// develop code that restarts the game from this spot
             }
         }
-        else if (i == 1){
+        if (i == 1){
             MapControl visitSceanL1 = new MapControl();
             visitSceanL1.visitSceanL1(a,b);
         }
@@ -291,7 +295,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
-
+        gameUserExplore = 1;
         
         EventControl number = new EventControl();                              // calls random number generator
         EventControl idealLeashLength = new EventControl();                     // generates a random ideal leash length
@@ -302,7 +306,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         
         if (eOE > 0){
             System.out.println("Fido found a friend in this area");
-// develop code that determins what happend to FIDO game for this spot
+// develop Control layer code that determins what happend to FIDO game for this spot
 // this should be the good or bad experience section of the game
 // int playerCurrentScore could go either up or down by 1
         }

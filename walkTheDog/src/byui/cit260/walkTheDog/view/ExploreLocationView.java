@@ -48,6 +48,7 @@ public class ExploreLocationView {
        
     }
     
+    
     public String getInput(){
        boolean valid = false;
        String playersInput = null;
