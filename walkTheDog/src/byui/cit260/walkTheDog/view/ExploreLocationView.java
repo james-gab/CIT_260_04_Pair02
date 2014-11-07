@@ -15,6 +15,8 @@ import java.util.Scanner;
  * @author Idel
  */
 public class ExploreLocationView {
+
+
    
     public void  display(){
 //    private final String OPTION = ' ';

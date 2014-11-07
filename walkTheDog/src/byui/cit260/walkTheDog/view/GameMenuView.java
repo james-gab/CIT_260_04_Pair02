@@ -22,6 +22,7 @@ public int playerLeashLenght = 4;
 public int gameIdealLeashLength = 0;
 public int gameNumberOfTurns = 0;
 public int gameFidoMood = 5;
+public String hMR = "gMV";
 
 // starts player at a randomly generated starting score between 0 and 15
 EventControl randNum = new EventControl();                                      // calls random number generator
@@ -35,15 +36,17 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     public GameMenuView() {
         super("\n"
             + "\n________________________________"
-            + "\nMain Menu"
+            + "\n"
+            + "\nGame Menu"
             + "\n________________________________"
+            + "\n"
             + "\n[1-9] - Move to new location" 
             + "\n  E   - Explore location" 
             + "\n  L   - Estimate leash length"
             + "\n  H   - Help Menu "
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
-            + "\n________________________________");
+            + "\n________________________________\n");
     }
     
 //[1-9] - Move to new location
@@ -223,7 +226,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             }
             else {
                 System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java in visitSceanL() ***");
+                    + "\n*** ERROR in GameMenuView.java in ***"
+                        + "\n       visitSceanL() if(playerLeashLength<4)");
 // develop code that restarts the game for this spot
             }
         }
@@ -275,6 +279,16 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
      * perform some task. Create and call stub functions in the appropriate 
      * Control Layer class for now. 
      */
+    
+    /* ***************  Please advise  *****************
+     * gab Response:
+     * I added a lot of code to
+     *                             private void userExplore()
+     * but am unsure if some of this should 
+     * be transfered to a control layer function
+     * ***************  Please advise  *****************
+     */
+    
     private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
 
@@ -296,11 +310,11 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             playerCurrentScore +=1;
             if(gameFidoMood < 9){
                 gameFidoMood += 1;
-            }
-            // player chose a good leash length, 
+            }           
+/*          // player chose a good leash length, 
             //no event happened 
             //int playerCurrentScore increased by 1
-            System.out.println("Fido Leash Length: " + playerLeashLenght 
+*/          System.out.println("Fido Leash Length: " + playerLeashLenght 
                     + "\nClosest object: " + gameIdealLeashLength
                     + "\nPLayers Current Score increases by 1 to " + playerCurrentScore
                     + "\nFido's Mood is now: " + gameFidoMood
@@ -309,7 +323,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         }
         else {
             System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java in userExplore() ***");
+                    + "\n*** ERROR in GameMenuView.java in ***"
+                    + "\n   userExplore() if(eOE>0)***");
 // develop code that restarts the game for this spot
         }
         
@@ -324,7 +339,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu();
+        gameMenuHelp.displayHelpMenu(hMR);
     }
     
     private void saveGame(){
@@ -335,7 +350,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         System.out.println("*** quitGame function called ***"
                 + "\nSending player back to Main Menu");
         MainMenuView quittingGame = new MainMenuView();
-        quittingGame.display();
+        quittingGame.display(hMR);
     }
     
     

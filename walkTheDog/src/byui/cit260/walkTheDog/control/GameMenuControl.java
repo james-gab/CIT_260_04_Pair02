@@ -14,10 +14,10 @@ import byui.cit260.walkTheDog.view.GameMenuView;
  */
 public class GameMenuControl {
     
-    public void displayNewGameMenu(){
-        System.out.println("\n*** displayMenu stub function called ***");
+    public void displayNewGameMenu(String hMR){
+//        System.out.println("\n*** displayMenu stub function called ***");
         GameMenuView aNewGame = new GameMenuView ();
-        aNewGame.display();
+        aNewGame.display(hMR);
         
     }
     

@@ -15,6 +15,8 @@ import java.util.Scanner;
  * @author Idel
  */
 public class StartProgramView {
+    public String hMR = "sPV";
+
    
     public StartProgramView() {
     }    
@@ -32,7 +34,7 @@ public class StartProgramView {
            this.displayWelcomeMessage(player);
  	// Display the main menu
            MainMenuView mainMenu = new MainMenuView();
-           mainMenu.display();
+           mainMenu.display(hMR);
         
  	
     }
@@ -41,9 +43,10 @@ public class StartProgramView {
                 System.out.println("\n\n***********************************************************");
         
         System.out.println( "*                                                          *"
-                +           "\n* Walk the Dog a fun text-based game that allows you the   *"
-                +           "\n* experience of walking your dog in the park as you        *"
-                +           "\n* retract or extend your Dog’s leash to avoid incidents     *");
+                +           "\n*  Walk the Dog a fun text-based game that allows you the  *"
+                +           "\n*  experience of walking your dog in the park as you       *"
+                +           "\n*  retract or extend your Dogs leash to avoid incidents    *"
+                +           "\n*                                                          *");
                     
         System.out.println("*********************************************************** ");
     }
@@ -55,13 +58,13 @@ public class StartProgramView {
 
         while(!valid){
 
-            System.out.println("Enter the player's name below:");
+            System.out.println("\nPlayer, please enter your name below:\n");
 
             playersName = keyboard.nextLine();
             playersName = playersName.trim();
 
             if (playersName.length() < 1){
-                System.out.println("Invalid name - the name must not be blank");
+                System.out.println("\nInvalid name - the name must not be blank\n");
                 continue;
             }
             break;
@@ -85,8 +88,9 @@ public class StartProgramView {
 
         System.out.println("\n=========================="           // 26 
                 + "\n   Welcome to the game"
-                + "\n  "
+                + "\n\n  "
                 +   player.getName()
+                + "\n  "
                 + "\n  Have fun walking your"
                 + "\n     dog in the park!"
                 + "\n==========================");                        

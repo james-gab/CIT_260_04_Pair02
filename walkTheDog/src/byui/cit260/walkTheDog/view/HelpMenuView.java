@@ -3,6 +3,7 @@ package byui.cit260.walkTheDog.view;
 import java.util.Scanner;
 
 public class HelpMenuView {
+    public String hMR = " ";
 
     private final String HELPMENU = "\n"
             + "\n___________________________"
@@ -16,10 +17,12 @@ public class HelpMenuView {
             + "\nL - Leash Lenght control"
             + "\nF - Fido's attitude"
             + "\nS - Save or Resume saved game"
-            + "\nQ - Quit"
+            + "\nQ - Quit Help Menu"
             + "\n\n___________________________";
     
-    public void displayHelpMenu(){
+    public void displayHelpMenu(String returnTO){
+        
+        hMR = returnTO;
         
         char selection = ' ';
         do{
@@ -31,7 +34,7 @@ public class HelpMenuView {
  	this.doAction(selection);
 
         } while (selection != 'Q' || selection != 'q'); // a selection is not "Exit"
-
+//        this.helpQuitAndReturn(returnTO);
     }
 
     public String getInput() {
@@ -106,9 +109,9 @@ public class HelpMenuView {
                 this.saveResumeGameHelp();
                 break;
             case 'Q': // Exit the program
-                return;
+                this.helpQuitAndReturn(hMR);
             case 'q': // Exit the program
-                return;
+                this.helpQuitAndReturn(hMR);
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
                 break;
@@ -136,7 +139,7 @@ public class HelpMenuView {
     private void moveGameHelp(){
         System.out.println("*** moveGameHelp function called ***");
         System.out.println("\nThis section is still under development"
-                         + "Thank youfor your patience");
+                         + "\nThank you for your patience");
     }
     
     
@@ -169,9 +172,24 @@ public class HelpMenuView {
     private void saveResumeGameHelp(){
         System.out.println("*** saveResumeGameHelp function called ***");
         System.out.println("\nThis section is still under development"
-                         + "Thank youfor your patience");
+                         + "\nThank you for your patience");
     }
     
+    public void helpQuitAndReturn(String returnTO){
+        if(returnTO.equals("gMV")){
+            System.out.println("You chose Quit\nSending Player back to Game Menu");
+            GameMenuView quittingGame = new GameMenuView();
+            hMR = " ";
+            quittingGame.display(hMR);
+        }
+        if(returnTO.equals("mMV")){
+            System.out.println("You chose Quit\nSending Player back to Main Menu");
+            MainMenuView quittingGame = new MainMenuView();
+            hMR = " ";
+            quittingGame.display(hMR);
+        }
+        
+    }
      
      
      

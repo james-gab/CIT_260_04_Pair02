@@ -11,6 +11,8 @@ import walkthedog.WalkTheDog;
  */
 public class MainMenuView extends View {
 
+    public String hMR = "mMV";
+
     //private final String MENU =
     public MainMenuView() {
         super("\n"
@@ -108,12 +110,12 @@ public class MainMenuView extends View {
 
     
     private void startNewGame(){
-        System.out.println("*** startNewGame function called ***");
+        System.out.println("\n*** startNewGame function called ***");
     //    GameControl.createNewGame(WalkTheDog.getPlayer());
         
         //display the game menu
         GameMenuControl gameMenu = new GameMenuControl();
-        gameMenu.displayNewGameMenu();
+        gameMenu.displayNewGameMenu(hMR);
     }   
      
     private void startExistingGame(){
@@ -122,7 +124,7 @@ public class MainMenuView extends View {
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu();
+        gameMenuHelp.displayHelpMenu(hMR);
     }
     
     private void saveGame(){

@@ -21,7 +21,7 @@ public abstract class View implements ViewInterface {
             
     
     @Override
-    public void display(){
+    public void display(String hMR){
         String value;
         char selection = ' ';
         
