@@ -131,6 +131,10 @@ public class EventControl {
             return -1;
         }
         
+        if (randomNumber == 0){
+            randomNumber = 1;
+        }
+        
         double newNumber = 0.0;
         double minimumLength = 4.0;
         double randomNumberD = (double) randomNumber;
@@ -150,6 +154,9 @@ public class EventControl {
             return -1;
         }
         
+        if (randomNumber == 0){
+            randomNumber = 1;
+        }
         double newNumber = 0.0;
         double minimumLength = 4.0;
         double randomNumberD = (double) randomNumber;
@@ -161,6 +168,9 @@ public class EventControl {
         return (int) randomNumberD; // + (int) newNumber * (int) randomNumberD / (int) randomNumberD * (int) randomNumberD * (int) randomNumberD;
         
     }
+    
+    
+    
     //Generate a random number
     public int randomNumberGenerator16_0to15 (){
         Random rand = new Random();  

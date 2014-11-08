@@ -19,11 +19,12 @@ public class GameMenuView extends View {
     
 public int playerSatisfaction = 0;
 public int playerLeashLenght = 4;
-public int gameUserExplore = 0;
+public int gameUserExploreCounter = 0;
 public int gameIdealLeashLength = 0;
 public int gameNumberOfTurns = 0;
 public int gameFidoMood = 5;
 public String hMR = "gMV";
+public char gameDidUserExplore = 'n';
 
 // starts player at a randomly generated starting score between 0 and 15
 EventControl randNum = new EventControl();                                      // calls random number generator
@@ -199,16 +200,27 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void visitSceanL(char choice){
         int  i = (int) choice; // cast from a char to an int
-        if (gameUserExplore < 1){
+        if (gameDidUserExplore=='n'){
             EventControl number = new EventControl();                              // calls random number generator
-            EventControl eventOnNoExplore = new EventControl();                       // determin if an event happened during a user initiated explore
-            int eONE = eventOnNoExplore.eventOnNoExplore(gameUserExplore, gameIdealLeashLength, number.randomNumberGenerator16_0to15());
-                    gameUserExplore = 0; 
-            if (eONE > 0)  {
-                // place code here to finish this event occurance
+            EventControl eventOnNoExplore = new EventControl();                       // determin if an event happened during a ramdom initiated explore
+            int eONE = eventOnNoExplore.eventOnNoExplore(gameUserExploreCounter, gameIdealLeashLength, number.randomNumberGenerator16_0to15());
+            if (eONE < 0){
+            System.out.println("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java in ***"
+                    + "\n   visitSceanL() if(gameUserExplore<1)***");
+// develop code that restarts the game from this spot                
+            }
+            else if (eONE > 0)  {
+                gameUserExploreCounter = 0;                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
+            System.out.println("/nA random event occured when you did not Explore the area./n");
+                EventControl idealLeashLength = new EventControl();             // set playerLeashLenght to a ramdom generated number and send player to explore
+                playerLeashLenght = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated playerLeashLenght to a variable
+                this.userExplore();
             }
         }
-            
+        
+        gameDidUserExplore = 'n';                                               // change char gameDidUserExplore back to NO
+        
          //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
                                 //ZERO IS NO EXPLORE   1 IS EXPLORE. COUNTER MUST BE RETURNED TO ZERO BEFORE MOVING TO NEXT SCEAN
         
@@ -245,7 +257,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 // develop code that restarts the game from this spot
             }
         }
-        if (i == 1){
+        if      (i == 1){
             MapControl visitSceanL1 = new MapControl();
             visitSceanL1.visitSceanL1(a,b);
         }
@@ -305,7 +317,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
-        gameUserExplore = 1;
+        gameDidUserExplore='y';
         
         EventControl number = new EventControl();                              // calls random number generator
         EventControl idealLeashLength = new EventControl();                     // generates a random ideal leash length
@@ -319,6 +331,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 // develop Control layer code that determins what happend to FIDO game for this spot
 // this should be the good or bad experience section of the game
 // int playerCurrentScore could go either up or down by 1
+// REMEMBER to add somethiing to determin if a random generated explore is bad            
         }
         else if (eOE == 0){
             playerCurrentScore +=1;
@@ -356,7 +369,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         gameMenuHelp.displayHelpMenu(hMR);
     }
     
-    private void saveGame(){
+    private void saveGame(){                                                    // 
         System.out.println("*** saveGame function called ***");
     }
 
