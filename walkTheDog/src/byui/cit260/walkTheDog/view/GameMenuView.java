@@ -19,12 +19,12 @@ public class GameMenuView extends View {
     
 public int playerSatisfaction = 0;
 public int playerLeashLenght = 4;
-public int gameUserExploreCounter = 0;
 public int gameIdealLeashLength = 0;
 public int gameNumberOfTurns = 0;
 public int gameFidoMood = 5;
-public String hMR = "gMV";
+public int gameUserExploreCounter = 0;
 public char gameDidUserExplore = 'n';
+public String hMR = "gMV";
 
 // starts player at a randomly generated starting score between 0 and 15
 EventControl randNum = new EventControl();                                      // calls random number generator
@@ -211,6 +211,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 // develop code that restarts the game from this spot                
             }
             else if (eONE > 0)  {
+                gameDidUserExplore = 'r';                                               // change char gameDidUserExplore back to NO
                 gameUserExploreCounter = 0;                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
             System.out.println("/nA random event occured when you did not Explore the area./n");
                 EventControl idealLeashLength = new EventControl();             // set playerLeashLenght to a ramdom generated number and send player to explore
@@ -227,7 +228,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         System.out.println("*** startExistingGame function called ***");
         System.out.println("The location choice was:   " + i );
 
-        int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I understand how ot pass Global variables.
+        int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I decide what to do with the MapControl section.
         
         if (playerLeashLenght<4){
         EventControl fidoMood = new EventControl();                              // calls random number generator
@@ -317,8 +318,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
-        gameDidUserExplore='y';
-        
+
         EventControl number = new EventControl();                              // calls random number generator
         EventControl idealLeashLength = new EventControl();                     // generates a random ideal leash length
         gameIdealLeashLength = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated idealLeashLength to a variable
@@ -326,16 +326,25 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         EventControl eventOnExplore = new EventControl();                       // determin if an event happened during a user initiated explore
         int eOE = eventOnExplore.eventOnExplore(playerLeashLenght, gameIdealLeashLength);
         
-        if (eOE > 0){
-            System.out.println("Fido found a friend in this area");
+        if (eOE > 0 && gameDidUserExplore=='r'){
+                    gameDidUserExplore='y';
+                    System.out.println("Fido found something in this area");
 // develop Control layer code that determins what happend to FIDO game for this spot
 // this should be the good or bad experience section of the game
 // int playerCurrentScore could go either up or down by 1
-// REMEMBER to add somethiing to determin if a random generated explore is bad            
+// REMEMBER to add somethiing to determin if this random generated explore is bad            
+        }
+        else if (eOE > 0){
+                    gameDidUserExplore='y';
+                    System.out.println("Fido found a friend in this area");
+// develop Control layer code that determins what happend to FIDO game for this spot
+// this should be the good or bad experience section of the game
+// int playerCurrentScore could go either up or down by 1
         }
         else if (eOE == 0){
             playerCurrentScore +=1;
-            if(gameFidoMood < 9){
+            gameDidUserExplore='y';
+                    if(gameFidoMood < 9){
                 gameFidoMood += 1;
             }           
 /*          // player chose a good leash length, 
@@ -349,7 +358,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
                     + "\nanything in the area it could reach ");
         }
         else {
-            System.out.println("*** Our appologies, something went wrong. ***"
+                    gameDidUserExplore='y';
+                    System.out.println("*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in GameMenuView.java in ***"
                     + "\n   userExplore() if(eOE>0)***");
 // develop code that restarts the game for this spot
