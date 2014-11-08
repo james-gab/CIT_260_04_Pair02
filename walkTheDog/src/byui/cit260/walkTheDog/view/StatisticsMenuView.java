@@ -12,56 +12,68 @@ import java.util.Scanner;
  *
  * @author Idel
  */
-public class StatisticsMenuView {
+public class StatisticsMenuView extends View {
     
-    private final String MENU = "\n"
+//    private final String MENU = "\n"
+//            + "\n________________________________"
+//            + "\nStatistics Menu"
+//            + "\n________________________________"
+//            + "\n  L - Life Points" 
+//            + "\n  M - Fido's Mood"
+//            + "\n  Q - Quit (Go Back) "  // modified to Q so that it could be inherited 
+//            + "\n________________________________";
+//    
+//    public void displayStatisticsMenu(){             //this part is inherited
+//        
+//        char selection = ' ';
+//        do{
+//
+// 	System.out.println(MENU); //display the statistic menu
+// 	String input = this.getInput(); // get first charecter of string
+//        selection = input.charAt(0);
+// 	this.doAction(selection);
+//
+//        } while (selection != 'B' || selection != 'b'); // a selection is not "Exit"
+//
+//    }
+
+    public StatisticsMenuView(String promtMessage) {
+        super("\n"
             + "\n________________________________"
             + "\nStatistics Menu"
             + "\n________________________________"
             + "\n  L - Life Points" 
             + "\n  M - Fido's Mood"
-            + "\n  B - Go Back "  
-            + "\n________________________________";
-    
-    public void displayStatisticsMenu(){
-        
-        char selection = ' ';
-        do{
-
- 	System.out.println(MENU); //display the statistic menu
- 	String input = this.getInput(); // get first charecter of string
-        selection = input.charAt(0);
- 	this.doAction(selection);
-
-        } while (selection != 'B' || selection != 'b'); // a selection is not "Exit"
-
+            + "\n  Q - Quit (Go Back) "  // modified to Q so that it could be inherited 
+            + "\n________________________________");
     }
 
     
-    public String getInput() {
-       boolean valid = false;
-       String playersInput = null;
-       Scanner keyboard = new Scanner(System.in);
+//    public String getInput() {
+//       boolean valid = false;
+//       String playersInput = null;
+//       Scanner keyboard = new Scanner(System.in);
+//
+//        while(!valid){
+//            
+//
+//            System.out.println("Enter a choice:");
+//
+//            playersInput = keyboard.nextLine();
+//            playersInput = playersInput.trim();
+//
+//
+//            if (playersInput.length() < 1){    
+//                System.out.println("Invalid entry - space is not an option");
+//                continue;
+//            }
+//            break;
+//        }
+//        return playersInput;
+//    }
 
-        while(!valid){
-            
 
-            System.out.println("Enter a choice:");
-
-            playersInput = keyboard.nextLine();
-            playersInput = playersInput.trim();
-
-
-            if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
-                continue;
-            }
-            break;
-        }
-        return playersInput;
-    }
-
-
+    @Override
     public void doAction(char choice) {
         
         switch (choice){
@@ -72,22 +84,26 @@ public class StatisticsMenuView {
              * you do not need to check for both upper and lower case letters.
              */
             
-            case 'L': // User chooses to Explore
+            /* Idel:
+            *  Will do this! Thank you. 
+            */
+            
+            case 'L': // User chooses to display Life points
                 this.lifePoint();
                 break;
-            case 'l': // User chooses to Explore
+            case 'l': // User chooses to display Life points
                 this.lifePoint();
                 break;
-            case 'M': // User Estimates Leash Length needed
+            case 'M': // user chooses to display fido's mood
                 this.generateFidoMood();
                 break;
-            case 'm': // User Estimates Leash Length needed
+            case 'm': // user chooses to display fido's mood
                 this.generateFidoMood();
                 break;
-            case 'B': // display the Help Menu
+            case 'Q': // modified to Q so that it can be inherited
                 this.back();
                 break;
-            case 'b': // display the Help Menu
+            case 'q': // modified to q so that it can be inherited
                 this.back();
                 break;
             default:
@@ -103,6 +119,10 @@ public class StatisticsMenuView {
          * functions. The Control Layer is responsible for performaing all 
          * actions of the game.
          */
+    
+    /*Idel:
+    * Will do thanks!
+    */
     private void lifePoint(){     //display the player's Life Points
         
         System.out.println("*** lifePoint function called ***");   
