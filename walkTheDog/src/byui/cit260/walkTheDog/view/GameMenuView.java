@@ -199,7 +199,17 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void visitSceanL(char choice){
         int  i = (int) choice; // cast from a char to an int
-        gameUserExplore = 0;  //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
+        if (gameUserExplore < 1){
+            EventControl number = new EventControl();                              // calls random number generator
+            EventControl eventOnNoExplore = new EventControl();                       // determin if an event happened during a user initiated explore
+            int eONE = eventOnNoExplore.eventOnNoExplore(gameUserExplore, gameIdealLeashLength, number.randomNumberGenerator16_0to15());
+                    gameUserExplore = 0; 
+            if (eONE > 0)  {
+                // place code here to finish this event occurance
+            }
+        }
+            
+         //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
                                 //ZERO IS NO EXPLORE   1 IS EXPLORE. COUNTER MUST BE RETURNED TO ZERO BEFORE MOVING TO NEXT SCEAN
         
         System.out.println("*** startExistingGame function called ***");

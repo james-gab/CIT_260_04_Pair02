@@ -47,8 +47,9 @@ public class EventControl {
     }
     
     // Generate event on No Explore
-    public int eventOnNoExplore(double noExploreCounter, int idealLeashLength, int userDefinedNumber){
+    public int eventOnNoExplore(int noExploreCounter, int idealLeashLength, int randomNumber){
         
+        double noExploreCounterD = (double)noExploreCounter;
         double minLeashLenght = 4;
         
         if (noExploreCounter < 0 || noExploreCounter > 10){      // test for good leashlenght
@@ -59,17 +60,17 @@ public class EventControl {
             return -1;                                          // test for good idealLeashlenght
             }
 
-        if (userDefinedNumber < 4 || userDefinedNumber > 19){
+        if (randomNumber < 4 || randomNumber > 19){
             return -1;                                          // test for good userDefinedNumber
             }
         
         if (noExploreCounter == 0){                             // test noExploreCounter not zero if zero add 1
-            noExploreCounter = 1;
+            noExploreCounterD = 1.0;
         }
         
-        double userDefinedNumberD = userDefinedNumber;          // cast int to double
+        double randomNumberD = randomNumber;          // cast int to double
         
-        double fidoLeashOverlap = minLeashLenght + .1 * noExploreCounter * userDefinedNumberD;
+        double fidoLeashOverlap = minLeashLenght + .1 * noExploreCounterD * randomNumberD;
         
         if(fidoLeashOverlap<idealLeashLength){      // test for overlap
             return 0;
