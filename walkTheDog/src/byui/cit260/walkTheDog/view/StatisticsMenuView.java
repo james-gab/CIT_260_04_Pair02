@@ -147,7 +147,7 @@ public class StatisticsMenuView extends View {
     private void back(){
        System.out.println("*** quitGame function called ***"
                 + "\nSending player back to Main Menu");
-        MainMenuView quittingGame = new MainMenuView();
+        GameMenuView quittingGame = new GameMenuView();
         quittingGame.display(hMR);//program will go back to the previous menu 
     }
     
