@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Idel
  */
 public class StatisticsMenuView extends View {
-    public string hMR = "SMV"
+    public String hMR = "SMV";
 //    private final String MENU = "\n"
 //            + "\n________________________________"
 //            + "\nStatistics Menu"
@@ -38,6 +38,8 @@ public class StatisticsMenuView extends View {
 //        } while (selection != 'B' || selection != 'b'); // a selection is not "Exit"
 //
 //    }
+
+
 
     public StatisticsMenuView(String promtMessage) {
         super("\n"
