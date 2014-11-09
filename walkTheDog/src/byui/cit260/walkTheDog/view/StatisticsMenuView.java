@@ -145,7 +145,10 @@ public class StatisticsMenuView extends View {
     }
     
     private void back(){
-       //program will go back to the previous menu 
+       System.out.println("*** quitGame function called ***"
+                + "\nSending player back to Main Menu");
+        MainMenuView quittingGame = new MainMenuView();
+        quittingGame.display(hMR);//program will go back to the previous menu 
     }
     
 }

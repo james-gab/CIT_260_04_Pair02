@@ -48,7 +48,10 @@ public class ExploreLocationView {
        
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public String getInput(){
        boolean valid = false;
        String playersInput = null;
