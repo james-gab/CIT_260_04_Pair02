@@ -45,6 +45,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             + "\n[1-9] - Move to new location" 
             + "\n  E   - Explore location" 
             + "\n  L   - Estimate leash length"
+            + "\n  T   - Game Statistics"
             + "\n  H   - Help Menu "
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
@@ -172,6 +173,12 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
                 break;
             case 'l': // User Estimates Leash Length needed
                 this.userLeashLength();
+                break;
+            case 'T': // User Estimates Leash Length needed
+                this.userStatistics();
+                break;
+            case 't': // User Estimates Leash Length needed
+                this.userStatistics();
                 break;
             case 'H': // display the Help Menu
                 this.displayHelpMenu();
@@ -379,6 +386,11 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         gameMenuHelp.displayHelpMenu(hMR);
     }
     
+    private void userStatistics(){
+        StatisticsMenuView gameStatistics = new StatisticsMenuView();
+        gameStatistics.display(hMR);
+    }
+
     private void saveGame(){                                                    // 
         System.out.println("*** saveGame function called ***");
     }

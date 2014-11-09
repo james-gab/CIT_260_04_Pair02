@@ -52,6 +52,7 @@ public class StatisticsMenuView extends View {
             + "\n________________________________");
     }
 
+
     
 //    public String getInput() {
 //       boolean valid = false;
