@@ -75,31 +75,31 @@ public class MainMenuView extends View {
             case 'N': // create and Start a new Game
                 this.startNewGame();
                 break;
-            case 'n': // create and Start a new Game
-                this.startNewGame();
-                break;
+//            case 'n': // create and Start a new Game
+//                this.startNewGame();
+//                break;
             case 'R': // resume saved game
                 this.startExistingGame();
                 break;
-            case 'r': // resume saved game
-                this.startExistingGame();
-                break;
+//            case 'r': // resume saved game
+//                this.startExistingGame();
+//                break;
             case 'H': // display the Help Menu
                 this.displayHelpMenu();
                 break;
-            case 'h': // display the Help Menu
-                this.displayHelpMenu();
-                break;
+//            case 'h': // display the Help Menu
+//                this.displayHelpMenu();
+//                break;
             case 'S': // save the current Game
                 this.saveGame();
                 break;
-            case 's': // save the current Game
-                this.saveGame();
-                break;
+//            case 's': // save the current Game
+//                this.saveGame();
+//                break;
             case 'Q': // Exit the program
                 return;
-            case 'q': // Exit the program
-                return;
+//            case 'q': // Exit the program
+//                return;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
                 break;

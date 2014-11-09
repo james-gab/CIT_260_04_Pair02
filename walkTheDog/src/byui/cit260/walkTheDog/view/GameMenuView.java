@@ -134,6 +134,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             choice = 'Q';
         }
         
+                
         switch (choice){
             case '1': // User moves to location 1
                 this.visitSceanL(choice);
@@ -165,37 +166,37 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             case 'E': // User chooses to Explore
                 this.userExplore();
                 break;
-            case 'e': // User chooses to Explore
-                this.userExplore();
-                break;
+//            case 'e': // User chooses to Explore
+//                this.userExplore();
+//                break;
             case 'L': // User Estimates Leash Length needed
                 this.userLeashLength();
                 break;
-            case 'l': // User Estimates Leash Length needed
-                this.userLeashLength();
-                break;
+//            case 'l': // User Estimates Leash Length needed
+//                this.userLeashLength();
+//                break;
             case 'T': // User Estimates Leash Length needed
                 this.userStatistics();
                 break;
-            case 't': // User Estimates Leash Length needed
-                this.userStatistics();
-                break;
+//            case 't': // User Estimates Leash Length needed
+//                this.userStatistics();
+//                break;
             case 'H': // display the Help Menu
                 this.displayHelpMenu();
                 break;
-            case 'h': // display the Help Menu
-                this.displayHelpMenu();
-                break;
+//            case 'h': // display the Help Menu
+//                this.displayHelpMenu();
+//                break;
             case 'S': // save the current Game
                 this.saveGame();
                 break;
-            case 's': // save the current Game
-                this.saveGame();
-                break;
+//            case 's': // save the current Game
+//                this.saveGame();
+//                break;
             case 'Q': // Exit the game (no save)
                 this.quitGame();
-            case 'q': // Exit the game (no save)
-                this.quitGame();
+//            case 'q': // Exit the game (no save)
+//                this.quitGame();
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
                 break;

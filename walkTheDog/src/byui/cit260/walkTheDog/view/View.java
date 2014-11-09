@@ -51,9 +51,10 @@ public abstract class View implements ViewInterface {
             //promt for players name
             System.out.println("\t\nEnter your selection below: ");
             
-            // get the value entered form the keyboard
+            // get the value entered from the keyboard
             selection = keyboard.nextLine();
             selection = selection.trim();
+            selection = selection.toUpperCase();
             
             if(selection.length() < 1 ){ //blank value entered
                 System.out.println("\n*** Invalid Selection *** Try again");

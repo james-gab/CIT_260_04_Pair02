@@ -41,7 +41,9 @@ public class StatisticsMenuView extends View {
 
 
 
-    public StatisticsMenuView() {
+    public StatisticsMenuView () {
+        
+        
         super("\n"
             + "\n________________________________"
             + "\nStatistics Menu"
