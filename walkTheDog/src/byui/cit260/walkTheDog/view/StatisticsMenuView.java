@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Idel
  */
 public class StatisticsMenuView extends View {
-    
+    public string hMR = "SMV"
 //    private final String MENU = "\n"
 //            + "\n________________________________"
 //            + "\nStatistics Menu"
