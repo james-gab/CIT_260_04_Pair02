@@ -182,8 +182,21 @@ public class HelpMenuView {
             hMR = " ";
             quittingGame.display(hMR);
         }
-        if(returnTO.equals("mMV")){
+        else if(returnTO.equals("mMV")){
             System.out.println("You chose Quit\nSending Player back to Main Menu");
+            MainMenuView quittingGame = new MainMenuView();
+            hMR = " ";
+            quittingGame.display(hMR);
+        }
+        else if(returnTO.equals("sMV")){
+            System.out.println("You chose Quit\nSending Player back to Statistics Menu");
+            StatisticsMenuView quittingGame = new StatisticsMenuView();
+            hMR = " ";
+            quittingGame.display(hMR);
+        }
+        else {
+            System.out.println("Our apologies, there was an error"
+                    + "\nSending Player back to Main Menu");
             MainMenuView quittingGame = new MainMenuView();
             hMR = " ";
             quittingGame.display(hMR);
