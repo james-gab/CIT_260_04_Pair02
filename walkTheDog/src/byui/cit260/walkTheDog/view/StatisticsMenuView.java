@@ -5,7 +5,9 @@
  */
 package byui.cit260.walkTheDog.view;
 
+import byui.cit260.walkTheDog.control.EventControl;
 import byui.cit260.walkTheDog.control.MapControl;
+import byui.cit260.walkTheDog.control.ProgramControl;
 import java.util.Scanner;
 
 /**
@@ -124,16 +126,23 @@ public class StatisticsMenuView extends View {
     * Will do thanks!
     */
     private void lifePoint(){     //display the player's Life Points
-        
-        System.out.println("*** lifePoint function called ***");   
+        ProgramControl display = new ProgramControl();
+        int lifePoints = display.playerLifePoints();
+        System.out.println("Your life point is: " + lifePoints);   
     }
     
-    private void generateFidoMood(){     //Fido's mood function called
-        System.out.println("*** generateFidoMood function called ***");
+    private void generateFidoMood(){
+    int numOfTurns = 0;    //these are put here so that it takes away my errors. 
+    int length = 5;
+    int dogMood = 5;
+    EventControl display = new EventControl();
+    int fidoMood = display.generateFidoMood(numOfTurns, length, dogMood);
+            
+    System.out.println("Fido mood is " + fidoMood);
     }
     
     private void back(){
-        System.out.println("*** back function called ***");
+       //program will go back to the previous menu 
     }
     
 }

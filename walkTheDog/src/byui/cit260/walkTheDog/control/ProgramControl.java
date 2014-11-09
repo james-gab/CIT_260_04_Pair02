@@ -18,6 +18,10 @@ public class ProgramControl {
     return player;
     }
     
+    public int playerLifePoints(){
+        return 0;
+        //generate the players life point
+    }
    
     
     
