@@ -56,7 +56,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 //E - Explore location 
 //L - Estimate the leash length allowed in their current location
 //H - Help Menu - Done
-//S - Save Game 
+//S - Save Game  
 //Q - Quit Game
 
    
