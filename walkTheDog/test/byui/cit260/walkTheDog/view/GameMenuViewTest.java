@@ -22,7 +22,16 @@ public class GameMenuViewTest {
 //S - Save Game
 //Q - Quit Game
 
-    
+    public String hMR = "gMV";
+public int playerSatisfaction;
+public int playerLeashLenght;
+public int gameIdealLeashLength;
+public int gameNumberOfTurns;
+public int gameFidoMood;
+public int gameUserExploreCounter;
+public char gameDidUserExplore;
+public int playerCurrentScore;   
+
     
     
     
@@ -38,7 +47,7 @@ public class GameMenuViewTest {
 
 // Test Case #1
         char choice = ' ';
-        GameMenuView instance = new GameMenuView();
+        GameMenuView instance = new GameMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
         instance.doAction(choice);
         System.out.println("\n" + choice + " passed");
 

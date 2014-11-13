@@ -1,6 +1,6 @@
 package byui.cit260.walkTheDog.view;
 
-import byui.cit260.walkTheDog.control.GameMenuControl;
+import byui.cit260.walkTheDog.control.NewGameMenuControl;
 import byui.cit260.walkTheDog.control.GameControl;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
@@ -12,6 +12,14 @@ import walkthedog.WalkTheDog;
 public class MainMenuView extends View {
 
     public String hMR = "mMV";
+    public int playerSatisfaction;
+    public int playerLeashLenght;
+    public int gameIdealLeashLength;
+    public int gameNumberOfTurns;
+    public int gameFidoMood;
+    public int gameUserExploreCounter;
+    public char gameDidUserExplore;
+    public int playerCurrentScore;   
 
     //private final String MENU =
     public MainMenuView() {
@@ -111,10 +119,7 @@ public class MainMenuView extends View {
     
     private void startNewGame(){
         System.out.println("\n*** startNewGame function called ***");
-    //    GameControl.createNewGame(WalkTheDog.getPlayer());
-        
-        //display the game menu
-        GameMenuControl gameMenu = new GameMenuControl();
+        NewGameMenuControl gameMenu = new NewGameMenuControl();
         gameMenu.displayNewGameMenu(hMR);
     }   
      
@@ -124,8 +129,8 @@ public class MainMenuView extends View {
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu(hMR);
-    }
+    gameMenuHelp.displayHelpMenu(hMR,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+        }
     
     private void saveGame(){
         System.out.println("*** saveGame function called ***");

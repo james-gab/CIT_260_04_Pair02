@@ -16,6 +16,17 @@ import java.util.Scanner;
  */
 public class StatisticsMenuView extends View {
     public String hMR = "sMV";
+    public int playerSatisfaction;
+    public int playerLeashLenght;
+    public int gameIdealLeashLength;
+    public int gameNumberOfTurns;
+    public int gameFidoMood;
+    public int gameUserExploreCounter;
+    public char gameDidUserExplore;
+    public int playerCurrentScore;   
+
+
+
 //    private final String MENU = "\n"
 //            + "\n________________________________"
 //            + "\nStatistics Menu"
@@ -41,7 +52,16 @@ public class StatisticsMenuView extends View {
 
 
 
-    public StatisticsMenuView () {
+    public StatisticsMenuView (
+                        int playerSatisfaction,
+                        int playerLeashLenght,
+                        int gameIdealLeashLength,
+                        int gameNumberOfTurns,
+                        int gameFidoMood,
+                        int gameUserExploreCounter,
+                        char gameDidUserExplore,
+                        int playerCurrentScore
+                                                ) {
         
         
         super("\n"
@@ -52,6 +72,18 @@ public class StatisticsMenuView extends View {
             + "\n  M - Fido's Mood"
             + "\n  Q - Quit (Go Back) "  // modified to Q so that it could be inherited 
             + "\n________________________________");
+
+    
+        this.playerCurrentScore = playerCurrentScore;
+        this.gameDidUserExplore = gameDidUserExplore;
+        this.gameUserExploreCounter = gameUserExploreCounter;
+        this.gameFidoMood = gameFidoMood;
+        this.gameNumberOfTurns = gameNumberOfTurns;
+        this.gameIdealLeashLength = gameIdealLeashLength;
+        this.playerLeashLenght = playerLeashLenght;
+        this.playerSatisfaction = playerSatisfaction;
+    
+    
     }
 
 
@@ -149,7 +181,7 @@ public class StatisticsMenuView extends View {
     private void back(){
        System.out.println("*** quitGame function called ***"
                 + "\nSending player back to Main Menu");
-        GameMenuView quittingGame = new GameMenuView();
+        GameMenuView quittingGame = new GameMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
         quittingGame.display(hMR);//program will go back to the previous menu 
     }
     

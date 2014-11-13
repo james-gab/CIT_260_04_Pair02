@@ -7,42 +7,47 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
-import byui.cit260.walkTheDog.control.GameMenuControl;
+import byui.cit260.walkTheDog.control.NewGameMenuControl;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
 
 /**
  *
- * @author gab James
+ * @author gab James 
  */
 public class GameMenuView extends View {
-    
-public int playerSatisfaction = 0;
-public int playerLeashLenght = 4;
-public int gameIdealLeashLength = 0;
-public int gameNumberOfTurns = 0;
-public int gameFidoMood = 5;
-public int gameUserExploreCounter = 0;
-public char gameDidUserExplore = 'n';
+
 public String hMR = "gMV";
-
-// starts player at a randomly generated starting score between 0 and 15
-EventControl randNum = new EventControl();                                      // calls random number generator
-public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       // passes a random generated number to a variable
-
-
-
-
-    //private final String GAMEMENU = 
+public int playerSatisfaction;
+public int playerLeashLenght;
+public int gameIdealLeashLength;
+public int gameNumberOfTurns;
+public int gameFidoMood;
+public int gameUserExploreCounter;
+public char gameDidUserExplore;
+public int playerCurrentScore;   
+           
+ 
             
-    public GameMenuView() {
+    public GameMenuView(
+                        int playerSatisfaction,
+                        int playerLeashLenght,
+                        int gameIdealLeashLength,
+                        int gameNumberOfTurns,
+                        int gameFidoMood,
+                        int gameUserExploreCounter,
+                        char gameDidUserExplore,
+                        int playerCurrentScore
+                                                ) {
+
+        
         super("\n"
             + "\n________________________________"
             + "\n"
             + "\nGame Menu"
             + "\n________________________________"
             + "\n"
-            + "\n[1-9] - Move to new location" 
+            + "\n  M   - Move to new location" 
             + "\n  E   - Explore location" 
             + "\n  L   - Estimate leash length"
             + "\n  T   - Game Statistics"
@@ -50,13 +55,35 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
             + "\n________________________________\n");
+        this.playerCurrentScore = playerCurrentScore;
+        this.gameDidUserExplore = gameDidUserExplore;
+        this.gameUserExploreCounter = gameUserExploreCounter;
+        this.gameFidoMood = gameFidoMood;
+        this.gameNumberOfTurns = gameNumberOfTurns;
+        this.gameIdealLeashLength = gameIdealLeashLength;
+        this.playerLeashLenght = playerLeashLenght;
+        this.playerSatisfaction = playerSatisfaction;
+
+        System.out.println("\n\nYour current statistics:\n"
+                + "for testing only\n"
+                + playerCurrentScore + "  =  playerCurrentScore\n"
+                + gameDidUserExplore + "  =  gameDidUserExplore\n"
+                + gameUserExploreCounter + "  =  gameUserExploreCounter\n"
+                + gameFidoMood + "  =  gameFidoMood\n"
+                + gameNumberOfTurns + "  =  gameNumberOfTurns\n"
+                + gameIdealLeashLength + "  =  gameIdealLeashLength\n"
+                + playerLeashLenght + "  =  playerLeashLenght\n"
+                + playerSatisfaction + "  =  playerSatisfaction\n");
+        
+        
+        
     }
     
 //[1-9] - Move to new location
 //E - Explore location 
 //L - Estimate the leash length allowed in their current location
 //H - Help Menu - Done
-//S - Save Game  
+//S - Save Game
 //Q - Quit Game
 
    
@@ -136,9 +163,10 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
         
                 
         switch (choice){
-            case '1': // User moves to location 1
-                this.visitSceanL(choice);
+            case 'M': // User moves to location 1
+                this.visitSceanL();
                 break;
+/*
             case '2': // User moves to location 2
                 this.visitSceanL(choice);
                 break;
@@ -163,6 +191,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             case '9': // User moves to location 9
                 this.visitSceanL(choice);
                 break;
+*/
+            
             case 'E': // User chooses to Explore
                 this.userExplore();
                 break;
@@ -175,10 +205,10 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 //            case 'l': // User Estimates Leash Length needed
 //                this.userLeashLength();
 //                break;
-            case 'T': // User Estimates Leash Length needed
+            case 'T': // User views userStatistics
                 this.userStatistics();
                 break;
-//            case 't': // User Estimates Leash Length needed
+//            case 't': // User views userStatistics
 //                this.userStatistics();
 //                break;
             case 'H': // display the Help Menu
@@ -206,8 +236,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
    
 
     
-    private void visitSceanL(char choice){
-        int  i = (int) choice; // cast from a char to an int
+    private void visitSceanL(){
+
         if (gameDidUserExplore=='n'){
             EventControl number = new EventControl();                              // calls random number generator
             EventControl eventOnNoExplore = new EventControl();                       // determin if an event happened during a ramdom initiated explore
@@ -215,16 +245,16 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
             if (eONE < 0){
             System.out.println("*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in GameMenuView.java in ***"
-                    + "\n   visitSceanL() if(gameUserExplore<1)***");
+                    + "\n   visitSceanL() if(gameUserExplore<0)***");
 // develop code that restarts the game from this spot                
             }
             else if (eONE > 0)  {
-                gameDidUserExplore = 'r';                                               // change char gameDidUserExplore back to NO
+                gameDidUserExplore = 'r';                                       // change char gameDidUserExplore to random event posible
                 gameUserExploreCounter = 0;                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
             System.out.println("/nA random event occured when you did not Explore the area./n");
                 EventControl idealLeashLength = new EventControl();             // set playerLeashLenght to a ramdom generated number and send player to explore
                 playerLeashLenght = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated playerLeashLenght to a variable
-                this.userExplore();
+                this.userExplore();                                             // sends player to explore
             }
         }
         
@@ -233,8 +263,9 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
          //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
                                 //ZERO IS NO EXPLORE   1 IS EXPLORE. COUNTER MUST BE RETURNED TO ZERO BEFORE MOVING TO NEXT SCEAN
         
-        System.out.println("*** startExistingGame function called ***");
-        System.out.println("The location choice was:   " + i );
+        System.out.println("*** Move Location function called ***"
+                + "\n Location Menu will be called");
+//        System.out.println("The location choice was:   " + i );
 
         int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I decide what to do with the MapControl section.
         
@@ -266,48 +297,14 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 // develop code that restarts the game from this spot
             }
         }
-        if      (i == 1){
-            MapControl visitSceanL1 = new MapControl();
-            visitSceanL1.visitSceanL1(a,b);
+
+        LocationView changeLocations = new LocationView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);                         // send user to Location view menu
+        changeLocations.display(hMR);
+        
+        
         }
-        else if (i == 2){
-            MapControl visitSceanL2 = new MapControl();
-            visitSceanL2.visitSceanL2(a,b);
-        }
-        else if (i == 3){
-            MapControl visitSceanL3 = new MapControl();
-            visitSceanL3.visitSceanL3(a,b);
-        }
-        else if (i == 4){
-            MapControl visitSceanL4 = new MapControl();
-            visitSceanL4.visitSceanL4(a,b);
-        }
-        else if (i == 5){
-            MapControl visitSceanL5 = new MapControl();
-            visitSceanL5.visitSceanL5(a,b);
-        }
-        else if (i == 6){
-            MapControl visitSceanL6 = new MapControl();
-            visitSceanL6.visitSceanL6(a,b);
-        }
-        else if (i == 7){
-            MapControl visitSceanL7 = new MapControl();
-            visitSceanL7.visitSceanL7(a,b);
-        }
-        else if (i == 8){
-            MapControl visitSceanL8 = new MapControl();
-            visitSceanL8.visitSceanL8(a,b);
-        }
-        else if (i == 9){
-            MapControl visitSceanL9 = new MapControl();
-            visitSceanL9.visitSceanL9(a,b);
-        }
-        else {
-                System.out.println("\n*** Invalid Selection *** Try Again ***");
-        }
-    }
     
-    
+        
     
     /* Instructor: 
      * Each of these functions should be calling some Control Layer function to 
@@ -358,7 +355,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
 /*          // player chose a good leash length, 
             //no event happened 
             //int playerCurrentScore increased by 1
-*/          System.out.println("Fido Leash Length: " + playerLeashLenght 
+*/
+            System.out.println("Fido Leash Length: " + playerLeashLenght 
                     + "\nClosest object: " + gameIdealLeashLength
                     + "\nPLayers Current Score increases by 1 to " + playerCurrentScore
                     + "\nFido's Mood is now: " + gameFidoMood
@@ -370,7 +368,7 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
                     System.out.println("*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in GameMenuView.java in ***"
                     + "\n   userExplore() if(eOE>0)***");
-// develop code that restarts the game for this spot
+// develop code that restarts the game from this spot
         }
         
     }
@@ -384,11 +382,11 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15();       
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu(hMR);
+        gameMenuHelp.displayHelpMenu(hMR,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
     }
     
     private void userStatistics(){
-        StatisticsMenuView gameStatistics = new StatisticsMenuView();
+        StatisticsMenuView gameStatistics = new StatisticsMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
         gameStatistics.display(hMR);
     }
 

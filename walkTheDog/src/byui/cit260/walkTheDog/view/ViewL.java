@@ -1,21 +1,18 @@
 /*
  * Project author: gab James.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
  */
 package byui.cit260.walkTheDog.view;
 
 import java.util.Scanner;
 
-/**
- *
+/*
  * @author gab
  */
-public abstract class View implements ViewInterface {
+public abstract class ViewL implements ViewLocationInterface {
     
     private final String promtMessage;
     
-    public View(String promtMessage){
+    public ViewL(String promtMessage){
         this.promtMessage = promtMessage;
     }
             
@@ -26,15 +23,14 @@ public abstract class View implements ViewInterface {
         char selection = ' ';
         
         do{
-
-            System.out.println(this.promtMessage);  //display promt message
-            value = this.getInput();        // get the user selection
-            value = value.trim();
+            System.out.println(this.promtMessage);                              //display promt message
+            value = this.getInput();                                            // get the user selection
             value = value.toUpperCase();
-            selection = value.charAt(0);
+            selection = value.charAt(0);                                        // converts getInput to char
+            
             this.doAction(selection);
                 
-        }while (!value.equals("Q"));
+        }while (!value.equals("Q")||!value.equals("q"));
             
         
     }
@@ -56,7 +52,7 @@ public abstract class View implements ViewInterface {
             selection = selection.trim();
             selection = selection.toUpperCase();
             
-            if(selection.length() < 1 ){ //blank value entered
+            if(selection.length() < 1 ){                                        //check for blank value entered returns error message
                 System.out.println("\n*** Invalid Selection *** Try again");
                 continue;
                 
@@ -64,7 +60,7 @@ public abstract class View implements ViewInterface {
             break;
         }
         
-        return selection;  // return the name
+        return selection;                                                       // return the name
         
     }
     

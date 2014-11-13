@@ -7,7 +7,7 @@ package byui.cit260.walkTheDog.view;
  *
  * @author gab
  */
-public interface ViewInterface {
+public interface ViewLocationInterface {
     public void display(String hMR);
     public String getInput();
 //    public void doAction(String value);

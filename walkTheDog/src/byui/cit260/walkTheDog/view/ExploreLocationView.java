@@ -44,16 +44,15 @@ public class ExploreLocationView {
         //int randomeEvent = randomGenerator.nextInt(100);
         //if (randomeEvent <= 50){
          //   this.exploreLocation();
-        //}
+        }
        
-    }
     }
     
     /**
      *
      * @return
      */
-    public String getInput(){
+    public  String getInput(){
        boolean valid = false;
        String playersInput = null;
        Scanner keyboard = new Scanner(System.in);

@@ -1,9 +1,21 @@
+
 package byui.cit260.walkTheDog.view;
+
+
 
 import java.util.Scanner;
 
 public class HelpMenuView {
     public String hMR = " ";
+    public int playerSatisfaction;
+    public int playerLeashLenght;
+    public int gameIdealLeashLength;
+    public int gameNumberOfTurns;
+    public int gameFidoMood;
+    public int gameUserExploreCounter;
+    public char gameDidUserExplore;
+    public int playerCurrentScore;   
+
 
     private final String HELPMENU = "\n"
             + "\n___________________________"
@@ -20,9 +32,29 @@ public class HelpMenuView {
             + "\nQ - Quit Help Menu"
             + "\n\n___________________________";
     
-    public void displayHelpMenu(String returnTO){
-        
+    public void displayHelpMenu(
+                                String returnTO,
+                                int playerSatisfaction,
+                                int playerLeashLenght,
+                                int gameIdealLeashLength,
+                                int gameNumberOfTurns,
+                                int gameFidoMood,
+                                int gameUserExploreCounter,
+                                char gameDidUserExplore,
+                                int playerCurrentScore
+                                                        ) {
+
+        this.playerCurrentScore = playerCurrentScore;
+        this.gameDidUserExplore = gameDidUserExplore;
+        this.gameUserExploreCounter = gameUserExploreCounter;
+        this.gameFidoMood = gameFidoMood;
+        this.gameNumberOfTurns = gameNumberOfTurns;
+        this.gameIdealLeashLength = gameIdealLeashLength;
+        this.playerLeashLenght = playerLeashLenght;
+        this.playerSatisfaction = playerSatisfaction;
         hMR = returnTO;
+ 	System.out.println(hMR + " hMR from returnTO\n"
+                + returnTO + " ReturnTO"); // hMR and returnTO
         
         char selection = ' ';
         do{
@@ -176,30 +208,41 @@ public class HelpMenuView {
     }
     
     public void helpQuitAndReturn(String returnTO){
-        if(returnTO.equals("gMV")){
-            System.out.println("You chose Quit\nSending Player back to Game Menu");
-            GameMenuView quittingGame = new GameMenuView();
-            hMR = " ";
-            quittingGame.display(hMR);
-        }
-        else if(returnTO.equals("mMV")){
-            System.out.println("You chose Quit\nSending Player back to Main Menu");
-            MainMenuView quittingGame = new MainMenuView();
-            hMR = " ";
-            quittingGame.display(hMR);
-        }
-        else if(returnTO.equals("sMV")){
-            System.out.println("You chose Quit\nSending Player back to Statistics Menu");
-            StatisticsMenuView quittingGame = new StatisticsMenuView();
-            hMR = " ";
-            quittingGame.display(hMR);
-        }
-        else {
-            System.out.println("Our apologies, there was an error"
-                    + "\nSending Player back to Main Menu");
-            MainMenuView quittingGame = new MainMenuView();
-            hMR = " ";
-            quittingGame.display(hMR);
+
+                MainMenuView mmvGame = new MainMenuView();
+                GameMenuView gmvGame = new GameMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+                StatisticsMenuView smvGame = new StatisticsMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+                LocationView lvGame = new LocationView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+        
+        switch (returnTO){
+            case "gMV":
+                System.out.println("You chose Quit\nSending Player back to Game Menu");
+                hMR = " ";
+                gmvGame.display(hMR);
+                break;
+            case "mMV":
+                System.out.println("You chose Quit\nSending Player back to Main Menu");
+                hMR = " ";
+                mmvGame.display(hMR);
+                break;
+            case "sMV":
+                System.out.println("You chose Quit\nSending Player back to Statistics Menu");
+                hMR = " ";
+                smvGame.display(hMR);
+                break;
+            case "LV":
+                System.out.println("You chose Quit\nSending Player back to Location Menu");
+                hMR = " ";
+                lvGame.display(hMR);
+                break;
+            default:
+                System.out.println("Our apologies, there was an error in\n"
+                        + "helpQuitAndReturn(String returnTO)\n"
+                    + "\nSending Player back to Main Menu\n"
+                    + returnTO + " returnTO");
+                hMR = " ";
+                mmvGame.display(hMR);
+                break;
         }
         
     }
