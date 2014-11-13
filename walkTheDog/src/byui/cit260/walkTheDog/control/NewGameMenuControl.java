@@ -5,6 +5,7 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.GameMenuView;
 
 
@@ -28,10 +29,22 @@ EventControl randNum = new EventControl();                                      
 public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15() + 5;   // passes a random generated number to a variable
 
 
-    public void displayNewGameMenu(String hMR){
+    public void displayNewGameMenu(String hMR, Player player){
 //        System.out.println("\n*** displayMenu stub function called ***");
-        GameMenuView aNewGame = new GameMenuView (playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
-        aNewGame.display(hMR);
+//        GameMenuView aNewGame = new GameMenuView (playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+//        aNewGame.display(hMR);
+          Game game = Game();
+          WalkTheDog.setCurrentGame(game);
+          
+          game.SetPlayer(player);
+          
+          MapControl mapControl = GameControl.createMapControl();
+          game.setMapControl(mapControl);
+          
+          
+          
+          
+        
         
     }
     
