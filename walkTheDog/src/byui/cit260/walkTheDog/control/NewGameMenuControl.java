@@ -33,6 +33,8 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15() + 5;   
         GameMenuView aNewGame = new GameMenuView (playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
         aNewGame.display(hMR);
         
+        
+        
     }
     
 }
