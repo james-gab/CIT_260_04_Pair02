@@ -29,7 +29,7 @@ EventControl randNum = new EventControl();                                      
 public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15() + 5;   // passes a random generated number to a variable
 
 
-    public void displayNewGameMenu(String hMR, Player player){
+    public void display(String hMR, Player player){
 //        System.out.println("\n*** displayMenu stub function called ***");
 //        GameMenuView aNewGame = new GameMenuView (playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
 //        aNewGame.display(hMR);
