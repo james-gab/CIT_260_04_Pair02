@@ -1,7 +1,7 @@
 package byui.cit260.walkTheDog.view;
 
-import byui.cit260.walkTheDog.control.NewGameMenuControl;
 import byui.cit260.walkTheDog.control.GameControl;
+import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
 
@@ -19,10 +19,13 @@ public class MainMenuView extends View {
     public int gameFidoMood;
     public int gameUserExploreCounter;
     public char gameDidUserExplore;
-    public int playerCurrentScore;   
+    public int playerCurrentScore; 
+//    public Player player;
 
     //private final String MENU =
-    public MainMenuView() {
+    public MainMenuView(
+//            Player player
+    ) {
         super("\n"
             + "\n___________________________"
             + "\nMain Menu"
@@ -34,6 +37,9 @@ public class MainMenuView extends View {
             + "\nQ - Exit "
             + "\n___________________________");
             
+//        this.player = player;
+        
+        
     }
     
 /*    public void displayMenu(){
@@ -119,8 +125,13 @@ public class MainMenuView extends View {
     
     private void startNewGame(){
         System.out.println("\n*** startNewGame function called ***");
-        NewGameMenuControl gameMenu = new NewGameMenuControl();
-        gameMenu.displayNewGameMenu(hMR);
+        
+        GameControl.createNewGame(WalkTheDog.getPlayer());
+        
+//        NewGameMenuControl gameMenu = new NewGameMenuControl();
+//        gameMenu.display(hMR);
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display(hMR);
     }   
      
     private void startExistingGame(){

@@ -14,7 +14,11 @@ import java.util.Objects;
  */
 public class Temperment implements Serializable {
 
-
+// Change this to a enum
+    // change String MOOD to int MOOD
+    // add enum statements for String DESCRIPTION
+    
+    
 // class instance variables
 private String mood;
 private String description;

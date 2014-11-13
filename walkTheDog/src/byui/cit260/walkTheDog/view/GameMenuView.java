@@ -7,7 +7,6 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
-import byui.cit260.walkTheDog.control.NewGameMenuControl;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
 
@@ -30,14 +29,14 @@ public int playerCurrentScore;
  
             
     public GameMenuView(
-                        int playerSatisfaction,
-                        int playerLeashLenght,
-                        int gameIdealLeashLength,
-                        int gameNumberOfTurns,
-                        int gameFidoMood,
-                        int gameUserExploreCounter,
-                        char gameDidUserExplore,
-                        int playerCurrentScore
+//                        int playerSatisfaction,
+//                        int playerLeashLenght,
+//                        int gameIdealLeashLength,
+//                        int gameNumberOfTurns,
+//                        int gameFidoMood,
+//                        int gameUserExploreCounter,
+//                        char gameDidUserExplore,
+//                        int playerCurrentScore
                                                 ) {
 
         
@@ -55,25 +54,24 @@ public int playerCurrentScore;
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
             + "\n________________________________\n");
-        this.playerCurrentScore = playerCurrentScore;
-        this.gameDidUserExplore = gameDidUserExplore;
-        this.gameUserExploreCounter = gameUserExploreCounter;
-        this.gameFidoMood = gameFidoMood;
-        this.gameNumberOfTurns = gameNumberOfTurns;
-        this.gameIdealLeashLength = gameIdealLeashLength;
-        this.playerLeashLenght = playerLeashLenght;
-        this.playerSatisfaction = playerSatisfaction;
-
-        System.out.println("\n\nYour current statistics:\n"
-                + "for testing only\n"
-                + playerCurrentScore + "  =  playerCurrentScore\n"
-                + gameDidUserExplore + "  =  gameDidUserExplore\n"
-                + gameUserExploreCounter + "  =  gameUserExploreCounter\n"
-                + gameFidoMood + "  =  gameFidoMood\n"
-                + gameNumberOfTurns + "  =  gameNumberOfTurns\n"
-                + gameIdealLeashLength + "  =  gameIdealLeashLength\n"
-                + playerLeashLenght + "  =  playerLeashLenght\n"
-                + playerSatisfaction + "  =  playerSatisfaction\n");
+//        this.playerCurrentScore = playerCurrentScore;
+//        this.gameDidUserExplore = gameDidUserExplore;
+//        this.gameUserExploreCounter = gameUserExploreCounter;
+//        this.gameFidoMood = gameFidoMood;
+//        this.gameNumberOfTurns = gameNumberOfTurns;
+//        this.gameIdealLeashLength = gameIdealLeashLength;
+//        this.playerLeashLenght = playerLeashLenght;
+//        this.playerSatisfaction = playerSatisfaction;
+//
+        System.out.println("\n\nYour current statistics:\nfor testing only\n");
+//                + playerCurrentScore + "  =  playerCurrentScore\n"
+//                + gameDidUserExplore + "  =  gameDidUserExplore\n"
+//                + gameUserExploreCounter + "  =  gameUserExploreCounter\n"
+//                + gameFidoMood + "  =  gameFidoMood\n"
+//                + gameNumberOfTurns + "  =  gameNumberOfTurns\n"
+//                + gameIdealLeashLength + "  =  gameIdealLeashLength\n"
+//                + playerLeashLenght + "  =  playerLeashLenght\n"
+//                + playerSatisfaction + "  =  playerSatisfaction\n");
         
         
         

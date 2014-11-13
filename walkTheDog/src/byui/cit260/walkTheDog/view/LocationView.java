@@ -4,7 +4,6 @@
 package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
-import byui.cit260.walkTheDog.control.NewGameMenuControl;
 
 import java.util.Scanner;
 
@@ -114,7 +113,7 @@ public class LocationView extends ViewL{
     private void quitGame(){
         System.out.println("*** quit Location function called ***"
                 + "\nSending player back to Game Menu");
-        GameMenuView quittingGame = new GameMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+        GameMenuView quittingGame = new GameMenuView();
         quittingGame.display(hMR);
     }
     

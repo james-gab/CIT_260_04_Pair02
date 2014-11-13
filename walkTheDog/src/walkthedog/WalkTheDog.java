@@ -15,15 +15,15 @@ import java.util.Random;
  * @authors Idel Pagan and gab James
  */
 public class WalkTheDog {
-    private static Game CurrentName = null;
+    private static Game CurrentGame = null;
     private static Player player = null;
 
-    public static Game getCurrentName() {
-        return CurrentName;
+    public static Game getCurrentGame() {
+        return CurrentGame;
     }
 
-    public static void setCurrentName(Game CurrentName) {
-        WalkTheDog.CurrentName = CurrentName;
+    public static void setCurrentGame(Game CurrentGame) {
+        WalkTheDog.CurrentGame = CurrentGame;
     }
 
     public static Player getPlayer() {

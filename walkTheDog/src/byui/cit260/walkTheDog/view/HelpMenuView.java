@@ -210,7 +210,7 @@ public class HelpMenuView {
     public void helpQuitAndReturn(String returnTO){
 
                 MainMenuView mmvGame = new MainMenuView();
-                GameMenuView gmvGame = new GameMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+                GameMenuView gmvGame = new GameMenuView();
                 StatisticsMenuView smvGame = new StatisticsMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
                 LocationView lvGame = new LocationView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
         
