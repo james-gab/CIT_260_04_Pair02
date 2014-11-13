@@ -12,105 +12,73 @@ import java.util.Objects;
  *
  * @authors Idel Pagan and gab James
  */
-public enum Fido implements Serializable {
-    private final int currentScore;                     //the users current game score
-    private final char didUserExplore;                  //did the user explore? y/n
-    private final int userExploreCounter;               //number of times the user did not explore and passed locations
-    private final int fidoMood;                         //the current mood of fido
-    private final int leashLength;                      //the current length of the leash
-    private final int shortLeashNumberOfTurns;          //number of turns the leash is below 4
-    private final int playerSatisfaction;               //the saatisfaction of the player
- 
+public class Fido implements Serializable {
     
-    Fido(
-                int currentScore,                     //the users current game score
-                char didUserExplore,                  //did the user explore? y/n
-                int userExploreCounter,               //number of times the user did not explore and passed locations
-                int fidoMood,                         //the current mood of fido
-                int leashLength,                      //the current length of the leash
-                int shortLeashNumberOfTurns,          //number of turns the leash is below 4
-                int playerSatisfaction               //the saatisfaction of the player 
-        ) {
-    this.currentScore = currentScore;
-    this.didUserExplore = didUserExplore;
-    this.userExploreCounter = userExploreCounter;
-    this.fidoMood = fidoMood;
-    this.leashLength = leashLength;
-    this.shortLeashNumberOfTurns = shortLeashNumberOfTurns;
-    this.playerSatisfaction = playerSatisfaction;
+    // class instance variables
+    private String name;        //player's name
+    private String templerment;
+    private String mood;
+    private double leashLength;
+    private double numberOfTurns;
+
+    public Fido() {
+    }
+    
+    
+
+    public String getName() {
+        return name;
     }
 
-    public int getCurrentScore() {
-        return currentScore;
+    public void setName(String name) {
+        this.name = name;
     }
 
-//    public void setCurrentScore(int currentScore) {
-//        this.currentScore = currentScore;
-//    }
-
-    public char getDidUserExplore() {
-        return didUserExplore;
+    public String getTemplerment() {
+        return templerment;
     }
 
-//    public void setDidUserExplore(char didUserExplore) {
-//        this.didUserExplore = didUserExplore;
-//    }
-
-    public int getUserExploreCounter() {
-        return userExploreCounter;
+    public void setTemplerment(String templerment) {
+        this.templerment = templerment;
     }
 
-//    public void setUserExploreCounter(int userExploreCounter) {
-//        this.userExploreCounter = userExploreCounter;
-//    }
-
-    public int getFidoMood() {
-        return fidoMood;
+    public String getMood() {
+        return mood;
     }
 
-//    public void setFidoMood(int fidoMood) {
-//        this.fidoMood = fidoMood;
-//    }
+    public void setMood(String mood) {
+        this.mood = mood;
+    }
 
-    public int getLeashLength() {
+    public double getLeashLength() {
         return leashLength;
     }
 
-//    public void setLeashLength(int leashLength) {
-//        this.leashLength = leashLength;
-//    }
-
-    public int getShortLeashNumberOfTurns() {
-        return shortLeashNumberOfTurns;
+    public void setLeashLength(double leashLength) {
+        this.leashLength = leashLength;
     }
 
-//    public void setShortLeashNumberOfTurns(int shortLeashNumberOfTurns) {
-//        this.shortLeashNumberOfTurns = shortLeashNumberOfTurns;
-//    }
-
-    public int getPlayerSatisfaction() {
-        return playerSatisfaction;
+    public double getNumberOfTurns() {
+        return numberOfTurns;
     }
 
-//    public void setPlayerSatisfaction(int playerSatisfaction) {
-//        this.playerSatisfaction = playerSatisfaction;
-//    }
+    public void setNumberOfTurns(double numberOfTurns) {
+        this.numberOfTurns = numberOfTurns;
+    }
 
     @Override
     public String toString() {
-        return "Fido{" + "currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", fidoMood=" + fidoMood + ", leashLength=" + leashLength + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + ", playerSatisfaction=" + playerSatisfaction + '}';
+        return "Fido{" + "name=" + name + ", templerment=" + templerment + ", mood=" + mood + ", leashLength=" + leashLength + ", numberOfTurns=" + numberOfTurns + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + this.currentScore;
-        hash = 23 * hash + this.didUserExplore;
-        hash = 23 * hash + this.userExploreCounter;
-        hash = 23 * hash + this.fidoMood;
-        hash = 23 * hash + this.leashLength;
-        hash = 23 * hash + this.shortLeashNumberOfTurns;
-        hash = 23 * hash + this.playerSatisfaction;
+        int hash = 5;
+        hash = 61 * hash + Objects.hashCode(this.name);
+        hash = 61 * hash + Objects.hashCode(this.templerment);
+        hash = 61 * hash + Objects.hashCode(this.mood);
+        hash = 61 * hash + (int) (Double.doubleToLongBits(this.leashLength) ^ (Double.doubleToLongBits(this.leashLength) >>> 32));
+        hash = 61 * hash + (int) (Double.doubleToLongBits(this.numberOfTurns) ^ (Double.doubleToLongBits(this.numberOfTurns) >>> 32));
         return hash;
     }
 
@@ -123,28 +91,23 @@ public enum Fido implements Serializable {
             return false;
         }
         final Fido other = (Fido) obj;
-        if (this.currentScore != other.currentScore) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (this.didUserExplore != other.didUserExplore) {
+        if (!Objects.equals(this.templerment, other.templerment)) {
             return false;
         }
-        if (this.userExploreCounter != other.userExploreCounter) {
+        if (!Objects.equals(this.mood, other.mood)) {
             return false;
         }
-        if (this.fidoMood != other.fidoMood) {
+        if (Double.doubleToLongBits(this.leashLength) != Double.doubleToLongBits(other.leashLength)) {
             return false;
         }
-        if (this.leashLength != other.leashLength) {
-            return false;
-        }
-        if (this.shortLeashNumberOfTurns != other.shortLeashNumberOfTurns) {
-            return false;
-        }
-        if (this.playerSatisfaction != other.playerSatisfaction) {
+        if (Double.doubleToLongBits(this.numberOfTurns) != Double.doubleToLongBits(other.numberOfTurns)) {
             return false;
         }
         return true;
     }
+    
     
 }

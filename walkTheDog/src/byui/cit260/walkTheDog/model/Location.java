@@ -43,31 +43,31 @@ public enum Location implements Serializable {
     }
 
     
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + this.fixedLocation;
-        hash = 73 * hash + Objects.hashCode(this.description);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (this.fixedLocation != other.fixedLocation) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 73 * hash + this.fixedLocation;
+//        hash = 73 * hash + Objects.hashCode(this.description);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Location other = (Location) obj;
+//        if (this.fixedLocation != other.fixedLocation) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.description, other.description)) {
+//            return false;
+//        }
+//        return true;
+//    }
     
     
     

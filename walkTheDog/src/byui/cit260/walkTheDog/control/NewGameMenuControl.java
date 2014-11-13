@@ -31,15 +31,17 @@ public int playerCurrentScore =  randNum.randomNumberGenerator16_0to15() + 5;   
 
     public void display(String hMR, Player player){
 //        System.out.println("\n*** displayMenu stub function called ***");
-//        GameMenuView aNewGame = new GameMenuView (playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
-//        aNewGame.display(hMR);
-          Game game = Game();
-          WalkTheDog.setCurrentGame(game);
-          
-          game.SetPlayer(player);
-          
-          MapControl mapControl = GameControl.createMapControl();
-          game.setMapControl(mapControl);
+        GameMenuView aNewGame = new GameMenuView (playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+        aNewGame.display(hMR);
+        
+//          Still working on this!!!        
+//          Game game = Game();
+//          WalkTheDog.setCurrentGame(game);
+//          
+//          game.SetPlayer(player);
+//          
+//          MapControl mapControl = GameControl.createMapControl();
+//          game.setMapControl(mapControl);
           
           
           
