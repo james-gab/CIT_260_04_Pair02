@@ -16,40 +16,31 @@ public class Map implements Serializable {
 
 
 // class instance variables
-private double rowCount;        //named wrong in UML corrected name
-private double columnCount;
+private double locationInPark;        //named wrong in UML corrected name
+// need to consider changeing from Double to INT
 
     public Map() {
     }
 
 
 
-    public double getRowCount() {
-        return rowCount;
+    public double getLocationInPark() {
+        return locationInPark;
     }
 
-    public void setRowCount(double rowCount) {
-        this.rowCount = rowCount;
-    }
-
-    public double getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(double columnCount) {
-        this.columnCount = columnCount;
+    public void setLocationInPark(double locationInPark) {
+        this.locationInPark = locationInPark;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+        return "Map{" + "lacationInPark=" + locationInPark  + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.locationInPark) ^ (Double.doubleToLongBits(this.locationInPark) >>> 32));
         return hash;
     }
 
@@ -62,10 +53,7 @@ private double columnCount;
             return false;
         }
         final Map other = (Map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
+        if (Double.doubleToLongBits(this.locationInPark) != Double.doubleToLongBits(other.locationInPark)) {
             return false;
         }
         return true;
