@@ -12,79 +12,42 @@ import java.util.Objects;
  *
  * @author Idel
  */
-public class Location implements Serializable {
-    private int row; 
-    private int column;
-    private String visited; 
-    private String explore; 
-    private String randomEvent;
-    private String actorRandomEvent;
+public enum Location implements Serializable {
+    
+    Fountain("You found the water fountain, don't jump in the water!"),
+    Statue("You found the stature in the park, don't pee on it!"),
+    Playground("You found the playground, watch out for the kids!"),
+    Dogpark("You found the dog park, go play!"),
+    Restrooms("You found the restrooms, take a break!"),
+    DuckPond("You found the duck pond, watch out for bird poop!");
+    
+    private final int fixedLocation;
+    private final String description;
 
-    public Location() {
+    Location(String description) {
+        this.description = description;
+        fixedLocation = 1;
     }
     
-    public int getRow() {
-        return row;
+    public int getFixedLocation() {
+        return fixedLocation;
     }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getColumn() {
-        return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    public String getVisited() {
-        return visited;
-    }
-
-    public void setVisited(String visited) {
-        this.visited = visited;
-    }
-
-    public String getExplore() {
-        return explore;
-    }
-
-    public void setExplore(String explore) {
-        this.explore = explore;
-    }
-
-    public String getRandomEvent() {
-        return randomEvent;
-    }
-
-    public void setRandomEvent(String randomEvent) {
-        this.randomEvent = randomEvent;
-    }
-
-    public String getActorRandomEvent() {
-        return actorRandomEvent;
-    }
-
-    public void setActorRandomEvent(String actorRandomEvent) {
-        this.actorRandomEvent = actorRandomEvent;
+    public String getDescription() {
+        return description;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", explore=" + explore + ", randomEvent=" + randomEvent + ", actorRandomEvent=" + actorRandomEvent + '}';
+        return "Location{" + "fixedLocation=" + fixedLocation + ", description=" + description + '}';
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.row;
-        hash = 97 * hash + this.column;
-        hash = 97 * hash + Objects.hashCode(this.visited);
-        hash = 97 * hash + Objects.hashCode(this.explore);
-        hash = 97 * hash + Objects.hashCode(this.randomEvent);
-        hash = 97 * hash + Objects.hashCode(this.actorRandomEvent);
+        hash = 73 * hash + this.fixedLocation;
+        hash = 73 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -97,22 +60,10 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (this.row != other.row) {
+        if (this.fixedLocation != other.fixedLocation) {
             return false;
         }
-        if (this.column != other.column) {
-            return false;
-        }
-        if (!Objects.equals(this.visited, other.visited)) {
-            return false;
-        }
-        if (!Objects.equals(this.explore, other.explore)) {
-            return false;
-        }
-        if (!Objects.equals(this.randomEvent, other.randomEvent)) {
-            return false;
-        }
-        if (!Objects.equals(this.actorRandomEvent, other.actorRandomEvent)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
