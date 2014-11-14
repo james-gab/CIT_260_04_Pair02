@@ -47,7 +47,7 @@ public int playerCurrentScore;
 
 // Test Case #1
         char choice = ' ';
-        GameMenuView instance = new GameMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+        GameMenuView instance = new GameMenuView();
         instance.doAction(choice);
         System.out.println("\n" + choice + " passed");
 
