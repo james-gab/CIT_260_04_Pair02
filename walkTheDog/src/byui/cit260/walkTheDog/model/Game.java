@@ -135,11 +135,13 @@ public class Game implements Serializable {
     }
 
     public void setMap(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("***This is a stub function ****"
+               + "\nin Game.java  setMap(Map map) around line 137"); 
     }
 
     public void setFido(Fido fido) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          System.out.println("***This is a stub function ****"
+               + "\nin Game.java  setFido(Fido fido) around line 142"); 
     }
     
     

@@ -14,7 +14,8 @@ import byui.cit260.walkTheDog.model.Fido;
 public class FidoControl {
 
     static Fido createFido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("***This is a stub function****"); 
+        return null;
     }
     
 }
