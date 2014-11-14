@@ -16,20 +16,53 @@ public class Map implements Serializable {
 
 
 // class instance variables
-private double locationInPark;        //named wrong in UML corrected name
-private Location[] locations;
+private int locationInPark;        //named wrong in UML corrected name
+private Location[][] locations;
+        int noOfRows;
+        int noOfColums;
+
 // need to consider changeing from Double to INT
 
-    public Map() {
+    public Map(){
+        
+    }
+
+
+    public Map(int noOfRows, int noOfColums) {
+        
+        if (noOfRows<1 || noOfColums<1){
+            System.out.println("The Location Number must be greater than zero");
+            return;
+        }
+        
+        this.noOfRows = noOfRows;
+        this.noOfColums = noOfColums;
+        
+        this.locations = new Location [noOfRows][noOfColums];
+        
+        for (int row = 0; row < noOfRows; row++){
+            for (int column = 0; column < noOfColums; column++){
+                // create and initilize the location objects instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                //assign the Location object to the current position in array
+                        locations[row][column] = location;
+            }
+        }
+        
+        
     }
 
 
 
-    public double getLocationInPark() {
+    public int getLocationInPark() {
         return locationInPark;
     }
 
-    public void setLocationInPark(double locationInPark) {
+    public void setLocationInPark(int locationInPark) {
         this.locationInPark = locationInPark;
     }
 

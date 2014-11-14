@@ -1,31 +1,44 @@
-/*
- * Project author: gab James.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.Map;
+import byui.cit260.walkTheDog.model.Scene;
+import static jdk.nashorn.internal.objects.NativeArray.map;
+import static jdk.nashorn.internal.objects.NativeDebug.map;
 
 /**
  *
  * @author gab and Idel
- * 
- * This control is only a bare skeleton with no real work done yet 
- * 
+ 
  */
 public class MapControl {
 
     public static Map createMap() {
+        
+        // Create Map
+        Map map = new map (3,3);
+        
+        // create sceans for the game
+        Scene[] scenes = createScenes();
+        
+        // assign sceans to locations
+        GameControl.assignScenesToLocations(map,scenes);
+
         System.out.println("***This is a stub function****"
                 + "\n in MapControl.java    Map createMap()"); 
-        return null;
+        
+        return map;
     }
 
     public static void moveActorsToStartingLocation(Map map) {
         System.out.println("***This is a stub function****"
                 + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
     }
+
+    private static Scene[] createScenes() {
+        System.out.println("***This is a stub function****"
+                + "\n in MapControl.java   createScenes()");
+        return null;
+        }
    
     public int move (int fido, int location){
         // not sure what goes here yet

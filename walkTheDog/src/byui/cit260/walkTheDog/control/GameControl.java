@@ -10,6 +10,7 @@ import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.model.Scene;
 import walkthedog.WalkTheDog;
 
 /**
@@ -44,6 +45,11 @@ public class GameControl {
         
         
         
+    }
+
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
+        System.out.println("\n*** createNewGame stub function called ***"
+                + "GameControl.java     assignScenesToLocations(Map map, Scene[] scenes)");
     }
             
 }
