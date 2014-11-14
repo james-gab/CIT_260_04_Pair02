@@ -15,11 +15,11 @@ import java.util.Objects;
 public class Fido implements Serializable {
     
     // class instance variables
-    private String name;        //player's name
+    private String name;        //player's name ****** not used ******
     private String templerment;
     private String mood;
-    private double leashLength;
-    private double numberOfTurns;
+    private int leashLength;
+    private int numberOfTurns;
 
     public Fido() {
     }
@@ -55,7 +55,7 @@ public class Fido implements Serializable {
     }
 
     public void setLeashLength(double leashLength) {
-        this.leashLength = leashLength;
+        this.leashLength = (int) leashLength;
     }
 
     public double getNumberOfTurns() {
@@ -63,7 +63,7 @@ public class Fido implements Serializable {
     }
 
     public void setNumberOfTurns(double numberOfTurns) {
-        this.numberOfTurns = numberOfTurns;
+        this.numberOfTurns = (int) numberOfTurns;
     }
 
     @Override

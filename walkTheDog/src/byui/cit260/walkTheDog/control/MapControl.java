@@ -5,6 +5,8 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.Map;
+
 /**
  *
  * @author gab and Idel
@@ -13,7 +15,16 @@ package byui.cit260.walkTheDog.control;
  * 
  */
 public class MapControl {
-    
+
+    public static Map createMap() {
+        System.out.println("***This is a stub function****"); 
+        return null;
+    }
+
+    public static void moveActorsToStartingLocation(Map map) {
+        System.out.println("***This is a stub function****"); 
+    }
+   
     public int move (int fido, int location){
         // not sure what goes here yet
         return 0;
