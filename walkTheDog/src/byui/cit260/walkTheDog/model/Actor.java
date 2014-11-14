@@ -5,6 +5,7 @@
  */
 package byui.cit260.walkTheDog.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,11 +24,14 @@ public enum Actor implements Serializable{
     
     //class instance variables 
     private final String actorName;
-    private final int idealLeashLength;
+    private final int idealLeashLength;   //THIS IS NOT A FINAL NEED TO CHANGE?????
+    private final Point cordinates;
+
 
     Actor(String actorName) {
         this.actorName = actorName;
-        idealLeashLength = 1;
+        idealLeashLength = 15;
+        cordinates = new Point(1,1);
     }
     
     public String getActorName() {
@@ -40,7 +44,10 @@ public enum Actor implements Serializable{
         return idealLeashLength;
     }
 
-   
+    public Point getCordinates() {
+        return cordinates;
+    }
+
 
     @Override
     public String toString() {

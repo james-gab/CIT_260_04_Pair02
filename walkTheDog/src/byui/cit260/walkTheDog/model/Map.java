@@ -18,8 +18,8 @@ public class Map implements Serializable {
 // class instance variables
 private int locationInPark;        //named wrong in UML corrected name
 private Location[][] locations;
-        int noOfRows;
-        int noOfColums;
+ int noOfRows;
+ int noOfColums;
 
 // need to consider changeing from Double to INT
 

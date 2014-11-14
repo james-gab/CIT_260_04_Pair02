@@ -2,9 +2,7 @@ package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Scene;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDynamic.map;
-import static jdk.nashorn.internal.objects.NativeArray.map;
-import static jdk.nashorn.internal.objects.NativeDebug.map;
+
 
 /**
  *
@@ -16,7 +14,7 @@ public class MapControl {
     public static Map createMap() {
         
         // Create Map
-        Map map = new map (3,3);
+        Map map = new Map(3,3);
         
         // create sceans for the game
         Scene[] scenes = createScenes();
@@ -24,8 +22,8 @@ public class MapControl {
         // assign sceans to locations
         GameControl.assignScenesToLocations(map,scenes);
 
-        System.out.println("***This is a stub function****"
-                + "\n in MapControl.java    Map createMap()"); 
+//        System.out.println("***This is a stub function****"
+//                + "\n in MapControl.java    Map createMap()"); 
         
         return map;
     }
