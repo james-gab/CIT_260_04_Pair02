@@ -8,7 +8,7 @@ package byui.cit260.walkTheDog.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
-
+ 
 /**
  *
  * @author Idel
