@@ -2,6 +2,7 @@ package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Scene;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDynamic.map;
 import static jdk.nashorn.internal.objects.NativeArray.map;
 import static jdk.nashorn.internal.objects.NativeDebug.map;
 
@@ -99,6 +100,7 @@ public class MapControl {
         System.out.println("*** visitSceanL9 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
+
     
 
     
