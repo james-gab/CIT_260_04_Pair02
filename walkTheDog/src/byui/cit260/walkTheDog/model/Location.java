@@ -6,6 +6,7 @@
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -19,6 +20,8 @@ public class Location implements Serializable {
     private String explore; 
     private String randomEvent;
     private String actorRandomEvent;
+    private Scene scene;
+    private ArrayList<Actor> actors;
 
     public Location() {
     }
