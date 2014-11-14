@@ -18,7 +18,8 @@ import walkthedog.WalkTheDog;
  */
 public class GameControl {
     public static void createNewGame(Player player){
-        System.out.println("\n*** createNewGame stub function called ***");
+        System.out.println("\n*** createNewGame stub function called ***"
+                + "GameControl.java     createNewGame(Player player)");
         
         Game game = new Game();                 //create new game
         WalkTheDog.setCurrentGame(game);        //save in WalkTheDog.java

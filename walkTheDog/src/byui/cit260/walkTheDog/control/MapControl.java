@@ -17,12 +17,14 @@ import byui.cit260.walkTheDog.model.Map;
 public class MapControl {
 
     public static Map createMap() {
-        System.out.println("***This is a stub function****"); 
+        System.out.println("***This is a stub function****"
+                + "\n in MapControl.java    Map createMap()"); 
         return null;
     }
 
     public static void moveActorsToStartingLocation(Map map) {
-        System.out.println("***This is a stub function****"); 
+        System.out.println("***This is a stub function****"
+                + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
     }
    
     public int move (int fido, int location){

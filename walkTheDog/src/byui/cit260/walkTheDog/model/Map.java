@@ -17,6 +17,7 @@ public class Map implements Serializable {
 
 // class instance variables
 private double locationInPark;        //named wrong in UML corrected name
+private Location[] locations;
 // need to consider changeing from Double to INT
 
     public Map() {

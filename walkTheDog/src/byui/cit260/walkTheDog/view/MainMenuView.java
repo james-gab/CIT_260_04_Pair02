@@ -124,7 +124,8 @@ public class MainMenuView extends View {
 
     
     private void startNewGame(){
-        System.out.println("\n*** startNewGame function called ***");
+        System.out.println("\n*** startNewGame function called ***"
+                + "in MainMenuView.java     startNewGame()");
         
         GameControl.createNewGame(WalkTheDog.getPlayer());
         
@@ -135,7 +136,8 @@ public class MainMenuView extends View {
     }   
      
     private void startExistingGame(){
-        System.out.println("*** startExistingGame function called ***");
+        System.out.println("\n*** startExistingGame function called ***"
+                + "in MainMenuView.java     startExistingGame()");
     }
     
     private void displayHelpMenu(){
@@ -144,7 +146,8 @@ public class MainMenuView extends View {
         }
     
     private void saveGame(){
-        System.out.println("*** saveGame function called ***");
+        System.out.println("\n*** saveGame function called ***"
+                + "in MainMenuView.java     saveGame()");
     }
     
 
