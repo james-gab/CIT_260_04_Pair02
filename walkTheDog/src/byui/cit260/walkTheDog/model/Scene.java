@@ -6,39 +6,95 @@
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author Idel
  */
-public enum Scene implements Serializable {
-    Fountain("You found the water fountain, don't jump in the water!"),
-    Statue("You found the stature in the park, don't pee on it!"),
-    Playground("You found the playground, watch out for the kids!"),
-    Dogpark("You found the dog park, go play!"),
-    Restrooms("You found the restrooms, take a break!"),
-    DuckPond("You found the duck pond, watch out for bird poop!");
+public class Scene implements Serializable {
     
-    private final int fixedScene;
-    private final String description;
-    private 
+    private int fixedScene;
+    private String description;
 
+    public void setMapSymbol(String st) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setBlocked(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setTravelTime(double POSITIVE_INFINITY) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+ 
+
+    public static enum SceneType {
+    fountain,               //("You found the water fountain, don't jump in the water!"),
+    statue,                 //("You found the stature in the park, don't pee on it!"),
+    playground,             //("You found the playground, watch out for the kids!"),
+    dogpark,                //("You found the dog park, go play!"),
+    restrooms,              //("You found the restrooms, take a break!"),
+    duckpond;               //("You found the duck pond, watch out for bird poop!");
+     }
     Scene(String description) {
         this.description = description;
         fixedScene = 1;
-    }
     
+     }
+
     public int getFixedScene() {
         return fixedScene;
+    }
+
+    public void setFixedScene(int fixedScene) {
+        this.fixedScene = fixedScene;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.fixedScene;
+        hash = 97 * hash + Objects.hashCode(this.description);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Scene other = (Scene) obj;
+        if (this.fixedScene != other.fixedScene) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Scene() {
+    }
+
     @Override
     public String toString() {
         return "Scene{" + "fixedScene=" + fixedScene + ", description=" + description + '}';
     }
-
+    
+    
+    
 }

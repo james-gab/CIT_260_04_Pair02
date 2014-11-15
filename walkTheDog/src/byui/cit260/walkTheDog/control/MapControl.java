@@ -1,7 +1,11 @@
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Scene;
+import byui.cit260.walkTheDog.model.Scene.SceneType;
+import java.awt.image.BufferedImage;
+import walkthedog.WalkTheDog;
 
 
 /**
@@ -27,17 +31,40 @@ public class MapControl {
         
         return map;
     }
-
+    private static Scene[] createScenes() {
+        BufferedImage image = null;
+        Game game = WalkTheDog.getCurrentGame();
+        Scene[] scenes = new Scene[Scene.SceneType.values().length];
+        // STARTING SCENE////
+        Scene startingScene = new Scene();
+        startingScene.setDescription(
+        "\nWalk your dog!!!!!!");                                               //add description
+        startingScene.setMapSymbol( "ST" );
+        startingScene.setBlocked(false);
+        // startingScene.setTravelTime(240);
+        // ImageIcon startingSceneImage = MapControl.getImage(startingScene,
+        // "PATH_TO_IMAGE")
+        // ;
+        // startingScene.setIcon(startingSceneImage);
+        scenes[Scene.SceneType.fountain.ordinal()] = startingScene;
+   
+        Scene finishScene = new Scene();
+        finishScene.setDescription(
+        "\nCongratulations! Your dog made it out alive!");                      //add description
+        finishScene.setMapSymbol( "FN" );
+        finishScene.setBlocked(false);
+        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
+        // ImageIcon finishSceneImage = MapControl.getImage(finishScene,
+        // "PATH_TO_IMAGE");
+        // finishScene.setIcon(finishSceneImage);
+         scenes[SceneType.duckpond.ordinal()] = finishScene;
+         return null;
+   
+  }
     public static void moveActorsToStartingLocation(Map map) {
         System.out.println("***This is a stub function****"
                 + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
     }
-
-    private static Scene[] createScenes() {
-        System.out.println("***This is a stub function****"
-                + "\n in MapControl.java   createScenes()");
-        return null;
-        }
    
     public int move (int fido, int location){
         // not sure what goes here yet
