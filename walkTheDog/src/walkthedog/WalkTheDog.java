@@ -15,7 +15,7 @@ import java.util.Random;
  * @authors Idel Pagan and gab James
  */
 public class WalkTheDog {
-    private static Game CurrentGame = null;
+    public static Game CurrentGame = null;
     private static Player player = null;
 
     public static Game getCurrentGame() {

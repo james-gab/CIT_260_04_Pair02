@@ -18,6 +18,9 @@ public class MapControl {
     
     public static int rowCount = 3;
     public static int columCount = 3;
+ //   public Map map = Game.map;                              //this is the map
+    
+    
 
     public static Map createMap() {
         
@@ -28,13 +31,15 @@ public class MapControl {
         Scene[] scenes = createScenes();
         
         // assign sceans to locations
-        SceneControl.assignScenesToLocations(map,scenes);
+        GameControl.assignScenesToLocations(map,scenes);
 
 //        System.out.println("***This is a stub function****"
-//                + "\n in MapControl.java    Map createMap()"); 
+//                + " in MapControl.java    Map createMap()"); 
         
         return map;
     }
+    
+    
     private static Scene[] createScenes() {
         BufferedImage image = null;
         Game game = WalkTheDog.getCurrentGame();
@@ -62,7 +67,7 @@ public class MapControl {
         // "PATH_TO_IMAGE");
         // finishScene.setIcon(finishSceneImage);
          scenes[SceneType.duckpond.ordinal()] = finishScene;
-         return null;
+        return scenes;
    
   }
     public static void moveActorsToStartingLocation(Map map) {
@@ -131,8 +136,9 @@ public class MapControl {
     }
 
     public void displayMap() {
-/*       
-        Location[][] locations = map.getLocations();
+        
+        Location[][] locations = Game.getMap();
+        
        
        System.out.println("     The Park");
             System.out.println("   |");
@@ -140,18 +146,18 @@ public class MapControl {
             System.out.println("     "+row+"     |");
             for (int column = 0; column < columCount; column++){
                 System.out.println(column+"  |");
-                 //location = location [row][column];               // NOT needed ?????
-                if(location[row][column] == true){
-                    System.out.println();                           // place map symbol here
+                Location location = locations [row][column]; // NOT needed ?????
+                if(true != location){
+                    System.out.println("   ?");
                 }
                 else{
-                    System.out.println("   ?");
+                    System.out.println();                           // place map symbol here
                 }
                     System.out.println("   |");
             
             }}
        
-*/       
+       
        
        
        

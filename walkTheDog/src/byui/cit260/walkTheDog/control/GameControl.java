@@ -35,7 +35,7 @@ public class GameControl {
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
 /*      
-        //This Needs to be sorted out and fixed, ther eis not a setter for this function in GAME.java
+        //This Needs to be sorted out and fixed, there is not a setter for this function in GAME.java
         Location fixedLocation = GameControl.createFixedLocation();
         game.Location(fixedLocation);
 */        
@@ -63,6 +63,3 @@ public class GameControl {
     }
     
 }
-// make game function statistic 
-//create stud 
-//have it look like his

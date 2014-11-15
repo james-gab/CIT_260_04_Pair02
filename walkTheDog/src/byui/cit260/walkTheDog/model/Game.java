@@ -17,6 +17,8 @@ public class Game implements Serializable {
  
     private String[] fixedLocation;               //this is the description of the location
     private Player player;                        //this is the player
+    public Map map;                              //this is the map
+    private Fido fido;                            //this is fido
     private int idealLeashLength;                 //this is the distance from player to actor
     private int currentScore;                     //the users current game score
     private char didUserExplore;                  //did the user explore? y/n
@@ -36,6 +38,16 @@ public class Game implements Serializable {
         this.fixedLocation = fixedLocation;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public Fido getFido() {
+        return fido;
+    }
+
+    
+    
     public Player getPlayer() {
         return player;
     }
@@ -86,19 +98,21 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "fixedLocation=" + fixedLocation + ", player=" + player + ", idealLeashLength=" + idealLeashLength + ", currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + '}';
+        return "Game{" + "fixedLocation=" + fixedLocation + ", player=" + player + ", map=" + map + ", fido=" + fido + ", idealLeashLength=" + idealLeashLength + ", currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Arrays.deepHashCode(this.fixedLocation);
-        hash = 17 * hash + Objects.hashCode(this.player);
-        hash = 17 * hash + this.idealLeashLength;
-        hash = 17 * hash + this.currentScore;
-        hash = 17 * hash + this.didUserExplore;
-        hash = 17 * hash + this.userExploreCounter;
-        hash = 17 * hash + this.shortLeashNumberOfTurns;
+        hash = 23 * hash + Arrays.deepHashCode(this.fixedLocation);
+        hash = 23 * hash + Objects.hashCode(this.player);
+        hash = 23 * hash + Objects.hashCode(this.map);
+        hash = 23 * hash + Objects.hashCode(this.fido);
+        hash = 23 * hash + this.idealLeashLength;
+        hash = 23 * hash + this.currentScore;
+        hash = 23 * hash + this.didUserExplore;
+        hash = 23 * hash + this.userExploreCounter;
+        hash = 23 * hash + this.shortLeashNumberOfTurns;
         return hash;
     }
 
@@ -115,6 +129,12 @@ public class Game implements Serializable {
             return false;
         }
         if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Objects.equals(this.fido, other.fido)) {
             return false;
         }
         if (this.idealLeashLength != other.idealLeashLength) {
@@ -135,13 +155,28 @@ public class Game implements Serializable {
         return true;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    
+    
+    
     public void setMap(Map map) {
+//          System.out.println("***This is a stub function ****"
+//               + "\nin Game.java  setMap(Map map) around line 138"); 
+          this.map = map;
        
     }
 
     public void setFido(Fido fido) {
-          System.out.println("***This is a stub function ****"
-               + "\nin Game.java  setFido(Fido fido) around line 142"); 
+//          System.out.println("***This is a stub function ****"
+//               + "\nin Game.java  setFido(Fido fido) around line 144"); 
+          this.fido = fido;
     }
     
     
