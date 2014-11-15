@@ -126,6 +126,10 @@ public class MapControl {
         return 0;
     }
 
+    public void displayMap() {
+        
+    }
+
     
 
     
