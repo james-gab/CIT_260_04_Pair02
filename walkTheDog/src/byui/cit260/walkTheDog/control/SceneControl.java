@@ -14,6 +14,8 @@ import byui.cit260.walkTheDog.model.Scene.SceneType;
  *
  * @author Idel
  */
+
+/*
 public class SceneControl {
     
       static void assignScenesToLocations(Map map, Scene[] scenes){
@@ -35,3 +37,4 @@ public class SceneControl {
     }
     
 }
+*/

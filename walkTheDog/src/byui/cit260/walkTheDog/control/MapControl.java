@@ -1,6 +1,7 @@
 package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.Game;
+import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Scene;
 import byui.cit260.walkTheDog.model.Scene.SceneType;
@@ -130,20 +131,24 @@ public class MapControl {
     }
 
     public void displayMap() {
-//       SceneControl viewScene = new SceneControl();
-//       viewScene.assignScenesToLocations(map, scenes); 
        
-//        public static int rowCount = 3;
-//        public static int columCount = 3;
-  
+     boolean location[][] = Map.locations[][];   
        
        System.out.println("     The Park");
-            System.out.println("|");
+            System.out.println("   |");
         for (int row = 0; row < rowCount; row++){
             System.out.println("     "+row+"     |");
             for (int column = 0; column < columCount; column++){
-            System.out.println(column+"");
-                
+                System.out.println(column+"  |");
+                 //location = location [row][column];               // NOT needed ?????
+                if(location[row][column] == true){
+                    System.out.println();                           // place map symbol here
+                }
+                else{
+                    System.out.println("   ?");
+                }
+                    System.out.println("   |");
+            
             }}
        
        

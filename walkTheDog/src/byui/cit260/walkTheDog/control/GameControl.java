@@ -46,22 +46,20 @@ public class GameControl {
         
         
     }
-              static void assignScenesToLocations(Map map, Scene[] scenes){
-      Location[][] locations = map.getLocations();
+
+    static void assignScenesToLocations(Map map, Scene[] scenes){
+            Location[][] locations = map.getLocations();
        
        //start point
-        locations[0][0].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
-        locations[0][1].setScene(scenes[Scene.SceneType.duckpond.ordinal()]);
-        locations[0][2].setScene(scenes[Scene.SceneType.statue.ordinal()]);
-        locations[1][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
-        locations[1][1].setScene(scenes[Scene.SceneType.dogpark.ordinal()]);
-        locations[1][2].setScene(scenes[Scene.SceneType.playground.ordinal()]);
-        locations[2][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
-        locations[2][1].setScene(scenes[Scene.SceneType.statue.ordinal()]);
-        locations[2][2].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
-
-                            
-
+            locations[0][0].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
+            locations[0][1].setScene(scenes[Scene.SceneType.duckpond.ordinal()]);
+            locations[0][2].setScene(scenes[Scene.SceneType.statue.ordinal()]);
+            locations[1][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
+            locations[1][1].setScene(scenes[Scene.SceneType.dogpark.ordinal()]);
+            locations[1][2].setScene(scenes[Scene.SceneType.playground.ordinal()]);
+            locations[2][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
+            locations[2][1].setScene(scenes[Scene.SceneType.statue.ordinal()]);
+            locations[2][2].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
     }
     
 }
