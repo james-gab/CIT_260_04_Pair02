@@ -162,7 +162,7 @@ public int playerCurrentScore;
                 
         switch (choice){
             case 'M': // User moves to location 1
-                this.visitSceanL();
+                this.displayMap();
                 break;
 /*
             case '2': // User moves to location 2
@@ -397,6 +397,13 @@ public int playerCurrentScore;
                 + "\nSending player back to Main Menu");
         MainMenuView quittingGame = new MainMenuView();
         quittingGame.display(hMR);
+    }
+
+    private void displayMap() {
+        MapControl seeMap = new MapControl();
+        seeMap.displayMap();
+        
+        System.out.println("***This is a stub function****  GameMenuView.java");
     }
     
     
