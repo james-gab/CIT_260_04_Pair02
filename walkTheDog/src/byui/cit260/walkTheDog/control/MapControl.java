@@ -14,11 +14,14 @@ import walkthedog.WalkTheDog;
  
  */
 public class MapControl {
+    
+    public static int rowCount = 3;
+    public static int columCount = 3;
 
     public static Map createMap() {
         
         // Create Map
-        Map map = new Map(3,3);
+        Map map = new Map(rowCount,columCount);
         
         // create sceans for the game
         Scene[] scenes = createScenes();
@@ -127,8 +130,26 @@ public class MapControl {
     }
 
     public void displayMap() {
-       SceneControl viewScene = new SceneControl();
-       viewScene.assignScenesToLocations(map, scenes); 
+//       SceneControl viewScene = new SceneControl();
+//       viewScene.assignScenesToLocations(map, scenes); 
+       
+//        public static int rowCount = 3;
+//        public static int columCount = 3;
+  
+       
+       System.out.println("     The Park");
+            System.out.println("|");
+        for (int row = 0; row < rowCount; row++){
+            System.out.println("     "+row+"     |");
+            for (int column = 0; column < columCount; column++){
+            System.out.println(column+"");
+                
+            }}
+       
+       
+       
+       
+       
     }
 
     
