@@ -122,7 +122,7 @@ public class Location implements Serializable {
     }
 
     public void setScene(Scene scene) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print("This is a stub function Location.java");
     }
     
     

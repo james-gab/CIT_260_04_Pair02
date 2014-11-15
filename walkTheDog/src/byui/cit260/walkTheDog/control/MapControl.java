@@ -24,7 +24,7 @@ public class MapControl {
         Scene[] scenes = createScenes();
         
         // assign sceans to locations
-        GameControl.assignScenesToLocations(map,scenes);
+        SceneControl.assignScenesToLocations(map,scenes);
 
 //        System.out.println("***This is a stub function****"
 //                + "\n in MapControl.java    Map createMap()"); 
@@ -127,7 +127,8 @@ public class MapControl {
     }
 
     public void displayMap() {
-        
+       SceneControl viewScene = new SceneControl();
+       viewScene.assignScenesToLocations(map, scenes); 
     }
 
     

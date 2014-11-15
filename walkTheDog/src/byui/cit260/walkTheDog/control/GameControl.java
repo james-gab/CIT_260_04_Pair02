@@ -46,11 +46,6 @@ public class GameControl {
         
         
     }
-
-    public static void assignScenesToLocations(Map map, Scene[] scenes) {
-        System.out.println("\n*** createNewGame stub function called ***"
-                + "GameControl.java     assignScenesToLocations(Map map, Scene[] scenes)");
-    }
             
 }
 // make game function statistic 
