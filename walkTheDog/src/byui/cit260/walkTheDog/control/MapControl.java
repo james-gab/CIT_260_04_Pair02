@@ -131,8 +131,8 @@ public class MapControl {
     }
 
     public void displayMap() {
-       
-     boolean location[][] = Map.locations[][];   
+/*       
+        Location[][] locations = map.getLocations();
        
        System.out.println("     The Park");
             System.out.println("   |");
@@ -151,7 +151,7 @@ public class MapControl {
             
             }}
        
-       
+*/       
        
        
        
