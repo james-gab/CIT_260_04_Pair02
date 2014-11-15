@@ -45,8 +45,6 @@ public class Game implements Serializable {
     public Fido getFido() {
         return fido;
     }
-
-    
     
     public Player getPlayer() {
         return player;
