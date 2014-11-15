@@ -22,6 +22,7 @@ public class Game implements Serializable {
     private char didUserExplore;                  //did the user explore? y/n
     private int userExploreCounter;               //number of times the user did not explore and passed locations                      
     private int shortLeashNumberOfTurns;          //number of turns the leash is below 4
+    
 
     
     public Game() {
@@ -135,8 +136,7 @@ public class Game implements Serializable {
     }
 
     public void setMap(Map map) {
-       System.out.println("***This is a stub function ****"
-               + "\nin Game.java  setMap(Map map) around line 137"); 
+       
     }
 
     public void setFido(Fido fido) {

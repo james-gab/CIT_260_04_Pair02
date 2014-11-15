@@ -100,7 +100,5 @@ public class Map implements Serializable {
     public void setLocations(Location[][] locations) {
         this.locations = locations;
   }
-
-
     
 }
