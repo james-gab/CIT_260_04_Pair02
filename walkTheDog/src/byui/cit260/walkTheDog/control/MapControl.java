@@ -137,8 +137,9 @@ public class MapControl {
 
     public void displayMap() {
         
-        Location[][] locations = Game.getMap();
+ //       Map gameMap = WalkTheDog.getCurrentGame().getMap();
         
+       Location[][] locations =  Map.getLocations();
        
        System.out.println("     The Park");
             System.out.println("   |");
@@ -146,12 +147,13 @@ public class MapControl {
             System.out.println("     "+row+"     |");
             for (int column = 0; column < columCount; column++){
                 System.out.println(column+"  |");
-                Location location = locations [row][column]; // NOT needed ?????
+                Location location; 
+                location = location [row][column];
                 if(true != location){
                     System.out.println("   ?");
                 }
                 else{
-                    System.out.println();                           // place map symbol here
+                    System.out.println("   x");                           // place map symbol here
                 }
                     System.out.println("   |");
             
