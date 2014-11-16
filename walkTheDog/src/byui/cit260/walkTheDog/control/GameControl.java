@@ -65,6 +65,7 @@ public class GameControl {
             locations[2][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
             locations[2][1].setScene(scenes[Scene.SceneType.statue.ordinal()]);
             locations[2][2].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
+            
     }
     
 }
