@@ -137,9 +137,9 @@ public class MapControl {
 
     public void displayMap() {
         
- //       Map gameMap = WalkTheDog.getCurrentGame().getMap();
         
-       Location[][] locations =  Map.getLocations();
+       private Location[][] locations;
+        locations = Map.getLocations();
        
        System.out.println("     The Park");
             System.out.println("   |");
