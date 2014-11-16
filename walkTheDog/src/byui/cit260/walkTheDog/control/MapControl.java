@@ -138,8 +138,7 @@ public class MapControl {
     public void displayMap() {
         
         
-       private Location[][] locations;
-        locations = Map.getLocations();
+       Location[][] locations = Map.getLocations();
        
        System.out.println("     The Park");
             System.out.println("   |");
@@ -147,8 +146,7 @@ public class MapControl {
             System.out.println("     "+row+"     |");
             for (int column = 0; column < columCount; column++){
                 System.out.println(column+"  |");
-                Location location; 
-                location = location [row][column];
+                Location location = location [row][column];
                 if(true != location){
                     System.out.println("   ?");
                 }
