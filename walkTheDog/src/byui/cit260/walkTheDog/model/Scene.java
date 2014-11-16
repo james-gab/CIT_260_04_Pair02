@@ -16,17 +16,27 @@ public class Scene implements Serializable {
     
     private int fixedScene;
     private String description;
+    private boolean blocked;
+    private double travelTime;
+
+    public double getTravelTime() {
+        return travelTime;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
 
     public void setMapSymbol(String st) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.description = st;
     }
 
     public void setBlocked(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.blocked = b;
     }
 
     public void setTravelTime(double POSITIVE_INFINITY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.travelTime = POSITIVE_INFINITY;
     }
     
  

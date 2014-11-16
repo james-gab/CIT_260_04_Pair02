@@ -63,15 +63,16 @@ public int playerCurrentScore;
 //        this.playerLeashLenght = playerLeashLenght;
 //        this.playerSatisfaction = playerSatisfaction;
 //
-        System.out.println("\n\nYour current statistics:\nfor testing only\n");
-//                + playerCurrentScore + "  =  playerCurrentScore\n"
-//                + gameDidUserExplore + "  =  gameDidUserExplore\n"
-//                + gameUserExploreCounter + "  =  gameUserExploreCounter\n"
-//                + gameFidoMood + "  =  gameFidoMood\n"
-//                + gameNumberOfTurns + "  =  gameNumberOfTurns\n"
-//                + gameIdealLeashLength + "  =  gameIdealLeashLength\n"
-//                + playerLeashLenght + "  =  playerLeashLenght\n"
-//                + playerSatisfaction + "  =  playerSatisfaction\n");
+        System.out.println("\n\nYour current statistics:\nfor testing only\n"
+       // );
+                + playerCurrentScore + "  =  playerCurrentScore\n"
+                + gameDidUserExplore + "  =  gameDidUserExplore\n"
+                + gameUserExploreCounter + "  =  gameUserExploreCounter\n"
+                + gameFidoMood + "  =  gameFidoMood\n"
+                + gameNumberOfTurns + "  =  gameNumberOfTurns\n"
+                + gameIdealLeashLength + "  =  gameIdealLeashLength\n"
+                + playerLeashLenght + "  =  playerLeashLenght\n"
+                + playerSatisfaction + "  =  playerSatisfaction\n");
         
         
         
@@ -162,7 +163,8 @@ public int playerCurrentScore;
                 
         switch (choice){
             case 'M': // User moves to location 1
-                this.displayMap();
+            //    this.displayMap();
+                this.visitSceanL();
                 break;
 /*
             case '2': // User moves to location 2
