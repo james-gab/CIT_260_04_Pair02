@@ -185,7 +185,7 @@ public class MapControl {
                     System.out.print(locations[row][column].getScene().getMapSymbol());
                 }
                 else{
-                    System.out.print("   x");                           // place map symbol here
+                    System.out.print("   x      ");                           // place map symbol here
                 }
             
             }
