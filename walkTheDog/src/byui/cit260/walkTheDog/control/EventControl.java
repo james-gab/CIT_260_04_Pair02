@@ -3,6 +3,8 @@
  * 
  */
 package byui.cit260.walkTheDog.control;
+import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.view.GameMenuView;
 import java.util.Random;
 /**
  *
@@ -174,10 +176,69 @@ public class EventControl {
     //Generate a random number
     public int randomNumberGenerator16_0to15 (){
         Random rand = new Random();  
-//        int randomMultiplyer = rand.nextInt(16);
-//        return randomMultiplyer;
         return (int) rand.nextInt(16);
     }
 
+    public int shortLeash(Player player){
+        
+                if (player.playerLeashLenght<4){
+        EventControl fidoMood = new EventControl();                              // calls random number generator
+        int getFidoMood = fidoMood.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
+            if (getFidoMood == 0){
+                System.out.println("Fido does not like a short leash"
+                        + "\nand has been a bad dog, you loose 3 points");
+                player.playerCurrentScore -=3;
+                player.gameNumberOfTurns =0;
+            }
+            else if (getFidoMood < player.gameFidoMood){
+                System.out.println("Fido does not like a short leash"
+                        + "\nand is starting to get unhappy");
+                player.gameFidoMood = getFidoMood;
+                player.gameNumberOfTurns +=1;
+            }
+            else if (getFidoMood == player.gameFidoMood){
+                System.out.println(" Fido fido does not like a short leash "
+                        + "\nlucily Fido is not that mad yet."
+                        + "\nConsider keeping the leash longer than 3.");
+                player.gameNumberOfTurns +=1;
+            }
+            else {
+                System.out.println("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                        + "\nin       visitSceanL() if(playerLeashLength<4)");
+// develop code that restarts the game from this spot
+            }
+        }
+
+        
+        return 0;
+    }
+    
+    public int didUserExplore(Player player){
+        
+                if (player.gameDidUserExplore=='n'){
+            int eONE = this.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, this.randomNumberGenerator16_0to15());
+            if (eONE < 0){
+            System.out.println("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java in ***"
+                    + "\n   visitSceanL() if(gameUserExplore<0)***");
+// develop code that restarts the game from this spot                
+            }
+            else if (eONE > 0)  {
+                player.gameDidUserExplore = 'r';                                       // change char gameDidUserExplore to random event posible
+                player.gameUserExploreCounter = 0;                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
+            System.out.println("/nA random event occured when you did not Explore the area./n");
+                player.playerLeashLenght = this.idealLeashLength(this.randomNumberGenerator16_0to15()); // passes a random generated playerLeashLenght to a variable
+                GameMenuView checkExplore = new GameMenuView(player);
+                checkExplore.userExplore();                                             // sends player to explore
+            }
+        }
+        return 0;
+    }
+    
+    
     
 }
+
+
+    

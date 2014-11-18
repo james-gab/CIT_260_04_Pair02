@@ -25,8 +25,17 @@ public class Player implements Serializable {
     public int gameNumberOfTurns;
     public int gameFidoMood;
     public int gameIdealLeashLength;
+    public String playerSatisfaction;
 
     public Player() {
+    }
+
+    public String getPlayerSatisfaction() {
+        return playerSatisfaction;
+    }
+
+    public void setPlayerSatisfaction(String playerSatisfaction) {
+        this.playerSatisfaction = playerSatisfaction;
     }
     
     

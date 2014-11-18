@@ -68,16 +68,16 @@ public Player player;
         this.player = player;
 //
         System.out.println("\n\nYour current statistics:\nfor testing only\n"
-                + player
-        );
-//                + playerCurrentScore + "  =  playerCurrentScore\n"
-//                + gameDidUserExplore + "  =  gameDidUserExplore\n"
-//                + gameUserExploreCounter + "  =  gameUserExploreCounter\n"
-//                + gameFidoMood + "  =  gameFidoMood\n"
-//                + gameNumberOfTurns + "  =  gameNumberOfTurns\n"
-//                + gameIdealLeashLength + "  =  gameIdealLeashLength\n"
-//                + playerLeashLenght + "  =  playerLeashLenght\n"
-//                + playerSatisfaction + "  =  playerSatisfaction\n");
+                + player + "\n\n"+
+//        );
+                + player.playerCurrentScore + "  =  playerCurrentScore\n"
+                + player.gameDidUserExplore + "  =  gameDidUserExplore\n"
+                + player.gameUserExploreCounter + "  =  gameUserExploreCounter\n"
+                + player.gameFidoMood + "  =  gameFidoMood\n"
+                + player.gameNumberOfTurns + "  =  gameNumberOfTurns\n"
+                + player.gameIdealLeashLength + "  =  gameIdealLeashLength\n"
+                + player.playerLeashLenght + "  =  playerLeashLenght\n"
+                + player.playerSatisfaction + "  =  playerSatisfaction\n");
         
         
         
@@ -242,8 +242,15 @@ public Player player;
 
     
     private void visitSceanL(){
+        
+        EventControl check = new EventControl();
 
-        if (player.gameDidUserExplore=='n'){
+        check.didUserExplore(player);
+        check.shortLeash(player);
+                
+        
+        
+/*        if (player.gameDidUserExplore=='n'){
             EventControl number = new EventControl();                              // calls random number generator
             EventControl eventOnNoExplore = new EventControl();                       // determin if an event happened during a ramdom initiated explore
             int eONE = eventOnNoExplore.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, number.randomNumberGenerator16_0to15());
@@ -262,7 +269,7 @@ public Player player;
                 this.userExplore();                                             // sends player to explore
             }
         }
-        
+*/        
         player.gameDidUserExplore = 'n';                                               // change char gameDidUserExplore back to NO
         
          //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
@@ -273,7 +280,11 @@ public Player player;
 //        System.out.println("The location choice was:   " + i );
 
         int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I decide what to do with the MapControl section.
+
         
+        
+        
+/*        
         if (player.playerLeashLenght<4){
         EventControl fidoMood = new EventControl();                              // calls random number generator
         int getFidoMood = fidoMood.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
@@ -302,7 +313,7 @@ public Player player;
 // develop code that restarts the game from this spot
             }
         }
-
+*/
         LocationView changeLocations = new LocationView(player
 //                playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
                                             );                         // send user to Location view menu
@@ -328,7 +339,7 @@ public Player player;
      * ***************  Please advise  *****************
      */
     
-    private void userExplore(){
+    public void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
 
         EventControl number = new EventControl();                              // calls random number generator

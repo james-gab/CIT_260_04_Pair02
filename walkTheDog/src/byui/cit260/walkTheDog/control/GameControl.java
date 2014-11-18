@@ -45,9 +45,9 @@ public class GameControl {
         player.gameFidoMood = 5;
         player.playerCurrentScore = numbernumber.randomNumberGenerator16_0to15 ();
         player.gameUserExploreCounter = 0;
-        player.playerLeashLenght = 4;
+        player.playerLeashLenght = numbernumber.randomNumberGenerator16_0to15 ();
         player.gameNumberOfTurns = 0;
-        player.gameIdealLeashLength = 15;
+        player.gameIdealLeashLength = numbernumber.randomNumberGenerator16_0to15 ();
 
     
     }
