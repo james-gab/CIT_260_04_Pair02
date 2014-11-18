@@ -43,7 +43,7 @@ public class GameControl {
         
         player.gameDidUserExplore = 'n';
         player.gameFidoMood = 5;
-        player.playerCurrentScore = numbernumber.randomNumberGenerator16_0to15 ();
+        player.playerCurrentScore = 1 + numbernumber.randomNumberGenerator16_0to15 ();
         player.gameUserExploreCounter = 0;
         player.playerLeashLenght = numbernumber.randomNumberGenerator16_0to15 ();
         player.gameNumberOfTurns = 0;
