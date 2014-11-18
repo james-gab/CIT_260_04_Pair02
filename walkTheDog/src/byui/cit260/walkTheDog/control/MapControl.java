@@ -142,20 +142,20 @@ public class MapControl {
        
        
        System.out.println("     The Park");
-            System.out.println("   |");
+            System.out.print("   |");
         for (int row = 0; row < rowCount; row++){
-            System.out.println("     "+row+"     |");
+            System.out.print("     "+row+"     |");
             for (int column = 0; column < columCount; column++){
-                System.out.println(column+"  |");
+                System.out.print(column+"  |");
                 Location location = locations [row][column];
                 
                 if(!location.equals("")){
-                    System.out.println("   ?");
+                    System.out.print("   ?");
                 }
                 else{
-                    System.out.println("   x");                           // place map symbol here
+                    System.out.print("   x");                           // place map symbol here
                 }
-                    System.out.println("   |");
+                    System.out.print("   |\n");
             
             }}
        
