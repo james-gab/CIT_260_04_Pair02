@@ -44,29 +44,58 @@ public class MapControl {
         BufferedImage image = null;
         Game game = WalkTheDog.getCurrentGame();
         Scene[] scenes = new Scene[Scene.SceneType.values().length];
+        
         // STARTING SCENE////
-        Scene startingScene = new Scene();
-        startingScene.setDescription(
+        Scene fountainScene = new Scene();
+        fountainScene.setDescription(
         "\nWalk your dog!!!!!!");                                               //add description
-        startingScene.setMapSymbol( "ST" );
-        startingScene.setBlocked(false);
-        // startingScene.setTravelTime(240);
-        // ImageIcon startingSceneImage = MapControl.getImage(startingScene,
-        // "PATH_TO_IMAGE")
-        // ;
-        // startingScene.setIcon(startingSceneImage);
-        scenes[Scene.SceneType.fountain.ordinal()] = startingScene;
-   
-        Scene finishScene = new Scene();
-        finishScene.setDescription(
-        "\nCongratulations! Your dog made it out alive!");                      //add description
-        finishScene.setMapSymbol( "FN" );
-        finishScene.setBlocked(false);
-        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
-        // ImageIcon finishSceneImage = MapControl.getImage(finishScene,
-        // "PATH_TO_IMAGE");
-        // finishScene.setIcon(finishSceneImage);
-         scenes[SceneType.duckpond.ordinal()] = finishScene;
+        fountainScene.setMapSymbol( " fountain " );
+        fountainScene.setBlocked(false);
+        scenes[Scene.SceneType.fountain.ordinal()] = fountainScene;
+
+        Scene duckpondScene = new Scene();
+        duckpondScene.setDescription(
+        "\nWalk your dog!!!!!!");                                               //add description
+        duckpondScene.setMapSymbol( " duckpond " );
+        duckpondScene.setBlocked(false);
+        scenes[Scene.SceneType.duckpond.ordinal()] = duckpondScene;
+
+        Scene statueScene = new Scene();
+        statueScene.setDescription(
+        "\nWalk your dog!!!!!!");                                               //add description
+        statueScene.setMapSymbol( "  statue  " );
+        statueScene.setBlocked(false);
+        scenes[Scene.SceneType.statue.ordinal()] = statueScene;
+
+        Scene restroomsScene = new Scene();
+        restroomsScene.setDescription(
+        "\nWalk your dog!!!!!!");                                               //add description
+        restroomsScene.setMapSymbol( " restrooms" );
+        restroomsScene.setBlocked(false);
+        scenes[Scene.SceneType.restrooms.ordinal()] = restroomsScene;
+
+        Scene dogparkScene = new Scene();
+        dogparkScene.setDescription(
+        "\nWalk your dog!!!!!!");                                               //add description
+        dogparkScene.setMapSymbol( " dogpark  " );
+        dogparkScene.setBlocked(false);
+        scenes[Scene.SceneType.dogpark.ordinal()] = dogparkScene;
+
+        Scene playgroundScene = new Scene();
+        playgroundScene.setDescription(
+        "\nWalk your dog!!!!!!");                                               //add description
+        playgroundScene.setMapSymbol( "playground" );
+        playgroundScene.setBlocked(false);
+        scenes[Scene.SceneType.playground.ordinal()] = playgroundScene;
+
+        
+//        
+//        Scene finishScene = new Scene();
+//        finishScene.setDescription(
+//        "\nCongratulations! Your dog made it out alive!");                      //add description
+//        finishScene.setMapSymbol( " FN " );
+//        finishScene.setBlocked(false);
+//         scenes[SceneType.duckpond.ordinal()] = finishScene;
         return scenes;
    
   }
@@ -144,23 +173,23 @@ public class MapControl {
        System.out.println("     The Park\n");
             System.out.print("          ");
         for (int column = 0; column < columCount; column++){
-                System.out.print("   "+column+"  |");
+                System.out.print("     "+column+"     | ");
         }
         for (int row = 0; row < rowCount; row++){
             System.out.print("\n      "+row);
             for (int column = 0; column < columCount; column++){
-                System.out.print("  |");
+                System.out.print(" | ");
                 Location location = locations [row][column];
                 
                 if(!location.equals("")){
-                    System.out.print("   ?");
+                    System.out.print(locations[row][column].getScene().getMapSymbol());
                 }
                 else{
                     System.out.print("   x");                           // place map symbol here
                 }
             
             }
-                    System.out.print("  |");
+                    System.out.print(" |");
             
         }
        

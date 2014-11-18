@@ -18,6 +18,7 @@ public class Scene implements Serializable {
     private String description;
     private boolean blocked;
     private double travelTime;
+    public String MapSymbol;
 
     public double getTravelTime() {
         return travelTime;
@@ -27,8 +28,12 @@ public class Scene implements Serializable {
         return blocked;
     }
 
+    public String getMapSymbol() {
+        return MapSymbol;
+    }
+
     public void setMapSymbol(String st) {
-        this.description = st;
+        this.MapSymbol = st;
     }
 
     public void setBlocked(boolean b) {
@@ -50,7 +55,7 @@ public class Scene implements Serializable {
     duckpond;               //("You found the duck pond, watch out for bird poop!");
      }
     Scene(String description) {
-        this.description = description;
+        this.MapSymbol = description;
         fixedScene = 1;
     
      }
@@ -64,18 +69,18 @@ public class Scene implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        return MapSymbol;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.MapSymbol = description;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 97 * hash + this.fixedScene;
-        hash = 97 * hash + Objects.hashCode(this.description);
+        hash = 97 * hash + Objects.hashCode(this.MapSymbol);
         return hash;
     }
 
@@ -91,7 +96,7 @@ public class Scene implements Serializable {
         if (this.fixedScene != other.fixedScene) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.MapSymbol, other.MapSymbol)) {
             return false;
         }
         return true;
@@ -102,7 +107,7 @@ public class Scene implements Serializable {
 
     @Override
     public String toString() {
-        return "Scene{" + "fixedScene=" + fixedScene + ", description=" + description + '}';
+        return "Scene{" + "fixedScene=" + fixedScene + ", description=" + MapSymbol + '}';
     }
     
     
