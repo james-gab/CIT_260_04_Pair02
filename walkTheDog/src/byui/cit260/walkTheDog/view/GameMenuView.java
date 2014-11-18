@@ -52,24 +52,18 @@ public Player player;
             + "\n  M   - Move to new location" 
             + "\n  E   - Explore location" 
             + "\n  L   - Estimate leash length"
+            + "\n  D   - Display Map"
             + "\n  T   - Game Statistics"
             + "\n  H   - Help Menu "
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
             + "\n________________________________\n");
-//        this.playerCurrentScore = playerCurrentScore;
-//        this.gameDidUserExplore = gameDidUserExplore;
-//        this.gameUserExploreCounter = gameUserExploreCounter;
-//        this.gameFidoMood = gameFidoMood;
-//        this.gameNumberOfTurns = gameNumberOfTurns;
-//        this.gameIdealLeashLength = gameIdealLeashLength;
-//        this.playerLeashLenght = playerLeashLenght;
-//        this.playerSatisfaction = playerSatisfaction;
+
         this.player = player;
-//
+
         System.out.println("\n\nYour current statistics:\nfor testing only\n"
-                + player + "\n\n"+
-//        );
+                + player + "\n"
+                + "\n"
                 + player.playerCurrentScore + "  =  playerCurrentScore\n"
                 + player.gameDidUserExplore + "  =  gameDidUserExplore\n"
                 + player.gameUserExploreCounter + "  =  gameUserExploreCounter\n"
@@ -77,7 +71,8 @@ public Player player;
                 + player.gameNumberOfTurns + "  =  gameNumberOfTurns\n"
                 + player.gameIdealLeashLength + "  =  gameIdealLeashLength\n"
                 + player.playerLeashLenght + "  =  playerLeashLenght\n"
-                + player.playerSatisfaction + "  =  playerSatisfaction\n");
+                + player.playerSatisfaction + "  =  playerSatisfaction\n"
+        );
         
         
         
@@ -171,67 +166,26 @@ public Player player;
             //    this.displayMap();
                 this.visitSceanL();
                 break;
-/*
-            case '2': // User moves to location 2
-                this.visitSceanL(choice);
+            case 'D': // User Displays Map
+                this.displayMap();
                 break;
-            case '3': // User moves to location 3
-                this.visitSceanL(choice);
-                break;
-            case '4': // User moves to location 4
-                this.visitSceanL(choice);
-                break;
-            case '5': // User moves to location 5
-                this.visitSceanL(choice);
-                break;
-            case '6': // User moves to location 6
-                this.visitSceanL(choice);
-                break;
-            case '7': // User moves to location 7
-                this.visitSceanL(choice);
-                break;
-            case '8': // User moves to location 8
-                this.visitSceanL(choice);
-                break;
-            case '9': // User moves to location 9
-                this.visitSceanL(choice);
-                break;
-*/
-            
             case 'E': // User chooses to Explore
                 this.userExplore();
                 break;
-//            case 'e': // User chooses to Explore
-//                this.userExplore();
-//                break;
             case 'L': // User Estimates Leash Length needed
                 this.userLeashLength();
                 break;
-//            case 'l': // User Estimates Leash Length needed
-//                this.userLeashLength();
-//                break;
             case 'T': // User views userStatistics
                 this.userStatistics();
                 break;
-//            case 't': // User views userStatistics
-//                this.userStatistics();
-//                break;
             case 'H': // display the Help Menu
                 this.displayHelpMenu();
                 break;
-//            case 'h': // display the Help Menu
-//                this.displayHelpMenu();
-//                break;
             case 'S': // save the current Game
                 this.saveGame();
                 break;
-//            case 's': // save the current Game
-//                this.saveGame();
-//                break;
             case 'Q': // Exit the game (no save)
                 this.quitGame();
-//            case 'q': // Exit the game (no save)
-//                this.quitGame();
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again ***");
                 break;
@@ -247,79 +201,15 @@ public Player player;
 
         check.didUserExplore(player);
         check.shortLeash(player);
-                
-        
-        
-/*        if (player.gameDidUserExplore=='n'){
-            EventControl number = new EventControl();                              // calls random number generator
-            EventControl eventOnNoExplore = new EventControl();                       // determin if an event happened during a ramdom initiated explore
-            int eONE = eventOnNoExplore.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, number.randomNumberGenerator16_0to15());
-            if (eONE < 0){
-            System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java in ***"
-                    + "\n   visitSceanL() if(gameUserExplore<0)***");
-// develop code that restarts the game from this spot                
-            }
-            else if (eONE > 0)  {
-                player.gameDidUserExplore = 'r';                                       // change char gameDidUserExplore to random event posible
-                player.gameUserExploreCounter = 0;                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
-            System.out.println("/nA random event occured when you did not Explore the area./n");
-                EventControl idealLeashLength = new EventControl();             // set playerLeashLenght to a ramdom generated number and send player to explore
-                player.playerLeashLenght = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated playerLeashLenght to a variable
-                this.userExplore();                                             // sends player to explore
-            }
-        }
-*/        
         player.gameDidUserExplore = 'n';                                               // change char gameDidUserExplore back to NO
-        
-         //FIX THIS - ADD A FUNCTION TO DETERMIN IF THE PLAYER EXPLORED BEFORE LEAVING THEN CHANGE COUNTER TO ZERO. 
-                                //ZERO IS NO EXPLORE   1 IS EXPLORE. COUNTER MUST BE RETURNED TO ZERO BEFORE MOVING TO NEXT SCEAN
         
         System.out.println("*** Move Location function called ***"
                 + "\n Location Menu will be called");
-//        System.out.println("The location choice was:   " + i );
 
         int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I decide what to do with the MapControl section.
-
         
-        
-        
-/*        
-        if (player.playerLeashLenght<4){
-        EventControl fidoMood = new EventControl();                              // calls random number generator
-        int getFidoMood = fidoMood.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
-            if (getFidoMood == 0){
-                System.out.println("Fido does not like a short leash"
-                        + "\nand has been a bad dog, you loose 3 points");
-                player.playerCurrentScore -=3;
-                player.gameNumberOfTurns =0;
-            }
-            else if (getFidoMood < player.gameFidoMood){
-                System.out.println("Fido does not like a short leash"
-                        + "\nand is starting to get unhappy");
-                player.gameFidoMood = getFidoMood;
-                player.gameNumberOfTurns +=1;
-            }
-            else if (getFidoMood == player.gameFidoMood){
-                System.out.println(" Fido fido does not like a short leash "
-                        + "\nlucily Fido is not that mad yet."
-                        + "\nConsider keeping the leash longer than 3.");
-                player.gameNumberOfTurns +=1;
-            }
-            else {
-                System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java ***"
-                        + "\nin       visitSceanL() if(playerLeashLength<4)");
-// develop code that restarts the game from this spot
-            }
-        }
-*/
-        LocationView changeLocations = new LocationView(player
-//                playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
-                                            );                         // send user to Location view menu
+        LocationView changeLocations = new LocationView(player);                         // send user to Location view menu
         changeLocations.display(hMR);
-        
-        
         }
     
         
@@ -346,6 +236,9 @@ public Player player;
         EventControl idealLeashLength = new EventControl();                     // generates a random ideal leash length
         player.gameIdealLeashLength = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated idealLeashLength to a variable
         
+        EventControl check = new EventControl();
+        check.shortLeash(player);
+
         EventControl eventOnExplore = new EventControl();                       // determin if an event happened during a user initiated explore
         int eOE = eventOnExplore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength);
         
@@ -400,19 +293,15 @@ public Player player;
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu(hMR
-                //,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
-                );
+        gameMenuHelp.displayHelpMenu(hMR);
     }
     
     private void userStatistics(){
-        StatisticsMenuView gameStatistics = new StatisticsMenuView(player
-                //playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
-                );
+        StatisticsMenuView gameStatistics = new StatisticsMenuView(player);
         gameStatistics.display(hMR);
     }
 
-    private void saveGame(){                                                    // 
+    private void saveGame(){                                              
         System.out.println("*** saveGame function called ***");
     }
 
@@ -424,10 +313,9 @@ public Player player;
     }
 
     private void displayMap() {
+        System.out.println("***This is a stub function****  GameMenuView.java   displayMap()");
         MapControl seeMap = new MapControl();
         seeMap.displayMap();
-        
-        System.out.println("***This is a stub function****  GameMenuView.java");
     }
     
     
