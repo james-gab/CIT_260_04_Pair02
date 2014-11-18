@@ -26,6 +26,7 @@ public enum Actor implements Serializable{
     private final String actorName;
     private final int idealLeashLength;   //THIS IS NOT A FINAL NEED TO CHANGE?????
     private final Point cordinates;
+    public Actor[][] actorS;
 
 
     Actor(String actorName) {

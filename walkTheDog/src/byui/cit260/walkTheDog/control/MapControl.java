@@ -164,41 +164,35 @@ public class MapControl {
         return 0;
     }
 
-    public void displayMap() {
+    
+        public void displayMap() {
         
-        
-       Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
-       
-       
-       System.out.println("     The Park\n");
+            Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
+            
+            System.out.println("     The Park\n");
             System.out.print("          ");
-        for (int column = 0; column < columCount; column++){
-                System.out.print("     "+column+"     | ");
-        }
-        for (int row = 0; row < rowCount; row++){
-            System.out.print("\n      "+row);
+            
             for (int column = 0; column < columCount; column++){
-                System.out.print(" | ");
-                Location location = locations [row][column];
-                
-                if(!location.equals("")){
-                    System.out.print(locations[row][column].getScene().getMapSymbol());
-                }
-                else{
-                    System.out.print("   x      ");                           // place map symbol here
+                System.out.print("     "+column+"     | ");
                 }
             
-            }
+            for (int row = 0; row < rowCount; row++){
+                System.out.print("\n      "+row);
+                    for (int column = 0; column < columCount; column++){
+                        System.out.print(" | ");
+                        Location location = locations [row][column];
+                        if(!location.equals("")){
+                            System.out.print(locations[row][column].getScene().getMapSymbol());
+                            }
+                        else{
+                            System.out.print("   x      ");                           // place map symbol here
+                            }
+                        }
+                    
                     System.out.print(" |");
-            
-        }
-       
-       
-       
-       
-       
-    }
-
+                    }
+            }   // END of public void displayMap()
+ 
     
 
     
