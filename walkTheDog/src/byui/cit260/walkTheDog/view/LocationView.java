@@ -4,6 +4,7 @@
 package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
+import byui.cit260.walkTheDog.model.Player;
 
 import java.util.Scanner;
 
@@ -12,27 +13,29 @@ import java.util.Scanner;
  */
 public class LocationView extends ViewL{
     public String hMR = "LV";
-    public int playerSatisfaction;
-    public int playerLeashLenght;
-    public int gameIdealLeashLength;
-    public int gameNumberOfTurns;
-    public int gameFidoMood;
-    public int gameUserExploreCounter;
-    public char gameDidUserExplore;
-    public int playerCurrentScore;   
+//    public int playerSatisfaction;
+//    public int playerLeashLenght;
+//    public int gameIdealLeashLength;
+//    public int gameNumberOfTurns;
+//    public int gameFidoMood;
+//    public int gameUserExploreCounter;
+//    public char gameDidUserExplore;
+//    public int playerCurrentScore;   
+    private Player player;
 
     
     
     
     public LocationView (
-                        int playerSatisfaction,
-                        int playerLeashLenght,
-                        int gameIdealLeashLength,
-                        int gameNumberOfTurns,
-                        int gameFidoMood,
-                        int gameUserExploreCounter,
-                        char gameDidUserExplore,
-                        int playerCurrentScore
+                          Player player
+//                        int playerSatisfaction,
+//                        int playerLeashLenght,
+//                        int gameIdealLeashLength,
+//                        int gameNumberOfTurns,
+//                        int gameFidoMood,
+//                        int gameUserExploreCounter,
+//                        char gameDidUserExplore,
+//                        int playerCurrentScore
                                                 ) {
 
 
@@ -52,14 +55,15 @@ public class LocationView extends ViewL{
             + "\n  H   - Help Menu" 
             + "\n  Q   - Return to Game menu"
             + "\n________________________________\n");
-        this.playerCurrentScore = playerCurrentScore;
-        this.gameDidUserExplore = gameDidUserExplore;
-        this.gameUserExploreCounter = gameUserExploreCounter;
-        this.gameFidoMood = gameFidoMood;
-        this.gameNumberOfTurns = gameNumberOfTurns;
-        this.gameIdealLeashLength = gameIdealLeashLength;
-        this.playerLeashLenght = playerLeashLenght;
-        this.playerSatisfaction = playerSatisfaction;
+//        this.playerCurrentScore = playerCurrentScore;
+//        this.gameDidUserExplore = gameDidUserExplore;
+//        this.gameUserExploreCounter = gameUserExploreCounter;
+//        this.gameFidoMood = gameFidoMood;
+//        this.gameNumberOfTurns = gameNumberOfTurns;
+//        this.gameIdealLeashLength = gameIdealLeashLength;
+//        this.playerLeashLenght = playerLeashLenght;
+//        this.playerSatisfaction = playerSatisfaction;
+        this.player=player;
     }
     
     
@@ -107,13 +111,15 @@ public class LocationView extends ViewL{
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu(hMR,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+        gameMenuHelp.displayHelpMenu(hMR
+//                ,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
+        );
     }
     
     private void quitGame(){
         System.out.println("*** quit Location function called ***"
                 + "\nSending player back to Game Menu");
-        GameMenuView quittingGame = new GameMenuView();
+        GameMenuView quittingGame = new GameMenuView(player);
         quittingGame.display(hMR);
     }
     

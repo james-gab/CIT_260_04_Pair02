@@ -3,11 +3,13 @@ package byui.cit260.walkTheDog.view;
 
 
 
+import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
 
 public class HelpMenuView {
     public String hMR = " ";
-    public int playerSatisfaction;
+    public Player player;
+/*    public int playerSatisfaction;
     public int playerLeashLenght;
     public int gameIdealLeashLength;
     public int gameNumberOfTurns;
@@ -15,7 +17,7 @@ public class HelpMenuView {
     public int gameUserExploreCounter;
     public char gameDidUserExplore;
     public int playerCurrentScore;   
-
+*/
 
     private final String HELPMENU = "\n"
             + "\n___________________________"
@@ -33,25 +35,26 @@ public class HelpMenuView {
             + "\n\n___________________________";
     
     public void displayHelpMenu(
-                                String returnTO,
-                                int playerSatisfaction,
-                                int playerLeashLenght,
-                                int gameIdealLeashLength,
-                                int gameNumberOfTurns,
-                                int gameFidoMood,
-                                int gameUserExploreCounter,
-                                char gameDidUserExplore,
-                                int playerCurrentScore
+                                String returnTO
+//                                ,
+//                                int playerSatisfaction,
+//                                int playerLeashLenght,
+//                                int gameIdealLeashLength,
+//                                int gameNumberOfTurns,
+//                                int gameFidoMood,
+//                                int gameUserExploreCounter,
+//                                char gameDidUserExplore,
+//                                int playerCurrentScore
                                                         ) {
 
-        this.playerCurrentScore = playerCurrentScore;
-        this.gameDidUserExplore = gameDidUserExplore;
-        this.gameUserExploreCounter = gameUserExploreCounter;
-        this.gameFidoMood = gameFidoMood;
-        this.gameNumberOfTurns = gameNumberOfTurns;
-        this.gameIdealLeashLength = gameIdealLeashLength;
-        this.playerLeashLenght = playerLeashLenght;
-        this.playerSatisfaction = playerSatisfaction;
+//        this.playerCurrentScore = playerCurrentScore;
+//        this.gameDidUserExplore = gameDidUserExplore;
+//        this.gameUserExploreCounter = gameUserExploreCounter;
+//        this.gameFidoMood = gameFidoMood;
+//        this.gameNumberOfTurns = gameNumberOfTurns;
+//        this.gameIdealLeashLength = gameIdealLeashLength;
+//        this.playerLeashLenght = playerLeashLenght;
+//        this.playerSatisfaction = playerSatisfaction;
         hMR = returnTO;
  	System.out.println(hMR + " hMR from returnTO\n"
                 + returnTO + " ReturnTO"); // hMR and returnTO
@@ -209,10 +212,14 @@ public class HelpMenuView {
     
     public void helpQuitAndReturn(String returnTO){
 
-                MainMenuView mmvGame = new MainMenuView();
-                GameMenuView gmvGame = new GameMenuView();
-                StatisticsMenuView smvGame = new StatisticsMenuView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
-                LocationView lvGame = new LocationView(playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+                MainMenuView mmvGame = new MainMenuView(player);
+                GameMenuView gmvGame = new GameMenuView(player);
+                StatisticsMenuView smvGame = new StatisticsMenuView(player
+//                        playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
+                );
+                LocationView lvGame = new LocationView(player
+//                        playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
+                );
         
         switch (returnTO){
             case "gMV":

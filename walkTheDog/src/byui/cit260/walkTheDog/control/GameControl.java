@@ -24,6 +24,7 @@ public class GameControl {
     
     
     public static void createNewGame(Player player){
+        EventControl numbernumber = new EventControl ();
         System.out.println("\n*** createNewGame stub function called ***"
                 + "GameControl.java     createNewGame(Player player)");
         
@@ -39,17 +40,16 @@ public class GameControl {
         
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
-/*      
-        //This Needs to be sorted out and fixed, there is not a setter for this function in GAME.java
-        Location fixedLocation = GameControl.createFixedLocation();
-        game.Location(fixedLocation);
-*/        
-  
-        // Anythign in the Model Layer with a variable 
-        // is called and initilized in this function
         
-        
-        
+        player.gameDidUserExplore = 'n';
+        player.gameFidoMood = 5;
+        player.playerCurrentScore = numbernumber.randomNumberGenerator16_0to15 ();
+        player.gameUserExploreCounter = 0;
+        player.playerLeashLenght = 4;
+        player.gameNumberOfTurns = 0;
+        player.gameIdealLeashLength = 15;
+
+    
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes){

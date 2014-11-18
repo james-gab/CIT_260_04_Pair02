@@ -18,8 +18,87 @@ public class Player implements Serializable {
     private String name;
     private double highScore; /* Will add to UML (Gab and Idel agreed to put
                                this in here and in the UML. */
+    public int playerCurrentScore;
+    public char gameDidUserExplore;
+    public int gameUserExploreCounter;
+    public int playerLeashLenght;
+    public int gameNumberOfTurns;
+    public int gameFidoMood;
+    public int gameIdealLeashLength;
+
     public Player() {
     }
+    
+    
+    
+    
+
+    public void setHighScore(double highScore) {
+        this.highScore = highScore;
+    }
+
+    public void setPlayerCurrentScore(int playerCurrentScore) {
+        this.playerCurrentScore = playerCurrentScore;
+    }
+
+    public void setGameDidUserExplore(char gameDidUserExplore) {
+        this.gameDidUserExplore = gameDidUserExplore;
+    }
+
+    public void setGameUserExploreCounter(int gameUserExploreCounter) {
+        this.gameUserExploreCounter = gameUserExploreCounter;
+    }
+
+    public void setPlayerLeashLenght(int playerLeashLenght) {
+        this.playerLeashLenght = playerLeashLenght;
+    }
+
+    public void setGameNumberOfTurns(int gameNumberOfTurns) {
+        this.gameNumberOfTurns = gameNumberOfTurns;
+    }
+
+    public void setGameFidoMood(int gameFidoMood) {
+        this.gameFidoMood = gameFidoMood;
+    }
+
+    public void setGameIdealLeashLength(int gameIdealLeashLength) {
+        this.gameIdealLeashLength = gameIdealLeashLength;
+    }
+
+    public double getHighScore() {
+        return highScore;
+    }
+
+    public int getPlayerCurrentScore() {
+        return playerCurrentScore;
+    }
+
+    public char getGameDidUserExplore() {
+        return gameDidUserExplore;
+    }
+
+    public int getGameUserExploreCounter() {
+        return gameUserExploreCounter;
+    }
+
+    public int getPlayerLeashLenght() {
+        return playerLeashLenght;
+    }
+
+    public int getGameNumberOfTurns() {
+        return gameNumberOfTurns;
+    }
+
+    public int getGameFidoMood() {
+        return gameFidoMood;
+    }
+
+    public int getGameIdealLeashLength() {
+        return gameIdealLeashLength;
+    }
+    
+    
+    
     
     
 

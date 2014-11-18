@@ -12,19 +12,19 @@ import walkthedog.WalkTheDog;
 public class MainMenuView extends View {
 
     public String hMR = "mMV";
-    public int playerSatisfaction;
-    public int playerLeashLenght;
-    public int gameIdealLeashLength;
-    public int gameNumberOfTurns;
-    public int gameFidoMood;
-    public int gameUserExploreCounter;
-    public char gameDidUserExplore;
-    public int playerCurrentScore; 
-//    public Player player;
+//    public int playerSatisfaction;
+//    public int playerLeashLenght;
+//    public int gameIdealLeashLength;
+//    public int gameNumberOfTurns;
+//    public int gameFidoMood;
+//    public int gameUserExploreCounter;
+//    public char gameDidUserExplore;
+//    public int playerCurrentScore; 
+    public Player player;
 
     //private final String MENU =
     public MainMenuView(
-//            Player player
+            Player player
     ) {
         super("\n"
             + "\n___________________________"
@@ -37,9 +37,7 @@ public class MainMenuView extends View {
             + "\nQ - Exit "
             + "\n___________________________");
             
-//        this.player = player;
-        
-        
+        this.player = player;
     }
     
 /*    public void displayMenu(){
@@ -131,7 +129,7 @@ public class MainMenuView extends View {
         
 //        NewGameMenuControl gameMenu = new NewGameMenuControl();
 //        gameMenu.display(hMR);
-        GameMenuView gameMenu = new GameMenuView();
+        GameMenuView gameMenu = new GameMenuView(player);
         gameMenu.display(hMR);
     }   
      
@@ -142,7 +140,9 @@ public class MainMenuView extends View {
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-    gameMenuHelp.displayHelpMenu(hMR,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore);
+    gameMenuHelp.displayHelpMenu(hMR
+            //,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
+                );
         }
     
     private void saveGame(){

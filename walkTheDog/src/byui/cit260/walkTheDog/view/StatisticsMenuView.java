@@ -8,6 +8,7 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.EventControl;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ProgramControl;
+import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
 
 /**
@@ -16,14 +17,15 @@ import java.util.Scanner;
  */
 public class StatisticsMenuView extends View {
     public String hMR = "sMV";
-    public int playerSatisfaction;
-    public int playerLeashLenght;
-    public int gameIdealLeashLength;
-    public int gameNumberOfTurns;
-    public int gameFidoMood;
-    public int gameUserExploreCounter;
-    public char gameDidUserExplore;
-    public int playerCurrentScore;   
+    public Player player;
+//    public int playerSatisfaction;
+//    public int playerLeashLenght;
+//    public int gameIdealLeashLength;
+//    public int gameNumberOfTurns;
+//    public int gameFidoMood;
+//    public int gameUserExploreCounter;
+//    public char gameDidUserExplore;
+//    public int playerCurrentScore;   
 
 
 
@@ -53,14 +55,15 @@ public class StatisticsMenuView extends View {
 
 
     public StatisticsMenuView (
-                        int playerSatisfaction,
-                        int playerLeashLenght,
-                        int gameIdealLeashLength,
-                        int gameNumberOfTurns,
-                        int gameFidoMood,
-                        int gameUserExploreCounter,
-                        char gameDidUserExplore,
-                        int playerCurrentScore
+                        Player player
+//                        int playerSatisfaction,
+//                        int playerLeashLenght,
+//                        int gameIdealLeashLength,
+//                        int gameNumberOfTurns,
+//                        int gameFidoMood,
+//                        int gameUserExploreCounter,
+//                        char gameDidUserExplore,
+//                        int playerCurrentScore
                                                 ) {
         
         
@@ -74,15 +77,15 @@ public class StatisticsMenuView extends View {
             + "\n________________________________");
 
     
-        this.playerCurrentScore = playerCurrentScore;
-        this.gameDidUserExplore = gameDidUserExplore;
-        this.gameUserExploreCounter = gameUserExploreCounter;
-        this.gameFidoMood = gameFidoMood;
-        this.gameNumberOfTurns = gameNumberOfTurns;
-        this.gameIdealLeashLength = gameIdealLeashLength;
-        this.playerLeashLenght = playerLeashLenght;
-        this.playerSatisfaction = playerSatisfaction;
-    
+//        this.playerCurrentScore = playerCurrentScore;
+//        this.gameDidUserExplore = gameDidUserExplore;
+//        this.gameUserExploreCounter = gameUserExploreCounter;
+//        this.gameFidoMood = gameFidoMood;
+//        this.gameNumberOfTurns = gameNumberOfTurns;
+//        this.gameIdealLeashLength = gameIdealLeashLength;
+//        this.playerLeashLenght = playerLeashLenght;
+//        this.playerSatisfaction = playerSatisfaction;
+        this.player = player;
     
     }
 
@@ -181,7 +184,7 @@ public class StatisticsMenuView extends View {
     private void back(){
        System.out.println("*** quitGame function called ***"
                 + "\nSending player back to Main Menu");
-        GameMenuView quittingGame = new GameMenuView();
+        GameMenuView quittingGame = new GameMenuView(player);
         quittingGame.display(hMR);//program will go back to the previous menu 
     }
     

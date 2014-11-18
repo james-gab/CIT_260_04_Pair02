@@ -33,7 +33,7 @@ public class StartProgramView {
  	// Display a personalized welcome message using the player name
            this.displayWelcomeMessage(player);
  	// Display the main menu
-           MainMenuView mainMenu = new MainMenuView();
+           MainMenuView mainMenu = new MainMenuView(player);
            mainMenu.display(hMR);
         
  	
