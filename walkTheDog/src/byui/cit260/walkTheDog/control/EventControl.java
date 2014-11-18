@@ -182,8 +182,7 @@ public class EventControl {
     public int shortLeash(Player player){
         
                 if (player.playerLeashLenght<4){
-        EventControl fidoMood = new EventControl();                              // calls random number generator
-        int getFidoMood = fidoMood.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
+        int getFidoMood = this.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
             if (getFidoMood == 0){
                 System.out.println("Fido does not like a short leash"
                         + "\nand has been a bad dog, you loose 3 points");
