@@ -178,7 +178,17 @@ public class EventControl {
         Random rand = new Random();  
         return (int) rand.nextInt(16);
     }
+    
 
+    //Generate a random number
+    public int randomNumberGenerator (int num){
+        Random rand = new Random();  
+        return (int) rand.nextInt(num);
+    }
+    
+    
+    
+    
     public int shortLeash(Player player){
         
                 if (player.playerLeashLenght<4){
