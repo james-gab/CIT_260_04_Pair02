@@ -142,7 +142,10 @@ public class MapControl {
        
        
        System.out.println("     The Park");
-//            System.out.print("   |");
+            System.out.print("   |");
+        for (int column = 0; column < columCount; column++){
+                System.out.print(column+"  |");
+        }
         for (int row = 0; row < rowCount; row++){
             System.out.print("\n|     "+row);
             for (int column = 0; column < columCount; column++){
