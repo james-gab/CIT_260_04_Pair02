@@ -7,6 +7,7 @@ package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -20,19 +21,15 @@ public class ExploringEvents implements Serializable {
     private String eventName; 
     private String evenDescription;
     private String criteria;
-    public String [][] exploringEvent = new String [row][column] ;
+    public String [][] exploringEvents;
     private int noOfRows;
     private int noOfColums;
-//    public Object exploringEvent;
 
     public ExploringEvents() {
     }
     
     
 
-    
-    
-    
     public int getRow() {
         return row;
     }
@@ -49,7 +46,7 @@ public class ExploringEvents implements Serializable {
         this.column = column;
     }
 
-    public boolean getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
@@ -57,21 +54,6 @@ public class ExploringEvents implements Serializable {
         this.visited = visited;
     }
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
     public String getEventName() {
         return eventName;
     }
@@ -96,17 +78,42 @@ public class ExploringEvents implements Serializable {
         this.criteria = criteria;
     }
 
-    @Override
-    public String toString() {
-        return "ExploringEvents{" + "eventName=" + eventName + ", evenDescription=" + evenDescription + ", criteria=" + criteria + '}';
+    public String[][] getExploringEvents() {
+        return exploringEvents;
+    }
+
+    public void setExploringEvents(String[][] exploringEvents) {
+        this.exploringEvents = exploringEvents;
+    }
+
+    public int getNoOfRows() {
+        return noOfRows;
+    }
+
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
+    }
+
+    public int getNoOfColums() {
+        return noOfColums;
+    }
+
+    public void setNoOfColums(int noOfColums) {
+        this.noOfColums = noOfColums;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.eventName);
-        hash = 67 * hash + Objects.hashCode(this.evenDescription);
-        hash = 67 * hash + Objects.hashCode(this.criteria);
+        hash = 97 * hash + this.row;
+        hash = 97 * hash + this.column;
+        hash = 97 * hash + (this.visited ? 1 : 0);
+        hash = 97 * hash + Objects.hashCode(this.eventName);
+        hash = 97 * hash + Objects.hashCode(this.evenDescription);
+        hash = 97 * hash + Objects.hashCode(this.criteria);
+        hash = 97 * hash + Arrays.deepHashCode(this.exploringEvents);
+        hash = 97 * hash + this.noOfRows;
+        hash = 97 * hash + this.noOfColums;
         return hash;
     }
 
@@ -119,6 +126,15 @@ public class ExploringEvents implements Serializable {
             return false;
         }
         final ExploringEvents other = (ExploringEvents) obj;
+        if (this.row != other.row) {
+            return false;
+        }
+        if (this.column != other.column) {
+            return false;
+        }
+        if (this.visited != other.visited) {
+            return false;
+        }
         if (!Objects.equals(this.eventName, other.eventName)) {
             return false;
         }
@@ -128,35 +144,27 @@ public class ExploringEvents implements Serializable {
         if (!Objects.equals(this.criteria, other.criteria)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.exploringEvents, other.exploringEvents)) {
+            return false;
+        }
+        if (this.noOfRows != other.noOfRows) {
+            return false;
+        }
+        if (this.noOfColums != other.noOfColums) {
+            return false;
+        }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "ExploringEvents{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", eventName=" + eventName + ", evenDescription=" + evenDescription + ", criteria=" + criteria + ", exploringEvents=" + exploringEvents + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
+    }
+
+ 
     
     
     
-    
-    public ExploringEvents(int noOfRows, int noOfColums) {
-        
-        if (noOfRows<1 || noOfColums<1){
-            System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java in ***"
-                    + "\n   ExploringEvents() if (noOfRows<1 || noOfColums<1)***");
-            return;
-        }
-        String [][] exploringEvent = new String [noOfRows][noOfColums] ;
-        this.noOfRows = noOfRows;
-        this.noOfColums = noOfColums;
-        
-        for (int row1 = 0; row1 < noOfRows; row1++){
-            for (int column1 = 0; column1 < noOfColums; column1++){
-                String [][] eEvent = new ;
-                eEvent = this.setColumn(column1);
-                String [][] exploringEvent.this.setRow(row1);
-                String [][] exploringEvent.this.setVisited(false);
-                
-                //assign the Location object to the current position in array
-                        exploringEvents[row1][column1] = exploringEvent;
-            }
-        }
         
         
     }
@@ -166,4 +174,3 @@ public class ExploringEvents implements Serializable {
     
     
     
-}

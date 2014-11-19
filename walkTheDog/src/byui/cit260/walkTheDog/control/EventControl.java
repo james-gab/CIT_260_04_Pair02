@@ -250,7 +250,7 @@ public class EventControl {
     
     //+++++++++++++++++++++++++++++++++++++++Lesson 08 Individual assignment+++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++          Gabriel James        +++++++++++++++++++++++++++++++++
-    
+/*    
         public void displayMap() {
         
             Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
@@ -278,7 +278,7 @@ public class EventControl {
                     System.out.print(" |");
                     }
             }
-    
+*/    
     
     
     
