@@ -6,6 +6,7 @@
 package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.ExploringEvents;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -39,6 +40,8 @@ public class ExploringEventsControl {
     
     
     
+    //+++++++++++++++++++++++++++++++Lesson 08 Individual assignment+++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++          Gabriel James        +++++++++++++++++++++++++++++++++
     
     
        public ExploringEventsControl(int noOfRows, int noOfColums) {
@@ -68,6 +71,36 @@ public class ExploringEventsControl {
         
         
     }
+       
+    
+        public void displayMap() {
+        
+            ExploringEvents[][] explore = WalkTheDog.getCurrentGame().getEvent();
+            
+            System.out.println("     The Park\n");
+            System.out.print("          ");
+            
+            for (int column = 0; column < noOfColums; column++){
+                System.out.print("     "+column+"     | ");
+                }
+            
+            for (int row = 0; row < noOfRows; row++){
+                System.out.print("\n      "+row);
+                    for (int column = 0; column < noOfColums; column++){
+                        System.out.print(" | ");
+                        ExploringEvents explore = exploringEvents [row][column];
+                        if(!explore.equals("")){
+                            System.out.print(explore[row][column].getScene().getMapSymbol());
+                            }
+                        else{
+                            System.out.print("   x      ");                           // place map symbol here
+                            }
+                        }
+                    
+                    System.out.print(" |");
+                    }
+            }   // END of public void displayMap()
+
 
 
        

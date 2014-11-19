@@ -5,6 +5,7 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Fido;
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Location;
@@ -68,4 +69,27 @@ public class GameControl {
             
     }
     
+        static void assignEventScenes(Events event, Scene[] scenes){
+            Events[][] events = event.getEvents();
+       
+       //start point
+            events[0][0].setEventScene(scenes[Events.EventType.getsChokedByLeash.ordinal()]);
+            events[0][1].setEventScene(scenes[Events.EventType.stepInPoop.ordinal()]);
+            events[0][2].setEventScene(scenes[Events.EventType.birdAttack.ordinal()]);
+            events[0][3].setEventScene(scenes[Events.EventType.dogBitesSomeone.ordinal()]);
+            events[0][4].setEventScene(scenes[Events.EventType.getsBitByOtherDog.ordinal()]);
+            events[0][5].setEventScene(scenes[Events.EventType.sniffsOtherDogButt.ordinal()]);
+            events[0][6].setEventScene(scenes[Events.EventType.licksSelf.ordinal()]);
+            events[0][7].setEventScene(scenes[Events.EventType.chasesSquirrel.ordinal()]);
+            events[1][0].setEventScene(scenes[Events.EventType.getsBellyRubbed.ordinal()]);
+            events[1][1].setEventScene(scenes[Events.EventType.playsFetch.ordinal()]);
+            events[1][2].setEventScene(scenes[Events.EventType.getsTreat.ordinal()]);
+            events[1][3].setEventScene(scenes[Events.EventType.rollsOver.ordinal()]);
+            events[1][4].setEventScene(scenes[Events.EventType.doesTrick.ordinal()]);
+            events[1][5].setEventScene(scenes[Events.EventType.sniffsGround.ordinal()]);
+            events[1][6].setEventScene(scenes[Events.EventType.licksPerson.ordinal()]);
+            events[1][7].setEventScene(scenes[Events.EventType.getsScrachedBehindEars.ordinal()]);
+            
+    }
+
 }

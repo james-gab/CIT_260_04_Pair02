@@ -21,9 +21,12 @@ public class ExploringEvents implements Serializable {
     private String eventName; 
     private String evenDescription;
     private String criteria;
-    public String [][] exploringEvents;
+//    public String [][] exploringEvents;
+    public String exploringEvents;
     private int noOfRows;
     private int noOfColums;
+    public Events[][] events;
+    
 
     public ExploringEvents() {
     }
@@ -78,11 +81,13 @@ public class ExploringEvents implements Serializable {
         this.criteria = criteria;
     }
 
-    public String[][] getExploringEvents() {
+//    public String[][] getExploringEvents() {
+    public String getExploringEvents() {
         return exploringEvents;
     }
 
-    public void setExploringEvents(String[][] exploringEvents) {
+//    public void setExploringEvents(String[][] exploringEvents) {
+    public void setExploringEvents(String exploringEvents) {
         this.exploringEvents = exploringEvents;
     }
 
@@ -111,7 +116,8 @@ public class ExploringEvents implements Serializable {
         hash = 97 * hash + Objects.hashCode(this.eventName);
         hash = 97 * hash + Objects.hashCode(this.evenDescription);
         hash = 97 * hash + Objects.hashCode(this.criteria);
-        hash = 97 * hash + Arrays.deepHashCode(this.exploringEvents);
+//        hash = 97 * hash + Arrays.deepHashCode(this.exploringEvents);
+        hash = 97 * hash + Objects.hashCode(this.exploringEvents);
         hash = 97 * hash + this.noOfRows;
         hash = 97 * hash + this.noOfColums;
         return hash;
@@ -144,7 +150,8 @@ public class ExploringEvents implements Serializable {
         if (!Objects.equals(this.criteria, other.criteria)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.exploringEvents, other.exploringEvents)) {
+//        if (!Arrays.deepEquals(this.exploringEvents, other.exploringEvents)) {
+        if (!Objects.equals(this.exploringEvents, other.exploringEvents)) {
             return false;
         }
         if (this.noOfRows != other.noOfRows) {
@@ -161,7 +168,14 @@ public class ExploringEvents implements Serializable {
         return "ExploringEvents{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", eventName=" + eventName + ", evenDescription=" + evenDescription + ", criteria=" + criteria + ", exploringEvents=" + exploringEvents + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
     }
 
- 
+     public Events[][] getEvents() {
+        return events;
+    }
+    
+    public void setEvents(Events[][] events) {
+        this.events = events;
+  }
+
     
     
     
