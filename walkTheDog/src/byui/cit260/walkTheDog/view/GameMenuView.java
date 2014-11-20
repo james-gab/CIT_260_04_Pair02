@@ -7,6 +7,7 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
+import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
@@ -27,6 +28,7 @@ public String hMR = "gMV";
 //public char gameDidUserExplore;
 //public int playerCurrentScore;  
 public Player player;
+private int lifePoint;                 //this needs to be fixed
            
  
             
@@ -52,6 +54,7 @@ public Player player;
             + "\n  M   - Move to new location" 
             + "\n  E   - Explore location" 
             + "\n  L   - Estimate leash length"
+            + "\n  P   - Play Mini Game"
             + "\n  D   - Display Map"
             + "\n  T   - Game Statistics"
             + "\n  H   - Help Menu "
@@ -174,6 +177,9 @@ public Player player;
                 break;
             case 'L': // User Estimates Leash Length needed
                 this.userLeashLength();
+                break;
+            case 'P': // User plays Mini game
+                this.createMiniGame(lifePoint);   //this needs to be fixed
                 break;
             case 'T': // User views userStatistics
                 this.userStatistics();
@@ -316,6 +322,12 @@ public Player player;
         System.out.println("***This is a stub function****  GameMenuView.java   displayMap()");
         MapControl seeMap = new MapControl();
         seeMap.displayMap();
+    }
+
+    private void createMiniGame(int lifePoint) {
+        System.out.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
+        MiniGameControl miniGame = new MiniGameControl();
+        miniGame.createMiniGame(lifePoint);   //this needs to be fixed
     }
     
     
