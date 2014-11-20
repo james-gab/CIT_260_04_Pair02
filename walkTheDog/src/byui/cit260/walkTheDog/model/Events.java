@@ -19,12 +19,12 @@ public class Events implements Serializable {
     
     private boolean visited; 
     private String explore; 
-    private Scene eventsScene;
+    private EventScene eventsScene;
     public String eventName;
     private int fixedEventScene;
     public Events[][] event;
-    public static int rowCount = 8;
-    public static int columCount = 2;
+    public static int rowCount = 2;
+    public static int columCount = 8;
     private int row;
     private int column;
 
@@ -74,11 +74,11 @@ public class Events implements Serializable {
         this.explore = explore;
     }
 
-    public Scene getEventsScene() {
+    public EventScene getEventsScene() {
         return eventsScene;
     }
 
-    public void setEventsScene(Scene eventsScene) {
+    public void setEventsScene(EventScene eventsScene) {
         this.eventsScene = eventsScene;
     }
 
@@ -164,7 +164,7 @@ public class Events implements Serializable {
     
      }
 */  
-        public void setEventScene(Scene scene) {
+        public void setEventScene(EventScene scene) {
         this.eventsScene = scene;
     }
 
