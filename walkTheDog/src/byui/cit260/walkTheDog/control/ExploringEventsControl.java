@@ -5,7 +5,11 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.ExploringEvents;
+import byui.cit260.walkTheDog.model.Game;
+import byui.cit260.walkTheDog.model.Scene;
+import java.awt.image.BufferedImage;
 import walkthedog.WalkTheDog;
 
 /**
@@ -13,11 +17,12 @@ import walkthedog.WalkTheDog;
  * @author gab
  */
 public class ExploringEventsControl {
+
+    public Events[][] events;
     private int noOfRows;
     private int noOfColums;
-    public ExploringEvents[][] exploringEvents;
 
-    
+
     
     
     
@@ -27,12 +32,24 @@ public class ExploringEventsControl {
 
     public ExploringEventsControl() {
     }
+
+    public Events[][] getExploringEventsControl() {
+        return events;
+    }
+
+    public void setEvents(Events[][] events) {
+        this.events = events;
+    }
+
+/*
+    public void setLocations(Events[][] locations) {
+        this.events = locations;
+    }
+*/
     
     
     
-    
-    
-    
+   
     
     
     
@@ -42,9 +59,9 @@ public class ExploringEventsControl {
     
     //+++++++++++++++++++++++++++++++Lesson 08 Individual assignment+++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++          Gabriel James        +++++++++++++++++++++++++++++++++
+   
     
-    
-       public ExploringEventsControl(int noOfRows, int noOfColums) {
+    public ExploringEventsControl(int noOfRows, int noOfColums) {
         
         if (noOfRows<1 || noOfColums<1){
             System.out.println("The Location Number must be greater than zero");
@@ -52,20 +69,20 @@ public class ExploringEventsControl {
         }
         
         this.noOfRows = noOfRows;
-        this.noOfColums = noOfColums;
+      this.noOfColums = noOfColums;
         
-        this.exploringEvents = new ExploringEvents [noOfRows][noOfColums];
+        this.events = new Events [noOfRows][noOfColums];
         
         for (int row = 0; row < noOfRows; row++){
             for (int column = 0; column < noOfColums; column++){
                 // create and initilize the location objects instance
-                ExploringEvents explore = new ExploringEvents();
+                Events explore = new Events();
                 explore.setColumn(column);
                 explore.setRow(row);
                 explore.setVisited(false);
                 
                 //assign the Location object to the current position in array
-                        exploringEvents[row][column] = explore;
+                        events[row][column] = explore;
             }
         }
         
@@ -73,9 +90,9 @@ public class ExploringEventsControl {
     }
        
     
-        public void displayMap() {
+        public void displayEventList() {
         
-            ExploringEvents[][] explore = WalkTheDog.getCurrentGame().getEvent();
+            Events explore = WalkTheDog.getCurrentGame().getEvents();
             
             System.out.println("     The Park\n");
             System.out.print("          ");
@@ -88,9 +105,9 @@ public class ExploringEventsControl {
                 System.out.print("\n      "+row);
                     for (int column = 0; column < noOfColums; column++){
                         System.out.print(" | ");
-                        ExploringEvents explore = exploringEvents [row][column];
+                       explore = events [row][column];
                         if(!explore.equals("")){
-                            System.out.print(explore[row][column].getScene().getMapSymbol());
+//                            System.out.print(explore[row][column].getScene().getMapSymbol());
                             }
                         else{
                             System.out.print("   x      ");                           // place map symbol here
@@ -101,7 +118,154 @@ public class ExploringEventsControl {
                     }
             }   // END of public void displayMap()
 
+    
+    public static Events createEvents() {
+    
+        // Create Map
+        ExploringEventsControl event = new ExploringEventsControl(Events.rowCount,Events.columCount);
+        
+        // create sceans for the game
+        Scene[] scenes = ExploringEventsControl.createScenes();
+        
+        // assign sceans to event
+        GameControl.assignEventScenes(event,scenes);
 
+//        return events;
+        return null;
+        
+    }
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    public static Scene[] createScenes() {
+        BufferedImage image = null;
+        Game game = WalkTheDog.getCurrentGame();
+        Scene[] scenes = new Scene[Events.EventType.values().length];
+        
+        // STARTING SCENE////
+        Scene getsBellyRubbedScene = new Scene();
+        getsBellyRubbedScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        getsBellyRubbedScene.setMapSymbol( " getsBellyRubbed " );
+        getsBellyRubbedScene.setBlocked(false);
+        scenes[Events.EventType.getsBellyRubbed.ordinal()] = getsBellyRubbedScene;
+
+        Scene playsFetchScene = new Scene();
+        playsFetchScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        playsFetchScene.setMapSymbol( " duckpond " );
+        playsFetchScene.setBlocked(false);
+        scenes[Events.EventType.playsFetch.ordinal()] = playsFetchScene;
+
+        Scene getsTreatScene = new Scene();
+        getsTreatScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        getsTreatScene.setMapSymbol( " getsTreat " );
+        getsTreatScene.setBlocked(false);
+        scenes[Events.EventType.getsTreat.ordinal()] = getsTreatScene;
+
+        Scene rollsOverScene = new Scene();
+        rollsOverScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        rollsOverScene.setMapSymbol( " rollsOver" );
+        rollsOverScene.setBlocked(false);
+        scenes[Events.EventType.rollsOver.ordinal()] = rollsOverScene;
+
+        Scene doesTrickScene = new Scene();
+        doesTrickScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        doesTrickScene.setMapSymbol( " doesTrick  " );
+        doesTrickScene.setBlocked(false);
+        scenes[Events.EventType.doesTrick.ordinal()] = doesTrickScene;
+
+        Scene sniffsGroundScene = new Scene();
+        sniffsGroundScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        sniffsGroundScene.setMapSymbol( " sniffsGround " );
+        sniffsGroundScene.setBlocked(false);
+        scenes[Events.EventType.sniffsGround.ordinal()] = sniffsGroundScene;
+
+        Scene licksPersonScene = new Scene();
+        licksPersonScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        licksPersonScene.setMapSymbol( " licksPerson " );
+        licksPersonScene.setBlocked(false);
+        scenes[Events.EventType.licksPerson.ordinal()] = licksPersonScene;
+
+        Scene getsScrachedBehindEarsScene = new Scene();
+        getsScrachedBehindEarsScene.setDescription(
+        "\nGood dog!!!!!!");                                               //add description
+        getsScrachedBehindEarsScene.setMapSymbol( " getsScrachedBehindEars " );
+        getsScrachedBehindEarsScene.setBlocked(false);
+        scenes[Events.EventType.getsScrachedBehindEars.ordinal()] = getsScrachedBehindEarsScene;
+
+        Scene stepInPoopScene = new Scene();
+        stepInPoopScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        stepInPoopScene.setMapSymbol( " stepInPoop" );
+        stepInPoopScene.setBlocked(false);
+        scenes[Events.EventType.stepInPoop.ordinal()] = stepInPoopScene;
+
+        Scene birdAttackScene = new Scene();
+        birdAttackScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        birdAttackScene.setMapSymbol( " birdAttack" );
+        birdAttackScene.setBlocked(false);
+        scenes[Events.EventType.birdAttack.ordinal()] = birdAttackScene;
+
+        Scene dogBitesSomeoneScene = new Scene();
+        dogBitesSomeoneScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        dogBitesSomeoneScene.setMapSymbol( " dogBitesSomeone " );
+        dogBitesSomeoneScene.setBlocked(false);
+        scenes[Events.EventType.dogBitesSomeone.ordinal()] = dogBitesSomeoneScene;
+
+        Scene getsBitByOtherDogScene = new Scene();
+        getsBitByOtherDogScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        getsBitByOtherDogScene.setMapSymbol( " getsBitByOtherDog " );
+        getsBitByOtherDogScene.setBlocked(false);
+        scenes[Events.EventType.getsBitByOtherDog.ordinal()] = getsBitByOtherDogScene;
+
+        Scene sniffsOtherDogButtScene = new Scene();
+        sniffsOtherDogButtScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        sniffsOtherDogButtScene.setMapSymbol( " sniffsOtherDogButt  " );
+        sniffsOtherDogButtScene.setBlocked(false);
+        scenes[Events.EventType.sniffsOtherDogButt.ordinal()] = sniffsOtherDogButtScene;
+
+        Scene licksSelfScene = new Scene();
+        licksSelfScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        licksSelfScene.setMapSymbol( " licksSelf  " );
+        licksSelfScene.setBlocked(false);
+        scenes[Events.EventType.licksSelf.ordinal()] = licksSelfScene;
+
+        Scene chasesSquirrelScene = new Scene();
+        chasesSquirrelScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        chasesSquirrelScene.setMapSymbol( " chasesSquirrel " );
+        chasesSquirrelScene.setBlocked(false);
+        scenes[Events.EventType.chasesSquirrel.ordinal()] = chasesSquirrelScene;
+
+        Scene getsChokedByLeashScene = new Scene();
+        getsChokedByLeashScene.setDescription(
+        "\nBad dog!!!!!!");                                               //add description
+        getsChokedByLeashScene.setMapSymbol( " getsChokedByLeash " );
+        getsChokedByLeashScene.setBlocked(false);
+        scenes[Events.EventType.getsChokedByLeash.ordinal()] = getsChokedByLeashScene;
+
+        return scenes;
+   
+  }
+        
 
        
 }
