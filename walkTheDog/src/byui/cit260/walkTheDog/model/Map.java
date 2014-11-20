@@ -27,6 +27,22 @@ public class Map implements Serializable {
         
     }
 
+    public int getNoOfRows() {
+        return noOfRows;
+    }
+
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
+    }
+
+    public int getNoOfColums() {
+        return noOfColums;
+    }
+
+    public void setNoOfColums(int noOfColums) {
+        this.noOfColums = noOfColums;
+    }
+
 
     public Map(int noOfRows, int noOfColums) {
         

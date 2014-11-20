@@ -5,6 +5,7 @@
  */
 package byui.cit260.walkTheDog.model;
 
+import byui.cit260.walkTheDog.control.ExploringEventsControl;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -24,12 +25,14 @@ public class Game implements Serializable {
     private char didUserExplore;                  //did the user explore? y/n
     private int userExploreCounter;               //number of times the user did not explore and passed locations                      
     private int shortLeashNumberOfTurns;          //number of turns the leash is below 4
-    public ExploringEvents event;
+    public Events event;
 
     
     public Game() {
     }
 
+    
+    
     public String[] getFixedLocation() {
         return fixedLocation;
     }
@@ -38,7 +41,7 @@ public class Game implements Serializable {
         this.fixedLocation = fixedLocation;
     }
     
-    public ExploringEvents getEvent(){
+    public Events getEvents(){
         return event;
     }
 
@@ -162,8 +165,6 @@ public class Game implements Serializable {
     
     
     
-    
-    
     // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     
     
@@ -181,9 +182,9 @@ public class Game implements Serializable {
           this.fido = fido;
     }
     
-    public void setEvent(ExploringEvents event) {
+    public void setEvent(Events event) {
           System.out.println("***This is a stub function ****"
-               + "\nin Game.java  setEvent(ExploringEvents event) around line 184"); 
+               + "\nin Game.java  setEvent(ExploringEventsControl event) around line 184"); 
           this.event = event;
        
     }

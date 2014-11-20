@@ -19,6 +19,13 @@ public class Scene implements Serializable {
     private boolean blocked;
     private double travelTime;
     public String MapSymbol;
+    
+    
+    
+    
+    
+    
+    
 
     public double getTravelTime() {
         return travelTime;

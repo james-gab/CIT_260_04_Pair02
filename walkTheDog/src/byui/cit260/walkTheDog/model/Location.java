@@ -27,6 +27,7 @@ public class Location implements Serializable {
     }
     
 
+    
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }

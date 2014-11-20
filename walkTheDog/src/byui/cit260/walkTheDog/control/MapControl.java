@@ -18,7 +18,6 @@ public class MapControl {
     
     public static int rowCount = 3;
     public static int columCount = 3;
- //   public Map map = Game.map;                              //this is the map
     
     
 
@@ -33,16 +32,13 @@ public class MapControl {
         // assign sceans to locations
         GameControl.assignScenesToLocations(map,scenes);
 
-//        System.out.println("***This is a stub function****"
-//                + " in MapControl.java    Map createMap()"); 
-        
         return map;
     }
     
     
     private static Scene[] createScenes() {
-        BufferedImage image = null;
-        Game game = WalkTheDog.getCurrentGame();
+//        BufferedImage image = null;
+//        Game game = WalkTheDog.getCurrentGame();
         Scene[] scenes = new Scene[Scene.SceneType.values().length];
         
         // STARTING SCENE////

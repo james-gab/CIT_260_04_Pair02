@@ -6,8 +6,6 @@
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -21,41 +19,15 @@ public class ExploringEvents implements Serializable {
     private String eventName; 
     private String evenDescription;
     private String criteria;
-//    public String [][] exploringEvents;
-    public String exploringEvents;
+    public String [][] exploringEvents;
     private int noOfRows;
     private int noOfColums;
-    public Events[][] events;
     
 
     public ExploringEvents() {
     }
     
     
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getColumn() {
-        return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
 
     public String getEventName() {
         return eventName;
@@ -81,13 +53,10 @@ public class ExploringEvents implements Serializable {
         this.criteria = criteria;
     }
 
-//    public String[][] getExploringEvents() {
-    public String getExploringEvents() {
+    public String[][] getExploringEvents() {
         return exploringEvents;
     }
-
-//    public void setExploringEvents(String[][] exploringEvents) {
-    public void setExploringEvents(String exploringEvents) {
+    public void setExploringEvents(String[][] exploringEvents) {
         this.exploringEvents = exploringEvents;
     }
 
@@ -150,7 +119,6 @@ public class ExploringEvents implements Serializable {
         if (!Objects.equals(this.criteria, other.criteria)) {
             return false;
         }
-//        if (!Arrays.deepEquals(this.exploringEvents, other.exploringEvents)) {
         if (!Objects.equals(this.exploringEvents, other.exploringEvents)) {
             return false;
         }
@@ -168,13 +136,7 @@ public class ExploringEvents implements Serializable {
         return "ExploringEvents{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", eventName=" + eventName + ", evenDescription=" + evenDescription + ", criteria=" + criteria + ", exploringEvents=" + exploringEvents + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
     }
 
-     public Events[][] getEvents() {
-        return events;
-    }
     
-    public void setEvents(Events[][] events) {
-        this.events = events;
-  }
 
     
     

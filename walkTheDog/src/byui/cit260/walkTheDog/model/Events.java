@@ -5,6 +5,8 @@
  */
 package byui.cit260.walkTheDog.model;
 
+import byui.cit260.walkTheDog.control.ExploringEventsControl;
+import byui.cit260.walkTheDog.control.GameControl;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,16 +15,47 @@ import java.util.Objects;
  * @author gab
  */
 public class Events implements Serializable {
+
     
     private boolean visited; 
     private String explore; 
     private Scene eventsScene;
     public String eventName;
     private int fixedEventScene;
-    public Events[][] locations;
+    public Events[][] event;
+    public static int rowCount = 8;
+    public static int columCount = 2;
+    private int row;
+    private int column;
+
 
 
     public Events() {
+    }
+
+    public Events[][] getEvents() {
+        return event;
+    }
+
+    public void setEvents(Events[][] event) {
+        this.event = event;
+    }
+
+ 
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     public boolean isVisited() {
@@ -100,28 +133,12 @@ public class Events implements Serializable {
         return "Events{" + "visited=" + visited + ", explore=" + explore + ", eventsScene=" + eventsScene + ", eventName=" + eventName + ", fixedEventScene=" + fixedEventScene + '}';
     }
 
-    
-/*    
-Step in poop
-get attacked by bird
-dog bites someone or gets bit by other dog
-gets belly rubbed
-plays fetch with ball player
-gets fed
-sniffs butt and makes everyone uncomfortable or Licks self and makes things even more uncomfortable
-rolls over, does trick
-Chases squirrel, gets choked by leash
 
-  */  
-    
-    
     
     
     public void setEventName(String st) {
         this.eventName = st;
     }
-
-    
     
     public static enum EventType {
         getsBellyRubbed,
@@ -146,10 +163,6 @@ Chases squirrel, gets choked by leash
         fixedEventScene = 1;
     
      }
-    
-    
-    
-    
     
         public void setEventScene(Scene scene) {
         this.eventsScene = scene;

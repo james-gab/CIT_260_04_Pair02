@@ -23,6 +23,22 @@ public class Fido implements Serializable {
 
     public Fido() {
     }
+
+    public int getLeashLength() {
+        return leashLength;
+    }
+
+    public void setLeashLength(int leashLength) {
+        this.leashLength = leashLength;
+    }
+
+    public int getNumberOfTurns() {
+        return numberOfTurns;
+    }
+
+    public void setNumberOfTurns(int numberOfTurns) {
+        this.numberOfTurns = numberOfTurns;
+    }
     
     
 
@@ -50,17 +66,17 @@ public class Fido implements Serializable {
         this.mood = mood;
     }
 
-    public double getLeashLength() {
-        return leashLength;
-    }
+//    public double getLeashLength() {
+//        return leashLength;
+//    }
 
     public void setLeashLength(double leashLength) {
         this.leashLength = (int) leashLength;
     }
 
-    public double getNumberOfTurns() {
-        return numberOfTurns;
-    }
+//    public double getNumberOfTurns() {
+//        return numberOfTurns;
+//    }
 
     public void setNumberOfTurns(double numberOfTurns) {
         this.numberOfTurns = (int) numberOfTurns;
