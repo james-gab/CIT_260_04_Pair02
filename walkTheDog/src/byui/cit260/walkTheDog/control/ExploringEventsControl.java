@@ -161,7 +161,7 @@ public class ExploringEventsControl {
         Scene playsFetchScene = new Scene();
         playsFetchScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
-        playsFetchScene.setMapSymbol( " duckpond " );
+        playsFetchScene.setMapSymbol( " playsFetch " );
         playsFetchScene.setBlocked(false);
         EventScene[EventScene.EventType.playsFetch.ordinal()] = playsFetchScene;
 
