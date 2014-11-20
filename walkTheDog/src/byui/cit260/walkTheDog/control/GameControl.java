@@ -26,8 +26,9 @@ public class GameControl {
     
     public static void createNewGame(Player player){
         EventControl numbernumber = new EventControl ();
-        System.out.println("\n*** createNewGame stub function called ***"
-                + "GameControl.java     createNewGame(Player player)");
+        
+//        System.out.println("\n*** createNewGame stub function called ***"
+//                + "GameControl.java     createNewGame(Player player)");
         
         Game game = new Game();                 //create new game
         WalkTheDog.setCurrentGame(game);        //save in WalkTheDog.java
@@ -37,7 +38,11 @@ public class GameControl {
         Map map = MapControl.createMap();       //this creates and initializes a new map
         game.setMap(map);
         
+        Events event = ExploringEventsControl.createEvents();
+        game.setEvent(event);
+        
         MapControl.moveActorsToStartingLocation(map);
+        
         
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
@@ -69,8 +74,8 @@ public class GameControl {
             
     }
     
-        static void assignEventScenes(Events event, Scene[] scenes){
-            Events[][] events = event.getEvents();
+    public static void assignEventScenes(ExploringEventsControl event, Scene[] scenes) {
+            Events[][] events = event.getExploringEventsControl();
        
        //start point
             events[0][0].setEventScene(scenes[Events.EventType.getsChokedByLeash.ordinal()]);
@@ -92,4 +97,7 @@ public class GameControl {
             
     }
 
+    
+        
+        
 }
