@@ -28,7 +28,7 @@ public String hMR = "gMV";
 //public char gameDidUserExplore;
 //public int playerCurrentScore;  
 public Player player;
-private int lifePoint;                 //this needs to be fixed
+
            
  
             
@@ -179,7 +179,7 @@ private int lifePoint;                 //this needs to be fixed
                 this.userLeashLength();
                 break;
             case 'P': // User plays Mini game
-                this.createMiniGame(lifePoint);   //this needs to be fixed
+                this.createMiniGame(player);   //this needs to be fixed
                 break;
             case 'T': // User views userStatistics
                 this.userStatistics();
@@ -324,10 +324,10 @@ private int lifePoint;                 //this needs to be fixed
         seeMap.displayMap();
     }
 
-    private void createMiniGame(int lifePoint) {
+    private void createMiniGame(Player player) {
         System.out.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
         MiniGameControl miniGame = new MiniGameControl();
-        miniGame.createMiniGame(lifePoint);   //this needs to be fixed
+        miniGame.createMiniGame(player);   //this needs to be fixed
     }
     
     

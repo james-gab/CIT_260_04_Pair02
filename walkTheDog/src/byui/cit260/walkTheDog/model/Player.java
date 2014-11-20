@@ -26,6 +26,7 @@ public class Player implements Serializable {
     public int gameFidoMood;
     public int gameIdealLeashLength;
     public String playerSatisfaction;
+    public char playedMiniGame ;
 
     public Player() {
     }
