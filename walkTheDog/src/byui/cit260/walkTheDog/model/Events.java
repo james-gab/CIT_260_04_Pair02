@@ -139,7 +139,7 @@ public class Events implements Serializable {
     public void setEventName(String st) {
         this.eventName = st;
     }
-    
+/*    
     public static enum EventType {
         getsBellyRubbed,
         playsFetch,
@@ -163,7 +163,7 @@ public class Events implements Serializable {
         fixedEventScene = 1;
     
      }
-    
+*/  
         public void setEventScene(Scene scene) {
         this.eventsScene = scene;
     }

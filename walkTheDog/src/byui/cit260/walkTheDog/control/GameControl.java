@@ -5,6 +5,7 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.EventScene;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Fido;
 import byui.cit260.walkTheDog.model.Game;
@@ -73,8 +74,8 @@ public class GameControl {
             locations[2][2].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
             
     }
-    
-    public static void assignEventScenes(ExploringEventsControl event, Scene[] scenes) {
+   
+    public static void assignEventScenes(ExploringEventsControl event, EventScene[] scenes) {
             Events[][] events = event.getExploringEventsControl();
        
        //start point

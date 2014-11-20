@@ -5,6 +5,7 @@
  */
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.model.EventScene;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.ExploringEvents;
 import byui.cit260.walkTheDog.model.Game;
@@ -125,7 +126,7 @@ public class ExploringEventsControl {
         ExploringEventsControl event = new ExploringEventsControl(Events.rowCount,Events.columCount);
         
         // create sceans for the game
-        Scene[] scenes = ExploringEventsControl.createScenes();
+        EventScene[] scenes = ExploringEventsControl.createScenes();
         
         // assign sceans to event
         GameControl.assignEventScenes(event,scenes);
@@ -144,10 +145,10 @@ public class ExploringEventsControl {
     
     
     
-    public static Scene[] createScenes() {
+    public static EventScene[] createScenes() {
         BufferedImage image = null;
         Game game = WalkTheDog.getCurrentGame();
-        Scene[] scenes = new Scene[Events.EventType.values().length];
+        EventScene[] scenes = new EventScene[EventScene.EventType.values().length];
         
         // STARTING SCENE////
         Scene getsBellyRubbedScene = new Scene();
@@ -155,112 +156,112 @@ public class ExploringEventsControl {
         "\nGood dog!!!!!!");                                               //add description
         getsBellyRubbedScene.setMapSymbol( " getsBellyRubbed " );
         getsBellyRubbedScene.setBlocked(false);
-        scenes[Events.EventType.getsBellyRubbed.ordinal()] = getsBellyRubbedScene;
+        EventScene[EventScene.EventType.getsBellyRubbed.ordinal()] = getsBellyRubbedScene;
 
         Scene playsFetchScene = new Scene();
         playsFetchScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         playsFetchScene.setMapSymbol( " duckpond " );
         playsFetchScene.setBlocked(false);
-        scenes[Events.EventType.playsFetch.ordinal()] = playsFetchScene;
+        EventScene[EventScene.EventType.playsFetch.ordinal()] = playsFetchScene;
 
         Scene getsTreatScene = new Scene();
         getsTreatScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         getsTreatScene.setMapSymbol( " getsTreat " );
         getsTreatScene.setBlocked(false);
-        scenes[Events.EventType.getsTreat.ordinal()] = getsTreatScene;
+        scenes[EventScene.EventType.getsTreat.ordinal()] = getsTreatScene;
 
         Scene rollsOverScene = new Scene();
         rollsOverScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         rollsOverScene.setMapSymbol( " rollsOver" );
         rollsOverScene.setBlocked(false);
-        scenes[Events.EventType.rollsOver.ordinal()] = rollsOverScene;
+        EventScene[EventScene.EventType.rollsOver.ordinal()] = rollsOverScene;
 
         Scene doesTrickScene = new Scene();
         doesTrickScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         doesTrickScene.setMapSymbol( " doesTrick  " );
         doesTrickScene.setBlocked(false);
-        scenes[Events.EventType.doesTrick.ordinal()] = doesTrickScene;
+        EventScene[EventScene.EventType.doesTrick.ordinal()] = doesTrickScene;
 
         Scene sniffsGroundScene = new Scene();
         sniffsGroundScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         sniffsGroundScene.setMapSymbol( " sniffsGround " );
         sniffsGroundScene.setBlocked(false);
-        scenes[Events.EventType.sniffsGround.ordinal()] = sniffsGroundScene;
+        EventScene[EventScene.EventType.sniffsGround.ordinal()] = sniffsGroundScene;
 
         Scene licksPersonScene = new Scene();
         licksPersonScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         licksPersonScene.setMapSymbol( " licksPerson " );
         licksPersonScene.setBlocked(false);
-        scenes[Events.EventType.licksPerson.ordinal()] = licksPersonScene;
+        EventScene[EventScene.EventType.licksPerson.ordinal()] = licksPersonScene;
 
         Scene getsScrachedBehindEarsScene = new Scene();
         getsScrachedBehindEarsScene.setDescription(
         "\nGood dog!!!!!!");                                               //add description
         getsScrachedBehindEarsScene.setMapSymbol( " getsScrachedBehindEars " );
         getsScrachedBehindEarsScene.setBlocked(false);
-        scenes[Events.EventType.getsScrachedBehindEars.ordinal()] = getsScrachedBehindEarsScene;
+        EventScene[EventScene.EventType.getsScrachedBehindEars.ordinal()] = getsScrachedBehindEarsScene;
 
         Scene stepInPoopScene = new Scene();
         stepInPoopScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         stepInPoopScene.setMapSymbol( " stepInPoop" );
         stepInPoopScene.setBlocked(false);
-        scenes[Events.EventType.stepInPoop.ordinal()] = stepInPoopScene;
+        EventScene[EventScene.EventType.stepInPoop.ordinal()] = stepInPoopScene;
 
         Scene birdAttackScene = new Scene();
         birdAttackScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         birdAttackScene.setMapSymbol( " birdAttack" );
         birdAttackScene.setBlocked(false);
-        scenes[Events.EventType.birdAttack.ordinal()] = birdAttackScene;
+        EventScene[EventScene.EventType.birdAttack.ordinal()] = birdAttackScene;
 
         Scene dogBitesSomeoneScene = new Scene();
         dogBitesSomeoneScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         dogBitesSomeoneScene.setMapSymbol( " dogBitesSomeone " );
         dogBitesSomeoneScene.setBlocked(false);
-        scenes[Events.EventType.dogBitesSomeone.ordinal()] = dogBitesSomeoneScene;
+        EventScene[EventScene.EventType.dogBitesSomeone.ordinal()] = dogBitesSomeoneScene;
 
         Scene getsBitByOtherDogScene = new Scene();
         getsBitByOtherDogScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         getsBitByOtherDogScene.setMapSymbol( " getsBitByOtherDog " );
         getsBitByOtherDogScene.setBlocked(false);
-        scenes[Events.EventType.getsBitByOtherDog.ordinal()] = getsBitByOtherDogScene;
+        EventScene[EventScene.EventType.getsBitByOtherDog.ordinal()] = getsBitByOtherDogScene;
 
         Scene sniffsOtherDogButtScene = new Scene();
         sniffsOtherDogButtScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         sniffsOtherDogButtScene.setMapSymbol( " sniffsOtherDogButt  " );
         sniffsOtherDogButtScene.setBlocked(false);
-        scenes[Events.EventType.sniffsOtherDogButt.ordinal()] = sniffsOtherDogButtScene;
+        EventScene[EventScene.EventType.sniffsOtherDogButt.ordinal()] = sniffsOtherDogButtScene;
 
         Scene licksSelfScene = new Scene();
         licksSelfScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         licksSelfScene.setMapSymbol( " licksSelf  " );
         licksSelfScene.setBlocked(false);
-        scenes[Events.EventType.licksSelf.ordinal()] = licksSelfScene;
+        EventScene[EventScene.EventType.licksSelf.ordinal()] = licksSelfScene;
 
         Scene chasesSquirrelScene = new Scene();
         chasesSquirrelScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         chasesSquirrelScene.setMapSymbol( " chasesSquirrel " );
         chasesSquirrelScene.setBlocked(false);
-        scenes[Events.EventType.chasesSquirrel.ordinal()] = chasesSquirrelScene;
+        EventScene[EventScene.EventType.chasesSquirrel.ordinal()] = chasesSquirrelScene;
 
         Scene getsChokedByLeashScene = new Scene();
         getsChokedByLeashScene.setDescription(
         "\nBad dog!!!!!!");                                               //add description
         getsChokedByLeashScene.setMapSymbol( " getsChokedByLeash " );
         getsChokedByLeashScene.setBlocked(false);
-        scenes[Events.EventType.getsChokedByLeash.ordinal()] = getsChokedByLeashScene;
+        EventScene[EventScene.EventType.getsChokedByLeash.ordinal()] = getsChokedByLeashScene;
 
         return scenes;
    

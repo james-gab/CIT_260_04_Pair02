@@ -61,6 +61,7 @@ public class Scene implements Serializable {
     restrooms,              //("You found the restrooms, take a break!"),
     duckpond;               //("You found the duck pond, watch out for bird poop!");
      }
+    
     Scene(String description) {
         this.MapSymbol = description;
         fixedScene = 1;
