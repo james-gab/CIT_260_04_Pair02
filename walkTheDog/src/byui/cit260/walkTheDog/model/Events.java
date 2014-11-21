@@ -17,27 +17,27 @@ import java.util.Objects;
 public class Events implements Serializable {
 
     
-    private boolean visited; 
     private String explore; 
     private EventScene eventsScene;
     public String eventName;
     private int fixedEventScene;
-    public Events[][] event;
+    public ExploringEventsControl[][] event;
 //    public static int rowCount = 2;
 //    public static int columCount = 8;
     private int row;
     private int column;
+    private boolean visited; 
 
 
 
     public Events() {
     }
 
-    public Events[][] getEvents() {
+    public ExploringEventsControl[][] getEvents() {
         return event;
     }
 
-    public void setEvents(Events[][] event) {
+    public void setEvents(ExploringEventsControl[][] event) {
         this.event = event;
     }
 
