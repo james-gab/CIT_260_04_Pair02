@@ -7,9 +7,7 @@ package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.EventScene;
 import byui.cit260.walkTheDog.model.Events;
-import byui.cit260.walkTheDog.model.ExploringEvents;
 import byui.cit260.walkTheDog.model.Game;
-import byui.cit260.walkTheDog.model.Scene;
 import java.awt.image.BufferedImage;
 import walkthedog.WalkTheDog;
 
@@ -19,9 +17,11 @@ import walkthedog.WalkTheDog;
  */
 public class ExploringEventsControl {
 
-    public Events[][] events;
-    private int noOfRows;
-    private int noOfColums;
+    private Events[][] events;
+//    private int noOfRows;
+//    private int noOfColums;
+    public static int rowCount = 2;
+    public static int columCount = 8;
 
 
     
@@ -38,7 +38,7 @@ public class ExploringEventsControl {
         return events;
     }
 
-    public void setEvents(Events[][] events) {
+    public void setExploringEventsControl(Events[][] events) {
         this.events = events;
     }
 
@@ -61,6 +61,12 @@ public class ExploringEventsControl {
     //+++++++++++++++++++++++++++++++Lesson 08 Individual assignment+++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++          Gabriel James        +++++++++++++++++++++++++++++++++
    
+    /**
+     *
+     * @param noOfRows
+     * @param noOfColums
+     */
+       
     
     public ExploringEventsControl(int noOfRows, int noOfColums) {
         
@@ -69,8 +75,8 @@ public class ExploringEventsControl {
             return;
         }
         
-        this.noOfRows = noOfRows;
-      this.noOfColums = noOfColums;
+//        this.noOfRows = noOfRows;
+//      this.noOfColums = noOfColums;
         
         this.events = new Events [noOfRows][noOfColums];
         
@@ -93,45 +99,51 @@ public class ExploringEventsControl {
     
         public void displayEventList() {
         
-            Events explore = WalkTheDog.getCurrentGame().getEvents();
+            Events[][] exploreing = WalkTheDog.getCurrentGame().getEvents();
             
-            System.out.println("     The Park\n");
+            System.out.println("     The Park\n"
+                    + "is full of different people\n"
+                    + "They are:\n"
+                    + "Good     and    Bad\n");
             System.out.print("          ");
             
-            for (int column = 0; column < noOfColums; column++){
+            for (int column = 0; column < rowCount; column++){
                 System.out.print("     "+column+"     | ");
                 }
             
-            for (int row = 0; row < noOfRows; row++){
+            for (int row = 0; row < columCount; row++){
                 System.out.print("\n      "+row);
-                    for (int column = 0; column < noOfColums; column++){
+                    for (int column = 0; column < rowCount; column++){
                         System.out.print(" | ");
-                       explore = events [row][column];
-                        if(!explore.equals("")){
-//                            System.out.print(explore[row][column].getScene().getMapSymbol());
-                            }
-                        else{
-                            System.out.print("   x      ");                           // place map symbol here
-                            }
+           //            exploreing = events[row][column];
+//                        if(!exploreing.equals("")){
+                        if(events[row][column].equals("")){
+                            System.out.print("   x      ");
                         }
+                        else{
+                            System.out.print("this is a test");
+                            
+                            System.out.print(events[row][column].getEventsScene().getMapSymbol());
+                        }
+                    }
                     
                     System.out.print(" |");
                     }
-            }   // END of public void displayMap()
+            }   // END of public void displayEventList()
 
     
-    public static Events createEvents() {
+    public static Events[][] createEvents() {
     
-        // Create Map
-        ExploringEventsControl event = new ExploringEventsControl(Events.rowCount,Events.columCount);
+        // Create array
+        ExploringEventsControl event = new ExploringEventsControl(rowCount,columCount);
         
-        // create sceans for the game
+        // create actors for the game
         EventScene[] scenes = ExploringEventsControl.createScenes();
         
-        // assign sceans to event
+        // assign actors to event
         GameControl.assignEventScenes(event,scenes);
 
-//        return events;
+//        return event;
         return null;
         
     }

@@ -7,6 +7,7 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
+import byui.cit260.walkTheDog.control.ExploringEventsControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
@@ -57,6 +58,7 @@ public Player player;
             + "\n  P   - Play Mini Game"
             + "\n  D   - Display Map"
             + "\n  T   - Game Statistics"
+            + "\n  A   - Things in the Park"
             + "\n  H   - Help Menu "
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
@@ -184,6 +186,9 @@ public Player player;
             case 'T': // User views userStatistics
                 this.userStatistics();
                 break;
+            case 'A': // User views userStatistics
+                this.displayActors();
+                break;
             case 'H': // display the Help Menu
                 this.displayHelpMenu();
                 break;
@@ -305,6 +310,11 @@ public Player player;
     private void userStatistics(){
         StatisticsMenuView gameStatistics = new StatisticsMenuView(player);
         gameStatistics.display(hMR);
+    }
+
+    private void displayActors(){
+        ExploringEventsControl gameActors = new ExploringEventsControl();
+        gameActors.displayEventList();
     }
 
     private void saveGame(){                                              

@@ -39,7 +39,8 @@ public class GameControl {
         Map map = MapControl.createMap();       //this creates and initializes a new map
         game.setMap(map);
         
-        Events event = ExploringEventsControl.createEvents();
+        Events[][] event;
+        event = ExploringEventsControl.createEvents();
         game.setEvent(event);
         
         MapControl.moveActorsToStartingLocation(map);

@@ -23,8 +23,8 @@ public class Events implements Serializable {
     public String eventName;
     private int fixedEventScene;
     public Events[][] event;
-    public static int rowCount = 2;
-    public static int columCount = 8;
+//    public static int rowCount = 2;
+//    public static int columCount = 8;
     private int row;
     private int column;
 
@@ -168,5 +168,6 @@ public class Events implements Serializable {
         this.eventsScene = scene;
     }
 
+   
     
 }
