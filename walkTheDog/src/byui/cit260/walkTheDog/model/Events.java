@@ -1,31 +1,29 @@
-
-/*
- * Project author: gab James.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
 
 /**
  *
- * @authors Idel Pagan and gab James
+ * @authors and gab James
  */
 public class Events implements Serializable {
 
-
-// class instance variables
- public int eventTypeInPark;        //named wrong in UML corrected name
- public EventType[][] eventTypes;
+ public int eventTypeInPark;
+ public EventsType[][] eventTypes;
  int noOfRows;
  int noOfColums;
 
-// need to consider changeing from Double to INT
-
+ 
     public Events(){
-        
     }
+
+    public EventsType[][] getEventTypes() {
+        return eventTypes;
+    }
+    
+    public void setEventTypes(EventsType[][] eventTypes) {
+        this.eventTypes = eventTypes;
+  }
 
     public int getNoOfRows() {
         return noOfRows;
@@ -43,35 +41,28 @@ public class Events implements Serializable {
         this.noOfColums = noOfColums;
     }
 
-
     public Events(int noOfRows, int noOfColums) {
         
         if (noOfRows<1 || noOfColums<1){
-            System.out.println("The EventType Number must be greater than zero");
+            System.out.println("Enter a Number greater than zero");
             return;
         }
         
+        this.eventTypes = new EventsType [noOfRows][noOfColums];
         this.noOfRows = noOfRows;
         this.noOfColums = noOfColums;
         
-        this.eventTypes = new EventType [noOfRows][noOfColums];
-        
         for (int row = 0; row < noOfRows; row++){
             for (int column = 0; column < noOfColums; column++){
-                // create and initilize the eventType objects instance
-                EventType eventType = new EventType();
+                EventsType eventType = new EventsType();                          // create and initilize the eventType objects instance
                 eventType.setColumn(column);
                 eventType.setRow(row);
                 eventType.setVisited(false);
-                
-                //assign the EventType object to the current position in array
-                        eventTypes[row][column] = eventType;
-            }
-        }
+                eventTypes[row][column] = eventType;                            //assign the EventsType object to the current position in array
+            }   // END for column loop
+        }       // END for row loop
         
-        
-    }
-
+    }   // END     public Events(int noOfRows, int noOfColums) 
 
 
     public int getEventTypeInPark() {
@@ -108,13 +99,5 @@ public class Events implements Serializable {
         }
         return true;
     }
-
-    public EventType[][] getEventTypes() {
-        return eventTypes;
-    }
     
-    public void setEventTypes(EventType[][] eventTypes) {
-        this.eventTypes = eventTypes;
-  }
-    
-}
+}   //End of public class Events implements Serializable

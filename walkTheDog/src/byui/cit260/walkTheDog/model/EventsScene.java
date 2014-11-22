@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
@@ -10,48 +5,19 @@ import java.util.Objects;
 
 /**
  *
- * @author Idel
+ * @author gab
  */
-public class EventScene implements Serializable {
+public class EventsScene implements Serializable {
     
     private int fixedEventScene;
-    private String description;
     private boolean blocked;
-    private double travelTime;
     public String EventsSymbol;
-    
-    
-    
-    
-    
-    
-    
 
-    public double getTravelTime() {
-        return travelTime;
+    
+    
+    public EventsScene() {
     }
 
-    public boolean isBlocked() {
-        return blocked;
-    }
-
-    public String getEventsSymbol() {
-        return EventsSymbol;
-    }
-
-    public void setEventsSymbol(String st) {
-        this.EventsSymbol = st;
-    }
-
-    public void setBlocked(boolean b) {
-        this.blocked = b;
-    }
-
-    public void setTravelTime(double POSITIVE_INFINITY) {
-        this.travelTime = POSITIVE_INFINITY;
-    }
-    
- 
 
     public static enum EventSceneType {
         getsBellyRubbed,
@@ -72,11 +38,11 @@ public class EventScene implements Serializable {
         getsChokedByLeash;
      }
     
-    EventScene(String description) {
+    EventsScene(String description) {
         this.EventsSymbol = description;
         fixedEventScene = 1;
     
-     }
+    }
 
     public int getFixedEventScene() {
         return fixedEventScene;
@@ -92,6 +58,22 @@ public class EventScene implements Serializable {
 
     public void setDescription(String description) {
         this.EventsSymbol = description;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public String getEventsSymbol() {
+        return EventsSymbol;
+    }
+
+    public void setEventsSymbol(String st) {
+        this.EventsSymbol = st;
+    }
+
+    public void setBlocked(boolean b) {
+        this.blocked = b;
     }
 
     @Override
@@ -110,7 +92,7 @@ public class EventScene implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EventScene other = (EventScene) obj;
+        final EventsScene other = (EventsScene) obj;
         if (this.fixedEventScene != other.fixedEventScene) {
             return false;
         }
@@ -118,9 +100,6 @@ public class EventScene implements Serializable {
             return false;
         }
         return true;
-    }
-
-    public EventScene() {
     }
 
     @Override

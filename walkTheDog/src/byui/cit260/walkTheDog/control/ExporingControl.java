@@ -20,7 +20,7 @@ import java.util.Random;
  * Idel - generateFidoMood()
  * 
  */
-public class EventControl {
+public class ExporingControl {
     
     
     // Generate event on an explore

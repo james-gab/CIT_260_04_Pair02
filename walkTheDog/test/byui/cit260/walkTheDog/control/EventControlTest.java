@@ -18,7 +18,7 @@ public class EventControlTest {
     }
 
     /**
-     * Test of eventOnExplore method, of class EventControl.
+     * Test of eventOnExplore method, of class ExporingControl.
      */
     @Test
     public void testEventOnExplore() {
@@ -30,7 +30,7 @@ public class EventControlTest {
         System.out.println("\tTest case #1");
         int leashLength = 12;
         int idealLeashLength = 5;
-        EventControl instance = new EventControl();
+        ExporingControl instance = new ExporingControl();
         int expResult = 1;
         int result = instance.eventOnExplore(leashLength, idealLeashLength);
         assertEquals(expResult, result);
@@ -116,7 +116,7 @@ public class EventControlTest {
     }
 
     /**
-     * Test of eventOnNoExplore method, of class EventControl.
+     * Test of eventOnNoExplore method, of class ExporingControl.
      */
     @Test
     public void testEventOnNoExplore() {
@@ -129,7 +129,7 @@ public class EventControlTest {
         int noExploreCounter = 5;
         int idealLeashLength = 7;
         int userDefinedNumber = 7;
-        EventControl instance = new EventControl();
+        ExporingControl instance = new ExporingControl();
         int expResult = 1;
         int result = instance.eventOnNoExplore(noExploreCounter, idealLeashLength, userDefinedNumber);
         assertEquals(expResult, result);
@@ -192,7 +192,7 @@ public class EventControlTest {
     }
 
     /**
-     * Test of generateFidoMood method, of class EventControl.
+     * Test of generateFidoMood method, of class ExporingControl.
      */
     @Test
     public void testGenerateFidoMood() {
@@ -205,7 +205,7 @@ public class EventControlTest {
         int numberOfTurns = 4;
         int leashLength = 5;
         int mood = 5;
-        EventControl instance = new EventControl();
+        ExporingControl instance = new ExporingControl();
         int expResult = 6;
         int result = instance.generateFidoMood(numberOfTurns, leashLength, mood);
         assertEquals(expResult, result);

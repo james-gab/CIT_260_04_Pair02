@@ -5,7 +5,7 @@
  */
 package byui.cit260.walkTheDog.model;
 
-import byui.cit260.walkTheDog.control.ExploringEventsControl;
+import byui.cit260.walkTheDog.control.EventsControl;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;

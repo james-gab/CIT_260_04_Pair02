@@ -5,7 +5,7 @@
  */
 package byui.cit260.walkTheDog.view;
 
-import byui.cit260.walkTheDog.control.EventControl;
+import byui.cit260.walkTheDog.control.ExporingControl;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.model.Player;
@@ -175,7 +175,7 @@ public class StatisticsMenuView extends View {
     int numOfTurns = 0;    //these are put here so that it takes away my errors. 
     int length = 5;
     int dogMood = 5;
-    EventControl display = new EventControl();
+    ExporingControl display = new ExporingControl();
     int fidoMood = display.generateFidoMood(numOfTurns, length, dogMood);
             
     System.out.println("Fido mood is " + fidoMood);

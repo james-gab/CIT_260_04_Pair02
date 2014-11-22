@@ -6,8 +6,8 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.MapControl;
-import byui.cit260.walkTheDog.control.EventControl;
-import byui.cit260.walkTheDog.control.ExploringEventsControl;
+import byui.cit260.walkTheDog.control.ExporingControl;
+import byui.cit260.walkTheDog.control.EventsControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Player;
@@ -114,7 +114,7 @@ public Player player;
     
     private void visitSceanL(){
         
-        EventControl check = new EventControl();
+        ExporingControl check = new ExporingControl();
 
         check.didUserExplore(player);
         check.shortLeash(player);
@@ -135,14 +135,14 @@ public Player player;
     public void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
 
-        EventControl number = new EventControl();                              // calls random number generator
-        EventControl idealLeashLength = new EventControl();                     // generates a random ideal leash length
+        ExporingControl number = new ExporingControl();                              // calls random number generator
+        ExporingControl idealLeashLength = new ExporingControl();                     // generates a random ideal leash length
         player.gameIdealLeashLength = idealLeashLength.idealLeashLength(number.randomNumberGenerator16_0to15()); // passes a random generated idealLeashLength to a variable
         
-        EventControl check = new EventControl();
+        ExporingControl check = new ExporingControl();
         check.shortLeash(player);
 
-        EventControl eventOnExplore = new EventControl();                       // determin if an event happened during a user initiated explore
+        ExporingControl eventOnExplore = new ExporingControl();                       // determin if an event happened during a user initiated explore
         int eOE = eventOnExplore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength);
         
         if (eOE > 0 && player.gameDidUserExplore=='r'){
@@ -205,7 +205,7 @@ public Player player;
     }
 
     private void displayActors(){
-        ExploringEventsControl gameEvents = new ExploringEventsControl();
+        EventsControl gameEvents = new EventsControl();
         gameEvents.displayEvents();
     }
 

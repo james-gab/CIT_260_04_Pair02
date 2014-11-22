@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
@@ -10,31 +5,32 @@ import java.util.Objects;
  
 /**
  *
- * @author Idel
+ * @author gab
  */
-public class EventType implements Serializable {
+public class EventsType implements Serializable {
     private int row; 
     private int column;
     private boolean visited; 
     private String explore; 
     private String randomEvent;
     private String actorRandomEvent;
-    private EventScene eventScene;
+    private EventsScene eventScene;
 
-    public EventType() {
+    
+    public EventsType() {
     }
     
-
-    
-
     public boolean isVisited() {
         return visited;
     }
 
-
-    public EventScene getEventScene() {
+    public EventsScene getEventScene() {
         return eventScene;
     }
+    public void setEventScene(EventsScene eventScene) {
+        this.eventScene = eventScene;
+    }
+
     public int getRow() {
         return row;
     }
@@ -108,7 +104,7 @@ public class EventType implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EventType other = (EventType) obj;
+        final EventsType other = (EventsType) obj;
         if (this.row != other.row) {
             return false;
         }
@@ -130,10 +126,6 @@ public class EventType implements Serializable {
         return true;
     }
 
-    public void setEventScene(EventScene eventScene) {
-//        System.out.print("This is a stub function EventType.java");
-        this.eventScene = eventScene;
-    }
     
     
     
