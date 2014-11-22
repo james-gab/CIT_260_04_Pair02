@@ -122,8 +122,8 @@ public class MainMenuView extends View {
 
     
     private void startNewGame(){
-        System.out.println("\n*** startNewGame function called ***"
-                + "in MainMenuView.java     startNewGame()");
+//        System.out.println("\n*** startNewGame function called ***"
+//                + "in MainMenuView.java     startNewGame()");
         
         GameControl.createNewGame(WalkTheDog.getPlayer());
         

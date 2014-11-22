@@ -96,8 +96,8 @@ public class MapControl {
    
   }
     public static void moveActorsToStartingLocation(Map map) {
-        System.out.println("***This is a stub function****"
-                + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
+//        System.out.println("***This is a stub function****"
+//                + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
     }
    
     public int move (int fido, int location){
@@ -164,6 +164,7 @@ public class MapControl {
         public void displayMap() {
         
             Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
+//            Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
             
             System.out.println("     The Park\n");
             System.out.print("          ");

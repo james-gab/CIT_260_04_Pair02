@@ -6,10 +6,11 @@
 package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.EventScene;
-import byui.cit260.walkTheDog.model.Events;
+import byui.cit260.walkTheDog.model.EventType;
 import byui.cit260.walkTheDog.model.Fido;
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Location;
+import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.model.Scene;
@@ -39,13 +40,16 @@ public class GameControl {
         Map map = MapControl.createMap();       //this creates and initializes a new map
         game.setMap(map);
         
-        Events[][] event;
-        event = ExploringEventsControl.createEvents();
+        Events events = ExploringEventsControl.createEvents();       //this creates and initializes a new events
+        game.setEvents(events);
+
+/*
+        Events[][] event = Events.createEvents(Events.event);
         game.setEvent(event);
         
-        MapControl.moveActorsToStartingLocation(map);
+//        MapControl.moveActorsToStartingLocation(map);
         
-        
+  */      
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
         
@@ -76,30 +80,29 @@ public class GameControl {
             
     }
    
-    public static void assignEventScenes(ExploringEventsControl event, EventScene[] scenes) {
-            Events[][] events = event.getExploringEventsControl();
+    static void assignEventScenesToEventTypes(Events events, EventScene[] scenes){
+            EventType[][] eventType = events.getEventTypes();
        
        //start point
-            events[0][0].setEventScene(scenes[EventScene.EventType.getsChokedByLeash.ordinal()]);
-            events[0][1].setEventScene(scenes[EventScene.EventType.stepInPoop.ordinal()]);
-            events[0][2].setEventScene(scenes[EventScene.EventType.birdAttack.ordinal()]);
-            events[0][3].setEventScene(scenes[EventScene.EventType.dogBitesSomeone.ordinal()]);
-            events[0][4].setEventScene(scenes[EventScene.EventType.getsBitByOtherDog.ordinal()]);
-            events[0][5].setEventScene(scenes[EventScene.EventType.sniffsOtherDogButt.ordinal()]);
-            events[0][6].setEventScene(scenes[EventScene.EventType.licksSelf.ordinal()]);
-            events[0][7].setEventScene(scenes[EventScene.EventType.chasesSquirrel.ordinal()]);
-            events[1][0].setEventScene(scenes[EventScene.EventType.getsBellyRubbed.ordinal()]);
-            events[1][1].setEventScene(scenes[EventScene.EventType.playsFetch.ordinal()]);
-            events[1][2].setEventScene(scenes[EventScene.EventType.getsTreat.ordinal()]);
-            events[1][3].setEventScene(scenes[EventScene.EventType.rollsOver.ordinal()]);
-            events[1][4].setEventScene(scenes[EventScene.EventType.doesTrick.ordinal()]);
-            events[1][5].setEventScene(scenes[EventScene.EventType.sniffsGround.ordinal()]);
-            events[1][6].setEventScene(scenes[EventScene.EventType.licksPerson.ordinal()]);
-            events[1][7].setEventScene(scenes[EventScene.EventType.getsScrachedBehindEars.ordinal()]);
+            eventType[0][1].setEventScene(scenes[EventScene.EventSceneType.getsChokedByLeash.ordinal()]);
+            eventType[1][1].setEventScene(scenes[EventScene.EventSceneType.stepInPoop.ordinal()]);
+            eventType[2][1].setEventScene(scenes[EventScene.EventSceneType.birdAttack.ordinal()]);
+            eventType[3][1].setEventScene(scenes[EventScene.EventSceneType.dogBitesSomeone.ordinal()]);
+            eventType[4][1].setEventScene(scenes[EventScene.EventSceneType.getsBitByOtherDog.ordinal()]);
+            eventType[5][1].setEventScene(scenes[EventScene.EventSceneType.sniffsOtherDogButt.ordinal()]);
+            eventType[6][1].setEventScene(scenes[EventScene.EventSceneType.licksSelf.ordinal()]);
+            eventType[7][1].setEventScene(scenes[EventScene.EventSceneType.chasesSquirrel.ordinal()]);
+            eventType[0][0].setEventScene(scenes[EventScene.EventSceneType.getsBellyRubbed.ordinal()]);
+            eventType[1][0].setEventScene(scenes[EventScene.EventSceneType.playsFetch.ordinal()]);
+            eventType[2][0].setEventScene(scenes[EventScene.EventSceneType.getsTreat.ordinal()]);
+            eventType[3][0].setEventScene(scenes[EventScene.EventSceneType.rollsOver.ordinal()]);
+            eventType[4][0].setEventScene(scenes[EventScene.EventSceneType.doesTrick.ordinal()]);
+            eventType[5][0].setEventScene(scenes[EventScene.EventSceneType.sniffsGround.ordinal()]);
+            eventType[6][0].setEventScene(scenes[EventScene.EventSceneType.licksPerson.ordinal()]);
+            eventType[7][0].setEventScene(scenes[EventScene.EventSceneType.getsScrachedBehindEars.ordinal()]);
             
     }
 
-    
         
         
 }

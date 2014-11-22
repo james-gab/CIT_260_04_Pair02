@@ -9,6 +9,7 @@ import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.EventControl;
 import byui.cit260.walkTheDog.control.ExploringEventsControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
+import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
@@ -20,32 +21,11 @@ import walkthedog.WalkTheDog;
 public class GameMenuView extends View {
 
 public String hMR = "gMV";
-//public int playerSatisfaction;
-//public int playerLeashLenght;
-//public int gameIdealLeashLength;
-//public int gameNumberOfTurns;
-//public int gameFidoMood;
-//public int gameUserExploreCounter;
-//public char gameDidUserExplore;
-//public int playerCurrentScore;  
 public Player player;
-
-           
  
             
-    public GameMenuView(
-            Player player
-//                        int playerSatisfaction,
-//                        int playerLeashLenght,
-//                        int gameIdealLeashLength,
-//                        int gameNumberOfTurns,
-//                        int gameFidoMood,
-//                        int gameUserExploreCounter,
-//                        char gameDidUserExplore,
-//                        int playerCurrentScore
-                                                ) {
+    public GameMenuView(Player player) {
 
-        
         super("\n"
             + "\n________________________________"
             + "\n"
@@ -83,80 +63,6 @@ public Player player;
         
     }
     
-//[1-9] - Move to new location
-//E - Explore location 
-//L - Estimate the leash length allowed in their current location
-//H - Help Menu - Done
-//S - Save Game
-//Q - Quit Game
-
-   
-//USED to satisfy Lesson 06 Individual assignment
-//  RUBIC
-//      Used the Java switch, and do-while statements  
-//      to implemented the view for one end user story 
-//      that contains a menu.
-//    
-//      This impliments the do-while statment 
-//      see lines 108-170 for rest of requirement
-/*    public void displayGameMenu(){
-        
-        char selection = ' ';
-        do{
-
- 	System.out.println(GAMEMENU); // display the main menu
- 	 
- 	String input = this.getInput(); // get first charecter of string
-        selection = input.charAt(0);
- 	this.doGameAction(selection);
-
-        } while (selection != 'Q' || selection != 'q'); // a selection is not "Exit"
-
-    }
-
-    
-    public String getInput() {
-       boolean valid = false;
-       String playersInput = null;
-       Scanner keyboard = new Scanner(System.in);
-
-        while(!valid){
-            
-
-            System.out.println("Enter a choice below:");
-
-            playersInput = keyboard.nextLine();
-            playersInput = playersInput.trim();
-
-
-            if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
-                continue;
-            }
-            break;
-        }
-        return playersInput;
-    }
-*/
-//[1-9] - Move to new location
-//E - Explore location 
-//L - Estimate the leash length allowed in their current location
-//H - Help Menu - Done
-//S - Save Game
-//Q - Quit Game
-
-    
-    
-//USED to satisfy Lesson 06 Individual assignment
-//  RUBIC
-//      Used the Java switch, and do-while statements  
-//      to implemented the view for one end user story 
-//      that contains a menu.
-//    
-//      Lines 108-170 impliments the Java switch 
-//      see lines 50-63 for rest of requirement
-    
-
 @Override
     public void doAction(char choice) {
         
@@ -225,20 +131,6 @@ public Player player;
     
         
     
-    /* Instructor: 
-     * Each of these functions should be calling some Control Layer function to 
-     * perform some task. Create and call stub functions in the appropriate 
-     * Control Layer class for now. 
-     */
-    
-    /* ***************  Please advise  *****************
-     * gab Response:
-     * I added a lot of code to
-     *                             private void userExplore()
-     * but am unsure if some of this should 
-     * be transfered to a control layer function
-     * ***************  Please advise  *****************
-     */
     
     public void userExplore(){
         System.out.println("*** userEventOnExplore function called ***");
@@ -313,8 +205,8 @@ public Player player;
     }
 
     private void displayActors(){
-        ExploringEventsControl gameActors = new ExploringEventsControl();
-        gameActors.displayEventList();
+        ExploringEventsControl gameEvents = new ExploringEventsControl();
+        gameEvents.displayEvents();
     }
 
     private void saveGame(){                                              

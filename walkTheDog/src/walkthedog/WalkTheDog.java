@@ -8,7 +8,6 @@ package walkthedog;
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.StartProgramView;
-import java.util.Random;
 
 /**
  *
@@ -41,18 +40,6 @@ public class WalkTheDog {
        StartProgramView startProgramView = new StartProgramView();
        startProgramView.startProgram();        
         
-//        
-//        int minNumber = 4;
-//        Random rand = new Random();  
-//        int randomMultiplyer = rand.nextInt(16);
-//        System.out.println(randomMultiplyer);
-//        if (randomMultiplyer < minNumber){
-//            randomMultiplyer += minNumber;
-//        }
-//        System.out.println(randomMultiplyer);
-//        
-//        
-//        
     }
     
 }

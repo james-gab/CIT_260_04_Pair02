@@ -1,3 +1,4 @@
+
 /*
  * Project author: gab James.
  * To change this template file, choose Tools | Templates
@@ -5,99 +6,91 @@
  */
 package byui.cit260.walkTheDog.model;
 
-import byui.cit260.walkTheDog.control.ExploringEventsControl;
-import byui.cit260.walkTheDog.control.GameControl;
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
- * @author gab
+ * @authors Idel Pagan and gab James
  */
 public class Events implements Serializable {
 
-    
-    private String explore; 
-    private EventScene eventsScene;
-    public String eventName;
-    private int fixedEventScene;
-    public ExploringEventsControl[][] event;
-//    public static int rowCount = 2;
-//    public static int columCount = 8;
-    private int row;
-    private int column;
-    private boolean visited; 
 
+// class instance variables
+ public int eventTypeInPark;        //named wrong in UML corrected name
+ public EventType[][] eventTypes;
+ int noOfRows;
+ int noOfColums;
 
+// need to consider changeing from Double to INT
 
-    public Events() {
+    public Events(){
+        
     }
 
-    public ExploringEventsControl[][] getEvents() {
-        return event;
+    public int getNoOfRows() {
+        return noOfRows;
     }
 
-    public void setEvents(ExploringEventsControl[][] event) {
-        this.event = event;
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
     }
 
- 
-    public int getRow() {
-        return row;
+    public int getNoOfColums() {
+        return noOfColums;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setNoOfColums(int noOfColums) {
+        this.noOfColums = noOfColums;
     }
 
-    public int getColumn() {
-        return column;
+
+    public Events(int noOfRows, int noOfColums) {
+        
+        if (noOfRows<1 || noOfColums<1){
+            System.out.println("The EventType Number must be greater than zero");
+            return;
+        }
+        
+        this.noOfRows = noOfRows;
+        this.noOfColums = noOfColums;
+        
+        this.eventTypes = new EventType [noOfRows][noOfColums];
+        
+        for (int row = 0; row < noOfRows; row++){
+            for (int column = 0; column < noOfColums; column++){
+                // create and initilize the eventType objects instance
+                EventType eventType = new EventType();
+                eventType.setColumn(column);
+                eventType.setRow(row);
+                eventType.setVisited(false);
+                
+                //assign the EventType object to the current position in array
+                        eventTypes[row][column] = eventType;
+            }
+        }
+        
+        
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+
+
+    public int getEventTypeInPark() {
+        return eventTypeInPark;
     }
 
-    public boolean isVisited() {
-        return visited;
+    public void setEventTypeInPark(int eventTypeInPark) {
+        this.eventTypeInPark = eventTypeInPark;
     }
 
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
-
-    public String getExplore() {
-        return explore;
-    }
-
-    public void setExplore(String explore) {
-        this.explore = explore;
-    }
-
-    public EventScene getEventsScene() {
-        return eventsScene;
-    }
-
-    public void setEventsScene(EventScene eventsScene) {
-        this.eventsScene = eventsScene;
-    }
-
-    public int getFixedEventScene() {
-        return fixedEventScene;
-    }
-
-    public void setFixedEventScene(int fixedEventScene) {
-        this.fixedEventScene = fixedEventScene;
+    @Override
+    public String toString() {
+        return "Events{" + "lacationInPark=" + eventTypeInPark  + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (this.visited ? 1 : 0);
-        hash = 41 * hash + Objects.hashCode(this.explore);
-        hash = 41 * hash + Objects.hashCode(this.eventsScene);
-        hash = 41 * hash + Objects.hashCode(this.eventName);
-        hash = 41 * hash + this.fixedEventScene;
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.eventTypeInPark) ^ (Double.doubleToLongBits(this.eventTypeInPark) >>> 32));
         return hash;
     }
 
@@ -110,64 +103,18 @@ public class Events implements Serializable {
             return false;
         }
         final Events other = (Events) obj;
-        if (this.visited != other.visited) {
-            return false;
-        }
-        if (!Objects.equals(this.explore, other.explore)) {
-            return false;
-        }
-        if (!Objects.equals(this.eventsScene, other.eventsScene)) {
-            return false;
-        }
-        if (!Objects.equals(this.eventName, other.eventName)) {
-            return false;
-        }
-        if (this.fixedEventScene != other.fixedEventScene) {
+        if (Double.doubleToLongBits(this.eventTypeInPark) != Double.doubleToLongBits(other.eventTypeInPark)) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Events{" + "visited=" + visited + ", explore=" + explore + ", eventsScene=" + eventsScene + ", eventName=" + eventName + ", fixedEventScene=" + fixedEventScene + '}';
+    public EventType[][] getEventTypes() {
+        return eventTypes;
     }
-
-
     
-    
-    public void setEventName(String st) {
-        this.eventName = st;
-    }
-/*    
-    public static enum EventType {
-        getsBellyRubbed,
-        playsFetch,
-        getsTreat,
-        rollsOver,
-        doesTrick,
-        sniffsGround,
-        licksPerson,
-        getsScrachedBehindEars,
-        stepInPoop,
-        birdAttack,
-        dogBitesSomeone,
-        getsBitByOtherDog,
-        sniffsOtherDogButt,
-        licksSelf,
-        chasesSquirrel,
-        getsChokedByLeash;
-     }
-    Events(String description) {
-        this.eventName = description;
-        fixedEventScene = 1;
-    
-     }
-*/  
-        public void setEventScene(EventScene scene) {
-        this.eventsScene = scene;
-    }
-
-   
+    public void setEventTypes(EventType[][] eventTypes) {
+        this.eventTypes = eventTypes;
+  }
     
 }

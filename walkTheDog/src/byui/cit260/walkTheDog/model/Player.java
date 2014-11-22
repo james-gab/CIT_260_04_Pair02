@@ -38,10 +38,6 @@ public class Player implements Serializable {
     public void setPlayerSatisfaction(String playerSatisfaction) {
         this.playerSatisfaction = playerSatisfaction;
     }
-    
-    
-    
-    
 
     public void setHighScore(double highScore) {
         this.highScore = highScore;

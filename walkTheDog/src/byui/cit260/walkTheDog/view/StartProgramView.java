@@ -71,20 +71,9 @@ public class StartProgramView {
         }
         return playersName;
     }
-//N - New Game
-//R - Resume saved game 
-//H - Help Menu
-//S - Save game 
-//E - Exit 
 
    
     private void displayWelcomeMessage(Player player) {
-/*        
-        System.out.println("\n\n==========================");
-        System.out.println("Welcome to the game " + player.getName());
-        System.out.println("Have fun walking your dog in the park!");
-        System.out.println("\n==========================\n");
-*/      
 
         System.out.println("\n=========================="           // 26 
                 + "\n   Welcome to the game"

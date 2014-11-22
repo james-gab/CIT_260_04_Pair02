@@ -25,7 +25,7 @@ public class Game implements Serializable {
     private char didUserExplore;                  //did the user explore? y/n
     private int userExploreCounter;               //number of times the user did not explore and passed locations                      
     private int shortLeashNumberOfTurns;          //number of turns the leash is below 4
-    public Events[][] event;
+    public Events event;
 
     
     public Game() {
@@ -41,11 +41,14 @@ public class Game implements Serializable {
         this.fixedLocation = fixedLocation;
     }
     
-    public Events[][] getEvents(){
+    public Events getEvents() {
         return event;
     }
 
     public Map getMap() {
+        System.out.println("\nGame.java   Map getMap()"
+                + "\n function called to create the MAP array\n"
+                + "\n" + map + "\n");
         return map;
     }
 
@@ -182,9 +185,9 @@ public class Game implements Serializable {
           this.fido = fido;
     }
     
-    public void setEvent(Events[][] event) {
-          System.out.println("***This is a stub function ****"
-               + "\nin Game.java  setEvent(ExploringEventsControl event) around line 184"); 
+    public void setEvents(Events event) {
+//          System.out.println("***This is a stub function ****"
+//               + "\nin Game.java  setEvent(Events event) around line 184"); 
           this.event = event;
        
     }
