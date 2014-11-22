@@ -27,7 +27,7 @@ public class GameControl {
     
     
     public static void createNewGame(Player player){
-        ExporingControl numbernumber = new ExporingControl ();
+        ExploringControl numbernumber = new ExploringControl ();
         
 //        System.out.println("\n*** createNewGame stub function called ***"
 //                + "GameControl.java     createNewGame(Player player)");

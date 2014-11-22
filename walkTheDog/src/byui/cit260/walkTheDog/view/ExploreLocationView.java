@@ -6,7 +6,7 @@
  */
 package byui.cit260.walkTheDog.view;
 
-import byui.cit260.walkTheDog.control.ExporingControl;
+import byui.cit260.walkTheDog.control.ExploringControl;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -118,10 +118,10 @@ public class ExploreLocationView {
         // this part is under development:
         //int leashLength = 4;            // will be replaced with function that calls user entered leash length
         
-        //EventControl randNumForILL = new ExporingControl();
+        //EventControl randNumForILL = new ExploringControl();
         //int idealLeashLength = randNumForILL.randomNumberGenerator16_0to15 ();  // function that calls idealLeashLength generator
 
-        //EventControl userEventOnExplore = new ExporingControl();
+        //EventControl userEventOnExplore = new ExploringControl();
         //userEventOnExplore.eventOnExplore(leashLength,idealLeashLength);
         
     }

@@ -5,7 +5,7 @@
  */
 package byui.cit260.walkTheDog.view;
 
-import byui.cit260.walkTheDog.control.ExporingControl;
+import byui.cit260.walkTheDog.control.ExploringControl;
 import java.util.Scanner;
 
 /**

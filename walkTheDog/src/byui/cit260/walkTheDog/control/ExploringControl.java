@@ -20,7 +20,7 @@ import java.util.Random;
  * Idel - generateFidoMood()
  * 
  */
-public class ExporingControl {
+public class ExploringControl {
     
     
     // Generate event on an explore
@@ -198,6 +198,7 @@ public class ExporingControl {
                         + "\nand has been a bad dog, you loose 3 points");
                 player.playerCurrentScore -=3;
                 player.gameNumberOfTurns =0;
+                return 0;
             }
             else if (getFidoMood < player.gameFidoMood){
                 System.out.println("Fido does not like a short leash"
@@ -218,9 +219,7 @@ public class ExporingControl {
 // develop code that restarts the game from this spot
             }
         }
-
-        
-        return 0;
+        return 1;
     }
     
     public int didUserExplore(Player player){
