@@ -1,4 +1,4 @@
-package byui.cit260.walkTheDog.model;
+package byui.cit260.walkTheDog.enums;
 
 import java.io.Serializable;
 import java.util.Objects;

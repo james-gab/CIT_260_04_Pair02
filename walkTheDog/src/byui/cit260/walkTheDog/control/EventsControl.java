@@ -2,7 +2,7 @@ package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Events;
-import byui.cit260.walkTheDog.model.EventsScene;
+import byui.cit260.walkTheDog.enums.EventsScene;
 import walkthedog.WalkTheDog;
 
 

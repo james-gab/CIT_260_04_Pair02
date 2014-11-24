@@ -3,8 +3,8 @@ package byui.cit260.walkTheDog.control;
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Map;
-import byui.cit260.walkTheDog.model.Scene;
-import byui.cit260.walkTheDog.model.Scene.SceneType;
+import byui.cit260.walkTheDog.enums.Scene;
+import byui.cit260.walkTheDog.enums.Scene.SceneType;
 import java.awt.image.BufferedImage;
 import walkthedog.WalkTheDog;
 

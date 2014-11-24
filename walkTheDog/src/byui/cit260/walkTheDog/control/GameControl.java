@@ -5,7 +5,7 @@
  */
 package byui.cit260.walkTheDog.control;
 
-import byui.cit260.walkTheDog.model.EventsScene;
+import byui.cit260.walkTheDog.enums.EventsScene;
 import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Fido;
 import byui.cit260.walkTheDog.model.Game;
@@ -13,7 +13,7 @@ import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
-import byui.cit260.walkTheDog.model.Scene;
+import byui.cit260.walkTheDog.enums.Scene;
 import walkthedog.WalkTheDog;
 
 /**

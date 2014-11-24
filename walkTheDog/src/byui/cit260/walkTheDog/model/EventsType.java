@@ -1,5 +1,6 @@
 package byui.cit260.walkTheDog.model;
 
+import byui.cit260.walkTheDog.enums.EventsScene;
 import java.io.Serializable;
 import java.util.Objects;
  
