@@ -3,6 +3,7 @@
  * 
  */
 package byui.cit260.walkTheDog.control;
+import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.GameMenuView;
 import java.util.Random;
@@ -24,14 +25,16 @@ public class ExploringControl {
     
     
     // Generate event on an explore
-    public int eventOnExplore(int leashLength, int idealLeashLength){
+    public int eventOnExplore(int leashLength, int idealLeashLength) throws ExploringControlException{
         
         if (leashLength < 0 || leashLength > 15){      // test for good leashlenght
-            return -1;
+            throw new ExploringControlException("Can not set Leash Lenght to " + leashLength
+                    + " becasue the length is outside of the bounds of the leash.");
             }
         
         if (idealLeashLength < 4 || idealLeashLength > 15){      // test for good idealLeashLength
-            return -1;
+            throw new ExploringControlException("Can not set Ideal Leash Lenght to " + idealLeashLength
+                    + " becasue the length is outside of the bounds of the leash.");
             }
         
         double upperBase = 10;          //define an upperBase integer
@@ -222,7 +225,7 @@ public class ExploringControl {
         return 1;
     }
     
-    public int didUserExplore(Player player){
+    public int didUserExplore(Player player) throws ExploringControlException{
         
                 if (player.gameDidUserExplore=='n'){
             int eONE = this.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, this.randomNumberGenerator16_0to15());
