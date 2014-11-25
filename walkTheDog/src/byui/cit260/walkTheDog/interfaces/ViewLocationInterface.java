@@ -1,7 +1,7 @@
 /*
  * Project author: gab James.
  */
-package byui.cit260.walkTheDog.view;
+package byui.cit260.walkTheDog.interfaces;
 
 /**
  *

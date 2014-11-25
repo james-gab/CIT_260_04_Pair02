@@ -8,8 +8,11 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ProgramControl;
+import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -136,11 +139,23 @@ public class StatisticsMenuView extends View {
             case 'l': // User chooses to display Life points
                 this.lifePoint();
                 break;
-            case 'M': // user chooses to display fido's mood
+            case 'M': {
+            try {
+                // user chooses to display fido's mood
                 this.generateFidoMood();
+            } catch (ExploringControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
-            case 'm': // user chooses to display fido's mood
+            case 'm': {
+            try {
+                // user chooses to display fido's mood
                 this.generateFidoMood();
+            } catch (ExploringControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case 'Q': // modified to Q so that it can be inherited
                 this.back();
@@ -171,7 +186,7 @@ public class StatisticsMenuView extends View {
         System.out.println("Your life point is: " + lifePoints);   
     }
     
-    private void generateFidoMood(){
+    private void generateFidoMood() throws ExploringControlException{
     int numOfTurns = 0;    //these are put here so that it takes away my errors. 
     int length = 5;
     int dogMood = 5;

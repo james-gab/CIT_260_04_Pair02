@@ -74,8 +74,9 @@ public class MiniGameControl {
                 System.out.println("\nPress any key to return to the Game Menu!");
                 Scanner keyboard4 = new Scanner(System.in);                     //user can enter any key to continue
                 keyboard.nextLine();
-         
-                return 0;
+                player.playedMiniGame = 'Y';
+//                return 0;
+                return number;
             } 
             
             if (number > 0){

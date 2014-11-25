@@ -52,21 +52,30 @@ public class ExploringControl {
     }
     
     // Generate event on No Explore
-    public int eventOnNoExplore(int noExploreCounter, int idealLeashLength, int randomNumber){
+    public int eventOnNoExplore(int noExploreCounter, int idealLeashLength, int randomNumber) throws ExploringControlException{
         
         double noExploreCounterD = (double)noExploreCounter;
         double minLeashLenght = 4;
         
         if (noExploreCounter < 0 || noExploreCounter > 10){      // test for good leashlenght
-            return -1;
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int eventOnNoExplore(int noExploreCounter, int idealLeashLength, int randomNumber)"
+                    + "\n if (noExploreCounter < 0 || noExploreCounter > 10)");
             }
         
         if (idealLeashLength < 4 || idealLeashLength > 15){
-            return -1;                                          // test for good idealLeashlenght
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int eventOnNoExplore(int noExploreCounter, int idealLeashLength, int randomNumber)"
+                    + "\n if (idealLeashLength < 4 || idealLeashLength > 15)");
             }
 
         if (randomNumber < 4 || randomNumber > 19){
-            return -1;                                          // test for good userDefinedNumber
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int eventOnNoExplore(int noExploreCounter, int idealLeashLength, int randomNumber)"
+                    + "\n if (randomNumber < 4 || randomNumber > 19)");
             }
         
         if (noExploreCounter == 0){                             // test noExploreCounter not zero if zero add 1
@@ -86,18 +95,27 @@ public class ExploringControl {
         }
     
     // Determin Fido Mood
-    public int generateFidoMood(int numberOfTurns, int leashLength, int mood){
+    public int generateFidoMood(int numberOfTurns, int leashLength, int mood) throws ExploringControlException{
         
         if (leashLength < 0 || leashLength > 15){
-            return -1; // testing for valid leash length
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int generateFidoMood(int numberOfTurns, int leashLength, int mood)"
+                    + "\n if (leashLength < 0 || leashLength > 15)");
             }
     
         if (mood < 0 || mood > 9){   // checks if mood is valid
-            return -1;
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int generateFidoMood(int numberOfTurns, int leashLength, int mood)"
+                    + "\n if (mood < 0 || mood > 9)");
             }
     
         if (numberOfTurns < 0){
-            return -1;
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int generateFidoMood(int numberOfTurns, int leashLength, int mood)"
+                    + "\n if (numberOfTurns < 0)");
             }
        	double low = 0.0;
         double high = 1.0;
@@ -130,10 +148,13 @@ public class ExploringControl {
         }
  
     //create Ideal LeashLenght for actor
-    public int generateIdealLeashLength(int randomNumber){     //create Ideal LeashLenght for actor
+    public int generateIdealLeashLength(int randomNumber) throws ExploringControlException{     //create Ideal LeashLenght for actor
         
         if (randomNumber < 0 || randomNumber > 15){
-            return -1;
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                    + "\nin       public int generateIdealLeashLength(int randomNumber)"
+                    + "\n if (leashLength < 0 || leashLength > 15)");
         }
         
         if (randomNumber == 0){
@@ -153,10 +174,12 @@ public class ExploringControl {
     }
     
     //create Ideal LeashLenght for actor
-    public int idealLeashLength(int randomNumber){     //create userLeashLenght for actor
+    public int idealLeashLength(int randomNumber) throws ExploringControlException{     //create userLeashLenght for actor
         
         if (randomNumber < 0 || randomNumber > 15){
-            return -1;
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in GameMenuView.java ***"
+                        + "\nin       visitSceanL() if (randomNumber < 0 || randomNumber > 15)");
         }
         
         if (randomNumber == 0){
@@ -192,7 +215,7 @@ public class ExploringControl {
     
     
     
-    public int shortLeash(Player player){
+    public int shortLeash(Player player) throws ExploringControlException{
         
                 if (player.playerLeashLenght<4){
         int getFidoMood = this.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
@@ -216,7 +239,7 @@ public class ExploringControl {
                 player.gameNumberOfTurns +=1;
             }
             else {
-                System.out.println("*** Our appologies, something went wrong. ***"
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in GameMenuView.java ***"
                         + "\nin       visitSceanL() if(playerLeashLength<4)");
 // develop code that restarts the game from this spot
@@ -230,7 +253,7 @@ public class ExploringControl {
                 if (player.gameDidUserExplore=='n'){
             int eONE = this.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, this.randomNumberGenerator16_0to15());
             if (eONE < 0){
-            System.out.println("*** Our appologies, something went wrong. ***"
+            throw new ExploringControlException("*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in GameMenuView.java in ***"
                     + "\n   visitSceanL() if(gameUserExplore<0)***");
 // develop code that restarts the game from this spot                

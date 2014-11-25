@@ -11,7 +11,7 @@ import java.util.Scanner;
 /*
  * @author gab
  */
-public class LocationView extends ViewL{
+public class LocationView extends ViewForLocation{
     public String hMR = "LV";
 //    public int playerSatisfaction;
 //    public int playerLeashLenght;

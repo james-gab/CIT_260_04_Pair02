@@ -3,16 +3,17 @@
  */
 package byui.cit260.walkTheDog.view;
 
+import byui.cit260.walkTheDog.interfaces.ViewLocationInterface;
 import java.util.Scanner;
 
 /*
  * @author gab
  */
-public abstract class ViewL implements ViewLocationInterface {
+public abstract class ViewForLocation implements ViewLocationInterface {
     
     private final String promtMessage;
     
-    public ViewL(String promtMessage){
+    public ViewForLocation(String promtMessage){
         this.promtMessage = promtMessage;
     }
             

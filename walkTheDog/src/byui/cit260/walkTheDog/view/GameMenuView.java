@@ -9,10 +9,13 @@ import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
+import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import walkthedog.WalkTheDog;
 
 /**
@@ -63,6 +66,7 @@ public Player player;
         
         
     }
+
     
 @Override
     public void doAction(char choice) {
@@ -74,15 +78,27 @@ public Player player;
         
                 
         switch (choice){
-            case 'M': // User moves to location 1
-            //    this.displayMap();
+            case 'M': {
+            try {
+                // User moves to location 1
+                //    this.displayMap();
                 this.visitSceanL();
+            } catch (ExploringControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case 'D': // User Displays Map
                 this.displayMap();
                 break;
-            case 'E': // User chooses to Explore
+            case 'E': {
+            try {
+                // User chooses to Explore
                 this.userExplore();
+            } catch (ExploringControlException ex) {
+                System.out.println(ex.getMessage());
+                    }
+                }
                 break;
             case 'L': // User Estimates Leash Length needed
                 this.userLeashLength();
@@ -113,7 +129,7 @@ public Player player;
    
 
     
-    private void visitSceanL(){
+    private void visitSceanL() throws ExploringControlException{
         System.out.println("*** Move Location function called ***"
                 + "\n Location Menu will be called");
         
@@ -130,7 +146,7 @@ public Player player;
         
     
     
-    public void userExplore(){
+    public void userExplore() throws ExploringControlException{
 //        System.out.println("*** GameMenuView.java     public void userExplore() function called ***");
 
 //        player.playerLeashLenght = 15;                                          // for testing only
@@ -171,7 +187,8 @@ public Player player;
                         + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
                         + "\nFido's Mood is now: " + player.gameFidoMood);
             }
-            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) == 0){
+            else {
+//            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) == 0){
                 player.playerCurrentScore +=1;
                 player.gameDidUserExplore='y';
                 if(player.gameFidoMood < 9){
@@ -184,13 +201,13 @@ public Player player;
                         + "\n*** Fido was not interested in "
                         + "anything in the area it could reach ");
                 }
-            else {
-                player.gameDidUserExplore='y';
-                System.out.println("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in GameMenuView.java in ***"
-                    + "\n   userExplore() if(eOE>0)***");
+//            else {
+//                player.gameDidUserExplore='y';
+//                System.out.println("*** Our appologies, something went wrong. ***"
+//                    + "\n*** ERROR in GameMenuView.java in ***"
+//                    + "\n   userExplore() if(eOE>0)***");
 // develop code that restarts the game from this spot
-                }
+//                }
         }   // END          if (badDog > 0){
         
     }
