@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.walkTheDog.control;
+import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.model.Player;
 //import byui.cit260.walkTheDog.model.MiniGame;
 //import static java.time.Clock.system;
@@ -16,12 +17,14 @@ import java.util.Random;
  */
 public class MiniGameControl {
        
-    public int createMiniGame(Player player) {
+    public int createMiniGame(Player player) throws MiniGameControlException {
         int[] randomNumbers1 = new int[10];                                     //an array with 10 alocated spaces
         int[] randomNumbers2 = new int[10];                                     //another array with 10 alocated spaces
         int number = 3;
-        
-        
+       
+        if (player.getPlayedMiniGame() != 'n' || player.getPlayedMiniGame() != 'N' ||
+                player.getPlayedMiniGame() != 'Y' || player.getPlayedMiniGame() != 'y')
+            throw new MiniGameControlException("Sorry, something went wrong!");
         //if throws statement.. checks playedminigame is equal to y or n 
         if(player.playedMiniGame != 'Y'){
         System.out.println("Welcome to Spin the Wheel!"
