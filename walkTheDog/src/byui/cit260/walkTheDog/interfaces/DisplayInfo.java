@@ -10,6 +10,7 @@ package byui.cit260.walkTheDog.interfaces;
  */
 public interface DisplayInfo {
     
-    void display();
+//  void display();        
+    Object display(Object object);
     
 }
