@@ -22,6 +22,7 @@ public class MiniGameControl {
         int number = 3;
         
         
+        //if throws statement.. checks playedminigame is equal to y or n 
         if(player.playedMiniGame != 'Y'){
         System.out.println("Welcome to Spin the Wheel!"
                 + "\nThink you are lucky? Spin the wheel to "

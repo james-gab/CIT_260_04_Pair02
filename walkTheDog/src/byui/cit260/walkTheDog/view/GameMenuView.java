@@ -28,7 +28,7 @@ public String hMR = "gMV";
 public Player player;
  
             
-    public GameMenuView(Player player) {
+    public GameMenuView(Player players) {
 
         super("\n"
             + "\n________________________________"
@@ -48,19 +48,19 @@ public Player player;
             + "\n  Q   - Quit Game without saving"
             + "\n________________________________\n");
 
-        this.player = player;
+        this.player = players;
 
         System.out.println("\n\nYour current statistics:\nfor testing only\n"
                 + player + "\n"
                 + "\n"
-                + player.playerCurrentScore + "  =  playerCurrentScore\n"
-                + player.gameDidUserExplore + "  =  gameDidUserExplore\n"
-                + player.gameUserExploreCounter + "  =  gameUserExploreCounter\n"
-                + player.gameFidoMood + "  =  gameFidoMood\n"
-                + player.gameNumberOfTurns + "  =  gameNumberOfTurns\n"
-                + player.gameIdealLeashLength + "  =  gameIdealLeashLength\n"
-                + player.playerLeashLenght + "  =  playerLeashLenght\n"
-                + player.playerSatisfaction + "  =  playerSatisfaction\n"
+                + player.getPlayerCurrentScore() + "  =  playerCurrentScore\n"
+                + player.getGameDidUserExplore() + "  =  gameDidUserExplore\n"
+                + player.getGameUserExploreCounter() + "  =  gameUserExploreCounter\n"
+                + player.getGameFidoMood() + "  =  gameFidoMood\n"
+                + player.getGameNumberOfTurns() + "  =  gameNumberOfTurns\n"
+                + player.getGameIdealLeashLength() + "  =  gameIdealLeashLength\n"
+                + player.getPlayerLeashLenght() + "  =  playerLeashLenght\n"
+                + player.getPlayerSatisfaction() + "  =  playerSatisfaction\n"
         );
         
         

@@ -31,6 +31,14 @@ public class Player implements Serializable {
     public Player() {
     }
 
+    public char getPlayedMiniGame() {
+        return playedMiniGame;
+    }
+
+    public void setPlayedMiniGame(char playedMiniGame) {
+        this.playedMiniGame = playedMiniGame;
+    }
+
     public String getPlayerSatisfaction() {
         return playerSatisfaction;
     }

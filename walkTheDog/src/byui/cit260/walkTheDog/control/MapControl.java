@@ -11,7 +11,7 @@ import walkthedog.WalkTheDog;
 
 /**
  *
- * @author gab and Idel
+ * @author Gab and Idel
  
  */
 public class MapControl {
@@ -100,7 +100,7 @@ public class MapControl {
 //                + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
     }
    
-    public int move (int fido, int location){
+    public int move (int fido, int location){                            
         // not sure what goes here yet
         return 0;
     }

@@ -53,13 +53,15 @@ public class GameControl {
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
         
-        player.gameDidUserExplore = 'n';
-        player.gameFidoMood = 5;
-        player.playerCurrentScore = 1 + numbernumber.randomNumberGenerator16_0to15 ();
-        player.gameUserExploreCounter = 0;
-        player.playerLeashLenght = numbernumber.randomNumberGenerator16_0to15 ();
-        player.gameNumberOfTurns = 0;
-        player.gameIdealLeashLength = numbernumber.randomNumberGenerator16_0to15 ();
+        Player variable = new Player();
+        variable.setPlayedMiniGame('n');
+        variable.setGameDidUserExplore('n');
+        variable.setGameFidoMood(5);
+        variable.setPlayerCurrentScore(1 + numbernumber.randomNumberGenerator16_0to15());
+        variable.setGameUserExploreCounter(0);
+        variable.setPlayerLeashLenght(numbernumber.randomNumberGenerator16_0to15());
+        variable.setGameNumberOfTurns(0);
+        variable.setGameIdealLeashLength(numbernumber.randomNumberGenerator16_0to15());
 
     
     }
