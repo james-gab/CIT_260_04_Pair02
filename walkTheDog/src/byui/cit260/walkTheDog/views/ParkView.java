@@ -15,7 +15,7 @@ import byui.cit260.walkTheDog.model.Player;
 public class ParkView  implements DisplayInfo {
     
     Player player;
-    
+   
     
 //  ***THIS NEEDS TO BE FIXED*++**++**++**++**++**++**++**++**++**++**++**++**++**++**++**++**++**++**++**++***    
     @Override
