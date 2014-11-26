@@ -214,12 +214,8 @@ public class HelpMenuView {
 
                 MainMenuView mmvGame = new MainMenuView(player);
                 GameMenuView gmvGame = new GameMenuView(player);
-                StatisticsMenuView smvGame = new StatisticsMenuView(player
-//                        playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
-                );
-                LocationView lvGame = new LocationView(player
-//                        playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
-                );
+                StatisticsMenuView smvGame = new StatisticsMenuView(player);
+                LocationView lvGame = new LocationView(player);
         
         switch (returnTO){
             case "gMV":

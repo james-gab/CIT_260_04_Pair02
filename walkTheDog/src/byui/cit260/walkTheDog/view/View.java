@@ -73,11 +73,6 @@ public abstract class View implements ViewInterface {
     public void doAction(char selection){
         
     }
-
-//    @Override
-//    public void doAction(String value){
-//        
-//    }
     
    
 }

@@ -8,7 +8,6 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.model.Player;
-import java.util.Scanner;
 
 /**
  *
@@ -29,10 +28,6 @@ public class UserExperienceView extends View{
         
     }
     
-    public void UserExperienceView() {
-    
-}
-    
     
     @Override
         public void doAction(char choice){
@@ -41,36 +36,19 @@ public class UserExperienceView extends View{
             int start = player.getPlayerSatisfaction();
             
             do{
+                try {
+                    this.userExperienceInput(choice);
+                } catch (EventsControlException ex) {
+                    System.out.println(ex.getMessage());
+                }        
+            }while(player.playerSatisfaction==start);
+
+            System.out.println("\nPlayer Satisfaction is now: " + player.getPlayerSatisfaction());
             
-            switch (choice){
-                case 'Y': {
-                    try {
-                        this.userExperienceInput(choice);
-                        break;
-                    } catch (EventsControlException ex) {
-                            System.out.println(ex.getMessage());
-                            }
-                    }
-                case 'N': {
-                    try {
-                        this.userExperienceInput(choice);
-                        break;
-                    } catch (EventsControlException ex) {
-                            System.out.println(ex.getMessage());
-                            }
-                    }
-                default:{
-                    System.out.println("\n*** Invalid Selection *** Try Again ***");
-                    break;
-                    }
-            }
-        }while (player.playerSatisfaction==start);
-            
+            LocationView changeLocations = new LocationView(player);                // send user to Location view menu
+            changeLocations.display(hMR);
         
-            
-            
-            
-            }
+        }
 
         
         

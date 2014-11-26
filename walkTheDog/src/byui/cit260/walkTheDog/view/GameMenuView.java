@@ -139,13 +139,13 @@ public Player player;
         check.didUserExplore(player);
         check.shortLeash(player);
 
-        player.gameDidUserExplore = 'n';                                        // change char gameDidUserExplore back to NO
+        player.setGameDidUserExplore('n');                                        // change char gameDidUserExplore back to NO
         
         UserExperienceView question = new UserExperienceView(player);
-        question.display(hMR);
+        question.display(hMR);                                                // does not fully work yet, will not retun player to this point in game
 
-        LocationView changeLocations = new LocationView(player);                // send user to Location view menu
-        changeLocations.display(hMR);
+//        LocationView changeLocations = new LocationView(player);                // send user to Location view menu
+//        changeLocations.display(hMR);
         }
     
         
