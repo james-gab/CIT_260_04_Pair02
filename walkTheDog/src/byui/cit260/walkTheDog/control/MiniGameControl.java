@@ -26,6 +26,7 @@ public class MiniGameControl {
                 player.getPlayedMiniGame() != 'Y' || player.getPlayedMiniGame() != 'y')
             throw new MiniGameControlException("Sorry, something went wrong!");
         //if throws statement.. checks playedminigame is equal to y or n 
+        
         if(player.playedMiniGame != 'Y'){
         System.out.println("Welcome to Spin the Wheel!"
                 + "\nThink you are lucky? Spin the wheel to "

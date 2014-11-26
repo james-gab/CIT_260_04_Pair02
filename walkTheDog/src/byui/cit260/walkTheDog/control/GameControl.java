@@ -53,7 +53,8 @@ public class GameControl {
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
         
-        Player variable = new Player();
+        Player variable = game.getPlayer();     // Changed from Player variable =  new Player();
+                                                // was not passing assigned values only found 0 and null values
         variable.setPlayedMiniGame('n');
         variable.setGameDidUserExplore('n');
         variable.setGameFidoMood(5);
@@ -62,8 +63,11 @@ public class GameControl {
         variable.setPlayerLeashLenght(numbernumber.randomNumberGenerator16_0to15());
         variable.setGameNumberOfTurns(0);
         variable.setGameIdealLeashLength(numbernumber.randomNumberGenerator16_0to15());
-
-    
+        variable.setPlayerSatisfaction(5);
+        
+        
+        
+        
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes){

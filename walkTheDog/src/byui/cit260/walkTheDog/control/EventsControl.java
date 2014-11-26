@@ -3,6 +3,7 @@ package byui.cit260.walkTheDog.control;
 import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.enums.EventsScene;
+import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import walkthedog.WalkTheDog;
 
 
@@ -146,30 +147,37 @@ public class EventsControl {
   } // END of private static EventsScene[] createEventScenes() 
     
     
-        public void displayEvents() {
+        public void displayEvents() throws EventsControlException {
         
             EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvents().getEventTypes();
             
-            System.out.println("     Events in The Park\n");
-            System.out.print("          ");
-            System.out.println("     The Park is full of different Events\n"
-                    + "They are:           Good (good dog!!!)    and             Bad (bad dog!!!)");
+            if (eventTypes == null){
+            throw new EventsControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in EventsControl.java ***"
+                        + "\nin       public void displayEvents() if (eventTypes == null)");
+            }
+            else{
+                System.out.println("     Events in The Park\n");
+                System.out.print("          ");
+                System.out.println("     The Park is full of different Events\n"
+                        + "They are:           Good (good dog!!!)    and             Bad (bad dog!!!)");
             
-            for (int row = 0; row < eVrowCount; row++){
-                int z = row +1;
-                System.out.print("      "+z);
-                    for (int column = 0; column < eVcolumCount; column++){
-                        System.out.print(" | ");
-                        EventsType eventType = eventTypes [row][column];
-                        if(!eventType.equals("")){
-                            System.out.print(eventTypes[row][column].getEventScene().getEventsSymbol());
+                for (int row = 0; row < eVrowCount; row++){
+                    int z = row +1;
+                    System.out.print("      "+z);
+                        for (int column = 0; column < eVcolumCount; column++){
+                            System.out.print(" | ");
+                            EventsType eventType = eventTypes [row][column];
+                            if(!eventType.equals("")){
+                                System.out.print(eventTypes[row][column].getEventScene().getEventsSymbol());
+                                }
+                            else{
+                                System.out.print("   x      ");                           // place event symbol here
+                                }
                             }
-                        else{
-                            System.out.print("   x      ");                           // place event symbol here
-                            }
+                        System.out.print(" |\n");
                         }
-                    System.out.print(" |\n");
-                    }
-            }   // END of public void displayEvents()
+            }
+        }   // END of public void displayEvents()
     
 }   // END of public class EventsControl

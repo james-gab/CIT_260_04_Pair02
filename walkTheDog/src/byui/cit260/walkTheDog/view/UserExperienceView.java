@@ -5,16 +5,88 @@
  */
 package byui.cit260.walkTheDog.view;
 
+import byui.cit260.walkTheDog.control.ProgramControl;
+import byui.cit260.walkTheDog.exceptions.EventsControlException;
+import byui.cit260.walkTheDog.model.Player;
 import java.util.Scanner;
 
 /**
  *
  * @author gab
  */
-public class UserExperienceView {
+public class UserExperienceView extends View{
     
-    public int userExperienceInput( int playerSatisfaction){
+    public Player player;
+    public String hMR = "uEV";
+
+
+    public UserExperienceView(Player players) {
+        super(
+                "Before you leave, did you enjoy your"
+              + "\nexperience in this location Y/N?");
+        
+        this.player = players;
+        
+    }
     
+    public void UserExperienceView() {
+    
+}
+    
+    
+    @Override
+        public void doAction(char choice){
+            
+            System.out.println(choice + " was your choice.");
+            int start = player.getPlayerSatisfaction();
+            
+            do{
+            
+            switch (choice){
+                case 'Y': {
+                    try {
+                        this.userExperienceInput(choice);
+                        break;
+                    } catch (EventsControlException ex) {
+                            System.out.println(ex.getMessage());
+                            }
+                    }
+                case 'N': {
+                    try {
+                        this.userExperienceInput(choice);
+                        break;
+                    } catch (EventsControlException ex) {
+                            System.out.println(ex.getMessage());
+                            }
+                    }
+                default:{
+                    System.out.println("\n*** Invalid Selection *** Try Again ***");
+                    break;
+                    }
+            }
+        }while (player.playerSatisfaction==start);
+            
+        
+            
+            
+            
+            }
+
+        
+        
+        
+/*      Lesson 09 Individual assignment
+ *      fixed prevoius assignments inputs and moved all calculations 
+ *      to control layer in the ProgramControl class.
+ */
+        
+    public void userExperienceInput(char choice) throws EventsControlException{
+
+        ProgramControl check = new ProgramControl();
+        player.setPlayerSatisfaction(check.userExperienceInputCheck(choice,player.getPlayerSatisfaction()));
+    }    
+        
+        
         
 //      User input question Did you enjoy your experience in this location Y/N?
 //      USED to satisfy Lesson 06 Individual assignment
@@ -24,7 +96,7 @@ public class UserExperienceView {
 //        story that prompts for and retrieves input from the end user  
 //        for one or more non-menu related items.
         
-        
+/*        
         char userExperienceInput = ' ';
         boolean experienceValidCheck = false;
         
@@ -41,7 +113,7 @@ public class UserExperienceView {
              * (e.g., the ProgramContro). Creating, updating and deleting Model
              * Layer objects is a function of the Control Layer.
              */
-            if (userExperienceInput == 'Y' || userExperienceInput == 'y'){
+/*            if (userExperienceInput == 'Y' || userExperienceInput == 'y'){
                 playerSatisfaction += 1;
                 break;
             }
@@ -56,6 +128,7 @@ public class UserExperienceView {
        
         }
          return playerSatisfaction;
+
     }
 
     
@@ -83,7 +156,7 @@ public class UserExperienceView {
         }
         return playersInput;
     }
-        
+*/        
         
         
         

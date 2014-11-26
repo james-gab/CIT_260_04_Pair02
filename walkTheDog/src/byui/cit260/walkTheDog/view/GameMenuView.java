@@ -9,7 +9,9 @@ import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
+import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
+import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Player;
@@ -63,7 +65,7 @@ public Player player;
                 + player.getPlayerSatisfaction() + "  =  playerSatisfaction\n"
         );
         
-        
+       
         
     }
 
@@ -138,6 +140,9 @@ public Player player;
         check.shortLeash(player);
 
         player.gameDidUserExplore = 'n';                                        // change char gameDidUserExplore back to NO
+        
+        UserExperienceView question = new UserExperienceView(player);
+        question.display(hMR);
 
         LocationView changeLocations = new LocationView(player);                // send user to Location view menu
         changeLocations.display(hMR);
@@ -231,7 +236,11 @@ public Player player;
 
     private void displayActors(){
         EventsControl gameEvents = new EventsControl();
+    try {
         gameEvents.displayEvents();
+    } catch (EventsControlException ex) {
+                System.out.println(ex.getMessage());
+        }
     }
 
     private void saveGame(){                                              
@@ -254,7 +263,11 @@ public Player player;
     private void createMiniGame(Player player) {
         System.out.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
         MiniGameControl miniGame = new MiniGameControl();
+    try {
         miniGame.createMiniGame(player);   //this needs to be fixed
+    } catch (MiniGameControlException ex) {
+                System.out.println(ex.getMessage());
+        }
     }
     
     

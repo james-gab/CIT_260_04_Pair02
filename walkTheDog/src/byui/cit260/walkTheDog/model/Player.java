@@ -25,7 +25,7 @@ public class Player implements Serializable {
     public int gameNumberOfTurns;
     public int gameFidoMood;
     public int gameIdealLeashLength;
-    public String playerSatisfaction;
+    public int playerSatisfaction;
     public char playedMiniGame ;
 
     public Player() {
@@ -39,11 +39,11 @@ public class Player implements Serializable {
         this.playedMiniGame = playedMiniGame;
     }
 
-    public String getPlayerSatisfaction() {
+    public int getPlayerSatisfaction() {
         return playerSatisfaction;
     }
 
-    public void setPlayerSatisfaction(String playerSatisfaction) {
+    public void setPlayerSatisfaction(int playerSatisfaction) {
         this.playerSatisfaction = playerSatisfaction;
     }
 

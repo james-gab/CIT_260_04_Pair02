@@ -13,30 +13,12 @@ import java.util.Scanner;
  */
 public class LocationView extends ViewForLocation{
     public String hMR = "LV";
-//    public int playerSatisfaction;
-//    public int playerLeashLenght;
-//    public int gameIdealLeashLength;
-//    public int gameNumberOfTurns;
-//    public int gameFidoMood;
-//    public int gameUserExploreCounter;
-//    public char gameDidUserExplore;
-//    public int playerCurrentScore;   
     private Player player;
 
     
     
     
-    public LocationView (
-                          Player player
-//                        int playerSatisfaction,
-//                        int playerLeashLenght,
-//                        int gameIdealLeashLength,
-//                        int gameNumberOfTurns,
-//                        int gameFidoMood,
-//                        int gameUserExploreCounter,
-//                        char gameDidUserExplore,
-//                        int playerCurrentScore
-                                                ) {
+    public LocationView (Player player) {
 
 
         super("\n"
@@ -55,14 +37,7 @@ public class LocationView extends ViewForLocation{
             + "\n  H   - Help Menu" 
             + "\n  Q   - Return to Game menu"
             + "\n________________________________\n");
-//        this.playerCurrentScore = playerCurrentScore;
-//        this.gameDidUserExplore = gameDidUserExplore;
-//        this.gameUserExploreCounter = gameUserExploreCounter;
-//        this.gameFidoMood = gameFidoMood;
-//        this.gameNumberOfTurns = gameNumberOfTurns;
-//        this.gameIdealLeashLength = gameIdealLeashLength;
-//        this.playerLeashLenght = playerLeashLenght;
-//        this.playerSatisfaction = playerSatisfaction;
+
         this.player=player;
     }
     
@@ -111,9 +86,7 @@ public class LocationView extends ViewForLocation{
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu(hMR
-//                ,playerSatisfaction, playerLeashLenght, gameIdealLeashLength, gameNumberOfTurns, gameFidoMood, gameUserExploreCounter, gameDidUserExplore, playerCurrentScore
-        );
+        gameMenuHelp.displayHelpMenu(hMR);
     }
     
     private void quitGame(){
