@@ -60,12 +60,18 @@ public class UserExperienceView extends View{
         
     public void userExperienceInput(char choice) throws EventsControlException{
 
-        ProgramControl check = new ProgramControl();
+        ProgramControl check = new ProgramControl();                            // Control class is in ProgramControl.java
         player.setPlayerSatisfaction(check.userExperienceInputCheck(choice,player.getPlayerSatisfaction()));
     }    
         
         
-        
+/**************   This section was fixed per instructions and is no longer part of the program  ***********************
+ * 
+ * 
+ * 
+ * 
+ * 
+ */        
 //      User input question Did you enjoy your experience in this location Y/N?
 //      USED to satisfy Lesson 06 Individual assignment
 //  RUBIC

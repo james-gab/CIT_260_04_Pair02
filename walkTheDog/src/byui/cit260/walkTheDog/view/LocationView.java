@@ -3,10 +3,8 @@
  */
 package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
-import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.model.Player;
 
-import java.util.Scanner;
 
 /*
  * @author gab
