@@ -61,7 +61,7 @@ public class ProgramControl {
                 +choice+ " was passed for choice.\n"
                 +playerSatisfaction+ " was passed for playerSatisfaction\n\n");
         
-        if (choice == 'Y' || choice == 'y' || choice == 'N' || choice == 'n'){
+        if (choice != 'Y' || choice != 'y' || choice != 'N' || choice != 'n'){
             throw new EventsControlException("\"Invalid entry - please try again");            
         }
         
