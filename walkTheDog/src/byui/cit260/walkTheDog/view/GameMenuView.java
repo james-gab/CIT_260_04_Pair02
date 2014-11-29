@@ -214,6 +214,9 @@ public Player player;
 // develop code that restarts the game from this spot
 //                }
         }   // END          if (badDog > 0){
+        else{
+            System.out.println("You have already explored this Area.\nPlease try another Area.");
+        }
         
     }
 

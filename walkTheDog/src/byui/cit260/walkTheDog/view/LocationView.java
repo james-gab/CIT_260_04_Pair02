@@ -3,6 +3,7 @@
  */
 package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
+import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.model.Player;
 
 
@@ -30,8 +31,8 @@ public class LocationView extends ViewForLocation{
             + "\n  2   - PLACE location description here" 
             + "\n  3   - PLACE location description here" 
             + "\n  4   - PLACE location description here" 
-//            + "\n  5   - PLACE location description here" 
-//            + "\n  6   - PLACE location description here"
+            + "\n  5   - PLACE location description here" 
+            + "\n  6   - PLACE location description here"
             + "\n  H   - Help Menu" 
             + "\n  Q   - Return to Game menu"
             + "\n________________________________\n");
@@ -42,7 +43,7 @@ public class LocationView extends ViewForLocation{
     
     
     
-    
+/*    
     
     @Override
     public void doAction(char choice) {
@@ -78,7 +79,7 @@ public class LocationView extends ViewForLocation{
     }      
     }
 
-    
+*/    
     
     
     
@@ -93,6 +94,66 @@ public class LocationView extends ViewForLocation{
         GameMenuView quittingGame = new GameMenuView(player);
         quittingGame.display(hMR);
     }
+    
+    
+    
+    @Override
+    public void doAction(char choice) {                                         // changed to display the location view
+        int row = -1,column = -1;
+        
+        if      (choice == '1'){
+            row=0;
+            column=0;
+        }
+        else if (choice == '2'){
+            row=0;
+            column=1;
+        }
+        else if (choice == '3'){
+            row=0;
+            column=2;
+        }
+        else if (choice == '4'){
+            row=1;
+            column=0;
+        }
+        else if (choice == '5'){
+            row=1;
+            column=1;
+        }
+        else if (choice == '6'){
+            row=1;
+            column=2;
+        }
+        else if (choice == '7'){
+            row=2;
+            column=0;
+        }
+        else if (choice == '8'){
+            row=2;
+            column=1;
+        }
+        else if (choice == '9'){
+            row=2;
+            column=2;
+        }
+        else {
+                System.out.println("\n*** Invalid Selection in visitSceanL *** Try Again ***");
+        }
+        
+
+        
+        MapControl goTo = new MapControl();
+        try {
+                goTo.visitSceanLocations(row,column,player,hMR);
+        } catch (MapControlException ex) {
+                System.out.println(ex.getMessage());
+        }
+
+    
+    }
+    
+    
     
     
     private void visitSceanL(char choice){

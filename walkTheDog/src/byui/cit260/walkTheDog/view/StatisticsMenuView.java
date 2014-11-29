@@ -6,11 +6,10 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.ExploringControl;
-import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
+import byui.cit260.walkTheDog.exceptions.ProgramControlException;
 import byui.cit260.walkTheDog.model.Player;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,15 +20,6 @@ import java.util.logging.Logger;
 public class StatisticsMenuView extends View {
     public String hMR = "sMV";
     public Player player;
-//    public int playerSatisfaction;
-//    public int playerLeashLenght;
-//    public int gameIdealLeashLength;
-//    public int gameNumberOfTurns;
-//    public int gameFidoMood;
-//    public int gameUserExploreCounter;
-//    public char gameDidUserExplore;
-//    public int playerCurrentScore;   
-
 
 
 //    private final String MENU = "\n"
@@ -57,17 +47,7 @@ public class StatisticsMenuView extends View {
 
 
 
-    public StatisticsMenuView (
-                        Player player
-//                        int playerSatisfaction,
-//                        int playerLeashLenght,
-//                        int gameIdealLeashLength,
-//                        int gameNumberOfTurns,
-//                        int gameFidoMood,
-//                        int gameUserExploreCounter,
-//                        char gameDidUserExplore,
-//                        int playerCurrentScore
-                                                ) {
+    public StatisticsMenuView (Player player) {
         
         
         super("\n"
@@ -80,14 +60,6 @@ public class StatisticsMenuView extends View {
             + "\n________________________________");
 
     
-//        this.playerCurrentScore = playerCurrentScore;
-//        this.gameDidUserExplore = gameDidUserExplore;
-//        this.gameUserExploreCounter = gameUserExploreCounter;
-//        this.gameFidoMood = gameFidoMood;
-//        this.gameNumberOfTurns = gameNumberOfTurns;
-//        this.gameIdealLeashLength = gameIdealLeashLength;
-//        this.playerLeashLenght = playerLeashLenght;
-//        this.playerSatisfaction = playerSatisfaction;
         this.player = player;
     
     }
@@ -134,15 +106,15 @@ public class StatisticsMenuView extends View {
             */
             
             case 'L': // User chooses to display Life points
-                this.lifePoint();
+                this.lifePoint(player);
                 break;
             case 'l': // User chooses to display Life points
-                this.lifePoint();
+                this.lifePoint(player);
                 break;
             case 'M': {
             try {
                 // user chooses to display fido's mood
-                this.generateFidoMood();
+                this.generateFidoMood(player);
             } catch (ExploringControlException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -151,7 +123,7 @@ public class StatisticsMenuView extends View {
             case 'm': {
             try {
                 // user chooses to display fido's mood
-                this.generateFidoMood();
+                this.generateFidoMood(player);
             } catch (ExploringControlException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -180,12 +152,25 @@ public class StatisticsMenuView extends View {
     /*Idel:
     * Will do thanks!
     */
+    /*
     private void lifePoint(){     //display the player's Life Points
         ProgramControl display = new ProgramControl();
         int lifePoints = display.playerLifePoints();
         System.out.println("Your life point is: " + lifePoints);   
     }
+    */
     
+    private void lifePoint(Player player){     //display the player's Life Points
+        ProgramControl display = new ProgramControl();
+        try {   
+            System.out.println("Your life point is: " + display.playerLifePoints(player));
+        } catch (ProgramControlException ex) {
+                System.out.println(ex.getMessage());
+        }
+    }
+
+
+/*    
     private void generateFidoMood() throws ExploringControlException{
     int numOfTurns = 0;    //these are put here so that it takes away my errors. 
     int length = 5;
@@ -194,6 +179,19 @@ public class StatisticsMenuView extends View {
     int fidoMood = display.generateFidoMood(numOfTurns, length, dogMood);
             
     System.out.println("Fido mood is " + fidoMood);
+    }
+*/
+    
+    
+    // fixed to return from Player player
+    private void generateFidoMood(Player player) throws ExploringControlException{
+    ProgramControl display = new ProgramControl();
+            
+        try {
+            System.out.println("Fido mood is " + display.fidoMood(player));
+        } catch (ProgramControlException ex) {
+                System.out.println(ex.getMessage());
+        }
     }
     
     private void back(){

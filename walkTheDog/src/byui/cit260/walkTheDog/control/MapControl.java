@@ -5,6 +5,9 @@ import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.enums.Scene;
 import byui.cit260.walkTheDog.enums.Scene.SceneType;
+import byui.cit260.walkTheDog.exceptions.MapControlException;
+import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.view.GameMenuView;
 import java.awt.image.BufferedImage;
 import walkthedog.WalkTheDog;
 
@@ -113,6 +116,25 @@ public class MapControl {
         }
                
         return valid;
+    }
+    
+    public void visitSceanLocations (int row, int column, Player player, String hMR) throws MapControlException{
+        System.out.println("*** visitScean function called ***");    // STUB statment will be replaced with a function
+        
+        if (row<0||column<0){
+            throw new MapControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in ProgramControl.java ***"
+                    + "\nin       public int fidoMood(Player player)"
+                    + "\n if (points < 0)");            
+            
+        }
+ 
+            Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
+            System.out.print("moving to " + locations[row][column].getScene().getMapSymbol());
+            
+        GameMenuView gameMenu = new GameMenuView(player);
+        gameMenu.display(hMR);
+        
     }
     
     public int visitSceanL1 (int fido, int scean1){

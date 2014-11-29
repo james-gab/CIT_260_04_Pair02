@@ -40,6 +40,7 @@ public class UserExperienceView extends View{
                     this.userExperienceInput(choice);
                 } catch (EventsControlException ex) {
                     System.out.println(ex.getMessage());
+                    break;
                 }        
             }while(player.playerSatisfaction==start);
 

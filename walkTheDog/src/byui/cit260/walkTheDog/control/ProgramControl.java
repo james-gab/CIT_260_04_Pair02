@@ -2,6 +2,7 @@
 package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
+import byui.cit260.walkTheDog.exceptions.ProgramControlException;
 import byui.cit260.walkTheDog.model.Player;
 import walkthedog.WalkTheDog;
 
@@ -18,10 +19,34 @@ public class ProgramControl {
     return player;
     }
     
-    public int playerLifePoints(){
-        return 0;
-        //generate the players life point
+    public int playerLifePoints(Player player) throws ProgramControlException{
+        
+        int points = player.getPlayerCurrentScore();
+        
+        if (points < 0){
+            throw new ProgramControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in ProgramControl.java ***"
+                    + "\nin       public int playerLifePoints(Player player)"
+                    + "\n if (points < 0)");            
+        }
+        
+        return points;          //returns life points
     }
+    
+    public int fidoMood(Player player) throws ProgramControlException{
+        
+        int points = player.getGameFidoMood();
+        
+        if (points < 0){
+            throw new ProgramControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in ProgramControl.java ***"
+                    + "\nin       public int fidoMood(Player player)"
+                    + "\n if (points < 0)");            
+        }
+        
+        return points;          //returns life points
+    }
+
     
 
     
@@ -35,6 +60,10 @@ public class ProgramControl {
         System.out.println("In userExperienceInputCheck\n"
                 +choice+ " was passed for choice.\n"
                 +playerSatisfaction+ " was passed for playerSatisfaction\n\n");
+        
+        if (choice == 'Y' || choice == 'y' || choice == 'N' || choice == 'n'){
+            throw new EventsControlException("\"Invalid entry - please try again");            
+        }
         
             if (choice == 'Y' || choice == 'y'){
                 playerSatisfaction += 1;
