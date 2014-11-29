@@ -212,6 +212,12 @@ public class ExploringControl {
         return (int) rand.nextInt(num);
     }
     
+    //Generate a random number
+    public int randomIdealLeashGenerator (){
+        Random rand = new Random();  
+        return (int) 4+rand.nextInt(12);
+    }
+    
     
     
     

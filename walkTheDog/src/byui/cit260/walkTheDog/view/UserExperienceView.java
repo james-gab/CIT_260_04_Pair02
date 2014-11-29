@@ -42,7 +42,7 @@ public class UserExperienceView extends View{
                     System.out.println(ex.getMessage());
                     break;
                 }        
-            }while(player.playerSatisfaction==start);
+            }while(player.getPlayerSatisfaction()==start);
 
             System.out.println("\nPlayer Satisfaction is now: " + player.getPlayerSatisfaction());
             

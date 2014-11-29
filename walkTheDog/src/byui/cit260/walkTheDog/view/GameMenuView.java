@@ -162,7 +162,7 @@ public Player player;
         EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvents().getEventTypes();
         Player variable = new Player();
         
-        variable.setGameIdealLeashLength(explore.idealLeashLength(explore.randomNumberGenerator16_0to15())); // passes a random generated idealLeashLength to a variable
+        variable.setGameIdealLeashLength(explore.idealLeashLength(explore.randomIdealLeashGenerator())); // passes a random generated idealLeashLength to a variable
         
         if (explore.shortLeash(player) > 0 && player.gameDidUserExplore=='n'){  // check if user had leash too short for too long and Fido was bad - no points for bad fido
 //            if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0 && player.gameDidUserExplore=='r'){
