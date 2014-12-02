@@ -38,10 +38,10 @@ public abstract class ViewForLocation implements ViewLocationInterface {
 
     @Override
     public String getInput(){
-        Scanner keyboard = new Scanner(System.in);
+       //Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String selection = null;
-        
+         try {
         //while a valid name has not been retrived
         while (!valid){
             
@@ -49,7 +49,10 @@ public abstract class ViewForLocation implements ViewLocationInterface {
             System.out.println("\t\nEnter your selection below: ");
             
             // get the value entered from the keyboard
-            selection = keyboard.nextLine();
+                
+            // get the value entered from the keyboard        
+            //selection = this.keyboard.readLine(); 
+              selection = this.keyboard.readLine();   
             selection = selection.trim();
             selection = selection.toUpperCase();
             
@@ -60,7 +63,9 @@ public abstract class ViewForLocation implements ViewLocationInterface {
             }
             break;
         }
-        
+        } catch (Exception e) {  
+                   System.out.println("Error reading inputL " + e.getMessage()); 
+                 }
         return selection;                                                       // return the name
         
     }
