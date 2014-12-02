@@ -172,7 +172,7 @@ public class LocationView extends ViewForLocation{
     
     
     
-    
+/*    
     private void visitSceanL(char choice){
 
          int a = 1, b = 2;  // a == int fido, b == int scean1 THIS will be added when I decide what to do with the MapControl section.
@@ -194,7 +194,7 @@ public class LocationView extends ViewForLocation{
             visitSceanL4.visitSceanL4(a,b);
         }
         
-/*        
+        
         else if (choice == 5){
             MapControl visitSceanL5 = new MapControl();
             visitSceanL5.visitSceanL5(a,b);
@@ -215,13 +215,13 @@ public class LocationView extends ViewForLocation{
             MapControl visitSceanL9 = new MapControl();
             visitSceanL9.visitSceanL9(a,b);
         }
-*/
+
         else {
                 System.out.println("\n*** Invalid Selection in visitSceanL *** Try Again ***");
         }
     }
     
-
+*/
     
     
 }
