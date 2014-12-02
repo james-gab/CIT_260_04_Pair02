@@ -5,6 +5,12 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.interfaces.ViewLocationInterface;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import walkthedog.WalkTheDog;
+
 
 /*
  * @author gab
@@ -12,6 +18,8 @@ import java.util.Scanner;
 public abstract class ViewForLocation implements ViewLocationInterface {
     
     private final String promtMessage;
+    protected final BufferedReader keyboard = WalkTheDog.getInFile();
+    protected final PrintWriter console = WalkTheDog.getOutFile();
     
     public ViewForLocation(String promtMessage){
         this.promtMessage = promtMessage;
@@ -53,7 +61,8 @@ public abstract class ViewForLocation implements ViewLocationInterface {
                     
             // get the value entered from the keyboard        
             //selection = this.keyboard.readLine(); 
-              selection = this.keyboard.readLine();   
+            //selection = this.keyboard.readLine();  
+            selection = this.keyboard.readLine();
             selection = selection.trim();
             selection = selection.toUpperCase();
             

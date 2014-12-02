@@ -121,7 +121,7 @@ public class MiniGameControl {
             System.out.println("\t\nEnter your selection below: ");
             
             // get the value entered from the keyboard
-                 try {                 // get the value entered from the keyboard                 selection = this.keyboard.readLine();             } catch (IOException ex) {                 System.out.println(ex);             }
+            selection = keyboard.nextLine();
             selection = selection.trim();
             selection = selection.toUpperCase();
             
