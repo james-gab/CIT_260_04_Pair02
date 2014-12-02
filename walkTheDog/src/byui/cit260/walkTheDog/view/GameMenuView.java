@@ -8,17 +8,14 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
+import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
-import byui.cit260.walkTheDog.model.Events;
-import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Player;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import walkthedog.WalkTheDog;
 
 /**
  *
@@ -80,27 +77,18 @@ public Player player;
         
                 
         switch (choice){
-            case 'M': {
-            try {
+            case 'M': 
                 // User moves to location 1
                 //    this.displayMap();
                 this.visitSceanL();
-            } catch (ExploringControlException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
                 break;
             case 'D': // User Displays Map
                 this.displayMap();
                 break;
-            case 'E': {
-            try {
+            case 'E': 
                 // User chooses to Explore
                 this.userExplore();
-            } catch (ExploringControlException ex) {
-                System.out.println(ex.getMessage());
-                    }
-                }
+          
                 break;
             case 'L': // User Estimates Leash Length needed
                 this.userLeashLength();
@@ -131,101 +119,138 @@ public Player player;
    
 
     
-    private void visitSceanL() throws ExploringControlException{
-        System.out.println("*** Move Location function called ***"
-                + "\n Location Menu will be called");
+    private void visitSceanL(){
+//        System.out.println("*** Move Location function called ***"
+//                + "\n Location Menu will be called");
         
         ExploringControl check = new ExploringControl();
-        check.didUserExplore(player);
-        check.shortLeash(player);
-
-        player.setGameDidUserExplore('n');                                        // change char gameDidUserExplore back to NO
         
+        try {
+            check.didUserExplore(player);
+            } catch (ExploringControlException ex) {
+                    System.out.println(ex.getMessage());
+            }
+        try {
+            check.shortLeash(player);
+            } catch (ExploringControlException ex) {
+                    System.out.println(ex.getMessage());
+            }
+
+        player.setGameDidUserExplore('n');                                      // change char gameDidUserExplore back to NO
+    
         UserExperienceView question = new UserExperienceView(player);
-        question.display(hMR);                                                // does not fully work yet, will not retun player to this point in game
-
-//        LocationView changeLocations = new LocationView(player);                // send user to Location view menu
-//        changeLocations.display(hMR);
-        }
+        question.display(hMR);                                                  
+    
+    }
     
         
     
     
-    public void userExplore() throws ExploringControlException{
-//        System.out.println("*** GameMenuView.java     public void userExplore() function called ***");
-
-//        player.playerLeashLenght = 15;                                          // for testing only
-//        int eOE = 1;                                                            // for testing only
-//        player.gameDidUserExplore='r';                                          // for testing only
-
+    public void userExplore() {
         ExploringControl explore = new ExploringControl();                         // calls random number generator
+    try {
+        explore.userExploreControl(player);
+          } catch (ExploringControlException ex) {        
+                System.out.println(ex.getMessage());
+    }
+        
+        
+        
+        
+        /*
+        //        System.out.println("*** GameMenuView.java     public void userExplore() function called ***");
+        
+        //        player.playerLeashLenght = 15;                                          // for testing only
+        //        int eOE = 1;                                                            // for testing only
+        //        player.gameDidUserExplore='r';                                          // for testing only
+        
+        LeashLengthControl leash = new LeashLengthControl();
+        //        int ll = leash.displayLeashLengthInput();
+        //        player.setPlayerLeashLenght(ll);
+        
+        ExploringControl explore = new ExploringControl();                         // calls random number generator
+        explore.userExploreControl(player);
+        
+        
         EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvents().getEventTypes();
         Player variable = new Player();
         
         variable.setGameIdealLeashLength(explore.idealLeashLength(explore.randomIdealLeashGenerator())); // passes a random generated idealLeashLength to a variable
         
         if (explore.shortLeash(player) > 0 && player.gameDidUserExplore=='n'){  // check if user had leash too short for too long and Fido was bad - no points for bad fido
-//            if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0 && player.gameDidUserExplore=='r'){
-            if (explore.eventOnExplore(variable.getPlayerLeashLenght(), variable.getGameIdealLeashLength()) > 0 && variable.getGameDidUserExplore()=='r'){
-                variable.setGameDidUserExplore('y');
-                System.out.println("*** Fido found something in this area");
-                System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][1].getEventScene().getEventsSymbol());
-                variable.playerCurrentScore -=1;
-                if(variable.getGameFidoMood() < 9 && variable.getGameFidoMood() > 1){
-                            variable.gameFidoMood -= 1;
-                }           
-                System.out.println("Fido Leash Length: " + variable.getPlayerLeashLenght()
-                        + "\nClosest object: " + variable.getGameIdealLeashLength()
-                        + "\n*** Players Current Score decreases by 1 to " + variable.getPlayerCurrentScore()
-                        + "\nFido's Mood is now: " + variable.getGameFidoMood());
-            }
-            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0){
-                player.gameDidUserExplore='y';
-                System.out.println("*** Fido found a friend in this area");
-                System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
-                player.playerCurrentScore +=1;
-                if(player.gameFidoMood < 9){
-                    player.gameFidoMood += 1;
-                    }           
-                System.out.println("Fido Leash Length: " + player.playerLeashLenght 
-                        + "\nClosest object: " + player.gameIdealLeashLength
-                        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
-                        + "\nFido's Mood is now: " + player.gameFidoMood);
-            }
-            else {
-//            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) == 0){
-                player.playerCurrentScore +=1;
-                player.gameDidUserExplore='y';
-                if(player.gameFidoMood < 9){
-                    player.gameFidoMood += 1;
-                }           
-                System.out.println("Fido Leash Length: " + player.playerLeashLenght 
-                        + "\nClosest object: " + player.gameIdealLeashLength
-                        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
-                        + "\nFido's Mood is now: " + player.gameFidoMood
-                        + "\n*** Fido was not interested in "
-                        + "anything in the area it could reach ");
-                }
-//            else {
-//                player.gameDidUserExplore='y';
-//                System.out.println("*** Our appologies, something went wrong. ***"
-//                    + "\n*** ERROR in GameMenuView.java in ***"
-//                    + "\n   userExplore() if(eOE>0)***");
-// develop code that restarts the game from this spot
-//                }
+        player.setPlayerLeashLenght(leash.displayLeashLengthInput());
+        //            if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0 && player.gameDidUserExplore=='r'){
+        if (explore.eventOnExplore(variable.getPlayerLeashLenght(), variable.getGameIdealLeashLength()) > 0 && variable.getGameDidUserExplore()=='r'){
+        variable.setGameDidUserExplore('y');
+        System.out.println("*** Fido found something in this area");
+        System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][1].getEventScene().getEventsSymbol());
+        variable.playerCurrentScore -=1;
+        if(variable.getGameFidoMood() < 9 && variable.getGameFidoMood() > 1){
+        variable.gameFidoMood -= 1;
+        }
+        System.out.println("Fido Leash Length: " + variable.getPlayerLeashLenght()
+        + "\nClosest object: " + variable.getGameIdealLeashLength()
+        + "\n*** Players Current Score decreases by 1 to " + variable.getPlayerCurrentScore()
+        + "\nFido's Mood is now: " + variable.getGameFidoMood());
+        }
+        else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0){
+        player.gameDidUserExplore='y';
+        System.out.println("*** Fido found a friend in this area");
+        System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
+        player.playerCurrentScore +=1;
+        if(player.gameFidoMood < 9){
+        player.gameFidoMood += 1;
+        }
+        System.out.println("Fido Leash Length: " + player.playerLeashLenght
+        + "\nClosest object: " + player.gameIdealLeashLength
+        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
+        + "\nFido's Mood is now: " + player.gameFidoMood);
+        }
+        else {
+        //            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) == 0){
+        player.playerCurrentScore +=1;
+        player.gameDidUserExplore='y';
+        if(player.gameFidoMood < 9){
+        player.gameFidoMood += 1;
+        }
+        System.out.println("Fido Leash Length: " + player.playerLeashLenght
+        + "\nClosest object: " + player.gameIdealLeashLength
+        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
+        + "\nFido's Mood is now: " + player.gameFidoMood
+        + "\n*** Fido was not interested in "
+        + "anything in the area it could reach ");
+        }
+        //            else {
+        //                player.gameDidUserExplore='y';
+        //                System.out.println("*** Our appologies, something went wrong. ***"
+        //                    + "\n*** ERROR in GameMenuView.java in ***"
+        //                    + "\n   userExplore() if(eOE>0)***");
+        // develop code that restarts the game from this spot
+        //                }
         }   // END          if (badDog > 0){
         else{
-            System.out.println("You have already explored this Area.\nPlease try another Area.");
+        System.out.println("You have already explored this Area.\nPlease try another Area.");
         }
-        
+    */
     }
 
     
          
-    private void userLeashLength(){         //This Function is in development by my Team member at the time of writing this code
-        System.out.println("*** userLeashLength function called ***");
-        
-    }
+    private void userLeashLength(){         
+//        System.out.println("*** userLeashLength function called ***");
+        LeashLengthControl leash = new LeashLengthControl();
+        player.setPlayerLeashLenght(leash.displayLeashLengthInput());
+
+        ExploringControl check = new ExploringControl();
+        try {
+            check.shortLeash(player);
+        } catch (ExploringControlException ex) {
+                    System.out.println(ex.getMessage());
+        }
+    }       // END userLeashLength()
+    
+    
+    
     
     private void displayHelpMenu(){
         HelpMenuView gameMenuHelp = new HelpMenuView();
@@ -258,13 +283,13 @@ public Player player;
     }
 
     private void displayMap() {
-        System.out.println("***This is a stub function****  GameMenuView.java   displayMap()");
+//        System.out.println("***This is a stub function****  GameMenuView.java   displayMap()");
         MapControl seeMap = new MapControl();
         seeMap.displayMap();
     }
 
     private void createMiniGame(Player player) {
-        System.out.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
+//        System.out.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
         MiniGameControl miniGame = new MiniGameControl();
     try {
         miniGame.createMiniGame(player);   //this needs to be fixed

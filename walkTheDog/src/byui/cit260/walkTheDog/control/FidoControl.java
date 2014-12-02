@@ -14,8 +14,8 @@ import byui.cit260.walkTheDog.model.Fido;
 public class FidoControl {
 
     public static Fido createFido() {
-        System.out.println("***This is a stub function****"
-                + "\nin FidoControl.java    Fido createFido()"); 
+//        System.out.println("***This is a stub function****"
+//                + "\nin FidoControl.java    Fido createFido()"); 
         return null;
     }
     

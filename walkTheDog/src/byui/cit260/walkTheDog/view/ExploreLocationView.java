@@ -30,7 +30,7 @@ public class ExploreLocationView {
         } while (selection != 'N' || selection != 'n'); // a selection is not "Exit"
 
     if (selection == 'N' |selection == 'n' ){
-        System.out.println("not exploring function called.");
+//        System.out.println("not exploring function called.");
         
         /* Instructor: 
          * Create and call a stub function 
@@ -102,7 +102,7 @@ public class ExploreLocationView {
     }
 
     private void exploreLocation() {
-        System.out.println("exploreLocation function called.");
+//        System.out.println("exploreLocation function called.");
         
         /* Instructor: 
          * Create and call a stub function in the appropriate

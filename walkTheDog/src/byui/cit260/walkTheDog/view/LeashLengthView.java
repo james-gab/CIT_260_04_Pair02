@@ -14,6 +14,11 @@ import java.util.Scanner;
  */
  
 public class LeashLengthView {
+
+    public LeashLengthView() {
+    }
+    
+    
    
 //USED to satisfy Lesson 06 Individual assignment
 //  RUBIC
@@ -24,6 +29,9 @@ public class LeashLengthView {
 //      This impliments the do-while statment 
 //      see lines 108-170 for rest of requirement
     public int displayLeashLengthInput(){
+        
+        System.out.println("Please enter a leash lenght for Fido"
+                + "\nbefore moving forward.");
         
         char selection = ' ';
         int userLL = -2; //-2 so that it enters the do while statement

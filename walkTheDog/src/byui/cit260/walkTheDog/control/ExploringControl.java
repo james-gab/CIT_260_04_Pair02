@@ -4,9 +4,11 @@
  */
 package byui.cit260.walkTheDog.control;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
+import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.GameMenuView;
 import java.util.Random;
+import walkthedog.WalkTheDog;
 /**
  *
  * @author gab & Idel 
@@ -278,6 +280,79 @@ public class ExploringControl {
     
     
     
+    public void userExploreControl(Player player) throws ExploringControlException{
+//        System.out.println("*** GameMenuView.java     public void userExplore() function called ***");
+
+//        player.playerLeashLenght = 15;                                          // for testing only
+//        int eOE = 1;                                                            // for testing only
+//        player.gameDidUserExplore='r';                                          // for testing only
+
+        LeashLengthControl leash = new LeashLengthControl();
+//        int ll = leash.displayLeashLengthInput();
+//        player.setPlayerLeashLenght(ll);
+        
+        ExploringControl explore = new ExploringControl();                         // calls random number generator
+        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvents().getEventTypes();
+        Player variable = new Player();
+        
+        variable.setGameIdealLeashLength(explore.idealLeashLength(explore.randomIdealLeashGenerator())); // passes a random generated idealLeashLength to a variable
+        
+        if (explore.shortLeash(player) > 0 && player.gameDidUserExplore=='n'){  // check if user had leash too short for too long and Fido was bad - no points for bad fido
+        player.setPlayerLeashLenght(leash.displayLeashLengthInput());
+//            if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0 && player.gameDidUserExplore=='r'){
+            if (explore.eventOnExplore(variable.getPlayerLeashLenght(), variable.getGameIdealLeashLength()) > 0 && variable.getGameDidUserExplore()=='r'){
+                variable.setGameDidUserExplore('y');
+                System.out.println("*** Fido found something in this area");
+                System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][1].getEventScene().getEventsSymbol());
+                variable.playerCurrentScore -=1;
+                if(variable.getGameFidoMood() < 9 && variable.getGameFidoMood() > 1){
+                            variable.gameFidoMood -= 1;
+                }           
+                System.out.println("Fido Leash Length: " + variable.getPlayerLeashLenght()
+                        + "\nClosest object: " + variable.getGameIdealLeashLength()
+                        + "\n*** Players Current Score decreases by 1 to " + variable.getPlayerCurrentScore()
+                        + "\nFido's Mood is now: " + variable.getGameFidoMood());
+            }
+            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0){
+                player.gameDidUserExplore='y';
+                System.out.println("*** Fido found a friend in this area");
+                System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
+                player.playerCurrentScore +=1;
+                if(player.gameFidoMood < 9){
+                    player.gameFidoMood += 1;
+                    }           
+                System.out.println("Fido Leash Length: " + player.playerLeashLenght 
+                        + "\nClosest object: " + player.gameIdealLeashLength
+                        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
+                        + "\nFido's Mood is now: " + player.gameFidoMood);
+            }
+            else {
+//            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) == 0){
+                player.playerCurrentScore +=1;
+                player.gameDidUserExplore='y';
+                if(player.gameFidoMood < 9){
+                    player.gameFidoMood += 1;
+                }           
+                System.out.println("Fido Leash Length: " + player.playerLeashLenght 
+                        + "\nClosest object: " + player.gameIdealLeashLength
+                        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
+                        + "\nFido's Mood is now: " + player.gameFidoMood
+                        + "\n*** Fido was not interested in "
+                        + "anything in the area it could reach ");
+                }
+//            else {
+//                player.gameDidUserExplore='y';
+//                System.out.println("*** Our appologies, something went wrong. ***"
+//                    + "\n*** ERROR in GameMenuView.java in ***"
+//                    + "\n   userExplore() if(eOE>0)***");
+// develop code that restarts the game from this spot
+//                }
+        }   // END          if (badDog > 0){
+        else{
+            System.out.println("You have already explored this Area.\nPlease try another Area.");
+        }
+        
+    }
     
     
     

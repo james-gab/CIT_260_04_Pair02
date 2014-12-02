@@ -157,7 +157,7 @@ public class HelpMenuView {
 
     
     private void goalGameHelp(){
-        System.out.println("*** goalGameHelp function called ***");
+//        System.out.println("*** goalGameHelp function called ***");
         System.out.println(
                                       "\nIt seems your dog is too excited, he needs to be controlled! "
                                     + "\nThe goal of the game is to get out of the park, without your "
@@ -172,14 +172,14 @@ public class HelpMenuView {
     
     
     private void moveGameHelp(){
-        System.out.println("*** moveGameHelp function called ***");
+//        System.out.println("*** moveGameHelp function called ***");
         System.out.println("\nThis section is still under development"
                          + "\nThank you for your patience");
     }
     
     
     private void leashControlHelp(){
-        System.out.println("*** leashControlHelp function called ***");
+//        System.out.println("*** leashControlHelp function called ***");
         System.out.println(
                                       "\nRetract or extend your Dog’s leash in order to avoid these "
                                     + "\nincidents! If incidents happen, say bye-bye to some of your "
@@ -191,7 +191,7 @@ public class HelpMenuView {
     
     
     private void fidoAttitudeHelp(){
-        System.out.println("*** fidoAttitudeHelp function called ***");
+//        System.out.println("*** fidoAttitudeHelp function called ***");
         System.out.println(
                                       "\nFido has a great attitude as long as it can run and play. The "
                                     + "\nplayer keeps the leash too short (less than 4 feet) for too "
