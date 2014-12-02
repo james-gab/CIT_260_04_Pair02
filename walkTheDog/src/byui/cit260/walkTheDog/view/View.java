@@ -6,7 +6,14 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.interfaces.ViewInterface;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import walkthedog.WalkTheDog;
+import java.io.BufferedReader;
 
 /**
  *
@@ -15,6 +22,8 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     private final String promtMessage;
+    protected final BufferedReader keyboard = WalkTheDog.getInFile();
+    protected final PrintWriter console = WalkTheDog.getOutFile();
     
     public View(String promtMessage){
         this.promtMessage = promtMessage;
@@ -42,7 +51,7 @@ public abstract class View implements ViewInterface {
 
     @Override
     public String getInput(){
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String selection = null;
         
@@ -52,8 +61,13 @@ public abstract class View implements ViewInterface {
             //promt for players name
             System.out.println("\t\nEnter your selection below: ");
             
-            // get the value entered from the keyboard
-            selection = keyboard.nextLine();
+            try {
+                // get the value entered from the keyboard
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+            //selection = keyboard.nextLine();
             selection = selection.trim();
             selection = selection.toUpperCase();
             

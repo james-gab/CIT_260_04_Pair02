@@ -49,7 +49,8 @@ public abstract class ViewForLocation implements ViewLocationInterface {
             System.out.println("\t\nEnter your selection below: ");
             
             // get the value entered from the keyboard
-                
+     
+                    
             // get the value entered from the keyboard        
             //selection = this.keyboard.readLine(); 
               selection = this.keyboard.readLine();   
