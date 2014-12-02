@@ -55,28 +55,32 @@ public class ProgramControl {
  *    Added to satisfy the Individual assignment for Lesson 09
  *    
 */    
-    public int userExperienceInputCheck(char choice, int playerSatisfaction) throws EventsControlException{
+    public int userExperienceInputCheck(char choice, int playerSatisfaction){
+        
+        char var = (char)choice;
         
         System.out.println("In userExperienceInputCheck\n"
-                +choice+ " was passed for choice.\n"
-                +playerSatisfaction+ " was passed for playerSatisfaction\n\n");
+                + choice + " was passed for choice.\n"
+                + var + " was passed from choice.\n"
+                + playerSatisfaction + " was passed for playerSatisfaction\n\n");
         
-        if (choice != 'Y' || choice != 'y' || choice != 'N' || choice != 'n'){
-            throw new EventsControlException("Invalid entry, what a missed oppertunity");            
-        }
+//        if (choice != 'Y' || choice != 'y' || choice != 'N' || choice != 'n'){
+//            throw new EventsControlException("Invalid entry, what a missed oppertunity");            
+//        }
         
-            if (choice == 'Y' || choice == 'y'){
+            if (var == 'Y' || var == 'y'){
                 playerSatisfaction += 1;
-                return playerSatisfaction;
+//                return playerSatisfaction;
                 }
-            else if (choice == 'N' || choice == 'n'){
+            else if (var == 'N' || var == 'n'){
                 playerSatisfaction -= 1;
-                return playerSatisfaction;
+//                return playerSatisfaction;
                 }
             else {
-            throw new EventsControlException("Invalid entry - please try again");
+           System.out.println("Invalid entry - please try again");
             }
             
+                return playerSatisfaction;
     }
 
         

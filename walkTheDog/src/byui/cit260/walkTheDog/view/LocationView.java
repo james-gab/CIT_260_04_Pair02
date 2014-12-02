@@ -4,7 +4,9 @@
 package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.exceptions.MapControlException;
+import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Player;
+import walkthedog.WalkTheDog;
 
 
 /*
@@ -14,7 +16,7 @@ public class LocationView extends ViewForLocation{
     public String hMR = "LV";
     private Player player;
 
-    
+  
     
     
     public LocationView (Player player) {
@@ -27,17 +29,24 @@ public class LocationView extends ViewForLocation{
             + "\nLocation Menu"
             + "\n--------------------------------"
             + "\n"
-            + "\n  1   - PLACE location description here" 
-            + "\n  2   - PLACE location description here" 
-            + "\n  3   - PLACE location description here" 
-            + "\n  4   - PLACE location description here" 
-            + "\n  5   - PLACE location description here" 
-            + "\n  6   - PLACE location description here"
+            + "\n  1   - fountain" 
+            + "\n  2   - duckpond"
+            + "\n  3   - statue"
+            + "\n  4   - restrooms"
+            + "\n  5   - dogpark"
+            + "\n  6   - playground"
+            + "\n  7   - restrooms"
+            + "\n  8   - statue"
+            + "\n  9   - fountain"
             + "\n  H   - Help Menu" 
             + "\n  Q   - Return to Game menu"
             + "\n________________________________\n");
 
         this.player=player;
+        
+        MapControl seeMap = new MapControl();
+        seeMap.displayMap();
+
     }
     
     
@@ -99,6 +108,8 @@ public class LocationView extends ViewForLocation{
     
     @Override
     public void doAction(char choice) {                                         // changed to display the location view
+        
+        
         int row = -1,column = -1;
         
         if      (choice == '1'){
@@ -136,6 +147,12 @@ public class LocationView extends ViewForLocation{
         else if (choice == '9'){
             row=2;
             column=2;
+        }
+        else if (choice == 'H'){
+                this.displayHelpMenu();
+        }
+        else if (choice == 'Q'){
+                this.quitGame();
         }
         else {
                 System.out.println("\n*** Invalid Selection in visitSceanL *** Try Again ***");

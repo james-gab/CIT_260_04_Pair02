@@ -46,9 +46,9 @@ public class Game implements Serializable {
     }
 
     public Map getMap() {
-        System.out.println("\nGame.java   Map getMap()"
-                + "\n function called to create the MAP array\n"
-                + "\n" + map + "\n");
+//        System.out.println("\nGame.java   Map getMap()"
+//                + "\n function called to create the MAP array\n"
+//                + "\n" + map + "\n");
         return map;
     }
 

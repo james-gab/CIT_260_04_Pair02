@@ -1,14 +1,11 @@
 package byui.cit260.walkTheDog.control;
 
-import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.enums.Scene;
-import byui.cit260.walkTheDog.enums.Scene.SceneType;
 import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.GameMenuView;
-import java.awt.image.BufferedImage;
 import walkthedog.WalkTheDog;
 
 
@@ -119,7 +116,7 @@ public class MapControl {
     }
     
     public void visitSceanLocations (int row, int column, Player player, String hMR) throws MapControlException{
-        System.out.println("*** visitScean function called ***");    // STUB statment will be replaced with a function
+//        System.out.println("*** visitScean function called ***");    // STUB statment will be replaced with a function
         
         if (row<0||column<0){
             throw new MapControlException("*** Our appologies, something went wrong. ***"
@@ -136,7 +133,13 @@ public class MapControl {
         gameMenu.display(hMR);
         
     }
+
     
+    
+    
+    
+    
+/*    
     public int visitSceanL1 (int fido, int scean1){
         System.out.println("*** visitSceanL1 function called ***");    // STUB statment will be replaced with a function
         return 0;
@@ -181,7 +184,7 @@ public class MapControl {
         System.out.println("*** visitSceanL9 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
-
+*/
     
         public void displayMap() {
         

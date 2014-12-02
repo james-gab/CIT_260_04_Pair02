@@ -259,7 +259,7 @@ public class ExploringControl {
     public int didUserExplore(Player player) throws ExploringControlException{
         
                 if (player.gameDidUserExplore=='n'){
-            int eONE = this.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, this.randomNumberGenerator16_0to15());
+            int eONE = this.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, this.randomIdealLeashGenerator());
             if (eONE < 0){
             throw new ExploringControlException("*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in GameMenuView.java in ***"

@@ -36,12 +36,8 @@ public class UserExperienceView extends View{
             int start = player.getPlayerSatisfaction();
             
             do{
-                try {
                     this.userExperienceInput(choice);
-                } catch (EventsControlException ex) {
-                    System.out.println(ex.getMessage());
-                    break;
-                }        
+//                    break;
             }while(player.getPlayerSatisfaction()==start);
 
             System.out.println("\nPlayer Satisfaction is now: " + player.getPlayerSatisfaction());
@@ -59,7 +55,7 @@ public class UserExperienceView extends View{
  *      to control layer in the ProgramControl class.
  */
         
-    public void userExperienceInput(char choice) throws EventsControlException{
+    public void userExperienceInput(char choice){
 
         ProgramControl check = new ProgramControl();                            // Control class is in ProgramControl.java
         player.setPlayerSatisfaction(check.userExperienceInputCheck(choice,player.getPlayerSatisfaction()));
