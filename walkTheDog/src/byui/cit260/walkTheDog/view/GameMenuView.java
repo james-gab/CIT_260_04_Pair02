@@ -14,8 +14,6 @@ import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.model.Player;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
