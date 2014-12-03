@@ -4,7 +4,10 @@
 
 package byui.cit260.walkTheDog.control;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -14,6 +17,10 @@ import java.util.Scanner;
 
 
 public class LeashLengthControl {
+    
+    protected final BufferedReader keyboard = WalkTheDog.getInFile();
+    protected final PrintWriter console = WalkTheDog.getOutFile();
+    
     
     
         public int displayLeashLengthInput(){
@@ -40,14 +47,16 @@ public class LeashLengthControl {
     public String getLLInput() {
        boolean valid = false;
        String playersInput = null;
-       Scanner keyboard = new Scanner(System.in);
+//       Scanner keyboard = new Scanner(System.in);
 
+       try{
         while(!valid){
             
 
             System.out.println("\nPlease enter a number between 0 and 15: ");
 
-            playersInput = keyboard.nextLine();
+//            playersInput = keyboard.nextLine();
+            playersInput = this.keyboard.readLine();
             playersInput = playersInput.trim();
 
 
@@ -57,6 +66,9 @@ public class LeashLengthControl {
             }
             break;
         }
+        } catch (Exception e) {  
+                   System.out.println("Error reading inputL " + e.getMessage()); 
+                 }
         return playersInput;
     }
     

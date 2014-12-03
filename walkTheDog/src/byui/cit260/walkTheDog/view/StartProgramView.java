@@ -7,7 +7,10 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import walkthedog.WalkTheDog;
 
 
 /**
@@ -16,6 +19,9 @@ import java.util.Scanner;
  */
 public class StartProgramView {
     public String hMR = "sPV";
+    protected final BufferedReader keyboard = WalkTheDog.getInFile();
+    protected final PrintWriter console = WalkTheDog.getOutFile();
+
 
    
     public StartProgramView() {
@@ -54,13 +60,15 @@ public class StartProgramView {
     public String getPlayersName() {
        boolean valid = false;
        String playersName = null;
-       Scanner keyboard = new Scanner(System.in);
+//       Scanner keyboard = new Scanner(System.in);
 
+        try {
         while(!valid){
 
             System.out.println("\nPlayer, please enter your name below:\n");
 
-            playersName = keyboard.nextLine();
+//            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
 
             if (playersName.length() < 1){
@@ -69,6 +77,9 @@ public class StartProgramView {
             }
             break;
         }
+        } catch (Exception e) {  
+                   System.out.println("Error reading inputL " + e.getMessage()); 
+                 }
         return playersName;
     }
 

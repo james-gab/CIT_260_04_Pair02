@@ -4,11 +4,17 @@ package byui.cit260.walkTheDog.view;
 
 
 import byui.cit260.walkTheDog.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import walkthedog.WalkTheDog;
 
 public class HelpMenuView {
     public String hMR = " ";
     public Player player;
+    protected final BufferedReader keyboard = WalkTheDog.getInFile();
+    protected final PrintWriter console = WalkTheDog.getOutFile();
+    
 /*    public int playerSatisfaction;
     public int playerLeashLenght;
     public int gameIdealLeashLength;
@@ -75,14 +81,16 @@ public class HelpMenuView {
     public String getInput() {
        boolean valid = false;
        String playersInput = null;
-       Scanner keyboard = new Scanner(System.in);
+//       Scanner keyboard = new Scanner(System.in);
 
+       try{
         while(!valid){
             
 
             System.out.println("Enter a Help Menu choice below:");
 
-            playersInput = keyboard.nextLine();
+//            playersInput = keyboard.nextLine();
+            playersInput = this.keyboard.readLine();
             playersInput = playersInput.trim();
 
 
@@ -92,6 +100,9 @@ public class HelpMenuView {
             }
             break;
         }
+        } catch (Exception e) {  
+                   System.out.println("Error reading inputL " + e.getMessage()); 
+                 }
         return playersInput;
     }
 

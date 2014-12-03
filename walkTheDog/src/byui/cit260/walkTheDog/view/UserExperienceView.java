@@ -118,7 +118,7 @@ public class UserExperienceView extends View{
     public String getInput() {
        boolean valid = false;
        String playersInput = null;
-       Scanner keyboard = new Scanner(System.in);
+//       Scanner keyboard = new Scanner(System.in);
 
         while(!valid){
             

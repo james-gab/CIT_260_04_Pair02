@@ -7,14 +7,21 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.ExploringControl;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
+import walkthedog.WalkTheDog;
 
 /**
  *
  * @author Idel
  */
 public class ExploreLocationView {
+    
+    protected final BufferedReader keyboard = WalkTheDog.getInFile();
+    protected final PrintWriter console = WalkTheDog.getOutFile();
+    
 
 
    
@@ -55,14 +62,16 @@ public class ExploreLocationView {
     public  String getInput(){
        boolean valid = false;
        String playersInput = null;
-       Scanner keyboard = new Scanner(System.in);
+//       Scanner keyboard = new Scanner(System.in);
 
+       try{
         while(!valid){
             
 
             System.out.println("Enter a choice below:");
 
-            playersInput = keyboard.nextLine();
+//            playersInput = keyboard.nextLine();
+            playersInput = this.keyboard.readLine();
             playersInput = playersInput.trim();
 
 
@@ -72,6 +81,9 @@ public class ExploreLocationView {
             }
             break;
         }
+        } catch (Exception e) {  
+                   System.out.println("Error reading inputL " + e.getMessage()); 
+                 }
         return playersInput;
     }
     

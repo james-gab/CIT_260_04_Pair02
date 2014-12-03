@@ -4,10 +4,7 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.interfaces.ViewLocationInterface;
-import java.util.Scanner;
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import walkthedog.WalkTheDog;
 
