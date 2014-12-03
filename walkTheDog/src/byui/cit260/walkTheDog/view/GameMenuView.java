@@ -47,7 +47,7 @@ public Player player;
 
         this.player = players;
 
-        System.out.println("\n\nYour current statistics:\nfor testing only\n"
+        this.console.println("\n\nYour current statistics:\nfor testing only\n"
                 + player + "\n"
                 + "\n"
                 + player.getPlayerCurrentScore() + "  =  playerCurrentScore\n"
@@ -69,7 +69,7 @@ public Player player;
     public void doAction(char choice) {
         
         if(player.playerCurrentScore <= 0){
-        System.out.println("Your Score is Zero, you loose");
+        this.console.println("Your Score is Zero, you loose");
             choice = 'Q';
         }
         
@@ -109,7 +109,7 @@ public Player player;
             case 'Q': // Exit the game (no save)
                 this.quitGame();
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
                 break;
                 }
     }
@@ -118,7 +118,7 @@ public Player player;
 
     
     private void visitSceanL(){
-//        System.out.println("*** Move Location function called ***"
+//        this.console.println("*** Move Location function called ***"
 //                + "\n Location Menu will be called");
         
         ExploringControl check = new ExploringControl();
@@ -126,12 +126,12 @@ public Player player;
         try {
             check.didUserExplore(player);
             } catch (ExploringControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         try {
             check.shortLeash(player);
             } catch (ExploringControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
 
         player.setGameDidUserExplore('n');                                      // change char gameDidUserExplore back to NO
@@ -149,14 +149,14 @@ public Player player;
     try {
         explore.userExploreControl(player);
           } catch (ExploringControlException ex) {        
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
     }
         
         
         
         
         /*
-        //        System.out.println("*** GameMenuView.java     public void userExplore() function called ***");
+        //        this.console.println("*** GameMenuView.java     public void userExplore() function called ***");
         
         //        player.playerLeashLenght = 15;                                          // for testing only
         //        int eOE = 1;                                                            // for testing only
@@ -180,26 +180,26 @@ public Player player;
         //            if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0 && player.gameDidUserExplore=='r'){
         if (explore.eventOnExplore(variable.getPlayerLeashLenght(), variable.getGameIdealLeashLength()) > 0 && variable.getGameDidUserExplore()=='r'){
         variable.setGameDidUserExplore('y');
-        System.out.println("*** Fido found something in this area");
-        System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][1].getEventScene().getEventsSymbol());
+        this.console.println("*** Fido found something in this area");
+        this.console.println("*** " + eventTypes[explore.randomNumberGenerator(8)][1].getEventScene().getEventsSymbol());
         variable.playerCurrentScore -=1;
         if(variable.getGameFidoMood() < 9 && variable.getGameFidoMood() > 1){
         variable.gameFidoMood -= 1;
         }
-        System.out.println("Fido Leash Length: " + variable.getPlayerLeashLenght()
+        this.console.println("Fido Leash Length: " + variable.getPlayerLeashLenght()
         + "\nClosest object: " + variable.getGameIdealLeashLength()
         + "\n*** Players Current Score decreases by 1 to " + variable.getPlayerCurrentScore()
         + "\nFido's Mood is now: " + variable.getGameFidoMood());
         }
         else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0){
         player.gameDidUserExplore='y';
-        System.out.println("*** Fido found a friend in this area");
-        System.out.println("*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
+        this.console.println("*** Fido found a friend in this area");
+        this.console.println("*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
         player.playerCurrentScore +=1;
         if(player.gameFidoMood < 9){
         player.gameFidoMood += 1;
         }
-        System.out.println("Fido Leash Length: " + player.playerLeashLenght
+        this.console.println("Fido Leash Length: " + player.playerLeashLenght
         + "\nClosest object: " + player.gameIdealLeashLength
         + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
         + "\nFido's Mood is now: " + player.gameFidoMood);
@@ -211,7 +211,7 @@ public Player player;
         if(player.gameFidoMood < 9){
         player.gameFidoMood += 1;
         }
-        System.out.println("Fido Leash Length: " + player.playerLeashLenght
+        this.console.println("Fido Leash Length: " + player.playerLeashLenght
         + "\nClosest object: " + player.gameIdealLeashLength
         + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
         + "\nFido's Mood is now: " + player.gameFidoMood
@@ -220,14 +220,14 @@ public Player player;
         }
         //            else {
         //                player.gameDidUserExplore='y';
-        //                System.out.println("*** Our appologies, something went wrong. ***"
+        //                ErrorView.display(this.getClass().getName(),"*** Our appologies, something went wrong. ***"
         //                    + "\n*** ERROR in GameMenuView.java in ***"
         //                    + "\n   userExplore() if(eOE>0)***");
         // develop code that restarts the game from this spot
         //                }
         }   // END          if (badDog > 0){
         else{
-        System.out.println("You have already explored this Area.\nPlease try another Area.");
+        this.console.println("You have already explored this Area.\nPlease try another Area.");
         }
     */
     }
@@ -235,7 +235,7 @@ public Player player;
     
          
     private void userLeashLength(){         
-//        System.out.println("*** userLeashLength function called ***");
+//        this.console.println("*** userLeashLength function called ***");
         LeashLengthControl leash = new LeashLengthControl();
         player.setPlayerLeashLenght(leash.displayLeashLengthInput());
 
@@ -243,7 +243,7 @@ public Player player;
         try {
             check.shortLeash(player);
         } catch (ExploringControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
     }       // END userLeashLength()
     
@@ -265,34 +265,34 @@ public Player player;
     try {
         gameEvents.displayEvents();
     } catch (EventsControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
     }
 
     private void saveGame(){                                              
-        System.out.println("*** saveGame function called ***");
+        this.console.println("*** saveGame function called ***");
     }
 
     private void quitGame(){
-        System.out.println("*** quitGame function called ***"
+        this.console.println("*** quitGame function called ***"
                 + "\nSending player back to Main Menu");
         MainMenuView quittingGame = new MainMenuView(player);
         quittingGame.display(hMR);
     }
 
     private void displayMap() {
-//        System.out.println("***This is a stub function****  GameMenuView.java   displayMap()");
+//        this.console.println("***This is a stub function****  GameMenuView.java   displayMap()");
         MapControl seeMap = new MapControl();
         seeMap.displayMap();
     }
 
     private void createMiniGame(Player player) {
-//        System.out.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
+//        this.console.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
         MiniGameControl miniGame = new MiniGameControl();
     try {
         miniGame.createMiniGame(player);   //this needs to be fixed
     } catch (MiniGameControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
     }
     

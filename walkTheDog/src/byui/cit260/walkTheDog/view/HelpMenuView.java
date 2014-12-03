@@ -62,13 +62,13 @@ public class HelpMenuView {
 //        this.playerLeashLenght = playerLeashLenght;
 //        this.playerSatisfaction = playerSatisfaction;
         hMR = returnTO;
- 	System.out.println(hMR + " hMR from returnTO\n"
+ 	this.console.println(hMR + " hMR from returnTO\n"
                 + returnTO + " ReturnTO"); // hMR and returnTO
         
         char selection = ' ';
         do{
 
- 	System.out.println(HELPMENU); // display the main menu
+ 	this.console.println(HELPMENU); // display the main menu
  	 
  	String input = this.getInput(); // get first charecter of string
         selection = input.charAt(0);
@@ -87,7 +87,7 @@ public class HelpMenuView {
         while(!valid){
             
 
-            System.out.println("Enter a Help Menu choice below:");
+            this.console.println("Enter a Help Menu choice below:");
 
 //            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
@@ -95,13 +95,21 @@ public class HelpMenuView {
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid entry - space is not an option");
+                
+                
+//                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
             }
             break;
         }
         } catch (Exception e) {  
-                   System.out.println("Error reading inputL " + e.getMessage()); 
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading inputL " + e.getMessage());
+            
+            
+//                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
                  }
         return playersInput;
     }
@@ -159,7 +167,7 @@ public class HelpMenuView {
             case 'q': // Exit the program
                 this.helpQuitAndReturn(hMR);
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
                 break;
                 }
     }
@@ -168,8 +176,8 @@ public class HelpMenuView {
 
     
     private void goalGameHelp(){
-//        System.out.println("*** goalGameHelp function called ***");
-        System.out.println(
+//        this.console.println("*** goalGameHelp function called ***");
+        this.console.println(
                                       "\nIt seems your dog is too excited, he needs to be controlled! "
                                     + "\nThe goal of the game is to get out of the park, without your "
                                     + "\ndog turning into a bad dog. Keep the leash too short for too "
@@ -183,15 +191,15 @@ public class HelpMenuView {
     
     
     private void moveGameHelp(){
-//        System.out.println("*** moveGameHelp function called ***");
-        System.out.println("\nThis section is still under development"
+//        this.console.println("*** moveGameHelp function called ***");
+        this.console.println("\nThis section is still under development"
                          + "\nThank you for your patience");
     }
     
     
     private void leashControlHelp(){
-//        System.out.println("*** leashControlHelp function called ***");
-        System.out.println(
+//        this.console.println("*** leashControlHelp function called ***");
+        this.console.println(
                                       "\nRetract or extend your Dog’s leash in order to avoid these "
                                     + "\nincidents! If incidents happen, say bye-bye to some of your "
                                     + "\nlife-points! Explore the park to find the exit quickly but "
@@ -202,8 +210,8 @@ public class HelpMenuView {
     
     
     private void fidoAttitudeHelp(){
-//        System.out.println("*** fidoAttitudeHelp function called ***");
-        System.out.println(
+//        this.console.println("*** fidoAttitudeHelp function called ***");
+        this.console.println(
                                       "\nFido has a great attitude as long as it can run and play. The "
                                     + "\nplayer keeps the leash too short (less than 4 feet) for too "
                                     + "\nmany moves in a row. The computer calculates a negative random "
@@ -216,8 +224,8 @@ public class HelpMenuView {
 
     
     private void saveResumeGameHelp(){
-        System.out.println("*** saveResumeGameHelp function called ***");
-        System.out.println("\nThis section is still under development"
+        this.console.println("*** saveResumeGameHelp function called ***");
+        this.console.println("\nThis section is still under development"
                          + "\nThank you for your patience");
     }
     
@@ -230,27 +238,27 @@ public class HelpMenuView {
         
         switch (returnTO){
             case "gMV":
-                System.out.println("You chose Quit\nSending Player back to Game Menu");
+                this.console.println("You chose Quit\nSending Player back to Game Menu");
                 hMR = " ";
                 gmvGame.display(hMR);
                 break;
             case "mMV":
-                System.out.println("You chose Quit\nSending Player back to Main Menu");
+                this.console.println("You chose Quit\nSending Player back to Main Menu");
                 hMR = " ";
                 mmvGame.display(hMR);
                 break;
             case "sMV":
-                System.out.println("You chose Quit\nSending Player back to Statistics Menu");
+                this.console.println("You chose Quit\nSending Player back to Statistics Menu");
                 hMR = " ";
                 smvGame.display(hMR);
                 break;
             case "LV":
-                System.out.println("You chose Quit\nSending Player back to Location Menu");
+                this.console.println("You chose Quit\nSending Player back to Location Menu");
                 hMR = " ";
                 lvGame.display(hMR);
                 break;
             default:
-                System.out.println("Our apologies, there was an error in\n"
+                ErrorView.display(this.getClass().getName(),"Our apologies, there was an error in\n"
                         + "helpQuitAndReturn(String returnTO)\n"
                     + "\nSending Player back to Main Menu\n"
                     + returnTO + " returnTO");

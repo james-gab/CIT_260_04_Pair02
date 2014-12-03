@@ -7,6 +7,7 @@ package walkthedog;
 
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.view.ErrorView;
 import byui.cit260.walkTheDog.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +31,8 @@ public class WalkTheDog {
     
     public static void main(String[] args){
         
+        ErrorView error = new ErrorView();
+        
         try {
             //open character stream file for end user input and output
             WalkTheDog.inFile = new BufferedReader(new InputStreamReader(System.in));
@@ -41,7 +44,7 @@ public class WalkTheDog {
             WalkTheDog.logFile = new PrintWriter(filePath);
             
         } catch (Exception e){
-            System.out.println("Exception: " + e.toString() +
+            ErrorView.display(error.getClass().getName(),"Exception: " + e.toString() +
                                "\nCause: " + e.getCause() +
                                "\nMessage: " + e.getMessage());
         }
@@ -51,7 +54,7 @@ public class WalkTheDog {
             WalkTheDog.outFile.close();
             WalkTheDog.logFile.close();
             } catch (IOException ex){
-                System.out.println("Error closing files");
+                ErrorView.display(error.getClass().getName(),"Error closing files");
                 return;
             }
         }

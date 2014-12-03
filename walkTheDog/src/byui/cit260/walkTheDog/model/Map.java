@@ -6,6 +6,7 @@
  */
 package byui.cit260.walkTheDog.model;
 
+import byui.cit260.walkTheDog.view.ErrorView;
 import java.io.Serializable;
 
 /**
@@ -47,7 +48,7 @@ public class Map implements Serializable {
     public Map(int noOfRows, int noOfColums) {
         
         if (noOfRows<1 || noOfColums<1){
-            System.out.println("The Location Number must be greater than zero");
+            ErrorView.display(this.getClass().getName(),"The Location Number must be greater than zero");
             return;
         }
         

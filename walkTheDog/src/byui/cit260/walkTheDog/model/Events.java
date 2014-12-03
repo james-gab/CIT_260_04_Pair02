@@ -1,6 +1,8 @@
 package byui.cit260.walkTheDog.model;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -12,6 +14,8 @@ public class Events implements Serializable {
  public EventsType[][] eventTypes;
  int noOfRows;
  int noOfColums;
+ protected final PrintWriter console = WalkTheDog.getOutFile();
+
 
  
     public Events(){
@@ -44,7 +48,7 @@ public class Events implements Serializable {
     public Events(int noOfRows, int noOfColums) {
         
         if (noOfRows<1 || noOfColums<1){
-            System.out.println("Enter a Number greater than zero");
+            this.console.println("Enter a Number greater than zero");
             return;
         }
         

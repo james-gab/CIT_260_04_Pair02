@@ -29,7 +29,7 @@ public abstract class ViewForLocation implements ViewLocationInterface {
         char selection = ' ';
         
         do{
-            System.out.println(this.promtMessage);                              //display promt message
+            this.console.println(this.promtMessage);                              //display promt message
             value = this.getInput();                                            // get the user selection
             value = value.toUpperCase();
             selection = value.charAt(0);                                        // converts getInput to char
@@ -51,7 +51,7 @@ public abstract class ViewForLocation implements ViewLocationInterface {
         while (!valid){
             
             //promt for players name
-            System.out.println("\t\nEnter your selection below: ");
+            this.console.println("\t\nEnter your selection below: ");
             
             // get the value entered from the keyboard
      
@@ -64,14 +64,14 @@ public abstract class ViewForLocation implements ViewLocationInterface {
             selection = selection.toUpperCase();
             
             if(selection.length() < 1 ){                                        //check for blank value entered returns error message
-                System.out.println("\n*** Invalid Selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
                 continue;
                 
             }
             break;
         }
         } catch (Exception e) {  
-                   System.out.println("Error reading inputL " + e.getMessage()); 
+                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
                  }
         return selection;                                                       // return the name
         

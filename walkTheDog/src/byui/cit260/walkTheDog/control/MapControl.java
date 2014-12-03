@@ -6,6 +6,7 @@ import byui.cit260.walkTheDog.enums.Scene;
 import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.GameMenuView;
+import java.io.PrintWriter;
 import walkthedog.WalkTheDog;
 
 
@@ -18,6 +19,7 @@ public class MapControl {
     
     public static int rowCount = 3;
     public static int columCount = 3;
+    protected final PrintWriter console = WalkTheDog.getOutFile();
     
     
 
@@ -96,7 +98,7 @@ public class MapControl {
    
   }
     public static void moveActorsToStartingLocation(Map map) {
-//        System.out.println("***This is a stub function****"
+//        this.console.println("***This is a stub function****"
 //                + "\n in MapControl.java   moveActorsToStartingLocation(Map map)");
     }
    
@@ -116,7 +118,7 @@ public class MapControl {
     }
     
     public void visitSceanLocations (int row, int column, Player player, String hMR) throws MapControlException{
-//        System.out.println("*** visitScean function called ***");    // STUB statment will be replaced with a function
+//        this.console.println("*** visitScean function called ***");    // STUB statment will be replaced with a function
         
         if (row<0||column<0){
             throw new MapControlException("*** Our appologies, something went wrong. ***"
@@ -127,7 +129,7 @@ public class MapControl {
         }
  
             Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
-            System.out.print("moving to " + locations[row][column].getScene().getMapSymbol());
+            this.console.print("moving to " + locations[row][column].getScene().getMapSymbol());
             
         GameMenuView gameMenu = new GameMenuView(player);
         gameMenu.display(hMR);
@@ -141,47 +143,47 @@ public class MapControl {
     
 /*    
     public int visitSceanL1 (int fido, int scean1){
-        System.out.println("*** visitSceanL1 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL1 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL2 (int fido, int scean2){
-        System.out.println("*** visitSceanL2 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL2 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL3 (int fido, int scean3){
-        System.out.println("*** visitSceanL3 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL3 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL4 (int fido, int scean4){
-        System.out.println("*** visitSceanL4 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL4 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL5 (int fido, int scean5){
-        System.out.println("*** visitSceanL5 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL5 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL6 (int fido, int scean6){
-        System.out.println("*** visitSceanL6 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL6 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL7 (int fido, int scean7){
-        System.out.println("*** visitSceanL7 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL7 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL8 (int fido, int scean8){
-        System.out.println("*** visitSceanL8 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL8 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
     
     public int visitSceanL9 (int fido, int scean9){
-        System.out.println("*** visitSceanL9 function called ***");    // STUB statment will be replaced with a function
+        this.console.println("*** visitSceanL9 function called ***");    // STUB statment will be replaced with a function
         return 0;
     }
 */
@@ -191,27 +193,27 @@ public class MapControl {
             Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
 //            Location[][] locations = WalkTheDog.getCurrentGame().getMap().getLocations();
             
-            System.out.println("     The Park\n");
-            System.out.print("          ");
+            this.console.println("     The Park\n");
+            this.console.print("          ");
             
             for (int column = 0; column < columCount; column++){
-                System.out.print("     "+column+"     | ");
+                this.console.print("     "+column+"     | ");
                 }
             
             for (int row = 0; row < rowCount; row++){
-                System.out.print("\n      "+row);
+                this.console.print("\n      "+row);
                     for (int column = 0; column < columCount; column++){
-                        System.out.print(" | ");
+                        this.console.print(" | ");
                         Location location = locations [row][column];
                         if(!location.equals("")){
-                            System.out.print(locations[row][column].getScene().getMapSymbol());
+                            this.console.print(locations[row][column].getScene().getMapSymbol());
                             }
                         else{
-                            System.out.print("   x      ");                           // place map symbol here
+                            this.console.print("   x      ");                           // place map symbol here
                             }
                         }
                     
-                    System.out.print(" |");
+                    this.console.print(" |");
                     }
             }   // END of public void displayMap()
  

@@ -29,7 +29,7 @@ public class GameControl {
     public static void createNewGame(Player player){
         ExploringControl numbernumber = new ExploringControl ();
         
-//        System.out.println("\n*** createNewGame stub function called ***"
+//        this.console.println("\n*** createNewGame stub function called ***"
 //                + "GameControl.java     createNewGame(Player player)");
         
         Game game = new Game();                 //create new game

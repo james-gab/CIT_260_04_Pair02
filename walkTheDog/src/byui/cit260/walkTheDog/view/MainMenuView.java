@@ -49,7 +49,7 @@ public class MainMenuView extends View {
             case 'Q': // Exit the program
                 return;
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
                 break;
                 }
     }
@@ -58,7 +58,7 @@ public class MainMenuView extends View {
 
     
     private void startNewGame(){
-//        System.out.println("\n*** startNewGame function called ***"
+//        this.console.println("\n*** startNewGame function called ***"
 //                + "in MainMenuView.java     startNewGame()");
         
         GameControl.createNewGame(WalkTheDog.getPlayer());
@@ -68,7 +68,7 @@ public class MainMenuView extends View {
     }   
      
     private void startExistingGame(){
-        System.out.println("\n*** startExistingGame function called ***"
+        this.console.println("\n*** startExistingGame function called ***"
                 + "in MainMenuView.java     startExistingGame()");
     }
     
@@ -78,7 +78,7 @@ public class MainMenuView extends View {
         }
     
     private void saveGame(){
-        System.out.println("\n*** saveGame function called ***"
+        this.console.println("\n*** saveGame function called ***"
                 + "in MainMenuView.java     saveGame()");
     }
     

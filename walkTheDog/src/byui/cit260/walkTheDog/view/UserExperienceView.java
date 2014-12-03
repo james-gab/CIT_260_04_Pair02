@@ -32,7 +32,7 @@ public class UserExperienceView extends View{
     @Override
         public void doAction(char choice){
             
-            System.out.println(choice + " was your choice.");
+            this.console.println(choice + " was your choice.");
             int start = player.getPlayerSatisfaction();
             
             do{
@@ -40,7 +40,7 @@ public class UserExperienceView extends View{
 //                    break;
             }while(player.getPlayerSatisfaction()==start);
 
-            System.out.println("\nPlayer Satisfaction is now: " + player.getPlayerSatisfaction());
+            this.console.println("\nPlayer Satisfaction is now: " + player.getPlayerSatisfaction());
             
             LocationView changeLocations = new LocationView(player);                // send user to Location view menu
             changeLocations.display(hMR);
@@ -83,7 +83,7 @@ public class UserExperienceView extends View{
         
         while (!experienceValidCheck){
         
-            System.out.println("Before you leave , did you enjoy your\nexperience in this location Y/N?");
+            this.console.println("Before you leave , did you enjoy your\nexperience in this location Y/N?");
             String input = this.getInput(); // get first charecter of string
             userExperienceInput = input.charAt(0);
             
@@ -103,7 +103,7 @@ public class UserExperienceView extends View{
                 break;
             }
             else {
-                System.out.println("Invalid entry - please try again");
+                ErrorView.display(this.getClass().getName(),"Invalid entry - please try again");
             }
             
        
@@ -123,14 +123,14 @@ public class UserExperienceView extends View{
         while(!valid){
             
 
-            System.out.println("Enter a choice below:");
+            this.console.println("Enter a choice below:");
 
             playersInput = keyboard.nextLine();
             playersInput = playersInput.trim();
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
+                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
             }
             break;

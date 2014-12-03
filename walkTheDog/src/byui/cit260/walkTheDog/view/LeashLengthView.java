@@ -37,19 +37,19 @@ public class LeashLengthView {
 //      see lines 108-170 for rest of requirement
     public int displayLeashLengthInput(){
         
-        System.out.println("Please enter a leash lenght for Fido"
+        this.console.println("Please enter a leash lenght for Fido"
                 + "\nbefore moving forward.");
         
         char selection = ' ';
         int userLL = -2; //-2 so that it enters the do while statement
         do{
 
- 	//System.out.println("");
+ 	//this.console.println("");
  	String input = this.getLLInput(); // get first charecter of string
         selection = input.charAt(0);
         userLL = (int) selection;
         if (userLL < 0 || userLL > 15){
-            System.out.println("Invalid Leash Length! Try again!");
+            ErrorView.display(this.getClass().getName(),"Invalid Leash Length! Try again!");
         }
         } while (userLL < 0 || userLL > 15); // a selection is not "valid"
     return userLL;
@@ -63,7 +63,7 @@ public class LeashLengthView {
         while(!valid){
             
 
-            System.out.println("\nPlease enter a leash length between 0 and 15: ");
+            this.console.println("\nPlease enter a leash length between 0 and 15: ");
 
 //            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
@@ -71,13 +71,13 @@ public class LeashLengthView {
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
+                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
             }
             break;
         }
         } catch (Exception e) {  
-                   System.out.println("Error reading inputL " + e.getMessage()); 
+                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
                  }
         return playersInput;
     }

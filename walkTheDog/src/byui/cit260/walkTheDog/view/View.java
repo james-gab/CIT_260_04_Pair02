@@ -33,7 +33,7 @@ public abstract class View implements ViewInterface {
         
         do{
 
-            System.out.println(this.promtMessage);  //display promt message
+            this.console.println(this.promtMessage);  //display promt message
             value = this.getInput();        // get the user selection
             value = value.trim();
             value = value.toUpperCase();
@@ -55,7 +55,7 @@ public abstract class View implements ViewInterface {
         while (!valid){
             
             //promt for players name
-            System.out.println("\t\nEnter your selection below: ");
+            this.console.println("\t\nEnter your selection below: ");
             
             
                 // get the value entered from the keyboard
@@ -66,14 +66,14 @@ public abstract class View implements ViewInterface {
             selection = selection.toUpperCase();
             
             if(selection.length() < 1 ){ //blank value entered
-                System.out.println("\n*** Invalid Selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
                 continue;
                 
             }
             break;
         }
         } catch (IOException ex) {
-                System.out.println(ex);
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         return selection;  // return the name
         

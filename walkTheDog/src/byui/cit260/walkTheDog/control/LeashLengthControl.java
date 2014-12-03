@@ -4,6 +4,7 @@
 
 package byui.cit260.walkTheDog.control;
 
+import byui.cit260.walkTheDog.view.ErrorView;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -25,20 +26,20 @@ public class LeashLengthControl {
     
         public int displayLeashLengthInput(){
         
-        System.out.println("Please enter a leash lenght for Fido");
+        this.console.println("Please enter a leash lenght for Fido");
         
 //        char selection = ' ';
         int userLL = -2; //-2 so that it enters the do while statement
         do{
 
- 	//System.out.println("");
+ 	//this.console.println("");
  	String input = this.getLLInput(); // get first charecter of string
-//        System.out.println("input = "+input);
+//        this.console.println("input = "+input);
         userLL = Integer.parseInt(input);
-//        System.out.println("userLL = "+userLL);
+//        this.console.println("userLL = "+userLL);
         
         if (userLL < 0 || userLL > 15){
-            System.out.println("Invalid Leash Length! Try again!");
+            ErrorView.display(this.getClass().getName(),"Invalid Leash Length! Try again!");
             }
         } while (userLL < 0 || userLL > 15); // a selection is not "valid"
     return userLL;
@@ -53,7 +54,7 @@ public class LeashLengthControl {
         while(!valid){
             
 
-            System.out.println("\nPlease enter a number between 0 and 15: ");
+            this.console.println("\nPlease enter a number between 0 and 15: ");
 
 //            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
@@ -61,13 +62,13 @@ public class LeashLengthControl {
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
+                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
             }
             break;
         }
         } catch (Exception e) {  
-                   System.out.println("Error reading inputL " + e.getMessage()); 
+                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
                  }
         return playersInput;
     }

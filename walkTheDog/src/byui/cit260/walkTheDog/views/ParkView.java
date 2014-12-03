@@ -7,6 +7,7 @@ package byui.cit260.walkTheDog.views;
 
 import byui.cit260.walkTheDog.interfaces.DisplayInfo;
 import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.view.ErrorView;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ParkView  implements DisplayInfo {
 //            this.printRow(i+1, rowOfLocations);
 //            this.printDividerRow();
 //        }
-        System.out.println();
+      //  ErrorView.display(this.getClass().getName());
          
         return null;
     }

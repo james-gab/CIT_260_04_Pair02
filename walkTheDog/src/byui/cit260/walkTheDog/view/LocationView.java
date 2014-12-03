@@ -82,7 +82,7 @@ public class LocationView extends ViewForLocation{
             case 'Q': // Exit the Location View
                 this.quitGame();
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again ***"
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***"
                         + "in doAction Overide Switch case");
                 break;
     }      
@@ -98,7 +98,7 @@ public class LocationView extends ViewForLocation{
     }
     
     private void quitGame(){
-        System.out.println("*** quit Location function called ***"
+        this.console.println("*** quit Location function called ***"
                 + "\nSending player back to Game Menu");
         GameMenuView quittingGame = new GameMenuView(player);
         quittingGame.display(hMR);
@@ -155,7 +155,7 @@ public class LocationView extends ViewForLocation{
                 this.quitGame();
         }
         else {
-                System.out.println("\n*** Invalid Selection in visitSceanL *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection in visitSceanL *** Try Again ***");
         }
         
 
@@ -164,7 +164,7 @@ public class LocationView extends ViewForLocation{
         try {
                 goTo.visitSceanLocations(row,column,player,hMR);
         } catch (MapControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
 
     
@@ -217,7 +217,7 @@ public class LocationView extends ViewForLocation{
         }
 
         else {
-                System.out.println("\n*** Invalid Selection in visitSceanL *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection in visitSceanL *** Try Again ***");
         }
     }
     

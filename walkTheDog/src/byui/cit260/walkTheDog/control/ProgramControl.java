@@ -4,6 +4,8 @@ package byui.cit260.walkTheDog.control;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ProgramControlException;
 import byui.cit260.walkTheDog.model.Player;
+import byui.cit260.walkTheDog.view.ErrorView;
+import java.io.PrintWriter;
 import walkthedog.WalkTheDog;
 
 /**
@@ -11,6 +13,9 @@ import walkthedog.WalkTheDog;
  * @author Idel and gab James
  */
 public class ProgramControl {
+    
+    protected final PrintWriter console = WalkTheDog.getOutFile();
+
 
     public static Player createPlayer(String name) {
     Player player = new Player();
@@ -59,7 +64,7 @@ public class ProgramControl {
         
         char var = (char)choice;
         
-        System.out.println("In userExperienceInputCheck\n"
+        this.console.println("In userExperienceInputCheck\n"
                 + choice + " was passed for choice.\n"
                 + var + " was passed from choice.\n"
                 + playerSatisfaction + " was passed for playerSatisfaction\n\n");
@@ -77,7 +82,7 @@ public class ProgramControl {
 //                return playerSatisfaction;
                 }
             else {
-           System.out.println("Invalid entry - please try again");
+           ErrorView.display(this.getClass().getName(),"Invalid entry - please try again");
             }
             
                 return playerSatisfaction;

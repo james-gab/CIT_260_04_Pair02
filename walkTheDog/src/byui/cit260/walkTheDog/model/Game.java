@@ -46,7 +46,7 @@ public class Game implements Serializable {
     }
 
     public Map getMap() {
-//        System.out.println("\nGame.java   Map getMap()"
+//        this.console.println("\nGame.java   Map getMap()"
 //                + "\n function called to create the MAP array\n"
 //                + "\n" + map + "\n");
         return map;
@@ -173,20 +173,20 @@ public class Game implements Serializable {
     
     
     public void setMap(Map map) {
-//          System.out.println("***This is a stub function ****"
+//          this.console.println("***This is a stub function ****"
 //               + "\nin Game.java  setMap(Map map) around line 138"); 
           this.map = map;
        
     }
 
     public void setFido(Fido fido) {
-//          System.out.println("***This is a stub function ****"
+//          this.console.println("***This is a stub function ****"
 //               + "\nin Game.java  setFido(Fido fido) around line 144"); 
           this.fido = fido;
     }
     
     public void setEvents(Events event) {
-//          System.out.println("***This is a stub function ****"
+//          this.console.println("***This is a stub function ****"
 //               + "\nin Game.java  setEvent(Events event) around line 184"); 
           this.event = event;
        

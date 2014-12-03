@@ -46,15 +46,15 @@ public class StartProgramView {
     }
     
     private void displayBanner() {
-                System.out.println("\n\n***********************************************************");
+                this.console.println("\n\n***********************************************************");
         
-        System.out.println( "*                                                          *"
+        this.console.println( "*                                                          *"
                 +           "\n*  Walk the Dog a fun text-based game that allows you the  *"
                 +           "\n*  experience of walking your dog in the park as you       *"
                 +           "\n*  retract or extend your Dogs leash to avoid incidents    *"
                 +           "\n*                                                          *");
                     
-        System.out.println("*********************************************************** ");
+        this.console.println("*********************************************************** ");
     }
 
     public String getPlayersName() {
@@ -65,20 +65,20 @@ public class StartProgramView {
         try {
         while(!valid){
 
-            System.out.println("\nPlayer, please enter your name below:\n");
+            this.console.println("\nPlayer, please enter your name below:\n");
 
 //            playersName = keyboard.nextLine();
             playersName = this.keyboard.readLine();
             playersName = playersName.trim();
 
             if (playersName.length() < 1){
-                System.out.println("\nInvalid name - the name must not be blank\n");
+                ErrorView.display(this.getClass().getName(),"\nInvalid name - the name must not be blank\n");
                 continue;
             }
             break;
         }
         } catch (Exception e) {  
-                   System.out.println("Error reading inputL " + e.getMessage()); 
+                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
                  }
         return playersName;
     }
@@ -86,7 +86,7 @@ public class StartProgramView {
    
     private void displayWelcomeMessage(Player player) {
 
-        System.out.println("\n=========================="           // 26 
+        this.console.println("\n=========================="           // 26 
                 + "\n   Welcome to the game"
                 + "\n\n  "
                 +   player.getName()

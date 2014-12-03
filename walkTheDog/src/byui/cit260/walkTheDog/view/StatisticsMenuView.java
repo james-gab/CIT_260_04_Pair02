@@ -36,7 +36,7 @@ public class StatisticsMenuView extends View {
 //        char selection = ' ';
 //        do{
 //
-// 	System.out.println(MENU); //display the statistic menu
+// 	this.console.println(MENU); //display the statistic menu
 // 	String input = this.getInput(); // get first charecter of string
 //        selection = input.charAt(0);
 // 	this.doAction(selection);
@@ -74,14 +74,14 @@ public class StatisticsMenuView extends View {
 //        while(!valid){
 //            
 //
-//            System.out.println("Enter a choice:");
+//            this.console.println("Enter a choice:");
 //
 //            playersInput = keyboard.nextLine();
 //            playersInput = playersInput.trim();
 //
 //
 //            if (playersInput.length() < 1){    
-//                System.out.println("Invalid entry - space is not an option");
+//                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
 //                continue;
 //            }
 //            break;
@@ -116,7 +116,7 @@ public class StatisticsMenuView extends View {
                 // user chooses to display fido's mood
                 this.generateFidoMood(player);
             } catch (ExploringControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
                 break;
@@ -125,7 +125,7 @@ public class StatisticsMenuView extends View {
                 // user chooses to display fido's mood
                 this.generateFidoMood(player);
             } catch (ExploringControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
                 break;
@@ -136,7 +136,7 @@ public class StatisticsMenuView extends View {
                 this.back();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
                 break;
                 }
     }
@@ -156,16 +156,16 @@ public class StatisticsMenuView extends View {
     private void lifePoint(){     //display the player's Life Points
         ProgramControl display = new ProgramControl();
         int lifePoints = display.playerLifePoints();
-        System.out.println("Your life point is: " + lifePoints);   
+        this.console.println("Your life point is: " + lifePoints);   
     }
     */
     
     private void lifePoint(Player player){     //display the player's Life Points
         ProgramControl display = new ProgramControl();
         try {   
-            System.out.println("Your life point is: " + display.playerLifePoints(player));
+            this.console.println("Your life point is: " + display.playerLifePoints(player));
         } catch (ProgramControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
     }
 
@@ -178,7 +178,7 @@ public class StatisticsMenuView extends View {
     ExploringControl display = new ExploringControl();
     int fidoMood = display.generateFidoMood(numOfTurns, length, dogMood);
             
-    System.out.println("Fido mood is " + fidoMood);
+    this.console.println("Fido mood is " + fidoMood);
     }
 */
     
@@ -188,14 +188,14 @@ public class StatisticsMenuView extends View {
     ProgramControl display = new ProgramControl();
             
         try {
-            System.out.println("Fido mood is " + display.fidoMood(player));
+            this.console.println("Fido mood is " + display.fidoMood(player));
         } catch (ProgramControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
     }
     
     private void back(){
-       System.out.println("*** quitGame function called ***"
+       this.console.println("*** quitGame function called ***"
                 + "\nSending player back to Main Menu");
         GameMenuView quittingGame = new GameMenuView(player);
         quittingGame.display(hMR);//program will go back to the previous menu 

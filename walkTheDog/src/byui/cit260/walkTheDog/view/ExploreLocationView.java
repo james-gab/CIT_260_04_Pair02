@@ -29,7 +29,7 @@ public class ExploreLocationView {
 //    private final String OPTION = ' ';
         char selection = ' ';
         do{
-        System.out.println("\nDo you wish to explore a new area of the map (y/n)?");
+        this.console.println("\nDo you wish to explore a new area of the map (y/n)?");
  	String input = this.getInput(); // get first charecter of string
         selection = input.charAt(0);
  	this.doGameAction(selection);
@@ -37,7 +37,7 @@ public class ExploreLocationView {
         } while (selection != 'N' || selection != 'n'); // a selection is not "Exit"
 
     if (selection == 'N' |selection == 'n' ){
-//        System.out.println("not exploring function called.");
+//        this.console.println("not exploring function called.");
         
         /* Instructor: 
          * Create and call a stub function 
@@ -68,7 +68,7 @@ public class ExploreLocationView {
         while(!valid){
             
 
-            System.out.println("Enter a choice below:");
+            this.console.println("Enter a choice below:");
 
 //            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
@@ -76,13 +76,13 @@ public class ExploreLocationView {
 
 
             if (playersInput.length() < 1){    
-                System.out.println("Invalid entry - space is not an option");
+                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
             }
             break;
         }
         } catch (Exception e) {  
-                   System.out.println("Error reading inputL " + e.getMessage()); 
+                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
                  }
         return playersInput;
     }
@@ -108,13 +108,13 @@ public class ExploreLocationView {
                 this.exploreLocation();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
                 break;
                 }
     }
 
     private void exploreLocation() {
-//        System.out.println("exploreLocation function called.");
+//        ErrorView.display(this.getClass().getName(),"exploreLocation function called.");
         
         /* Instructor: 
          * Create and call a stub function in the appropriate

@@ -140,7 +140,7 @@ public class Location implements Serializable {
     }
 
     public void setScene(Scene scene) {
-//        System.out.print("This is a stub function Location.java");
+//        this.console.print("This is a stub function Location.java");
         this.scene = scene;
     }
     
