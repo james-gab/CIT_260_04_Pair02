@@ -43,9 +43,8 @@ public class WalkTheDog {
             // open log file
             String filePath = "log.txt";
             WalkTheDog.logFile = new PrintWriter(filePath);
-//            WalkTheDog.logFile = new PrintWriter("log.txt");
-           StartProgramView startProgramView = new StartProgramView();
-           startProgramView.startProgram();     
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.startProgram();     
             
         } catch (Exception e){
             ErrorView.display(error.getClass().getName(),"Exception: " + e.toString() +
@@ -66,7 +65,7 @@ public class WalkTheDog {
             }
         }
         
-    } 
+    }
 
     public static PrintWriter getLogFile() {
         return logFile;
