@@ -35,7 +35,8 @@ public class WalkTheDog {
         
         try {
             //open character stream file for end user input and output
-            WalkTheDog.inFile = new BufferedReader(new InputStreamReader(System.in));
+            WalkTheDog.inFile = 
+                    new BufferedReader(new InputStreamReader(System.in));
             
             WalkTheDog.outFile = new PrintWriter(System.out, true);
             
@@ -43,6 +44,8 @@ public class WalkTheDog {
             String filePath = "log.txt";
             WalkTheDog.logFile = new PrintWriter(filePath);
 //            WalkTheDog.logFile = new PrintWriter("log.txt");
+           StartProgramView startProgramView = new StartProgramView();
+           startProgramView.startProgram();     
             
         } catch (Exception e){
             ErrorView.display(error.getClass().getName(),"Exception: " + e.toString() +
@@ -51,17 +54,18 @@ public class WalkTheDog {
         }
         finally{
             try{
-            WalkTheDog.inFile.close();
-            WalkTheDog.outFile.close();
-            WalkTheDog.logFile.close();
+                if(WalkTheDog.inFile !=null){
+                    WalkTheDog.inFile.close();}
+                if(WalkTheDog.outFile !=null){
+                    WalkTheDog.outFile.close();}
+                if(WalkTheDog.logFile !=null){
+                    WalkTheDog.outFile.close();}
             } catch (IOException ex){
                 ErrorView.display(error.getClass().getName(),"Error closing files");
                 return;
             }
         }
         
-       StartProgramView startProgramView = new StartProgramView();
-       startProgramView.startProgram();     
     } 
 
     public static PrintWriter getLogFile() {
