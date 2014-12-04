@@ -3,6 +3,7 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.GameControl;
 import byui.cit260.walkTheDog.model.Player;
 import walkthedog.WalkTheDog;
+import byui.cit260.walkTheDog.view.GameMenuView;
 
 /**
  *
@@ -70,6 +71,23 @@ public class MainMenuView extends View {
     private void startExistingGame(){
         this.console.println("\n*** startExistingGame function called ***"
                 + "in MainMenuView.java     startExistingGame()");
+        // prompt for and get the nameof the file to save the game
+        this.console.println("\n\nEnter the file path for file where the game "
+                            + "is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            // start a saved game
+            GameControl.getSavedGame(filePath);
+            
+        } catch (Exception ex) {
+            ErrorView.display("mainMenuView", ex.getMessage());
+        }
+        
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView(player);
+        gameMenu.display(hMR);
     }
     
     private void displayHelpMenu(){
@@ -77,9 +95,21 @@ public class MainMenuView extends View {
     gameMenuHelp.displayHelpMenu(hMR);
         }
     
-    private void saveGame(){
-        this.console.println("\n*** saveGame function called ***"
-                + "in MainMenuView.java     saveGame()");
+    public void saveGame(){
+         this.console.println("*** saveGame function called ***");
+        System.out.println("\n\nEnter the file path for file where the game "
+         + "is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the speciried file
+            GameControl.saveGame(WalkTheDog.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenView", ex.getMessage());
+            
+        }
+        
     }
     
 

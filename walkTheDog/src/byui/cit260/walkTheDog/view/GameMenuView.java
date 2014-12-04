@@ -8,12 +8,14 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
+import byui.cit260.walkTheDog.control.GameControl;
 import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.model.Player;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -269,8 +271,10 @@ public Player player;
         }
     }
 
-    private void saveGame(){                                              
-        this.console.println("*** saveGame function called ***");
+    private void saveGame(){     
+        MainMenuView savedGame = new MainMenuView(player);
+        savedGame.saveGame();
+       
     }
 
     private void quitGame(){

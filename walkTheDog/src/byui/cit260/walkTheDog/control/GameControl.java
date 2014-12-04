@@ -14,6 +14,13 @@ import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.enums.Scene;
+import byui.cit260.walkTheDog.exceptions.GameControlException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import walkthedog.WalkTheDog;
 
 /**
@@ -108,8 +115,38 @@ public class GameControl {
             eventType[7][0].setEventScene(scenes[EventsScene.EventSceneType.getsScrachedBehindEars.ordinal()]);
             
     }
-
-    
-    
+public static void saveGame(Game game, String filepath)
+  throws GameControlException { 
+   
+    try (FileOutputStream fops = new FileOutputStream(filepath)) {
+    ObjectOutputStream output = new ObjectOutputStream(fops);
+   
+     output.writeObject(game); //write the game object out to file
+    }
+    catch (IOException e) {
+    throw new GameControlException(e.getMessage());
         
+       }
+    }
+
+    public static void getSavedGame(String filePath)
+                       throws GameControlException {
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject(); // read the game object from file
+            
+        }
+        catch(FileNotFoundException fnfe){
+            throw new GameControlException(fnfe.getMessage());
+            
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        // close the output file
+        WalkTheDog.setCurrentGame(game); // save in WalkTheDog
+    }
 }
