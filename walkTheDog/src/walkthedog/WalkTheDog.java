@@ -12,6 +12,7 @@ import byui.cit260.walkTheDog.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 
 /**
@@ -19,7 +20,7 @@ import java.io.PrintWriter;
  * @authors Idel Pagan and gab James
  */
 public class WalkTheDog {
-    public static Game CurrentGame = null;
+    public static Game currentGame = null;
     private static Player player = null;
     
     private static PrintWriter outFile = null;
@@ -39,7 +40,7 @@ public class WalkTheDog {
                     new BufferedReader(new InputStreamReader(System.in));
             
             WalkTheDog.outFile = new PrintWriter(System.out, true);
-            
+//            outFile =  PrintWriterClass(System.out, true);
             // open log file
             String filePath = "log.txt";
             WalkTheDog.logFile = new PrintWriter(filePath);
@@ -90,16 +91,13 @@ public class WalkTheDog {
     public static void setInFile(BufferedReader inFile) {
         WalkTheDog.inFile = inFile;
     }
-    
-    
-    
 
     public static Game getCurrentGame() {
-        return CurrentGame;
+        return currentGame;
     }
 
-    public static void setCurrentGame(Game CurrentGame) {
-        WalkTheDog.CurrentGame = CurrentGame;
+    public static void setCurrentGame(Game currentGame) {
+        WalkTheDog.currentGame = currentGame;
     }
 
     public static Player getPlayer() {
@@ -118,5 +116,11 @@ public class WalkTheDog {
 //       startProgramView.startProgram();        
 //        
 //    }
+
+//    private static String PrintWriterClass(PrintStream out, boolean b) {
+//        return (String)"log.txt";
+//        
+//    }
+//    
     
 }
