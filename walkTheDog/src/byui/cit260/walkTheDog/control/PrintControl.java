@@ -34,6 +34,13 @@ public class PrintControl {
                 
                 String filePath = this.getInput();
                 
+                /* Instructor: 
+                * When you print text to a file you must use a character stream
+                * (e.g., PrintWriter) and not a byte stream. A byte steam writes
+                * raw binary data to the file. A character stream prints human
+                * readable text as characters to the file. This is why you can
+                * not read the report.
+                */
                 try(FileOutputStream filePathOut = new FileOutputStream(filePath)){
                     ObjectOutputStream output = new ObjectOutputStream(filePathOut);
                     output.writeObject(locations);

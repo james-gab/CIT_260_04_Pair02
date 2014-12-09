@@ -312,6 +312,10 @@ public Player player;
         
 
     try {
+        /* Instructor: 
+         * printMap() is dealing with input and output. This should not be 
+         * in the Control Layer. It should be in the View Layer.
+         */
         PrintControl printTheMap = new PrintControl();
         printTheMap.printMap();
         

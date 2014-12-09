@@ -17,7 +17,7 @@ public class ErrorView {
     private static final PrintWriter logFile = WalkTheDog.getLogFile();
     
     public static void display(String className, String errorMessage){
-        errorFile.println(""
+         errorFile.println(""
                 + "________________________________________________________"
                 + "\n- ERROR - " + errorMessage
                 + "\n_______________________________________________________");

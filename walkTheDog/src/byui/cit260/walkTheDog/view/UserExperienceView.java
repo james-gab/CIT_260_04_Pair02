@@ -36,6 +36,7 @@ public class UserExperienceView extends View{
             int start = player.getPlayerSatisfaction();
             
             do{
+
                     this.userExperienceInput(choice);
 //                    break;
             }while(player.getPlayerSatisfaction()==start);
@@ -56,7 +57,12 @@ public class UserExperienceView extends View{
  */
         
     public void userExperienceInput(char choice){
-
+        /* Instructor: 
+         * You are not checking for a valid choice. When the uers enters
+         * an invalid choice your program gets in an infinite loop here.
+         * I think the best way to handle this is to 
+         * to display an error message and prompt the user to try again.
+         */
         ProgramControl check = new ProgramControl();                            // Control class is in ProgramControl.java
         player.setPlayerSatisfaction(check.userExperienceInputCheck(choice,player.getPlayerSatisfaction()));
     }    

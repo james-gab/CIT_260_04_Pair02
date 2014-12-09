@@ -31,8 +31,13 @@ public class WalkTheDog {
     
     
     public static void main(String[] args){
-        
-        ErrorView error = new ErrorView();
+        /* Instructor: 
+         * You do no need to instantiate the Error View class. It only has
+         * static class variables and methods so their is no need to
+         * create an object instance for the ErrorView class. This is what is
+         * your error when you try and print to the file. 
+         */
+//        ErrorView error = new ErrorView();
         
         try {
             //open character stream file for end user input and output
@@ -48,7 +53,7 @@ public class WalkTheDog {
             startProgramView.startProgram();     
             
         } catch (Exception e){
-            ErrorView.display(error.getClass().getName(),"Exception: " + e.toString() +
+            ErrorView.display("WalkTheDog","Exception: " + e.toString() +
                                "\nCause: " + e.getCause() +
                                "\nMessage: " + e.getMessage());
         }
@@ -59,9 +64,13 @@ public class WalkTheDog {
                 if(WalkTheDog.outFile !=null){
                     WalkTheDog.outFile.close();}
                 if(WalkTheDog.logFile !=null){
+                    /* Instructor: 
+                     * You should be closing the logFile and not the outFile
+                     * here.
+                     */
                     WalkTheDog.outFile.close();}
             } catch (IOException ex){
-                ErrorView.display(error.getClass().getName(),"Error closing files");
+                ErrorView.display("WalkTheDog","Error closing files");
                 return;
             }
         }
