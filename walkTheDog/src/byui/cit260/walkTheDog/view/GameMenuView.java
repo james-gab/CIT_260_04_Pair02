@@ -8,14 +8,17 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
-import byui.cit260.walkTheDog.control.GameControl;
 import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
+import byui.cit260.walkTheDog.control.PrintControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
+import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
+import byui.cit260.walkTheDog.exceptions.PrintControlException;
 import byui.cit260.walkTheDog.model.Player;
-import walkthedog.WalkTheDog;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,6 +45,7 @@ public Player player;
             + "\n  D   - Display Map"
             + "\n  T   - Game Statistics"
             + "\n  A   - Things in the Park"
+            + "\n  V   - Print Map"
             + "\n  H   - Help Menu "
             + "\n  S   - Save game " 
             + "\n  Q   - Quit Game without saving"
@@ -104,6 +108,9 @@ public Player player;
                 break;
             case 'H': // display the Help Menu
                 this.displayHelpMenu();
+                break;
+            case 'V': 
+                this.printAMap();
                 break;
             case 'S': // save the current Game
                 this.saveGame();
@@ -298,6 +305,22 @@ public Player player;
     } catch (MiniGameControlException ex) {
                 ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
+    }
+
+    private void printAMap() {
+        
+        
+
+    try {
+        PrintControl printTheMap = new PrintControl();
+        printTheMap.printMap();
+        
+        this.console.println("file was saved.");        
+    } catch (PrintControlException ex) {
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
+    }
+
+    
     }
     
     
