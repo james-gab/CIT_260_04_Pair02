@@ -52,7 +52,7 @@ public class LeashLengthControl {
        try{
         while(!valid){
             
-
+            Scanner keyboard = new Scanner(System.in);
             this.console.println("\nPlease enter a number between 0 and 15: ");
 
 //            playersInput = keyboard.nextLine();
@@ -64,17 +64,15 @@ public class LeashLengthControl {
                 continue;
             }
             
-            try {
-                int v = Integer.parseInt(playersInput);
-                valid = true;
-            } catch(NumberFormatException e) {
-                valid = false;
+             if (!keyboard.hasNextInt()){
+                 ErrorView.display(this.getClass().getName(),"Invalid entry - letter is not an option");
+       	         
             }
             break;
         }
         } catch (Exception e) {            
-            ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
-            }
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection * Try again");
+                 }
         return playersInput;
     }
     

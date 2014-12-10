@@ -40,7 +40,7 @@ public Player player;
             + "\n"
             + "\n  M   - Move to new location" 
             + "\n  E   - Explore location" 
-            + "\n  L   - Estimate leash length"
+//            + "\n  L   - Estimate leash length"
             + "\n  P   - Play Mini Game"
             + "\n  D   - Display Map"
             + "\n  T   - Game Statistics"
@@ -94,9 +94,9 @@ public Player player;
                 this.userExplore();
           
                 break;
-            case 'L': // User Estimates Leash Length needed
-                this.userLeashLength();
-                break;
+//            case 'L': // User Estimates Leash Length needed
+//                this.userLeashLength();
+//                break;
             case 'P': // User plays Mini game
                 this.createMiniGame(player);   //this needs to be fixed
                 break;
