@@ -28,9 +28,9 @@ public class MiniGameControl {
         int[] randomNumbers2 = new int[10];                                     //another array with 10 alocated spaces
         int number = 3;
        
-        if (player.getPlayedMiniGame() != 'n' || player.getPlayedMiniGame() != 'N' ||
-                player.getPlayedMiniGame() != 'Y' || player.getPlayedMiniGame() != 'y')
-            throw new MiniGameControlException("Sorry, something went wrong!");
+//        if (player.getPlayedMiniGame() != 'n' || player.getPlayedMiniGame() != 'N' ||
+//                player.getPlayedMiniGame() != 'Y' || player.getPlayedMiniGame() != 'y')
+//            throw new MiniGameControlException("Sorry, something went wrong!");
         //if throws statement.. checks playedminigame is equal to y or n 
         
         if(player.playedMiniGame != 'Y'){
