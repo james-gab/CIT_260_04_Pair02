@@ -1,5 +1,5 @@
 /*
- * Project author: Ideal Pagen and gab James.
+ * Project author: Ideal Pagen and gab    James.
  * 
  */
 package byui.cit260.walkTheDog.control;
