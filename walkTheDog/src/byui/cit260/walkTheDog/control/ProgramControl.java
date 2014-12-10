@@ -58,32 +58,39 @@ public class ProgramControl {
 /*
  *    gab - Lesson 09 individual assignment
  *    Added to satisfy the Individual assignment for Lesson 09
+ *   
+ *  *****  *****  USEING default as error check   *****  ***** 
+ *   IF not equal to a defined CHAR then error statment
  *    
 */    
     public int userExperienceInputCheck(char choice, int playerSatisfaction){
         
         char var = (char)choice;
+        char YES = 'Y';
+        char NO = 'N';
+        char yes = 'y';
+        char no = 'n';
         
         this.console.println("In userExperienceInputCheck\n"
                 + choice + " was passed for choice.\n"
                 + var + " was passed from choice.\n"
                 + playerSatisfaction + " was passed for playerSatisfaction\n\n");
-        
-//        if (choice != 'Y' || choice != 'y' || choice != 'N' || choice != 'n'){
-//            throw new EventsControlException("Invalid entry, what a missed oppertunity");            
-//        }
-        
-            if (var == 'Y' || var == 'y'){
+
+            if (var == YES){
                 playerSatisfaction += 1;
-//                return playerSatisfaction;
                 }
-            else if (var == 'N' || var == 'n'){
+            else if (var == NO){
                 playerSatisfaction -= 1;
-//                return playerSatisfaction;
+                }
+            else if (var == yes){
+                playerSatisfaction += 1;
+                }
+            else if (var == no){
+                playerSatisfaction -= 1;
                 }
             else {
-           ErrorView.display(this.getClass().getName(),"Invalid entry - please try again");
-            }
+                   ErrorView.display(this.getClass().getName(),"Invalid entry - please try again");
+                }
             
                 return playerSatisfaction;
     }

@@ -119,16 +119,15 @@ public static void saveGame(Game game, String filepath)
   throws GameControlException { 
    
     try (FileOutputStream fops = new FileOutputStream(filepath)) {
-        /* Instructor: 
+        /* zInstructor: 
          * Please indent code in a block 
          */
-    ObjectOutputStream output = new ObjectOutputStream(fops);
+        ObjectOutputStream output = new ObjectOutputStream(fops);
    
-     output.writeObject(game); //write the game object out to file
+        output.writeObject(game); //write the game object out to file
     }
     catch (IOException e) {
-    throw new GameControlException(e.getMessage());
-        
+        throw new GameControlException(e.getMessage());
        }
     }
 

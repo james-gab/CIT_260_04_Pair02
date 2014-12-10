@@ -31,7 +31,7 @@ public class WalkTheDog {
     
     
     public static void main(String[] args){
-        /* Instructor: 
+        /* zInstructor: 
          * You do no need to instantiate the Error View class. It only has
          * static class variables and methods so their is no need to
          * create an object instance for the ErrorView class. This is what is
@@ -64,11 +64,11 @@ public class WalkTheDog {
                 if(WalkTheDog.outFile !=null){
                     WalkTheDog.outFile.close();}
                 if(WalkTheDog.logFile !=null){
-                    /* Instructor: 
+                    /* zInstructor: 
                      * You should be closing the logFile and not the outFile
                      * here.
                      */
-                    WalkTheDog.outFile.close();}
+                    WalkTheDog.logFile.close();}
             } catch (IOException ex){
                 ErrorView.display("WalkTheDog","Error closing files");
                 return;

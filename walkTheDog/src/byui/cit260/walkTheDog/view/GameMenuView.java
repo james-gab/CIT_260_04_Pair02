@@ -10,7 +10,6 @@ import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
 import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
-import byui.cit260.walkTheDog.control.PrintControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.MapControlException;
@@ -312,11 +311,11 @@ public Player player;
         
 
     try {
-        /* Instructor: 
+        /* zInstructor: 
          * printMap() is dealing with input and output. This should not be 
          * in the Control Layer. It should be in the View Layer.
          */
-        PrintControl printTheMap = new PrintControl();
+        PrintView printTheMap = new PrintView();
         printTheMap.printMap();
         
         this.console.println("file was saved.");        

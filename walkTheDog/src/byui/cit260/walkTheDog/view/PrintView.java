@@ -33,7 +33,7 @@ public class PrintView {
                 
                 String filePath = this.getInput();
                 
-                /* Instructor: 
+                /* zInstructor: 
                 * When you print text to a file you must use a character stream
                 * (e.g., PrintWriter) and not a byte stream. A byte steam writes
                 * raw binary data to the file. A character stream prints human

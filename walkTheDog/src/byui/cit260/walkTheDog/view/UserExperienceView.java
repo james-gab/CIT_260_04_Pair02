@@ -57,97 +57,25 @@ public class UserExperienceView extends View{
  */
         
     public void userExperienceInput(char choice){
-        /* Instructor: 
+        /* zInstructor: 
          * You are not checking for a valid choice. When the uers enters
          * an invalid choice your program gets in an infinite loop here.
          * I think the best way to handle this is to 
          * to display an error message and prompt the user to try again.
+         *
+         * ************************************************************
+         *  *****  *****  USEING default as error check   *****  ***** 
+         *   IF not equal to a defined CHAR then error statment
+         *
          */
         ProgramControl check = new ProgramControl();                            // Control class is in ProgramControl.java
         player.setPlayerSatisfaction(check.userExperienceInputCheck(choice,player.getPlayerSatisfaction()));
     }    
         
         
-/**************   This section was fixed per instructions and is no longer part of the program  ***********************
- * 
- * 
- * 
- * 
- * 
+/**************   This section was fixed per instructions and is no longer part of the program  *********************** 
  */        
-//      User input question Did you enjoy your experience in this location Y/N?
-//      USED to satisfy Lesson 06 Individual assignment
-//  RUBIC
-//        Used either the Java if-else or if-else-if ladder statements  
-//        and the while statements to implement the view for one end user  
-//        story that prompts for and retrieves input from the end user  
-//        for one or more non-menu related items.
-        
-/*        
-        char userExperienceInput = ' ';
-        boolean experienceValidCheck = false;
-        
-        while (!experienceValidCheck){
-        
-            this.console.println("Before you leave , did you enjoy your\nexperience in this location Y/N?");
-            String input = this.getInput(); // get first charecter of string
-            userExperienceInput = input.charAt(0);
-            
-            /* Instructor: 
-             * Create and call a stub function in the appropriate 
-             * Control Layer class for now for each of these actions. You will
-             * need to record the playerSatisfaction in some Model Lager object
-             * (e.g., the ProgramContro). Creating, updating and deleting Model
-             * Layer objects is a function of the Control Layer.
-             */
-/*            if (userExperienceInput == 'Y' || userExperienceInput == 'y'){
-                playerSatisfaction += 1;
-                break;
-            }
-            else if (userExperienceInput == 'N' || userExperienceInput == 'n'){
-                playerSatisfaction -= 1;
-                break;
-            }
-            else {
-                ErrorView.display(this.getClass().getName(),"Invalid entry - please try again");
-            }
-            
-       
-        }
-         return playerSatisfaction;
-
-    }
-
-    
-    
-    
-    public String getInput() {
-       boolean valid = false;
-       String playersInput = null;
-//       Scanner keyboard = new Scanner(System.in);
-
-        while(!valid){
-            
-
-            this.console.println("Enter a choice below:");
-
-            playersInput = keyboard.nextLine();
-            playersInput = playersInput.trim();
-
-
-            if (playersInput.length() < 1){    
-                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
-                continue;
-            }
-            break;
-        }
-        return playersInput;
-    }
-*/        
-        
-        
-        
-        
+  
         
     
 }
