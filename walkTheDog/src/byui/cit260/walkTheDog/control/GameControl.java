@@ -28,40 +28,35 @@ import walkthedog.WalkTheDog;
  * @author Idel
  */
 public class GameControl {
-    
-    
-    
-    
-    
-    public static void createNewGame(Player player){
-        ExploringControl numbernumber = new ExploringControl ();
-        
+
+    public static void createNewGame(Player player) {
+        ExploringControl numbernumber = new ExploringControl();
+
 //        this.console.println("\n*** createNewGame stub function called ***"
 //                + "GameControl.java     createNewGame(Player player)");
-        
         Game game = new Game();                 //create new game
         WalkTheDog.setCurrentGame(game);        //save in WalkTheDog.java
-        
+
         game.setPlayer(player);                 //save the player in the game
-        
+
         Map map = MapControl.createMap();       //this creates and initializes a new map
         game.setMap(map);
-        
+
         Events events = EventsControl.createEvents();       //this creates and initializes a new events
         game.setEvents(events);
 
-/*
-        Events[][] event = Events.createEvents(Events.event);
-        game.setEvent(event);
+        /*
+         Events[][] event = Events.createEvents(Events.event);
+         game.setEvent(event);
         
-//        MapControl.moveActorsToStartingLocation(map);
+         //        MapControl.moveActorsToStartingLocation(map);
         
-  */      
+         */
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
-        
+
         Player variable = game.getPlayer();     // Changed from Player variable =  new Player();
-                                                // was not passing assigned values only found 0 and null values
+        // was not passing assigned values only found 0 and null values
         variable.setPlayedMiniGame('n');
         variable.setGameDidUserExplore('n');
         variable.setGameFidoMood(5);
@@ -70,82 +65,77 @@ public class GameControl {
         variable.setPlayerLeashLenght(numbernumber.randomNumberGenerator16_0to15());
         variable.setGameNumberOfTurns(0);
         variable.setGameIdealLeashLength(numbernumber.randomIdealLeashGenerator());
-        variable.setPlayerSatisfaction(1 + numbernumber.randomNumberGenerator (5));
-        
-        
-        
-        
+        variable.setPlayerSatisfaction(1 + numbernumber.randomNumberGenerator(5));
+
     }
 
-    static void assignScenesToLocations(Map map, Scene[] scenes){
-            Location[][] locations = map.getLocations();
-       
-       //start point
-            locations[0][0].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
-            locations[0][1].setScene(scenes[Scene.SceneType.duckpond.ordinal()]);
-            locations[0][2].setScene(scenes[Scene.SceneType.statue.ordinal()]);
-            locations[1][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
-            locations[1][1].setScene(scenes[Scene.SceneType.dogpark.ordinal()]);
-            locations[1][2].setScene(scenes[Scene.SceneType.playground.ordinal()]);
-            locations[2][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
-            locations[2][1].setScene(scenes[Scene.SceneType.statue.ordinal()]);
-            locations[2][2].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
-            
+    static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][] locations = map.getLocations();
+
+        //start point
+        locations[0][0].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
+        locations[0][1].setScene(scenes[Scene.SceneType.duckpond.ordinal()]);
+        locations[0][2].setScene(scenes[Scene.SceneType.statue.ordinal()]);
+        locations[1][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
+        locations[1][1].setScene(scenes[Scene.SceneType.dogpark.ordinal()]);
+        locations[1][2].setScene(scenes[Scene.SceneType.playground.ordinal()]);
+        locations[2][0].setScene(scenes[Scene.SceneType.restrooms.ordinal()]);
+        locations[2][1].setScene(scenes[Scene.SceneType.statue.ordinal()]);
+        locations[2][2].setScene(scenes[Scene.SceneType.fountain.ordinal()]);
+
     }
-   
-    static void assignEventScenesToEventTypes(Events events, EventsScene[] scenes){
-            EventsType[][] eventType = events.getEventTypes();
-       
-       //start point
-            eventType[0][1].setEventScene(scenes[EventsScene.EventSceneType.getsChokedByLeash.ordinal()]);
-            eventType[1][1].setEventScene(scenes[EventsScene.EventSceneType.stepInPoop.ordinal()]);
-            eventType[2][1].setEventScene(scenes[EventsScene.EventSceneType.birdAttack.ordinal()]);
-            eventType[3][1].setEventScene(scenes[EventsScene.EventSceneType.dogBitesSomeone.ordinal()]);
-            eventType[4][1].setEventScene(scenes[EventsScene.EventSceneType.getsBitByOtherDog.ordinal()]);
-            eventType[5][1].setEventScene(scenes[EventsScene.EventSceneType.sniffsOtherDogButt.ordinal()]);
-            eventType[6][1].setEventScene(scenes[EventsScene.EventSceneType.licksSelf.ordinal()]);
-            eventType[7][1].setEventScene(scenes[EventsScene.EventSceneType.chasesSquirrel.ordinal()]);
-            eventType[0][0].setEventScene(scenes[EventsScene.EventSceneType.getsBellyRubbed.ordinal()]);
-            eventType[1][0].setEventScene(scenes[EventsScene.EventSceneType.playsFetch.ordinal()]);
-            eventType[2][0].setEventScene(scenes[EventsScene.EventSceneType.getsTreat.ordinal()]);
-            eventType[3][0].setEventScene(scenes[EventsScene.EventSceneType.rollsOver.ordinal()]);
-            eventType[4][0].setEventScene(scenes[EventsScene.EventSceneType.doesTrick.ordinal()]);
-            eventType[5][0].setEventScene(scenes[EventsScene.EventSceneType.sniffsGround.ordinal()]);
-            eventType[6][0].setEventScene(scenes[EventsScene.EventSceneType.licksPerson.ordinal()]);
-            eventType[7][0].setEventScene(scenes[EventsScene.EventSceneType.getsScrachedBehindEars.ordinal()]);
-            
+
+    static void assignEventScenesToEventTypes(Events events, EventsScene[] scenes) {
+        EventsType[][] eventType = events.getEventTypes();
+
+        //start point
+        eventType[0][1].setEventScene(scenes[EventsScene.EventSceneType.getsChokedByLeash.ordinal()]);
+        eventType[1][1].setEventScene(scenes[EventsScene.EventSceneType.stepInPoop.ordinal()]);
+        eventType[2][1].setEventScene(scenes[EventsScene.EventSceneType.birdAttack.ordinal()]);
+        eventType[3][1].setEventScene(scenes[EventsScene.EventSceneType.dogBitesSomeone.ordinal()]);
+        eventType[4][1].setEventScene(scenes[EventsScene.EventSceneType.getsBitByOtherDog.ordinal()]);
+        eventType[5][1].setEventScene(scenes[EventsScene.EventSceneType.sniffsOtherDogButt.ordinal()]);
+        eventType[6][1].setEventScene(scenes[EventsScene.EventSceneType.licksSelf.ordinal()]);
+        eventType[7][1].setEventScene(scenes[EventsScene.EventSceneType.chasesSquirrel.ordinal()]);
+        eventType[0][0].setEventScene(scenes[EventsScene.EventSceneType.getsBellyRubbed.ordinal()]);
+        eventType[1][0].setEventScene(scenes[EventsScene.EventSceneType.playsFetch.ordinal()]);
+        eventType[2][0].setEventScene(scenes[EventsScene.EventSceneType.getsTreat.ordinal()]);
+        eventType[3][0].setEventScene(scenes[EventsScene.EventSceneType.rollsOver.ordinal()]);
+        eventType[4][0].setEventScene(scenes[EventsScene.EventSceneType.doesTrick.ordinal()]);
+        eventType[5][0].setEventScene(scenes[EventsScene.EventSceneType.sniffsGround.ordinal()]);
+        eventType[6][0].setEventScene(scenes[EventsScene.EventSceneType.licksPerson.ordinal()]);
+        eventType[7][0].setEventScene(scenes[EventsScene.EventSceneType.getsScrachedBehindEars.ordinal()]);
+
     }
-public static void saveGame(Game game, String filepath)
-  throws GameControlException { 
-   
-    try (FileOutputStream fops = new FileOutputStream(filepath)) {
-        /* zInstructor: 
-         * Please indent code in a block 
-         */
-        ObjectOutputStream output = new ObjectOutputStream(fops);
-   
-        output.writeObject(game); //write the game object out to file
-    }
-    catch (IOException e) {
-        throw new GameControlException(e.getMessage());
-       }
+
+    public static void saveGame(Game game, String filepath)
+            throws GameControlException {
+
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            /* zInstructor: 
+             * Please indent code in a block 
+             */
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+
+            output.writeObject(game); //write the game object out to file
+        } catch (IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
     }
 
     public static void getSavedGame(String filePath)
-                       throws GameControlException {
+            throws GameControlException {
         Game game = null;
-        
-        try( FileInputStream fips = new FileInputStream(filePath)) {
+
+        try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream output = new ObjectInputStream(fips);
-            
+
             game = (Game) output.readObject(); // read the game object from file
-            
-        }
-        catch(FileNotFoundException fnfe){
+
+        } catch (FileNotFoundException fnfe) {
             throw new GameControlException(fnfe.getMessage());
-            
-        }
-        catch(Exception e) {
+
+        } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
         // close the output file
