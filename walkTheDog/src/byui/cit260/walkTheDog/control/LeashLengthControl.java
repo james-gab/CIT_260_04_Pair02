@@ -59,12 +59,19 @@ public class LeashLengthControl {
 //            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
             playersInput = playersInput.trim();
+ 
+            
 
 
             if (playersInput.length() < 1){    
                 ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
+            
             }
+            // another else statement to check if input enter is a character
+//            else if (playersInput.isletter()){
+//                
+//            }
             break;
         }
         } catch (Exception e) {  
