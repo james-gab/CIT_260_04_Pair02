@@ -10,11 +10,13 @@ import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
 import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
+import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.exceptions.PrintControlException;
+import byui.cit260.walkTheDog.exceptions.ProgramControlException;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,24 +56,31 @@ public class GameMenuView extends View {
         this.console.println("\n\nYour current statistics:\nfor testing only\n"
                 + player + "\n"
                 + "\n"
-                + player.getPlayerCurrentScore() + "  =  playerCurrentScore\n"
-                + player.getGameDidUserExplore() + "  =  gameDidUserExplore\n"
-                + player.getGameUserExploreCounter() + "  =  gameUserExploreCounter\n"
-                + player.getGameFidoMood() + "  =  gameFidoMood\n"
-                + player.getGameNumberOfTurns() + "  =  gameNumberOfTurns\n"
-                + player.getGameIdealLeashLength() + "  =  gameIdealLeashLength\n"
-                + player.getPlayerLeashLenght() + "  =  playerLeashLenght\n"
-                + player.getPlayerSatisfaction() + "  =  playerSatisfaction\n"
+                + player.getPlayerCurrentScore() + "\t=  playerCurrentScore\n"
+                + player.getGameDidUserExplore() + "\t=  gameDidUserExplore\n"
+                + player.getGameUserExploreCounter() + "\t=  gameUserExploreCounter\n"
+                + player.getGameFidoMood() + "\t=  gameFidoMood\n"
+                + player.getGameNumberOfTurns() + "\t=  gameNumberOfTurns\n"
+                + player.getGameIdealLeashLength() + "\t=  gameIdealLeashLength\n"
+                + player.getPlayerLeashLenght() + "\t=  playerLeashLenght\n"
+                + player.getPlayerSatisfaction() + "\t=  playerSatisfaction\n"
         );
 
     }
 
     @Override
     public void doAction(char choice) {
-
+        
         if (player.playerCurrentScore <= 0) {
             this.console.println("Your Score is Zero, you loose");
             choice = 'Q';
+        }
+        ProgramControl check = new ProgramControl();
+        try {
+            // Check for new High Score
+            player.setHighScore(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore()));
+        } catch (ProgramControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
 
         switch (choice) {

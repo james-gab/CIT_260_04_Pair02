@@ -6,7 +6,6 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.ProgramControl;
-import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.model.Player;
 
 /**
@@ -20,7 +19,7 @@ public class UserExperienceView extends View {
 
     public UserExperienceView(Player players) {
         super(
-                "Before you leave, did you enjoy your"
+                "\nBefore you leave, did you enjoy your"
                 + "\nexperience in this location Y/N?");
 
         this.player = players;
@@ -30,7 +29,7 @@ public class UserExperienceView extends View {
     @Override
     public void doAction(char choice) {
 
-        this.console.println(choice + " was your choice.");
+//        this.console.println(choice + " was your choice.");
         int start = player.getPlayerSatisfaction();
 
         do {
@@ -59,7 +58,7 @@ public class UserExperienceView extends View {
          *
          * ************************************************************
          *  *****  *****  USEING default as error check   *****  ***** 
-         *   IF not equal to a defined CHAR then error statment
+         *   IF not equal to a defined CHAR then error statement
          *
          */
         ProgramControl check = new ProgramControl();                            // Control class is in ProgramControl.java

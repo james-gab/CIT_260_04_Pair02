@@ -1,6 +1,5 @@
 package byui.cit260.walkTheDog.control;
 
-import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ProgramControlException;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.ErrorView;
@@ -28,7 +27,7 @@ public class ProgramControl {
         int points = player.getPlayerCurrentScore();
 
         if (points < 0) {
-            throw new ProgramControlException("*** Our appologies, something went wrong. ***"
+            throw new ProgramControlException("\n*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in ProgramControl.java ***"
                     + "\nin       public int playerLifePoints(Player player)"
                     + "\n if (points < 0)");
@@ -68,11 +67,10 @@ public class ProgramControl {
         char no = 'n';
         int playerSatisfaction = player.getPlayerSatisfaction();
 
-        this.console.println("In userExperienceInputCheck\n"
-                + choice + " was passed for choice.\n"
-                + var + " was passed from choice.\n"
-                + playerSatisfaction + " was passed for playerSatisfaction\n\n");
-
+//        this.console.println("\nIn userExperienceInputCheck\n"
+//                + choice + " was passed for choice.\n"
+//                + var + " was passed from choice.\n"
+//                + playerSatisfaction + " was passed for playerSatisfaction\n\n");
         if (var == YES) {
             playerSatisfaction += 1;
         } else if (var == NO) {
@@ -82,13 +80,36 @@ public class ProgramControl {
         } else if (var == no) {
             playerSatisfaction -= 1;
         } else {
-            ErrorView.display(this.getClass().getName(), "Invalid entry - please try again");
-        UserExperienceView question = new UserExperienceView(player);
-        question.display(hMR);
-            
+            ErrorView.display(this.getClass().getName(), "\nInvalid entry - please try again");
+            UserExperienceView question = new UserExperienceView(player);
+            question.display(hMR);
+        }
+        return playerSatisfaction;
+    }
+
+    public double checkHighScore(int currentScore, double highScore) throws ProgramControlException {
+
+        // check currentScore is real number
+        if (currentScore < 0) {
+            throw new ProgramControlException("\n*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in ProgramControl.java ***"
+                    + "\nin       public int checkHighScore(int currentScore, int highScore)"
+                    + "\n if(currentScore ");
+        }
+        if (highScore < 0.0) {
+            throw new ProgramControlException("\n*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in ProgramControl.java ***"
+                    + "\nin       public int checkHighScore(int currentScore, int highScore)"
+                    + "\n if(highScore ");
         }
 
-        return playerSatisfaction;
+        double changeCurrentScoreToDouble = (double) currentScore;
+
+        if (changeCurrentScoreToDouble > highScore) {
+            return changeCurrentScoreToDouble;
+        }
+
+        return highScore;
     }
 
 }

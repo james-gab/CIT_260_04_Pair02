@@ -61,8 +61,8 @@ public class LocationView extends ViewForLocation{
     }
     
     private void quitGame(){
-        this.console.println("*** quit Location function called ***"
-                + "\nSending player back to Game Menu");
+        this.console.println("\nSending player back to Game Menu\n");
+        player.setGameDidUserExplore('y');
         GameMenuView quittingGame = new GameMenuView(player);
         quittingGame.display(hMR);
     }
