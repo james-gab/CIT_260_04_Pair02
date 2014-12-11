@@ -26,7 +26,7 @@ public class LeashLengthControl {
     
         public int displayLeashLengthInput(){
         
-        this.console.println("Please enter a leash lenght for Fido");
+        this.console.println("\nPlease enter a leash lenght for Fido");
         
 //        char selection = ' ';
         int userLL = -2; //-2 so that it enters the do while statement
@@ -39,7 +39,7 @@ public class LeashLengthControl {
 //        this.console.println("userLL = "+userLL);
         
         if (userLL < 0 || userLL > 15){
-            ErrorView.display(this.getClass().getName(),"Invalid Leash Length! Try again!");
+            ErrorView.display(this.getClass().getName(),"\nInvalid Leash Length! Try again!");
             }
         } while (userLL < 0 || userLL > 15); // a selection is not "valid"
     return userLL;
@@ -62,12 +62,12 @@ public class LeashLengthControl {
             int givenNumber = parseInt(playersInput);
 
             if (playersInput.length() < 1){    
-                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
+                ErrorView.display(this.getClass().getName(),"\nInvalid entry - space is not an option");
                 continue;
             }
             
             if ((givenNumber < 0 || givenNumber > 15)){
-                 ErrorView.display(this.getClass().getName(),"Invalid entry - letter is not an option");
+                 ErrorView.display(this.getClass().getName(),"\nInvalid entry - letter is not an option");
        	         continue;
             }
             break;

@@ -78,7 +78,7 @@ public class StartProgramView {
             break;
         }
         } catch (Exception e) {  
-                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
+                   ErrorView.display(this.getClass().getName(),"\nError reading inputL " + e.getMessage()); 
                  }
         return playersName;
     }

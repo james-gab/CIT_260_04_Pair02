@@ -92,7 +92,7 @@ public class MainMenuView extends View {
         }
     
     public void saveGame(){
-         this.console.println("*** saveGame function called ***");
+         this.console.println("\n*** saveGame function called ***");
         System.out.println("\n\nEnter the file path for file where the game "
          + "is to be saved.");
         
@@ -102,7 +102,7 @@ public class MainMenuView extends View {
             //save the game to the speciried file
             GameControl.saveGame(WalkTheDog.getCurrentGame(), filePath);
         } catch (Exception ex) {
-            ErrorView.display("MainMenView", ex.getMessage());
+            ErrorView.display("\nMainMenView", ex.getMessage());
             
         }
         

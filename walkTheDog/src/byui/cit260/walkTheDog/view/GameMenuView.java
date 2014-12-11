@@ -72,7 +72,7 @@ public class GameMenuView extends View {
     public void doAction(char choice) {
         
         if (player.playerCurrentScore <= 0) {
-            this.console.println("Your Score is Zero, you loose");
+            this.console.println("\n\nYour Score is Zero, you loose");
             choice = 'Q';
         }
         ProgramControl check = new ProgramControl();
@@ -199,8 +199,7 @@ public class GameMenuView extends View {
     }
 
     private void quitGame() {
-        this.console.println("*** quitGame function called ***"
-                + "\nSending player back to Main Menu");
+        this.console.println( "\nQuiting Game\nSending player back to Main Menu");
         MainMenuView quittingGame = new MainMenuView(player);
         quittingGame.display(hMR);
     }
@@ -231,7 +230,7 @@ public class GameMenuView extends View {
             PrintView printTheMap = new PrintView();
             printTheMap.printMap();
 
-            this.console.println("file was saved.");
+            this.console.println("\nfile was saved.\n");
         } catch (PrintControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
