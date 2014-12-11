@@ -6,6 +6,7 @@ package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.view.ErrorView;
 import java.io.*;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import walkthedog.WalkTheDog;
 
@@ -58,15 +59,16 @@ public class LeashLengthControl {
 //            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
             playersInput = playersInput.trim();
+            int givenNumber = parseInt(playersInput);
 
             if (playersInput.length() < 1){    
                 ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
                 continue;
             }
             
-             if (!keyboard.hasNextInt()){
+            if ((givenNumber < 0 || givenNumber > 15)){
                  ErrorView.display(this.getClass().getName(),"Invalid entry - letter is not an option");
-       	         
+       	         continue;
             }
             break;
         }

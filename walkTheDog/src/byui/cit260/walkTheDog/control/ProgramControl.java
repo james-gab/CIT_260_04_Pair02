@@ -4,6 +4,7 @@ import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ProgramControlException;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.view.ErrorView;
+import byui.cit260.walkTheDog.view.UserExperienceView;
 import java.io.PrintWriter;
 import walkthedog.WalkTheDog;
 
@@ -58,13 +59,14 @@ public class ProgramControl {
      *   IF not equal to a defined CHAR then error statment
      *    
      */
-    public int userExperienceInputCheck(char choice, int playerSatisfaction) {
+    public int userExperienceInputCheck(char choice, Player player, String hMR) {
 
         char var = (char) choice;
         char YES = 'Y';
         char NO = 'N';
         char yes = 'y';
         char no = 'n';
+        int playerSatisfaction = player.getPlayerSatisfaction();
 
         this.console.println("In userExperienceInputCheck\n"
                 + choice + " was passed for choice.\n"
@@ -81,6 +83,9 @@ public class ProgramControl {
             playerSatisfaction -= 1;
         } else {
             ErrorView.display(this.getClass().getName(), "Invalid entry - please try again");
+        UserExperienceView question = new UserExperienceView(player);
+        question.display(hMR);
+            
         }
 
         return playerSatisfaction;

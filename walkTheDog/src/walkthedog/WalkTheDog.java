@@ -41,9 +41,7 @@ public class WalkTheDog {
         
         try {
             //open character stream file for end user input and output
-            WalkTheDog.inFile = 
-                    new BufferedReader(new InputStreamReader(System.in));
-            
+            WalkTheDog.inFile = new BufferedReader(new InputStreamReader(System.in));
             WalkTheDog.outFile = new PrintWriter(System.out, true);
 //            outFile =  PrintWriterClass(System.out, true);
             // open log file

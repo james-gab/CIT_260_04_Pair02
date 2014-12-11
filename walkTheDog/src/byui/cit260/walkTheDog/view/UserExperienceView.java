@@ -63,7 +63,7 @@ public class UserExperienceView extends View {
          *
          */
         ProgramControl check = new ProgramControl();                            // Control class is in ProgramControl.java
-        player.setPlayerSatisfaction(check.userExperienceInputCheck(choice, player.getPlayerSatisfaction()));
+        player.setPlayerSatisfaction(check.userExperienceInputCheck(choice,player,hMR));
     }
 
     /**

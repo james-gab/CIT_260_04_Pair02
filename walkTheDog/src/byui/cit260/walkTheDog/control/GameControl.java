@@ -60,12 +60,12 @@ public class GameControl {
         variable.setPlayedMiniGame('n');
         variable.setGameDidUserExplore('n');
         variable.setGameFidoMood(5);
-        variable.setPlayerCurrentScore(1 + numbernumber.randomNumberGenerator16_0to15());
+        variable.setPlayerCurrentScore(2 + numbernumber.randomNumberGenerator16_0to15());
         variable.setGameUserExploreCounter(0);
         variable.setPlayerLeashLenght(numbernumber.randomNumberGenerator16_0to15());
         variable.setGameNumberOfTurns(0);
         variable.setGameIdealLeashLength(numbernumber.randomIdealLeashGenerator());
-        variable.setPlayerSatisfaction(1 + numbernumber.randomNumberGenerator(5));
+        variable.setPlayerSatisfaction(2 + numbernumber.randomNumberGenerator(5));
 
     }
 

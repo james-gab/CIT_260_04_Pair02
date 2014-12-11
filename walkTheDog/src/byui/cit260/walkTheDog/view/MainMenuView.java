@@ -3,7 +3,6 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.GameControl;
 import byui.cit260.walkTheDog.model.Player;
 import walkthedog.WalkTheDog;
-import byui.cit260.walkTheDog.view.GameMenuView;
 
 /**
  *
@@ -14,9 +13,7 @@ public class MainMenuView extends View {
     public String hMR = "mMV";
     public Player player;
 
-    public MainMenuView(
-            Player player
-    ) {
+    public MainMenuView(Player player) {
         super("\n"
             + "\n___________________________"
             + "\nMain Menu"
@@ -72,8 +69,7 @@ public class MainMenuView extends View {
         this.console.println("\n*** startExistingGame function called ***"
                 + "in MainMenuView.java     startExistingGame()");
         // prompt for and get the nameof the file to save the game
-        this.console.println("\n\nEnter the file path for file where the game "
-                            + "is to be saved.");
+        this.console.println("\n\nEnter the file path for file th saved game.");
         
         String filePath = this.getInput();
         
