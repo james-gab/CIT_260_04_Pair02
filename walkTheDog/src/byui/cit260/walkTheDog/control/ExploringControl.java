@@ -220,24 +220,24 @@ public class ExploringControl {
 
     public int shortLeash(Player player) throws ExploringControlException {
 
-        if (player.playerLeashLenght < 4) {
-            int getFidoMood = this.generateFidoMood(player.gameNumberOfTurns, player.playerLeashLenght, player.gameFidoMood);             // passes a random generated number to a variable
+        if (player.getPlayerLeashLenght() < 4) {
+            int getFidoMood = this.generateFidoMood(player.getGameNumberOfTurns(), player.getPlayerLeashLenght(), player.getGameFidoMood());             // passes a random generated number to a variable
             if (getFidoMood == 0) {
                 this.console.println("Fido does not like a short leash"
                         + "\nand has been a bad dog, you loose 3 points");
-                player.playerCurrentScore -= 3;
-                player.gameNumberOfTurns = 0;
+                player.setPlayerCurrentScore(player.getPlayerCurrentScore()-3);
+                player.setGameNumberOfTurns(0);
                 return 0;
-            } else if (getFidoMood < player.gameFidoMood) {
+            } else if (getFidoMood < player.getGameFidoMood()) {
                 this.console.println("Fido does not like a short leash"
                         + "\nand is starting to get unhappy");
-                player.gameFidoMood = getFidoMood;
-                player.gameNumberOfTurns += 1;
-            } else if (getFidoMood == player.gameFidoMood) {
+                player.setGameFidoMood(getFidoMood);
+                player.setGameNumberOfTurns(player.getGameNumberOfTurns()+1);
+            } else if (getFidoMood == player.getGameFidoMood()) {
                 this.console.println(" Fido fido does not like a short leash "
                         + "\nlucily Fido is not that mad yet."
                         + "\nConsider keeping the leash longer than 3.");
-                player.gameNumberOfTurns += 1;
+                player.setGameNumberOfTurns(player.getGameNumberOfTurns()+1);
             } else {
                 throw new ExploringControlException("*** Our appologies, something went wrong. ***"
                         + "\n*** ERROR in GameMenuView.java ***"
@@ -250,18 +250,18 @@ public class ExploringControl {
 
     public int didUserExplore(Player player) throws ExploringControlException {
 
-        if (player.gameDidUserExplore == 'n') {
-            int eONE = this.eventOnNoExplore(player.gameUserExploreCounter, player.gameIdealLeashLength, this.randomIdealLeashGenerator());
+        if (player.getGameDidUserExplore() == 'n') {
+            int eONE = this.eventOnNoExplore(player.getGameUserExploreCounter(), player.getGameIdealLeashLength(), this.randomIdealLeashGenerator());
             if (eONE < 0) {
                 throw new ExploringControlException("*** Our appologies, something went wrong. ***"
                         + "\n*** ERROR in GameMenuView.java in ***"
                         + "\n   visitSceanL() if(gameUserExplore<0)***");
 // develop code that restarts the game from this spot                
             } else if (eONE > 0) {
-                player.gameDidUserExplore = 'r';                                       // change char gameDidUserExplore to random event posible
-                player.gameUserExploreCounter = 0;                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
+                player.setGameDidUserExplore('r');                                       // change char gameDidUserExplore to random event posible
+                player.setGameUserExploreCounter(0);                                     // Set gameUserExploreCounter to ZERO after ramdom event is generated 
                 this.console.println("/nA random event occured when you did not Explore the area./n");
-                player.playerLeashLenght = this.idealLeashLength(this.randomNumberGenerator16_0to15()); // passes a random generated playerLeashLenght to a variable
+                player.setPlayerLeashLenght(this.idealLeashLength(this.randomNumberGenerator16_0to15())); // passes a random generated playerLeashLenght to a variable
                 GameMenuView checkExplore = new GameMenuView(player);
                 checkExplore.userExplore();                                             // sends player to explore
             }
@@ -286,7 +286,7 @@ public class ExploringControl {
         variable.setGameIdealLeashLength(explore.idealLeashLength(explore.randomIdealLeashGenerator())); // passes a random generated idealLeashLength to a variable
 
         //       player.setPlayerLeashLenght(leash.displayLeashLengthInput());
-        if (explore.shortLeash(player) > 0 && player.gameDidUserExplore == 'n') {  
+        if (explore.shortLeash(player) > 0 && player.getGameDidUserExplore() == 'n') {  
 
             player.setPlayerLeashLenght(leash.displayLeashLengthInput());
             
@@ -310,29 +310,29 @@ public class ExploringControl {
                         + "\nFido's Mood is now: " + variable.getGameFidoMood());
                 
 */                
-            } else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) > 0) {
-                player.gameDidUserExplore = 'y';
-                this.console.println("*** Fido found a friend in this area");
-                this.console.println("*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
-                player.playerCurrentScore += 1;
-                if (player.gameFidoMood < 9) {
-                    player.gameFidoMood += 1;
+            } else if (explore.eventOnExplore(player.getPlayerLeashLenght(), player.getGameIdealLeashLength()) > 0) {
+                player.setGameDidUserExplore('y');
+                this.console.println("\n*** Fido found a friend in this area");
+                this.console.println("\n*** " + eventTypes[explore.randomNumberGenerator(8)][0].getEventScene().getEventsSymbol());
+                player.setPlayerCurrentScore(player.getPlayerCurrentScore()+ 1);
+                if (player.getGameFidoMood() < 9) {
+                    player.setGameFidoMood(player.getGameFidoMood() + 1);
                 }
-                this.console.println("Fido Leash Length: " + player.playerLeashLenght
-                        + "\nClosest object: " + player.gameIdealLeashLength
-                        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
-                        + "\nFido's Mood is now: " + player.gameFidoMood);
+                this.console.println("\nFido Leash Length: " + player.getPlayerLeashLenght()
+                        + "\nClosest object: " + player.getGameIdealLeashLength()
+                        + "\n*** Players Current Score increases by 1 to " + player.getPlayerCurrentScore()
+                        + "\nFido's Mood is now: " + player.getGameFidoMood());
             } else {
 //            else if (explore.eventOnExplore(player.playerLeashLenght, player.gameIdealLeashLength) == 0){
-                player.playerCurrentScore += 1;
-                player.gameDidUserExplore = 'y';
-                if (player.gameFidoMood < 9) {
-                    player.gameFidoMood += 1;
+                player.setPlayerCurrentScore(player.getPlayerCurrentScore()+ 1);
+                player.setGameDidUserExplore('y');
+                if (player.getGameFidoMood() < 9) {
+                    player.setGameFidoMood(player.getGameFidoMood()+1);
                 }
-                this.console.println("Fido Leash Length: " + player.playerLeashLenght
-                        + "\nClosest object: " + player.gameIdealLeashLength
-                        + "\n*** Players Current Score increases by 1 to " + player.playerCurrentScore
-                        + "\nFido's Mood is now: " + player.gameFidoMood
+                this.console.println("\nFido Leash Length: " + player.getPlayerLeashLenght()
+                        + "\nClosest object: " + player.getGameIdealLeashLength()
+                        + "\n*** Players Current Score increases by 1 to " + player.getPlayerCurrentScore()
+                        + "\nFido's Mood is now: " + player.getGameFidoMood()
                         + "\n*** Fido was not interested in "
                         + "anything in the area it could reach ");
             }
@@ -357,10 +357,10 @@ public class ExploringControl {
                 variable.setGameDidUserExplore('y');
                 this.console.println("*** Fido found something in this area");
                 this.console.println("*** " + eventTypes[explore.randomNumberGenerator(8)][1].getEventScene().getEventsSymbol());
-                variable.playerCurrentScore -= 1;
+                variable.setPlayerCurrentScore(variable.getPlayerCurrentScore()- 1);
 
                 if (variable.getGameFidoMood() < 9 && variable.getGameFidoMood() > 1) {
-                    variable.gameFidoMood -= 1;
+                    variable.setGameFidoMood(variable.getGameFidoMood() - 1);
                 }
                 this.console.println("Fido Leash Length: " + variable.getPlayerLeashLenght()
                         + "\nClosest object: " + variable.getGameIdealLeashLength()
