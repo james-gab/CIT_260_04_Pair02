@@ -108,8 +108,7 @@ public class GameControl {
 
     }
 
-    public static void saveGame(Game game, String filepath)
-            throws GameControlException {
+    public static void saveGame(Game game, String filepath) throws GameControlException {
 
         try (FileOutputStream fops = new FileOutputStream(filepath)) {
             /* zInstructor: 
@@ -122,7 +121,9 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
-
+    
+    
+    
     public static void getSavedGame(String filePath)
             throws GameControlException {
         Game game = null;
@@ -141,4 +142,7 @@ public class GameControl {
         // close the output file
         WalkTheDog.setCurrentGame(game); // save in WalkTheDog
     }
+    
+    
+    
 }
