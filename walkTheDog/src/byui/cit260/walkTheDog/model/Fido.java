@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Fido implements Serializable {
 
     // class instance variables
-    private String name;        
+//    private String name;        
     private String templerment;
     private String mood;
     private int leashLength;
@@ -40,13 +40,13 @@ public class Fido implements Serializable {
         this.numberOfTurns = numberOfTurns;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public String getTemplerment() {
         return templerment;
@@ -74,13 +74,15 @@ public class Fido implements Serializable {
 
     @Override
     public String toString() {
-        return "Fido{" + "name=" + name + ", templerment=" + templerment + ", mood=" + mood + ", leashLength=" + leashLength + ", numberOfTurns=" + numberOfTurns + '}';
+        return "Fido{" 
+//                + "name=" + name 
+                + ", templerment=" + templerment + ", mood=" + mood + ", leashLength=" + leashLength + ", numberOfTurns=" + numberOfTurns + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.name);
+//        hash = 61 * hash + Objects.hashCode(this.name);
         hash = 61 * hash + Objects.hashCode(this.templerment);
         hash = 61 * hash + Objects.hashCode(this.mood);
         hash = 61 * hash + (int) (Double.doubleToLongBits(this.leashLength) ^ (Double.doubleToLongBits(this.leashLength) >>> 32));
@@ -97,9 +99,9 @@ public class Fido implements Serializable {
             return false;
         }
         final Fido other = (Fido) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
+//        if (!Objects.equals(this.name, other.name)) {
+//            return false;
+//        }
         if (!Objects.equals(this.templerment, other.templerment)) {
             return false;
         }

@@ -15,6 +15,7 @@ import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.enums.Scene;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
+import byui.cit260.walkTheDog.view.MainMenuView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -28,6 +29,7 @@ import walkthedog.WalkTheDog;
  * @author Idel
  */
 public class GameControl {
+    
 
     public static void createNewGame(Player player) {
         ExploringControl numbernumber = new ExploringControl();
@@ -102,15 +104,15 @@ public class GameControl {
 
     public static void saveGame(Game game, String filepath) throws GameControlException {
 
-        try (FileOutputStream fops = new FileOutputStream(filepath)) {
-            /* zInstructor: 
-             * Please indent code in a block 
-             */
-            ObjectOutputStream output = new ObjectOutputStream(fops);
-
-            output.writeObject(game); //write the game object out to file
+        try (FileOutputStream fops = new FileOutputStream(filepath); /* zInstructor:
+         * Please indent code in a block
+         */ ObjectOutputStream saveFile = new ObjectOutputStream(fops)) {
+          
+            saveFile.writeObject(game); //write the game object out to file
         } catch (IOException e) {
+           
             throw new GameControlException(e.getMessage());
+            
         }
     }
 

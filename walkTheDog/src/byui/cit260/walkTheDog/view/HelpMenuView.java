@@ -139,8 +139,9 @@ public class HelpMenuView {
 
     private void moveGameHelp() {
 //        this.console.println("*** moveGameHelp function called ***");
-        this.console.println("\nThis section is still under development"
-                + "\nThank you for your patience");
+        this.console.println(
+                "\nTo move location select M in the game menu and select which location"
+                + " you would like to move to!");
     }
 
     private void leashControlHelp() {
@@ -168,9 +169,10 @@ public class HelpMenuView {
     }
 
     private void saveResumeGameHelp() {
-        this.console.println("*** saveResumeGameHelp function called ***");
-        this.console.println("\nThis section is still under development"
-                + "\nThank you for your patience");
+//        this.console.println("*** saveResumeGameHelp function called ***");
+        this.console.println(
+                "\nTo save a game, select S in the Game Menu or Main Menu"
+                + " and enter a complete file path. \nExample: G:\filename.txt");
     }
 
     public void helpQuitAndReturn(String returnTO) {

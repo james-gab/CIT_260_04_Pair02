@@ -1,6 +1,7 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.GameControl;
+import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
 import walkthedog.WalkTheDog;
 
@@ -45,7 +46,8 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case 'Q': // Exit the program
-                return;
+                this.quitGame();
+                break;
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
                 break;
@@ -60,6 +62,7 @@ public class MainMenuView extends View {
 //                + "in MainMenuView.java     startNewGame()");
         
         GameControl.createNewGame(WalkTheDog.getPlayer());
+        
         
         GameMenuView gameMenu = new GameMenuView(player);
         gameMenu.display(hMR);
@@ -108,6 +111,12 @@ public class MainMenuView extends View {
             
         }
         
+    }
+
+    private void quitGame() {
+        this.console.println("Thank you for playing!");
+        StartProgramView startProgram = new StartProgramView();
+        startProgram.startProgram();
     }
 
 
