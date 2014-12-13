@@ -15,17 +15,13 @@ import java.io.Serializable;
  */
 public class Map implements Serializable {
 
+    public int locationInPark;
+    public Location[][] locations;
+    int noOfRows;
+    int noOfColums;
 
-// class instance variables
- public int locationInPark;        //named wrong in UML corrected name
- public Location[][] locations;
- int noOfRows;
- int noOfColums;
+    public Map() {
 
-// need to consider changeing from Double to INT
-
-    public Map(){
-        
     }
 
     public int getNoOfRows() {
@@ -44,36 +40,32 @@ public class Map implements Serializable {
         this.noOfColums = noOfColums;
     }
 
-
     public Map(int noOfRows, int noOfColums) {
-        
-        if (noOfRows<1 || noOfColums<1){
-            ErrorView.display(this.getClass().getName(),"The Location Number must be greater than zero");
+
+        if (noOfRows < 1 || noOfColums < 1) {
+            ErrorView.display(this.getClass().getName(), "The Location Number must be greater than zero");
             return;
         }
-        
+
         this.noOfRows = noOfRows;
         this.noOfColums = noOfColums;
-        
-        this.locations = new Location [noOfRows][noOfColums];
-        
-        for (int row = 0; row < noOfRows; row++){
-            for (int column = 0; column < noOfColums; column++){
+
+        this.locations = new Location[noOfRows][noOfColums];
+
+        for (int row = 0; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColums; column++) {
                 // create and initilize the location objects instance
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-                
+
                 //assign the Location object to the current position in array
-                        locations[row][column] = location;
+                locations[row][column] = location;
             }
         }
-        
-        
+
     }
-
-
 
     public int getLocationInPark() {
         return locationInPark;
@@ -85,7 +77,7 @@ public class Map implements Serializable {
 
     @Override
     public String toString() {
-        return "Map{" + "lacationInPark=" + locationInPark  + '}';
+        return "Map{" + "lacationInPark=" + locationInPark + '}';
     }
 
     @Override
@@ -113,9 +105,9 @@ public class Map implements Serializable {
     public Location[][] getLocations() {
         return locations;
     }
-    
+
     public void setLocations(Location[][] locations) {
         this.locations = locations;
-  }
-    
+    }
+
 }

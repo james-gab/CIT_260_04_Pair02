@@ -5,7 +5,6 @@
  */
 package byui.cit260.walkTheDog.model;
 
-import byui.cit260.walkTheDog.control.EventsControl;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -46,9 +45,6 @@ public class Game implements Serializable {
     }
 
     public Map getMap() {
-//        this.console.println("\nGame.java   Map getMap()"
-//                + "\n function called to create the MAP array\n"
-//                + "\n" + map + "\n");
         return map;
     }
 
@@ -173,21 +169,15 @@ public class Game implements Serializable {
     
     
     public void setMap(Map map) {
-//          this.console.println("***This is a stub function ****"
-//               + "\nin Game.java  setMap(Map map) around line 138"); 
           this.map = map;
        
     }
 
     public void setFido(Fido fido) {
-//          this.console.println("***This is a stub function ****"
-//               + "\nin Game.java  setFido(Fido fido) around line 144"); 
           this.fido = fido;
     }
     
     public void setEvents(Events event) {
-//          this.console.println("***This is a stub function ****"
-//               + "\nin Game.java  setEvent(Events event) around line 184"); 
           this.event = event;
        
     }

@@ -8,18 +8,16 @@ import java.util.Objects;
  * @author gab
  */
 public class EventsScene implements Serializable {
-    
+
     private int fixedEventScene;
     private boolean blocked;
     public String EventsSymbol;
 
-    
-    
     public EventsScene() {
     }
 
-
     public static enum EventSceneType {
+
         getsBellyRubbed,
         playsFetch,
         getsTreat,
@@ -36,12 +34,12 @@ public class EventsScene implements Serializable {
         licksSelf,
         chasesSquirrel,
         getsChokedByLeash;
-     }
-    
+    }
+
     EventsScene(String description) {
         this.EventsSymbol = description;
         fixedEventScene = 1;
-    
+
     }
 
     public int getFixedEventScene() {
@@ -106,7 +104,5 @@ public class EventsScene implements Serializable {
     public String toString() {
         return "EventScene{" + "fixedEventScene=" + fixedEventScene + ", description=" + EventsSymbol + '}';
     }
-    
-    
-    
+
 }

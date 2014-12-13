@@ -9,16 +9,17 @@ import byui.cit260.walkTheDog.enums.Scene;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
- 
+
 /**
  *
  * @author Idel
  */
 public class Location implements Serializable {
-    private int row; 
+
+    private int row;
     private int column;
-    private boolean visited; 
-    private String explore; 
+    private boolean visited;
+    private String explore;
     private String randomEvent;
     private String actorRandomEvent;
     private Scene scene;
@@ -26,9 +27,7 @@ public class Location implements Serializable {
 
     public Location() {
     }
-    
 
-    
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }
@@ -44,6 +43,7 @@ public class Location implements Serializable {
     public Scene getScene() {
         return scene;
     }
+
     public int getRow() {
         return row;
     }
@@ -140,10 +140,7 @@ public class Location implements Serializable {
     }
 
     public void setScene(Scene scene) {
-//        this.console.print("This is a stub function Location.java");
         this.scene = scene;
     }
-    
-    
-    
+
 }

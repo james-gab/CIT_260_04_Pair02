@@ -70,7 +70,7 @@ public class GameMenuView extends View {
 
     @Override
     public void doAction(char choice) {
-        
+
         if (player.playerCurrentScore <= 0) {
             this.console.println("\n\nYour Score is Zero, you loose");
             choice = 'Q';
@@ -175,7 +175,7 @@ public class GameMenuView extends View {
 
     private void displayHelpMenu() {
         HelpMenuView gameMenuHelp = new HelpMenuView();
-        gameMenuHelp.displayHelpMenu(hMR);
+        gameMenuHelp.displayHelpMenu(hMR, player);
     }
 
     private void userStatistics() {
@@ -199,19 +199,17 @@ public class GameMenuView extends View {
     }
 
     private void quitGame() {
-        this.console.println( "\nQuiting Game\nSending player back to Main Menu");
+        this.console.println("\nQuiting Game\nSending player back to Main Menu");
         MainMenuView quittingGame = new MainMenuView(player);
         quittingGame.display(hMR);
     }
 
     private void displayMap() {
-//        this.console.println("***This is a stub function****  GameMenuView.java   displayMap()");
         MapControl seeMap = new MapControl();
         seeMap.displayMap();
     }
 
     private void createMiniGame(Player player) {
-//        this.console.println("***This is a stub function**** MiniCameControl.java createMiniGame()");
         MiniGameControl miniGame = new MiniGameControl();
         try {
             miniGame.createMiniGame(player);   //this needs to be fixed
@@ -223,10 +221,6 @@ public class GameMenuView extends View {
     private void printAMap() {
 
         try {
-            /* zInstructor: 
-             * printMap() is dealing with input and output. This should not be 
-             * in the Control Layer. It should be in the View Layer.
-             */
             PrintView printTheMap = new PrintView();
             printTheMap.printMap();
 

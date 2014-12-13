@@ -16,22 +16,21 @@ import java.io.BufferedReader;
  * @author gab
  */
 public abstract class View implements ViewInterface {
-    
+
     private final String promtMessage;
     protected final BufferedReader keyboard = WalkTheDog.getInFile();
     protected final PrintWriter console = WalkTheDog.getOutFile();
-    
-    public View(String promtMessage){
+
+    public View(String promtMessage) {
         this.promtMessage = promtMessage;
     }
-            
-    
+
     @Override
-    public void display(String hMR){
+    public void display(String hMR) {
         String value;
         char selection = ' ';
-        
-        do{
+
+        do {
 
             this.console.println(this.promtMessage);  //display promt message
             value = this.getInput();        // get the user selection
@@ -39,50 +38,47 @@ public abstract class View implements ViewInterface {
             value = value.toUpperCase();
             selection = value.charAt(0);
             this.doAction(selection);
-                
-        }while (!value.equals("Q"));
-            
-        
+
+        } while (!value.equals("Q"));
+
     }
 
     @Override
-    public String getInput(){
-        //Scanner keyboard = new Scanner(System.in);
+    public String getInput() {
+
         boolean valid = false;
         String selection = null;
         try {
-        //while a valid name has not been retrived
-        while (!valid){
-            
-            //promt for players name
-            this.console.println("\t\nEnter your selection below: ");
-            
-            
+            //while a valid name has not been retrived
+            while (!valid) {
+
+                //promt for players name
+                this.console.println("\t\nEnter your selection below: ");
+
                 // get the value entered from the keyboard
                 selection = this.keyboard.readLine();
-            
-            //selection = keyboard.nextLine();
-            selection = selection.trim();
-            selection = selection.toUpperCase();
-            
-            if(selection.length() < 1 ){ //blank value entered
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
-                continue;
-                
+
+                //selection = keyboard.nextLine();
+                selection = selection.trim();
+                selection = selection.toUpperCase();
+
+                if (selection.length() < 1) { //blank value entered
+                    ErrorView.display(this.getClass().getName(), "\n*** Invalid Selection *** Try again");
+                    continue;
+
+                }
+                break;
             }
-            break;
-        }
         } catch (IOException ex) {
-                ErrorView.display(this.getClass().getName(),ex.getMessage());
-            }
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
         return selection;  // return the name
-        
+
     }
-    
+
     @Override
-    public void doAction(char selection){
-        
+    public void doAction(char selection) {
+
     }
-    
-   
+
 }

@@ -45,18 +45,10 @@ public class GameControl {
         Events events = EventsControl.createEvents();       //this creates and initializes a new events
         game.setEvents(events);
 
-        /*
-         Events[][] event = Events.createEvents(Events.event);
-         game.setEvent(event);
-        
-         //        MapControl.moveActorsToStartingLocation(map);
-        
-         */
         Fido fido = FidoControl.createFido();
         game.setFido(fido);
 
-        Player variable = game.getPlayer();     // Changed from Player variable =  new Player();
-        // was not passing assigned values only found 0 and null values
+        Player variable = game.getPlayer();
         variable.setPlayedMiniGame('n');
         variable.setGameDidUserExplore('n');
         variable.setGameFidoMood(5);
@@ -121,9 +113,7 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
-    
-    
-    
+
     public static void getSavedGame(String filePath)
             throws GameControlException {
         Game game = null;
@@ -142,7 +132,5 @@ public class GameControl {
         // close the output file
         WalkTheDog.setCurrentGame(game); // save in WalkTheDog
     }
-    
-    
-    
+
 }

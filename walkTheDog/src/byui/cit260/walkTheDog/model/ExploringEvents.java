@@ -13,21 +13,19 @@ import java.util.Objects;
  * @author Idel
  */
 public class ExploringEvents implements Serializable {
-    private int row; 
+
+    private int row;
     private int column;
-    private boolean visited; 
-    private String eventName; 
+    private boolean visited;
+    private String eventName;
     private String evenDescription;
     private String criteria;
-    public String [][] exploringEvents;
+    public String[][] exploringEvents;
     private int noOfRows;
     private int noOfColums;
-    
 
     public ExploringEvents() {
     }
-    
-    
 
     public String getEventName() {
         return eventName;
@@ -56,6 +54,7 @@ public class ExploringEvents implements Serializable {
     public String[][] getExploringEvents() {
         return exploringEvents;
     }
+
     public void setExploringEvents(String[][] exploringEvents) {
         this.exploringEvents = exploringEvents;
     }
@@ -85,7 +84,6 @@ public class ExploringEvents implements Serializable {
         hash = 97 * hash + Objects.hashCode(this.eventName);
         hash = 97 * hash + Objects.hashCode(this.evenDescription);
         hash = 97 * hash + Objects.hashCode(this.criteria);
-//        hash = 97 * hash + Arrays.deepHashCode(this.exploringEvents);
         hash = 97 * hash + Objects.hashCode(this.exploringEvents);
         hash = 97 * hash + this.noOfRows;
         hash = 97 * hash + this.noOfColums;
@@ -136,17 +134,4 @@ public class ExploringEvents implements Serializable {
         return "ExploringEvents{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", eventName=" + eventName + ", evenDescription=" + evenDescription + ", criteria=" + criteria + ", exploringEvents=" + exploringEvents + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
     }
 
-    
-
-    
-    
-    
-        
-        
-    }
-
-    
-    
-    
-    
-    
+}

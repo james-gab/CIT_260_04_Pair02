@@ -1,7 +1,4 @@
-
 package byui.cit260.walkTheDog.view;
-
-
 
 import byui.cit260.walkTheDog.model.Player;
 import java.io.BufferedReader;
@@ -10,21 +7,21 @@ import java.util.Scanner;
 import walkthedog.WalkTheDog;
 
 public class HelpMenuView {
+
     public String hMR = " ";
     public Player player;
     protected final BufferedReader keyboard = WalkTheDog.getInFile();
     protected final PrintWriter console = WalkTheDog.getOutFile();
-    
-/*    public int playerSatisfaction;
-    public int playerLeashLenght;
-    public int gameIdealLeashLength;
-    public int gameNumberOfTurns;
-    public int gameFidoMood;
-    public int gameUserExploreCounter;
-    public char gameDidUserExplore;
-    public int playerCurrentScore;   
-*/
 
+    /*    public int playerSatisfaction;
+     public int playerLeashLenght;
+     public int gameIdealLeashLength;
+     public int gameNumberOfTurns;
+     public int gameFidoMood;
+     public int gameUserExploreCounter;
+     public char gameDidUserExplore;
+     public int playerCurrentScore;   
+     */
     private final String HELPMENU = "\n"
             + "\n___________________________"
             + "\nHelp Menu"
@@ -39,99 +36,53 @@ public class HelpMenuView {
             + "\nS - Save or Resume saved game"
             + "\nQ - Quit Help Menu"
             + "\n\n___________________________";
-    
-    public void displayHelpMenu(
-                                String returnTO
-//                                ,
-//                                int playerSatisfaction,
-//                                int playerLeashLenght,
-//                                int gameIdealLeashLength,
-//                                int gameNumberOfTurns,
-//                                int gameFidoMood,
-//                                int gameUserExploreCounter,
-//                                char gameDidUserExplore,
-//                                int playerCurrentScore
-                                                        ) {
 
-//        this.playerCurrentScore = playerCurrentScore;
-//        this.gameDidUserExplore = gameDidUserExplore;
-//        this.gameUserExploreCounter = gameUserExploreCounter;
-//        this.gameFidoMood = gameFidoMood;
-//        this.gameNumberOfTurns = gameNumberOfTurns;
-//        this.gameIdealLeashLength = gameIdealLeashLength;
-//        this.playerLeashLenght = playerLeashLenght;
-//        this.playerSatisfaction = playerSatisfaction;
-        hMR = returnTO;
- 	this.console.println(hMR + " hMR from returnTO\n"
-                + returnTO + " ReturnTO"); // hMR and returnTO
-        
+    public void displayHelpMenu(String returnTO, Player player) {
+
+        this.hMR = returnTO;
+        this.player = player;
+
         char selection = ' ';
-        do{
+        do {
 
- 	this.console.println(HELPMENU); // display the main menu
- 	 
- 	String input = this.getInput(); // get first charecter of string
-        selection = input.charAt(0);
- 	this.doAction(selection);
+            this.console.println(HELPMENU); // display the main menu
+
+            String input = this.getInput(); // get first charecter of string
+            selection = input.charAt(0);
+            this.doAction(selection);
 
         } while (selection != 'Q' || selection != 'q'); // a selection is not "Exit"
-//        this.helpQuitAndReturn(returnTO);
     }
 
     public String getInput() {
-       boolean valid = false;
-       String playersInput = null;
-//       Scanner keyboard = new Scanner(System.in);
+        boolean valid = false;
+        String playersInput = null;
 
-       try{
-        while(!valid){
-            
+        try {
+            while (!valid) {
 
-            this.console.println("Enter a Help Menu choice below:");
+                this.console.println("Enter a Help Menu choice below:");
 
-//            playersInput = keyboard.nextLine();
-            playersInput = this.keyboard.readLine();
-            playersInput = playersInput.trim();
+                playersInput = this.keyboard.readLine();
+                playersInput = playersInput.trim();
 
-
-            if (playersInput.length() < 1){    
-                ErrorView.display(this.getClass().getName(),
-                        "Invalid entry - space is not an option");
-                
-                
-//                ErrorView.display(this.getClass().getName(),"Invalid entry - space is not an option");
-                continue;
+                if (playersInput.length() < 1) {
+                    ErrorView.display(this.getClass().getName(),
+                            "Invalid entry - space is not an option");
+                    continue;
+                }
+                break;
             }
-            break;
-        }
-        } catch (Exception e) {  
+        } catch (Exception e) {
             ErrorView.display(this.getClass().getName(),
                     "Error reading inputL " + e.getMessage());
-            
-            
-//                   ErrorView.display(this.getClass().getName(),"Error reading inputL " + e.getMessage()); 
-                 }
+        }
         return playersInput;
     }
 
-
-    
-    
-    
-    
-    
-    
-//            G - What is the Goal of the game?
-//            M - How to move
-//            L - Leash Lenght control
-//            F - Fido's attitude
-//            S - Save or Resume saved game
-//            Q - Quit
-
-
     public void doAction(char choice) {
-        
-        switch (choice){
+
+        switch (choice) {
             case 'G': // goal of Game
                 this.goalGameHelp();
                 break;
@@ -167,122 +118,98 @@ public class HelpMenuView {
             case 'q': // Exit the program
                 this.helpQuitAndReturn(hMR);
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid Selection *** Try Again ***");
                 break;
-                }
+        }
     }
-    
-   
 
-    
-    private void goalGameHelp(){
+    private void goalGameHelp() {
 //        this.console.println("*** goalGameHelp function called ***");
         this.console.println(
-                                      "\nIt seems your dog is too excited, he needs to be controlled! "
-                                    + "\nThe goal of the game is to get out of the park, without your "
-                                    + "\ndog turning into a bad dog. Keep the leash too short for too "
-                                    + "\nlong and your dog will become increasingly annoyed. The more "
-                                    + "\naggravated your dog becomes the more likely it will bite an "
-                                    + "\nadult, a child, or another dog, ending your game immediately! "
-                                    + "\nWatch out for “landmines” too, because there are irresponsible "
-                                    + "\ndog owners in the park as well. ");
+                "\nIt seems your dog is too excited, he needs to be controlled! "
+                + "\nThe goal of the game is to get out of the park, without your "
+                + "\ndog turning into a bad dog. Keep the leash too short for too "
+                + "\nlong and your dog will become increasingly annoyed. The more "
+                + "\naggravated your dog becomes the more likely it will bite an "
+                + "\nadult, a child, or another dog, ending your game immediately! "
+                + "\nWatch out for “landmines” too, because there are irresponsible "
+                + "\ndog owners in the park as well. ");
 
-        }   
-    
-    
-    private void moveGameHelp(){
+    }
+
+    private void moveGameHelp() {
 //        this.console.println("*** moveGameHelp function called ***");
         this.console.println("\nThis section is still under development"
-                         + "\nThank you for your patience");
+                + "\nThank you for your patience");
     }
-    
-    
-    private void leashControlHelp(){
+
+    private void leashControlHelp() {
 //        this.console.println("*** leashControlHelp function called ***");
         this.console.println(
-                                      "\nRetract or extend your Dog’s leash in order to avoid these "
-                                    + "\nincidents! If incidents happen, say bye-bye to some of your "
-                                    + "\nlife-points! Explore the park to find the exit quickly but "
-                                    + "\ndon’t leave too hastily; your dog needs it’s exercise. Have a "
-                                    + "\ngreat time but be careful so you and your dog don’t get "
-                                    + "\nkicked out of the park! ");
+                "\nRetract or extend your Dog’s leash in order to avoid these "
+                + "\nincidents! If incidents happen, say bye-bye to some of your "
+                + "\nlife-points! Explore the park to find the exit quickly but "
+                + "\ndon’t leave too hastily; your dog needs it’s exercise. Have a "
+                + "\ngreat time but be careful so you and your dog don’t get "
+                + "\nkicked out of the park! ");
     }
-    
-    
-    private void fidoAttitudeHelp(){
+
+    private void fidoAttitudeHelp() {
 //        this.console.println("*** fidoAttitudeHelp function called ***");
         this.console.println(
-                                      "\nFido has a great attitude as long as it can run and play. The "
-                                    + "\nplayer keeps the leash too short (less than 4 feet) for too "
-                                    + "\nmany moves in a row. The computer calculates a negative random "
-                                    + "\nevent (bark, bite, mark owner, pull against leash). If a random "
-                                    + "\nevent is triggered the players pet generates a negative random "
-                                    + "\nevent the counter is decreased to minimum (10%), if a negative "
-                                    + "\nevent in not triggered the computer increases the chance by 10% "
-                                    + "\nfor each move the leash is too short.");
+                "\nFido has a great attitude as long as it can run and play. The "
+                + "\nplayer keeps the leash too short (less than 4 feet) for too "
+                + "\nmany moves in a row. The computer calculates a negative random "
+                + "\nevent (bark, bite, mark owner, pull against leash). If a random "
+                + "\nevent is triggered the players pet generates a negative random "
+                + "\nevent the counter is decreased to minimum (10%), if a negative "
+                + "\nevent in not triggered the computer increases the chance by 10% "
+                + "\nfor each move the leash is too short.");
     }
 
-    
-    private void saveResumeGameHelp(){
+    private void saveResumeGameHelp() {
         this.console.println("*** saveResumeGameHelp function called ***");
         this.console.println("\nThis section is still under development"
-                         + "\nThank you for your patience");
+                + "\nThank you for your patience");
     }
-    
-    public void helpQuitAndReturn(String returnTO){
 
-                MainMenuView mmvGame = new MainMenuView(player);
-                GameMenuView gmvGame = new GameMenuView(player);
-                StatisticsMenuView smvGame = new StatisticsMenuView(player);
-                LocationView lvGame = new LocationView(player);
-        
-        switch (returnTO){
+    public void helpQuitAndReturn(String returnTO) {
+
+        MainMenuView mmvGame = new MainMenuView(player);
+        GameMenuView gmvGame = new GameMenuView(player);
+        StatisticsMenuView smvGame = new StatisticsMenuView(player);
+        LocationView lvGame = new LocationView(player);
+
+        switch (returnTO) {
             case "gMV":
-                this.console.println("You chose Quit\nSending Player back to Game Menu");
+                this.console.println("\n\nYou chose Quit\nSending Player back to Game Menu");
                 hMR = " ";
                 gmvGame.display(hMR);
                 break;
             case "mMV":
-                this.console.println("You chose Quit\nSending Player back to Main Menu");
+                this.console.println("\n\nYou chose Quit\nSending Player back to Main Menu");
                 hMR = " ";
                 mmvGame.display(hMR);
                 break;
             case "sMV":
-                this.console.println("You chose Quit\nSending Player back to Statistics Menu");
+                this.console.println("\n\nYou chose Quit\nSending Player back to Statistics Menu");
                 hMR = " ";
                 smvGame.display(hMR);
                 break;
             case "LV":
-                this.console.println("You chose Quit\nSending Player back to Location Menu");
+                this.console.println("\n\nYou chose Quit\nSending Player back to Location Menu");
                 hMR = " ";
                 lvGame.display(hMR);
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"Our apologies, there was an error in\n"
+                ErrorView.display(this.getClass().getName(), "\nOur apologies, there was an error in\n"
                         + "helpQuitAndReturn(String returnTO)\n"
-                    + "\nSending Player back to Main Menu\n"
-                    + returnTO + " returnTO");
+                        + "\nSending Player back to Main Menu\n"
+                        + returnTO + " returnTO");
                 hMR = " ";
                 mmvGame.display(hMR);
                 break;
         }
-        
+
     }
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
 }

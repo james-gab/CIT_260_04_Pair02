@@ -87,8 +87,10 @@ public class MainMenuView extends View {
     }
     
     private void displayHelpMenu(){
+        GameControl.createNewGame(WalkTheDog.getPlayer());
+        
         HelpMenuView gameMenuHelp = new HelpMenuView();
-    gameMenuHelp.displayHelpMenu(hMR);
+        gameMenuHelp.displayHelpMenu(hMR,player);
         }
     
     public void saveGame(){

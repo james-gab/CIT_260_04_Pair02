@@ -13,19 +13,12 @@ import java.util.Objects;
  * @author Idel
  */
 public class Scene implements Serializable {
-    
+
     private int fixedScene;
-    private String description;
+//    private String description;
     private boolean blocked;
     private double travelTime;
     public String MapSymbol;
-    
-    
-    
-    
-    
-    
-    
 
     public double getTravelTime() {
         return travelTime;
@@ -50,23 +43,22 @@ public class Scene implements Serializable {
     public void setTravelTime(double POSITIVE_INFINITY) {
         this.travelTime = POSITIVE_INFINITY;
     }
-    
- 
 
     public static enum SceneType {
-    fountain,               //("You found the water fountain, don't jump in the water!"),
-    statue,                 //("You found the stature in the park, don't pee on it!"),
-    playground,             //("You found the playground, watch out for the kids!"),
-    dogpark,                //("You found the dog park, go play!"),
-    restrooms,              //("You found the restrooms, take a break!"),
-    duckpond;               //("You found the duck pond, watch out for bird poop!");
-     }
-    
+
+        fountain, //("You found the water fountain, don't jump in the water!"),
+        statue, //("You found the stature in the park, don't pee on it!"),
+        playground, //("You found the playground, watch out for the kids!"),
+        dogpark, //("You found the dog park, go play!"),
+        restrooms, //("You found the restrooms, take a break!"),
+        duckpond;               //("You found the duck pond, watch out for bird poop!");
+    }
+
     Scene(String description) {
         this.MapSymbol = description;
         fixedScene = 1;
-    
-     }
+
+    }
 
     public int getFixedScene() {
         return fixedScene;
@@ -117,7 +109,5 @@ public class Scene implements Serializable {
     public String toString() {
         return "Scene{" + "fixedScene=" + fixedScene + ", description=" + MapSymbol + '}';
     }
-    
-    
-    
+
 }

@@ -50,14 +50,6 @@ public class ProgramControl {
         return points;          //returns life points
     }
 
-    /*
-     *    gab - Lesson 09 individual assignment
-     *    Added to satisfy the Individual assignment for Lesson 09
-     *   
-     *  *****  *****  USEING default as error check   *****  ***** 
-     *   IF not equal to a defined CHAR then error statment
-     *    
-     */
     public int userExperienceInputCheck(char choice, Player player, String hMR) {
 
         char var = (char) choice;
@@ -67,10 +59,6 @@ public class ProgramControl {
         char no = 'n';
         int playerSatisfaction = player.getPlayerSatisfaction();
 
-//        this.console.println("\nIn userExperienceInputCheck\n"
-//                + choice + " was passed for choice.\n"
-//                + var + " was passed from choice.\n"
-//                + playerSatisfaction + " was passed for playerSatisfaction\n\n");
         if (var == YES) {
             playerSatisfaction += 1;
         } else if (var == NO) {

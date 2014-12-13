@@ -29,7 +29,5 @@ public class MapControlException extends Exception {
     public MapControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
-    
-    
+
 }

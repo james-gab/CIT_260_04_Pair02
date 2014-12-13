@@ -28,15 +28,11 @@ public class LeashLengthControl {
         
         this.console.println("\nPlease enter a leash lenght for Fido");
         
-//        char selection = ' ';
         int userLL = -2; //-2 so that it enters the do while statement
         do{
 
- 	//this.console.println("");
  	String input = this.getLLInput(); // get first charecter of string
-//        this.console.println("input = "+input);
         userLL = Integer.parseInt(input);
-//        this.console.println("userLL = "+userLL);
         
         if (userLL < 0 || userLL > 15){
             ErrorView.display(this.getClass().getName(),"\nInvalid Leash Length! Try again!");
@@ -48,15 +44,13 @@ public class LeashLengthControl {
     public String getLLInput() {
        boolean valid = false;
        String playersInput = null;
-//       Scanner keyboard = new Scanner(System.in);
 
        try{
         while(!valid){
             
-            Scanner keyboard = new Scanner(System.in);
+//            Scanner keyboards = new Scanner(System.in);
             this.console.println("\nPlease enter a number between 0 and 15: ");
 
-//            playersInput = keyboard.nextLine();
             playersInput = this.keyboard.readLine();
             playersInput = playersInput.trim();
             int givenNumber = parseInt(playersInput);

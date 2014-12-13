@@ -13,9 +13,9 @@ import java.util.Objects;
  * @authors Idel Pagan and gab James
  */
 public class Fido implements Serializable {
-    
+
     // class instance variables
-    private String name;        //player's name ****** not used ******
+    private String name;        
     private String templerment;
     private String mood;
     private int leashLength;
@@ -39,8 +39,6 @@ public class Fido implements Serializable {
     public void setNumberOfTurns(int numberOfTurns) {
         this.numberOfTurns = numberOfTurns;
     }
-    
-    
 
     public String getName() {
         return name;
@@ -66,17 +64,9 @@ public class Fido implements Serializable {
         this.mood = mood;
     }
 
-//    public double getLeashLength() {
-//        return leashLength;
-//    }
-
     public void setLeashLength(double leashLength) {
         this.leashLength = (int) leashLength;
     }
-
-//    public double getNumberOfTurns() {
-//        return numberOfTurns;
-//    }
 
     public void setNumberOfTurns(double numberOfTurns) {
         this.numberOfTurns = (int) numberOfTurns;
@@ -124,6 +114,5 @@ public class Fido implements Serializable {
         }
         return true;
     }
-    
-    
+
 }

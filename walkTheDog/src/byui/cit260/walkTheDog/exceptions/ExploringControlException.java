@@ -29,7 +29,5 @@ public class ExploringControlException extends Exception {
     public ExploringControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
-    
-    
+
 }

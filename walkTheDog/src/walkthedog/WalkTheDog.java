@@ -37,13 +37,11 @@ public class WalkTheDog {
          * create an object instance for the ErrorView class. This is what is
          * your error when you try and print to the file. 
          */
-//        ErrorView error = new ErrorView();
         
         try {
             //open character stream file for end user input and output
             WalkTheDog.inFile = new BufferedReader(new InputStreamReader(System.in));
             WalkTheDog.outFile = new PrintWriter(System.out, true);
-//            outFile =  PrintWriterClass(System.out, true);
             // open log file
             String filePath = "log.txt";
             WalkTheDog.logFile = new PrintWriter(filePath);
@@ -115,19 +113,5 @@ public class WalkTheDog {
         WalkTheDog.player = player;
     }
     
-    
-//  
-//    public static void main(String[] args) {
-//        // TODO code application logic here
-//       StartProgramView startProgramView = new StartProgramView();
-//       startProgramView.startProgram();        
-//        
-//    }
-
-//    private static String PrintWriterClass(PrintStream out, boolean b) {
-//        return (String)"log.txt";
-//        
-//    }
-//    
     
 }

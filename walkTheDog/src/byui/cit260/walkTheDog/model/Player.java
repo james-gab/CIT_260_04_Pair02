@@ -13,11 +13,10 @@ import java.util.Objects;
  * @authors Idel Pagan and gab James
  */
 public class Player implements Serializable {
-    
+
     // class instance variables
     private String name;
-    private double highScore; /* Will add to UML (Gab and Idel agreed to put
-                               this in here and in the UML. */
+    private double highScore;
     public int playerCurrentScore;
     public char gameDidUserExplore;
     public int gameUserExploreCounter;
@@ -26,7 +25,7 @@ public class Player implements Serializable {
     public int gameFidoMood;
     public int gameIdealLeashLength;
     public int playerSatisfaction;
-    public char playedMiniGame ;
+    public char playedMiniGame;
 
     public Player() {
     }
@@ -110,11 +109,6 @@ public class Player implements Serializable {
     public int getGameIdealLeashLength() {
         return gameIdealLeashLength;
     }
-    
-    
-    
-    
-    
 
     public String getName() {
         return name;
@@ -162,8 +156,5 @@ public class Player implements Serializable {
         }
         return true;
     }
-    
-    
-    
-    
+
 }

@@ -8,11 +8,6 @@ import static byui.cit260.walkTheDog.control.MapControl.rowCount;
 import byui.cit260.walkTheDog.exceptions.PrintControlException;
 import byui.cit260.walkTheDog.model.Location;
 import java.io.*;
-//import java.io.BufferedReader;
-//import java.io.FileOutputStream;
-//import java.io.IOException;
-//import java.io.ObjectOutputStream;
-//import java.io.PrintWriter;
 import walkthedog.WalkTheDog;
 
 /**
@@ -40,8 +35,7 @@ public class PrintView {
          * not read the report.
          */
         try (FileWriter filePathOut = new FileWriter(filePath)) {
-            filePathOut.write(System.getProperty("line.separator")+ "A Map of The Park" + System.getProperty("line.separator")+ System.getProperty("line.separator"));
-//            filePathOut.write(System.getProperty("line.separator"));
+            filePathOut.write(System.getProperty("line.separator") + "A Map of The Park" + System.getProperty("line.separator") + System.getProperty("line.separator"));
             filePathOut.write(System.getProperty("line.separator") + "          ");
 
             for (int column = 0; column < columCount; column++) {
@@ -49,8 +43,8 @@ public class PrintView {
             }
 
             for (int row = 0; row < rowCount; row++) {
-                filePathOut.write(System.getProperty("line.separator")+"      " + row);
-                
+                filePathOut.write(System.getProperty("line.separator") + "      " + row);
+
                 for (int column = 0; column < columCount; column++) {
                     filePathOut.write(" | ");
                     Location location = locations[row][column];

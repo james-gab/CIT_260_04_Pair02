@@ -3,24 +3,24 @@ package byui.cit260.walkTheDog.model;
 import byui.cit260.walkTheDog.enums.EventsScene;
 import java.io.Serializable;
 import java.util.Objects;
- 
+
 /**
  *
  * @author gab
  */
 public class EventsType implements Serializable {
-    private int row; 
+
+    private int row;
     private int column;
-    private boolean visited; 
-    private String explore; 
+    private boolean visited;
+    private String explore;
     private String randomEvent;
     private String actorRandomEvent;
     private EventsScene eventScene;
 
-    
     public EventsType() {
     }
-    
+
     public boolean isVisited() {
         return visited;
     }
@@ -28,6 +28,7 @@ public class EventsType implements Serializable {
     public EventsScene getEventScene() {
         return eventScene;
     }
+
     public void setEventScene(EventsScene eventScene) {
         this.eventScene = eventScene;
     }
@@ -127,7 +128,4 @@ public class EventsType implements Serializable {
         return true;
     }
 
-    
-    
-    
 }

@@ -13,19 +13,19 @@ import walkthedog.WalkTheDog;
  * @author Idel
  */
 public class ErrorView {
+
     private static final PrintWriter errorFile = WalkTheDog.getOutFile();
     private static final PrintWriter logFile = WalkTheDog.getLogFile();
-    
-    public static void display(String className, String errorMessage){
-         errorFile.println(""
+
+    public static void display(String className, String errorMessage) {
+        errorFile.println(""
                 + "________________________________________________________"
                 + "\n- ERROR - " + errorMessage
                 + "\n_______________________________________________________");
-        
+
         //log error
         logFile.println(className + " - " + errorMessage);
-        
+
     }
-    
-    
+
 }

@@ -10,24 +10,22 @@ import walkthedog.WalkTheDog;
  */
 public class Events implements Serializable {
 
- public int eventTypeInPark;
- public EventsType[][] eventTypes;
- int noOfRows;
- int noOfColums;
- protected final PrintWriter console = WalkTheDog.getOutFile();
+    public int eventTypeInPark;
+    public EventsType[][] eventTypes;
+    int noOfRows;
+    int noOfColums;
+    protected final PrintWriter console = WalkTheDog.getOutFile();
 
-
- 
-    public Events(){
+    public Events() {
     }
 
     public EventsType[][] getEventTypes() {
         return eventTypes;
     }
-    
+
     public void setEventTypes(EventsType[][] eventTypes) {
         this.eventTypes = eventTypes;
-  }
+    }
 
     public int getNoOfRows() {
         return noOfRows;
@@ -46,18 +44,18 @@ public class Events implements Serializable {
     }
 
     public Events(int noOfRows, int noOfColums) {
-        
-        if (noOfRows<1 || noOfColums<1){
+
+        if (noOfRows < 1 || noOfColums < 1) {
             this.console.println("Enter a Number greater than zero");
             return;
         }
-        
-        this.eventTypes = new EventsType [noOfRows][noOfColums];
+
+        this.eventTypes = new EventsType[noOfRows][noOfColums];
         this.noOfRows = noOfRows;
         this.noOfColums = noOfColums;
-        
-        for (int row = 0; row < noOfRows; row++){
-            for (int column = 0; column < noOfColums; column++){
+
+        for (int row = 0; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColums; column++) {
                 EventsType eventType = new EventsType();                          // create and initilize the eventType objects instance
                 eventType.setColumn(column);
                 eventType.setRow(row);
@@ -65,9 +63,8 @@ public class Events implements Serializable {
                 eventTypes[row][column] = eventType;                            //assign the EventsType object to the current position in array
             }   // END for column loop
         }       // END for row loop
-        
-    }   // END     public Events(int noOfRows, int noOfColums) 
 
+    }   // END     public Events(int noOfRows, int noOfColums) 
 
     public int getEventTypeInPark() {
         return eventTypeInPark;
@@ -79,7 +76,7 @@ public class Events implements Serializable {
 
     @Override
     public String toString() {
-        return "Events{" + "lacationInPark=" + eventTypeInPark  + '}';
+        return "Events{" + "lacationInPark=" + eventTypeInPark + '}';
     }
 
     @Override
@@ -103,5 +100,5 @@ public class Events implements Serializable {
         }
         return true;
     }
-    
+
 }   //End of public class Events implements Serializable
