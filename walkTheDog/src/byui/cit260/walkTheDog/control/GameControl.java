@@ -15,7 +15,6 @@ import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.enums.Scene;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
-import byui.cit260.walkTheDog.view.MainMenuView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,7 +22,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import walkthedog.WalkTheDog;
-import java.io.*;
 
 /**
  *
@@ -48,8 +46,8 @@ public class GameControl {
         Events events = EventsControl.createEvents();       //this creates and initializes a new events
         game.setEvents(events);
 
-        Fido fido = FidoControl.createFido();
-        game.setFido(fido);
+//        Fido fido = FidoControl.createFido();
+//        game.setFido(fido);
 
         Player variable = game.getPlayer();
         variable.setPlayedMiniGame('n');
@@ -108,8 +106,10 @@ public class GameControl {
         try (FileOutputStream fops = new FileOutputStream(filepath); /* zInstructor:
          * Please indent code in a block
          */ ObjectOutputStream saveFile = new ObjectOutputStream(fops)) {
+            
           
             saveFile.writeObject(game); //write the game object out to file
+            saveFile.close();
         } catch (IOException e) {
            
             throw new GameControlException(e.getMessage());
