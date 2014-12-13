@@ -54,9 +54,6 @@ public class MainMenuView extends View {
                 }
     }
     
-   
-
-    
     private void startNewGame(){
 //        this.console.println("\n*** startNewGame function called ***"
 //                + "in MainMenuView.java     startNewGame()");

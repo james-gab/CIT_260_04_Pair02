@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import walkthedog.WalkTheDog;
+import java.io.*;
 
 /**
  *
@@ -119,12 +120,12 @@ public class GameControl {
     public static void getSavedGame(String filePath)
             throws GameControlException {
         Game game = null;
-
+ 
         try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream output = new ObjectInputStream(fips);
 
             game = (Game) output.readObject(); // read the game object from file
-
+            output.close();
         } catch (FileNotFoundException fnfe) {
             throw new GameControlException(fnfe.getMessage());
 
@@ -132,7 +133,9 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
         // close the output file
+      
         WalkTheDog.setCurrentGame(game); // save in WalkTheDog
+        
     }
 
 }
