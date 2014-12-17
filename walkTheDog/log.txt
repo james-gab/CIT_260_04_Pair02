@@ -1,5 +1,0 @@
-byui.cit260.walkTheDog.control.LeashLengthControl - 
-*** Invalid Selection * Try again
-WalkTheDog - Exception: java.lang.NumberFormatException: For input string: ""
-Cause: null
-Message: For input string: ""
