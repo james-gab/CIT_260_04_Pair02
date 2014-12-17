@@ -32,7 +32,7 @@ public class GameMenuView extends View {
 
     public String hMR = "gMV";
     public Player player;
-    public Game game;
+
 
     public GameMenuView(Player players) {
 
@@ -69,11 +69,15 @@ public class GameMenuView extends View {
                 + player.getPlayerLeashLenght() + "\t=  playerLeashLenght\n"
                 + player.getPlayerSatisfaction() + "\t=  playerSatisfaction\n"
         );
+        
 
     }
 
     @Override
     public void doAction(char choice) {
+        
+        Game game = new Game();
+        
 
         if (player.playerCurrentScore <= 0) {
             this.console.println("\n\nYour Score is Zero, you loose");
@@ -135,6 +139,7 @@ public class GameMenuView extends View {
 //                + "\n Location Menu will be called");
 
         ExploringControl check = new ExploringControl();
+        Game game = new Game();
 
         try {
             check.didUserExplore(player);
