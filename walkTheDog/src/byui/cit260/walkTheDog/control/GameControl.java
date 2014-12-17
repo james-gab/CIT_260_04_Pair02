@@ -149,8 +149,9 @@ public class GameControl {
         return bob+=1;             //bob is our favorite player
     }
 
-    public void didPlayerWin(Player player, Game game)
+    public void didPlayerWin(Player player)
     throws GameControlException {
+        
         
         int bob = player.getWinLose();
         if(bob < 0){
@@ -159,24 +160,25 @@ public class GameControl {
         
         if(bob > 10){
             MainMenuView win = new MainMenuView(player);
-            win.youWin(player, game);
+            win.youWin(player);
         }
     }
 
-    public boolean userNewHighScore(Player player, Game game) 
+    public boolean userNewHighScore(Player player, int game) 
             throws GameControlException {
          
         if(player.getPlayerCurrentScore() < 0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
-         if(game.getHighScore() < 0.0){
+         if(game < 0.0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
         
-         if ((double)player.getPlayerCurrentScore() > game.getHighScore() ||
-                 (double)player.getPlayerCurrentScore() == game.getHighScore()){
+         if (player.getPlayerCurrentScore() > game ||
+                 player.getPlayerCurrentScore() == game){
             
-             game.setHighScore((int)player.getPlayerCurrentScore());
+             Game passGame = new Game();
+             passGame.setHighScore((int)player.getPlayerCurrentScore());
              
             return true;
          }

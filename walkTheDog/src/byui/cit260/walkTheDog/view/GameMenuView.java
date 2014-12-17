@@ -154,7 +154,7 @@ public class GameMenuView extends View {
         
         GameControl look = new GameControl();
         try {
-            look.didPlayerWin(player, game);
+            look.didPlayerWin(player);
         } catch (GameControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }

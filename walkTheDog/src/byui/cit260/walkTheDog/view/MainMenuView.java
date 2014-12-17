@@ -16,7 +16,7 @@ public class MainMenuView extends View {
 
     public String hMR = "mMV";
     public Player player;
-    public Game game;
+
 
     public MainMenuView(Player player) {
         super("\n"
@@ -120,11 +120,12 @@ public class MainMenuView extends View {
         startProgram.startProgram();
     }
 
-    public void youWin(Player player, Game game) {
+    public void youWin(Player player) {
+        Game game = new Game();
         this.console.println("\nYou Win! Your score was " + player.getPlayerCurrentScore());
         GameControl newHighScore = new GameControl();
         try {
-            if(newHighScore.userNewHighScore(player, game) == true){
+            if(newHighScore.userNewHighScore(player, game.getHighScore()) == true){
                 this.console.println("\nCongratulations! New High Score!"
                         + "\nThe new high score is " + game.getHighScore() + " points!");
             }
@@ -132,8 +133,8 @@ public class MainMenuView extends View {
         } catch (GameControlException ex) {
              ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
-        StartProgramView startProgram = new StartProgramView();
-        startProgram.startProgram();
+        MainMenuView mainMenu = new MainMenuView(player);
+        mainMenu.display(hMR);
     }
 
 

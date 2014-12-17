@@ -75,7 +75,7 @@ public class ProgramControl {
         return playerSatisfaction;
     }
 
-    public double checkHighScore(int currentScore, double highScore) throws ProgramControlException {
+    public double checkHighScore(int currentScore, int highScore) throws ProgramControlException {
 
         // check currentScore is real number
         if (currentScore < 0) {
@@ -91,10 +91,8 @@ public class ProgramControl {
                     + "\n if(highScore ");
         }
 
-        double changeCurrentScoreToDouble = (double) currentScore;
-
-        if (changeCurrentScoreToDouble > highScore) {
-            return changeCurrentScoreToDouble;
+        if (currentScore > highScore) {
+            return currentScore;
         }
 
         return highScore;
