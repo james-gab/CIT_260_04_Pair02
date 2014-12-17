@@ -15,15 +15,14 @@ import java.util.Objects;
  */
 public class Game implements Serializable {
  
-//    private String[] fixedLocation;               //this is the description of the location
     private Player player;                        //this is the player
     public Map map;                              //this is the map
-//    private Fido fido;                            //this is fido
     private int idealLeashLength;                 //this is the distance from player to actor
     private int currentScore;                     //the users current game score
     private char didUserExplore;                  //did the user explore? y/n
     private int userExploreCounter;               //number of times the user did not explore and passed locations                      
     private int shortLeashNumberOfTurns;          //number of turns the leash is below 4
+    public int highScore;
     public Events event;
 
     
@@ -31,33 +30,20 @@ public class Game implements Serializable {
     }
 
     
-    
-//    public String[] getFixedLocation() {
-//        return fixedLocation;
-//    }
-//
-//    public void setFixedLocation(String[] fixedLocation) {
-//        this.fixedLocation = fixedLocation;
-//    }
-    
-    public Events getEvents() {
-        return event;
-    }
-
-    public Map getMap() {
-        return map;
-    }
-
-//    public Fido getFido() {
-//        return fido;
-//    }
-//    
     public Player getPlayer() {
         return player;
     }
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     public int getIdealLeashLength() {
@@ -100,27 +86,34 @@ public class Game implements Serializable {
         this.shortLeashNumberOfTurns = shortLeashNumberOfTurns;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" + "fixedLocation=" +
-//                fixedLocation + 
-                ", player=" + player + ", map=" + map + ", fido=" + 
-//                fido + 
-                ", idealLeashLength=" + idealLeashLength + ", currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + '}';
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+    }
+
+    public Events getEvent() {
+        return event;
+    }
+
+    public void setEvent(Events event) {
+        this.event = event;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-//        hash = 23 * hash + Arrays.deepHashCode(this.fixedLocation);
-        hash = 23 * hash + Objects.hashCode(this.player);
-        hash = 23 * hash + Objects.hashCode(this.map);
-//        hash = 23 * hash + Objects.hashCode(this.fido);
-        hash = 23 * hash + this.idealLeashLength;
-        hash = 23 * hash + this.currentScore;
-        hash = 23 * hash + this.didUserExplore;
-        hash = 23 * hash + this.userExploreCounter;
-        hash = 23 * hash + this.shortLeashNumberOfTurns;
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.player);
+        hash = 89 * hash + Objects.hashCode(this.map);
+        hash = 89 * hash + this.idealLeashLength;
+        hash = 89 * hash + this.currentScore;
+        hash = 89 * hash + this.didUserExplore;
+        hash = 89 * hash + this.userExploreCounter;
+        hash = 89 * hash + this.shortLeashNumberOfTurns;
+        hash = 89 * hash + this.highScore;
+        hash = 89 * hash + Objects.hashCode(this.event);
         return hash;
     }
 
@@ -133,18 +126,12 @@ public class Game implements Serializable {
             return false;
         }
         final Game other = (Game) obj;
-//        if (!Arrays.deepEquals(this.fixedLocation, other.fixedLocation)) {
-//            return false;
-//        }
         if (!Objects.equals(this.player, other.player)) {
             return false;
         }
         if (!Objects.equals(this.map, other.map)) {
             return false;
         }
-//        if (!Objects.equals(this.fido, other.fido)) {
-//            return false;
-//        }
         if (this.idealLeashLength != other.idealLeashLength) {
             return false;
         }
@@ -160,32 +147,21 @@ public class Game implements Serializable {
         if (this.shortLeashNumberOfTurns != other.shortLeashNumberOfTurns) {
             return false;
         }
+        if (this.highScore != other.highScore) {
+            return false;
+        }
+        if (!Objects.equals(this.event, other.event)) {
+            return false;
+        }
         return true;
     }
 
-    
-    
-    
-    
-    
-    // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    
-    
-    
-    public void setMap(Map map) {
-          this.map = map;
-       
+    @Override
+    public String toString() {
+        return "Game{" + "player=" + player + ", map=" + map + ", idealLeashLength=" + idealLeashLength + ", currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + ", highScore=" + highScore + ", event=" + event + '}';
     }
-//
-//    public void setFido(Fido fido) {
-//          this.fido = fido;
-//    }
     
-    public void setEvents(Events event) {
-          this.event = event;
-       
-    }
+    
     
     
 }
-

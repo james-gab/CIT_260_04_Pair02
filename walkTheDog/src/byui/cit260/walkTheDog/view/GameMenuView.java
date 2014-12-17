@@ -19,6 +19,7 @@ import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.exceptions.PrintControlException;
 import byui.cit260.walkTheDog.exceptions.ProgramControlException;
+import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,7 @@ public class GameMenuView extends View {
 
     public String hMR = "gMV";
     public Player player;
+    public Game game;
 
     public GameMenuView(Player players) {
 
@@ -80,7 +82,7 @@ public class GameMenuView extends View {
         ProgramControl check = new ProgramControl();
         try {
             // Check for new High Score
-            player.setHighScore(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore()));
+            game.setHighScore((int) check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore()));
         } catch (ProgramControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
@@ -147,7 +149,7 @@ public class GameMenuView extends View {
         
         GameControl look = new GameControl();
         try {
-            look.didPlayerWin(player);
+            look.didPlayerWin(player, game);
         } catch (GameControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }

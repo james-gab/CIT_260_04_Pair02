@@ -271,7 +271,7 @@ public class ExploringControl {
         LeashLengthControl leash = new LeashLengthControl();
 
         ExploringControl explore = new ExploringControl();                         // calls random number generator
-        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvents().getEventTypes();
+        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvent().getEventTypes();
         Player variable = new Player();
 
         variable.setGameIdealLeashLength(explore.idealLeashLength(explore.randomIdealLeashGenerator())); // passes a random generated idealLeashLength to a variable

@@ -147,7 +147,7 @@ public class EventsControl {
 
     public void displayEvents() throws EventsControlException {
 
-        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvents().getEventTypes();
+        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvent().getEventTypes();
 
         if (eventTypes == null) {
             throw new EventsControlException("*** Our appologies, something went wrong. ***"

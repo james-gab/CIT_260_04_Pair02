@@ -46,7 +46,7 @@ public class GameControl {
         game.setMap(map);
 
         Events events = EventsControl.createEvents();       //this creates and initializes a new events
-        game.setEvents(events);
+        game.setEvent(events);
 
 //        Fido fido = FidoControl.createFido();
 //        game.setFido(fido);
@@ -149,7 +149,7 @@ public class GameControl {
         return bob+=1;             //bob is our favorite player
     }
 
-    public void didPlayerWin(Player player)
+    public void didPlayerWin(Player player, Game game)
     throws GameControlException {
         
         int bob = player.getWinLose();
@@ -159,24 +159,24 @@ public class GameControl {
         
         if(bob > 10){
             MainMenuView win = new MainMenuView(player);
-            win.youWin(player);
+            win.youWin(player, game);
         }
     }
 
-    public boolean userNewHighScore(Player player) 
+    public boolean userNewHighScore(Player player, Game game) 
             throws GameControlException {
          
         if(player.getPlayerCurrentScore() < 0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
-         if(player.getHighScore() < 0.0){
+         if(game.getHighScore() < 0.0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
         
-         if ((double)player.getPlayerCurrentScore() > player.getHighScore() ||
-                 (double)player.getPlayerCurrentScore() == player.getHighScore()){
+         if ((double)player.getPlayerCurrentScore() > game.getHighScore() ||
+                 (double)player.getPlayerCurrentScore() == game.getHighScore()){
             
-             player.setHighScore((double)player.getPlayerCurrentScore());
+             game.setHighScore((int)player.getPlayerCurrentScore());
              
             return true;
          }

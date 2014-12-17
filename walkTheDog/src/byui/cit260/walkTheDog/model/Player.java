@@ -16,7 +16,7 @@ public class Player implements Serializable {
 
     // class instance variables
     private String name;
-    private double highScore;
+    //private double highScore;
     public int playerCurrentScore;
     public char gameDidUserExplore;
     public int gameUserExploreCounter;
@@ -54,10 +54,10 @@ public class Player implements Serializable {
     public void setPlayerSatisfaction(int playerSatisfaction) {
         this.playerSatisfaction = playerSatisfaction;
     }
-
-    public void setHighScore(double highScore) {
-        this.highScore = highScore;
-    }
+//
+//    public void setHighScore(double highScore) {
+//        this.highScore = highScore;
+//    }
 
     public void setPlayerCurrentScore(int playerCurrentScore) {
         this.playerCurrentScore = playerCurrentScore;
@@ -87,9 +87,9 @@ public class Player implements Serializable {
         this.gameIdealLeashLength = gameIdealLeashLength;
     }
 
-    public double getHighScore() {
-        return highScore;
-    }
+//    public double getHighScore() {
+//        return highScore;
+//    }
 
     public int getPlayerCurrentScore() {
         return playerCurrentScore;
@@ -128,18 +128,18 @@ public class Player implements Serializable {
     }
 
     
-    @Override
-    public String toString() {
-        return "Player{" + " name = " + name + ", High Score = " + highScore + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Player{" + " name = " + name + ", High Score = " + highScore + '}';
+//    }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.highScore) ^ (Double.doubleToLongBits(this.highScore) >>> 32));
-        return hash;
-    }
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 89 * hash + Objects.hashCode(this.name);
+//        hash = 89 * hash + (int) (Double.doubleToLongBits(this.highScore) ^ (Double.doubleToLongBits(this.highScore) >>> 32));
+//        return hash;
+//    }
 
     @Override
     public boolean equals(Object obj) {
@@ -153,9 +153,9 @@ public class Player implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.highScore) != Double.doubleToLongBits(other.highScore)) {
-            return false;
-        }
+//        if (Double.doubleToLongBits(this.highScore) != Double.doubleToLongBits(other.highScore)) {
+//            return false;
+//        }
         return true;
     }
 
