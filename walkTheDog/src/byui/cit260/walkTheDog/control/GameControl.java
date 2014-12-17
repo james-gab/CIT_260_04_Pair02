@@ -14,7 +14,9 @@ import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.enums.Scene;
+import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
+import byui.cit260.walkTheDog.view.MainMenuView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,12 +25,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import walkthedog.WalkTheDog;
 
+
 /**
  *
  * @author Idel
  */
 public class GameControl {
-    
 
     public static void createNewGame(Player player) {
         ExploringControl numbernumber = new ExploringControl();
@@ -48,7 +50,6 @@ public class GameControl {
 
 //        Fido fido = FidoControl.createFido();
 //        game.setFido(fido);
-
         Player variable = game.getPlayer();
         variable.setPlayedMiniGame('n');
         variable.setGameDidUserExplore('n');
@@ -59,6 +60,7 @@ public class GameControl {
         variable.setGameNumberOfTurns(0);
         variable.setGameIdealLeashLength(numbernumber.randomIdealLeashGenerator());
         variable.setPlayerSatisfaction(2 + numbernumber.randomNumberGenerator(5));
+        variable.setWinLose(0);
 
     }
 
@@ -104,23 +106,22 @@ public class GameControl {
     public static void saveGame(Game game, String filepath) throws GameControlException {
 
         try (FileOutputStream fops = new FileOutputStream(filepath); /* zInstructor:
-         * Please indent code in a block
-         */ ObjectOutputStream saveFile = new ObjectOutputStream(fops)) {
-            
-          
+                 * Please indent code in a block
+                 */ ObjectOutputStream saveFile = new ObjectOutputStream(fops)) {
+
             saveFile.writeObject(game); //write the game object out to file
             saveFile.close();
         } catch (IOException e) {
-           
+
             throw new GameControlException(e.getMessage());
-            
+
         }
     }
 
     public static void getSavedGame(String filePath)
             throws GameControlException {
         Game game = null;
- 
+
         try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream output = new ObjectInputStream(fips);
 
@@ -133,9 +134,53 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
         // close the output file
-      
+
         WalkTheDog.setCurrentGame(game); // save in WalkTheDog
-        
+
     }
 
+    public int playerWinLose(int bob)
+            throws GameControlException {
+
+        if (bob < 0) {      // test for good leashlenght
+            throw new GameControlException("*** Our appologies, something went wrong. ***");
+        }
+        bob++;
+        
+        
+        return bob;
+    }
+
+    public void didPlayerWin(Player player)
+    throws GameControlException {
+        
+        int bob = player.getWinLose();
+        if(bob < 0){
+           throw new GameControlException("*** Our appologies, something went wrong. ***");
+        }
+        
+        if(bob > 10){
+            MainMenuView win = new MainMenuView(player);
+            win.youWin(player);
+        }
+    }
+
+    public boolean userNewHighScore(Player player) 
+            throws GameControlException {
+         
+        if(player.getPlayerCurrentScore() < 0){
+           throw new GameControlException("*** Our appologies, something went wrong. ***");
+        }
+         if(player.getHighScore() < 0.0){
+           throw new GameControlException("*** Our appologies, something went wrong. ***");
+        }
+        
+         if ((double)player.getPlayerCurrentScore() > player.getHighScore()){
+            
+             player.setHighScore((double)player.getPlayerCurrentScore());
+             
+            return true;
+         }
+        return false;
+    }
 }

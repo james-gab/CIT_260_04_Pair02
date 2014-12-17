@@ -8,11 +8,13 @@ package byui.cit260.walkTheDog.view;
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
 import byui.cit260.walkTheDog.control.EventsControl;
+import byui.cit260.walkTheDog.control.GameControl;
 import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
+import byui.cit260.walkTheDog.exceptions.GameControlException;
 import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.exceptions.PrintControlException;
@@ -142,7 +144,14 @@ public class GameMenuView extends View {
         } catch (ExploringControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
-
+        
+        GameControl look = new GameControl();
+        try {
+            look.didPlayerWin(player);
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        
         player.setGameDidUserExplore('n');                                      // change char gameDidUserExplore back to NO
 
         UserExperienceView question = new UserExperienceView(player);

@@ -26,8 +26,17 @@ public class Player implements Serializable {
     public int gameIdealLeashLength;
     public int playerSatisfaction;
     public char playedMiniGame;
+    public int winLose;
 
     public Player() {
+    }
+
+    public int getWinLose() {
+        return winLose;
+    }
+
+    public void setWinLose(int winLose) {
+        this.winLose = winLose;
     }
 
     public char getPlayedMiniGame() {
@@ -118,14 +127,7 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public double gethighScore() {
-        return highScore;
-    }
-
-    public void sethighScore(double highScore) {
-        this.highScore = highScore;
-    }
-
+    
     @Override
     public String toString() {
         return "Player{" + " name = " + name + ", High Score = " + highScore + '}';
