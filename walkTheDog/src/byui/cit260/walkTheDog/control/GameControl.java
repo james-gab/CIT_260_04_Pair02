@@ -145,7 +145,8 @@ public class GameControl {
         if (bob < 0) {      // test for good leashlenght
             throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
-        return bob++;             //bob is our favorite player
+        
+        return bob+=1;             //bob is our favorite player
     }
 
     public void didPlayerWin(Player player)
