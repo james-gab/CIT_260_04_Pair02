@@ -153,6 +153,7 @@ public class GameMenuView extends View {
         }
         
         player.setGameDidUserExplore('n');                                      // change char gameDidUserExplore back to NO
+        player.setPlayedMiniGame('n');
 
         UserExperienceView question = new UserExperienceView(player);
         question.display(hMR);

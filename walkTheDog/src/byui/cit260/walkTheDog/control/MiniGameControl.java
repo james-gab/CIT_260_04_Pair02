@@ -96,7 +96,7 @@ public class MiniGameControl {
 
             } while (number != 0);
         } else {
-            this.console.println("\nSorry, you either already revieved an extra life" //this part is displayed if the user already recieved a life point
+            this.console.println("\nSorry, you either already recieved an extra life" //this part is displayed if the user already recieved a life point
                     + " or already spun the wheel this round!"); // or user already tried more than 3 times to reciev life
         }
         player.playedMiniGame = 'Y';
