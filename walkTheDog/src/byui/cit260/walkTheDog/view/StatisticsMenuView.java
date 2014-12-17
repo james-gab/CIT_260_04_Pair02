@@ -25,7 +25,7 @@ public class StatisticsMenuView extends View {
                 + "\n________________________________"
                 + "\nStatistics Menu"
                 + "\n________________________________"
-                + "\n  L - Life Points"
+                + "\n  S - Current Score"
                 + "\n  M - Fido's Mood"
                 + "\n  Q - Quit (Go Back) " // modified to Q so that it could be inherited 
                 + "\n________________________________");
@@ -46,10 +46,10 @@ public class StatisticsMenuView extends View {
             /* Idel:
              *  Will do this! Thank you. 
              */
-            case 'L': // User chooses to display Life points
+            case 'S': // User chooses to display Life points
                 this.lifePoint(player);
                 break;
-            case 'l': // User chooses to display Life points
+            case 's': // User chooses to display Life points
                 this.lifePoint(player);
                 break;
             case 'M': {
@@ -95,7 +95,7 @@ public class StatisticsMenuView extends View {
     private void lifePoint(Player player) {     //display the player's Life Points
         ProgramControl display = new ProgramControl();
         try {
-            this.console.println("Your life point is: " + display.playerLifePoints(player));
+            this.console.println("Your current score is: " + display.playerLifePoints(player));
         } catch (ProgramControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
