@@ -175,12 +175,14 @@ public class GameControl {
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
         
-         if ((double)player.getPlayerCurrentScore() > player.getHighScore()){
+         if ((double)player.getPlayerCurrentScore() > player.getHighScore() ||
+                 (double)player.getPlayerCurrentScore() == player.getHighScore()){
             
              player.setHighScore((double)player.getPlayerCurrentScore());
              
             return true;
          }
+         
         return false;
     }
 }
