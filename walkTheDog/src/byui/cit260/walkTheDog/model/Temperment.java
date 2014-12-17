@@ -38,15 +38,10 @@ public class Temperment implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Temperment{" + "mood=" + mood + ", description=" + description + '}';
-    }
-
-    @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.mood);
-        hash = 29 * hash + Objects.hashCode(this.description);
+        hash = 13 * hash + Objects.hashCode(this.mood);
+        hash = 13 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -67,5 +62,12 @@ public class Temperment implements Serializable {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Temperment{" + "mood=" + mood + ", description=" + description + '}';
+    }
+
+
 
 }

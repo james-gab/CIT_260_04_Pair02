@@ -7,14 +7,12 @@ package byui.cit260.walkTheDog.control;
 
 import byui.cit260.walkTheDog.enums.EventsScene;
 import byui.cit260.walkTheDog.model.EventsType;
-import byui.cit260.walkTheDog.model.Fido;
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Location;
 import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.enums.Scene;
-import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
 import byui.cit260.walkTheDog.view.MainMenuView;
 import java.io.FileInputStream;
@@ -174,8 +172,7 @@ public class GameControl {
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
         
-         if (player.getPlayerCurrentScore() > game ||
-                 player.getPlayerCurrentScore() == game){
+         if (player.getPlayerCurrentScore() > game || player.getPlayerCurrentScore() == game){
             
              Game passGame = new Game();
              passGame.setHighScore(player.getPlayerCurrentScore());

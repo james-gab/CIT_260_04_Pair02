@@ -21,18 +21,6 @@ public class EventsType implements Serializable {
     public EventsType() {
     }
 
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public EventsScene getEventScene() {
-        return eventScene;
-    }
-
-    public void setEventScene(EventsScene eventScene) {
-        this.eventScene = eventScene;
-    }
-
     public int getRow() {
         return row;
     }
@@ -49,7 +37,7 @@ public class EventsType implements Serializable {
         this.column = column;
     }
 
-    public boolean getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
@@ -81,20 +69,24 @@ public class EventsType implements Serializable {
         this.actorRandomEvent = actorRandomEvent;
     }
 
-    @Override
-    public String toString() {
-        return "EventType{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", explore=" + explore + ", randomEvent=" + randomEvent + ", actorRandomEvent=" + actorRandomEvent + '}';
+    public EventsScene getEventScene() {
+        return eventScene;
+    }
+
+    public void setEventScene(EventsScene eventScene) {
+        this.eventScene = eventScene;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.row;
-        hash = 97 * hash + this.column;
-        hash = 97 * hash + Objects.hashCode(this.visited);
-        hash = 97 * hash + Objects.hashCode(this.explore);
-        hash = 97 * hash + Objects.hashCode(this.randomEvent);
-        hash = 97 * hash + Objects.hashCode(this.actorRandomEvent);
+        int hash = 3;
+        hash = 11 * hash + this.row;
+        hash = 11 * hash + this.column;
+        hash = 11 * hash + (this.visited ? 1 : 0);
+        hash = 11 * hash + Objects.hashCode(this.explore);
+        hash = 11 * hash + Objects.hashCode(this.randomEvent);
+        hash = 11 * hash + Objects.hashCode(this.actorRandomEvent);
+        hash = 11 * hash + Objects.hashCode(this.eventScene);
         return hash;
     }
 
@@ -113,7 +105,7 @@ public class EventsType implements Serializable {
         if (this.column != other.column) {
             return false;
         }
-        if (!Objects.equals(this.visited, other.visited)) {
+        if (this.visited != other.visited) {
             return false;
         }
         if (!Objects.equals(this.explore, other.explore)) {
@@ -125,7 +117,16 @@ public class EventsType implements Serializable {
         if (!Objects.equals(this.actorRandomEvent, other.actorRandomEvent)) {
             return false;
         }
+        if (!Objects.equals(this.eventScene, other.eventScene)) {
+            return false;
+        }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "EventsType{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", explore=" + explore + ", randomEvent=" + randomEvent + ", actorRandomEvent=" + actorRandomEvent + ", eventScene=" + eventScene + '}';
+    }
+
 
 }

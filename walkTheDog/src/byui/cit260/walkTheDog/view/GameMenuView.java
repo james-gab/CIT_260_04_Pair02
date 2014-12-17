@@ -86,7 +86,9 @@ public class GameMenuView extends View {
         ProgramControl check = new ProgramControl();
         try {
             // Check for new High Score
-            game.setHighScore( check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore()));
+            game.setHighScore(check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore()));
+            System.err.println("GMV line 90 - High Score returned as "+(check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore())));
+            System.err.println("\ngame.getHighScore is now = "+game.getHighScore()+"\n");
         } catch (ProgramControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }

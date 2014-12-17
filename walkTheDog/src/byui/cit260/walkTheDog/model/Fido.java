@@ -24,30 +24,6 @@ public class Fido implements Serializable {
     public Fido() {
     }
 
-    public int getLeashLength() {
-        return leashLength;
-    }
-
-    public void setLeashLength(int leashLength) {
-        this.leashLength = leashLength;
-    }
-
-    public int getNumberOfTurns() {
-        return numberOfTurns;
-    }
-
-    public void setNumberOfTurns(int numberOfTurns) {
-        this.numberOfTurns = numberOfTurns;
-    }
-
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-
     public String getTemplerment() {
         return templerment;
     }
@@ -64,29 +40,29 @@ public class Fido implements Serializable {
         this.mood = mood;
     }
 
-    public void setLeashLength(double leashLength) {
-        this.leashLength = (int) leashLength;
+    public int getLeashLength() {
+        return leashLength;
     }
 
-    public void setNumberOfTurns(double numberOfTurns) {
-        this.numberOfTurns = (int) numberOfTurns;
+    public void setLeashLength(int leashLength) {
+        this.leashLength = leashLength;
     }
 
-    @Override
-    public String toString() {
-        return "Fido{" 
-//                + "name=" + name 
-                + ", templerment=" + templerment + ", mood=" + mood + ", leashLength=" + leashLength + ", numberOfTurns=" + numberOfTurns + '}';
+    public int getNumberOfTurns() {
+        return numberOfTurns;
+    }
+
+    public void setNumberOfTurns(int numberOfTurns) {
+        this.numberOfTurns = numberOfTurns;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-//        hash = 61 * hash + Objects.hashCode(this.name);
-        hash = 61 * hash + Objects.hashCode(this.templerment);
-        hash = 61 * hash + Objects.hashCode(this.mood);
-        hash = 61 * hash + (int) (Double.doubleToLongBits(this.leashLength) ^ (Double.doubleToLongBits(this.leashLength) >>> 32));
-        hash = 61 * hash + (int) (Double.doubleToLongBits(this.numberOfTurns) ^ (Double.doubleToLongBits(this.numberOfTurns) >>> 32));
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.templerment);
+        hash = 37 * hash + Objects.hashCode(this.mood);
+        hash = 37 * hash + this.leashLength;
+        hash = 37 * hash + this.numberOfTurns;
         return hash;
     }
 
@@ -99,22 +75,31 @@ public class Fido implements Serializable {
             return false;
         }
         final Fido other = (Fido) obj;
-//        if (!Objects.equals(this.name, other.name)) {
-//            return false;
-//        }
         if (!Objects.equals(this.templerment, other.templerment)) {
             return false;
         }
         if (!Objects.equals(this.mood, other.mood)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.leashLength) != Double.doubleToLongBits(other.leashLength)) {
+        if (this.leashLength != other.leashLength) {
             return false;
         }
-        if (Double.doubleToLongBits(this.numberOfTurns) != Double.doubleToLongBits(other.numberOfTurns)) {
+        if (this.numberOfTurns != other.numberOfTurns) {
             return false;
         }
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Fido{" + "templerment=" + templerment + ", mood=" + mood + ", leashLength=" + leashLength + ", numberOfTurns=" + numberOfTurns + '}';
+    }
+
+
+    
+    
+    
+    
+    
+    
 }

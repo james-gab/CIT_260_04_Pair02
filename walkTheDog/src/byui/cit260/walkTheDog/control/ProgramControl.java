@@ -92,6 +92,7 @@ public class ProgramControl {
         }
 
         if (currentScore > highScore) {
+            System.out.println("player High Score was increased in PROGRAMCONTROL/CHECKHIGHSCORE " + highScore);
             return currentScore;
         }
 

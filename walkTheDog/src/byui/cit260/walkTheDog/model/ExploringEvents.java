@@ -6,6 +6,7 @@
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -25,6 +26,30 @@ public class ExploringEvents implements Serializable {
     private int noOfColums;
 
     public ExploringEvents() {
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
 
     public String getEventName() {
@@ -78,15 +103,15 @@ public class ExploringEvents implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + this.row;
-        hash = 97 * hash + this.column;
-        hash = 97 * hash + (this.visited ? 1 : 0);
-        hash = 97 * hash + Objects.hashCode(this.eventName);
-        hash = 97 * hash + Objects.hashCode(this.evenDescription);
-        hash = 97 * hash + Objects.hashCode(this.criteria);
-        hash = 97 * hash + Objects.hashCode(this.exploringEvents);
-        hash = 97 * hash + this.noOfRows;
-        hash = 97 * hash + this.noOfColums;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
+        hash = 67 * hash + (this.visited ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.eventName);
+        hash = 67 * hash + Objects.hashCode(this.evenDescription);
+        hash = 67 * hash + Objects.hashCode(this.criteria);
+        hash = 67 * hash + Arrays.deepHashCode(this.exploringEvents);
+        hash = 67 * hash + this.noOfRows;
+        hash = 67 * hash + this.noOfColums;
         return hash;
     }
 
@@ -117,7 +142,7 @@ public class ExploringEvents implements Serializable {
         if (!Objects.equals(this.criteria, other.criteria)) {
             return false;
         }
-        if (!Objects.equals(this.exploringEvents, other.exploringEvents)) {
+        if (!Arrays.deepEquals(this.exploringEvents, other.exploringEvents)) {
             return false;
         }
         if (this.noOfRows != other.noOfRows) {
@@ -134,4 +159,11 @@ public class ExploringEvents implements Serializable {
         return "ExploringEvents{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", eventName=" + eventName + ", evenDescription=" + evenDescription + ", criteria=" + criteria + ", exploringEvents=" + exploringEvents + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
     }
 
+
+    
+    
+    
+    
+    
+    
 }

@@ -28,22 +28,6 @@ public class Location implements Serializable {
     public Location() {
     }
 
-    public void setActors(ArrayList<Actor> actors) {
-        this.actors = actors;
-    }
-
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public ArrayList<Actor> getActors() {
-        return actors;
-    }
-
-    public Scene getScene() {
-        return scene;
-    }
-
     public int getRow() {
         return row;
     }
@@ -60,7 +44,7 @@ public class Location implements Serializable {
         this.column = column;
     }
 
-    public boolean getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
@@ -92,20 +76,33 @@ public class Location implements Serializable {
         this.actorRandomEvent = actorRandomEvent;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", explore=" + explore + ", randomEvent=" + randomEvent + ", actorRandomEvent=" + actorRandomEvent + '}';
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.row;
-        hash = 97 * hash + this.column;
-        hash = 97 * hash + Objects.hashCode(this.visited);
-        hash = 97 * hash + Objects.hashCode(this.explore);
-        hash = 97 * hash + Objects.hashCode(this.randomEvent);
-        hash = 97 * hash + Objects.hashCode(this.actorRandomEvent);
+        int hash = 3;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
+        hash = 67 * hash + (this.visited ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.explore);
+        hash = 67 * hash + Objects.hashCode(this.randomEvent);
+        hash = 67 * hash + Objects.hashCode(this.actorRandomEvent);
+        hash = 67 * hash + Objects.hashCode(this.scene);
+        hash = 67 * hash + Objects.hashCode(this.actors);
         return hash;
     }
 
@@ -124,7 +121,7 @@ public class Location implements Serializable {
         if (this.column != other.column) {
             return false;
         }
-        if (!Objects.equals(this.visited, other.visited)) {
+        if (this.visited != other.visited) {
             return false;
         }
         if (!Objects.equals(this.explore, other.explore)) {
@@ -136,11 +133,22 @@ public class Location implements Serializable {
         if (!Objects.equals(this.actorRandomEvent, other.actorRandomEvent)) {
             return false;
         }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
+        if (!Objects.equals(this.actors, other.actors)) {
+            return false;
+        }
         return true;
     }
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", explore=" + explore + ", randomEvent=" + randomEvent + ", actorRandomEvent=" + actorRandomEvent + ", scene=" + scene + ", actors=" + actors + '}';
     }
 
+
+    
+    
+    
 }

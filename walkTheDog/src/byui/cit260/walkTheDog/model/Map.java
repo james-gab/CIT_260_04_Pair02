@@ -8,6 +8,7 @@ package byui.cit260.walkTheDog.model;
 
 import byui.cit260.walkTheDog.view.ErrorView;
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -24,21 +25,6 @@ public class Map implements Serializable {
 
     }
 
-    public int getNoOfRows() {
-        return noOfRows;
-    }
-
-    public void setNoOfRows(int noOfRows) {
-        this.noOfRows = noOfRows;
-    }
-
-    public int getNoOfColums() {
-        return noOfColums;
-    }
-
-    public void setNoOfColums(int noOfColums) {
-        this.noOfColums = noOfColums;
-    }
 
     public Map(int noOfRows, int noOfColums) {
 
@@ -75,15 +61,37 @@ public class Map implements Serializable {
         this.locationInPark = locationInPark;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "lacationInPark=" + locationInPark + '}';
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+    public int getNoOfRows() {
+        return noOfRows;
+    }
+
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
+    }
+
+    public int getNoOfColums() {
+        return noOfColums;
+    }
+
+    public void setNoOfColums(int noOfColums) {
+        this.noOfColums = noOfColums;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.locationInPark) ^ (Double.doubleToLongBits(this.locationInPark) >>> 32));
+        int hash = 3;
+        hash = 29 * hash + this.locationInPark;
+        hash = 29 * hash + Arrays.deepHashCode(this.locations);
+        hash = 29 * hash + this.noOfRows;
+        hash = 29 * hash + this.noOfColums;
         return hash;
     }
 
@@ -96,18 +104,32 @@ public class Map implements Serializable {
             return false;
         }
         final Map other = (Map) obj;
-        if (Double.doubleToLongBits(this.locationInPark) != Double.doubleToLongBits(other.locationInPark)) {
+        if (this.locationInPark != other.locationInPark) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
+            return false;
+        }
+        if (this.noOfRows != other.noOfRows) {
+            return false;
+        }
+        if (this.noOfColums != other.noOfColums) {
             return false;
         }
         return true;
     }
 
-    public Location[][] getLocations() {
-        return locations;
+    @Override
+    public String toString() {
+        return "Map{" + "locationInPark=" + locationInPark + ", locations=" + locations + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
     }
 
-    public void setLocations(Location[][] locations) {
-        this.locations = locations;
-    }
 
+    
+    
+    
+    
+    
+    
+    
 }
