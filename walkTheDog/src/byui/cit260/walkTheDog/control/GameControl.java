@@ -170,7 +170,7 @@ public class GameControl {
         if(player.getPlayerCurrentScore() < 0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
-         if(game < 0.0){
+         if(game < 0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
         
@@ -178,7 +178,7 @@ public class GameControl {
                  player.getPlayerCurrentScore() == game){
             
              Game passGame = new Game();
-             passGame.setHighScore((int)player.getPlayerCurrentScore());
+             passGame.setHighScore(player.getPlayerCurrentScore());
              
             return true;
          }

@@ -86,7 +86,7 @@ public class GameMenuView extends View {
         ProgramControl check = new ProgramControl();
         try {
             // Check for new High Score
-            game.setHighScore((int) check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore()));
+            game.setHighScore( check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore()));
         } catch (ProgramControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }

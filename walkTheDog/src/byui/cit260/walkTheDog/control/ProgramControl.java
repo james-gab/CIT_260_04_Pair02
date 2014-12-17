@@ -75,7 +75,7 @@ public class ProgramControl {
         return playerSatisfaction;
     }
 
-    public double checkHighScore(int currentScore, int highScore) throws ProgramControlException {
+    public int checkHighScore(int currentScore, int highScore) throws ProgramControlException {
 
         // check currentScore is real number
         if (currentScore < 0) {
@@ -84,7 +84,7 @@ public class ProgramControl {
                     + "\nin       public int checkHighScore(int currentScore, int highScore)"
                     + "\n if(currentScore ");
         }
-        if (highScore < 0.0) {
+        if (highScore < 0) {
             throw new ProgramControlException("\n*** Our appologies, something went wrong. ***"
                     + "\n*** ERROR in ProgramControl.java ***"
                     + "\nin       public int checkHighScore(int currentScore, int highScore)"
