@@ -154,7 +154,11 @@ public class GameMenuView extends View {
         
         player.setGameDidUserExplore('n');                                      // change char gameDidUserExplore back to NO
         player.setPlayedMiniGame('n');
-        player.setWinLose(player.getWinLose());
+        try {
+            player.setWinLose(look.playerWinLose(player.getWinLose()));
+        } catch (GameControlException ex) {
+             ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
 
         UserExperienceView question = new UserExperienceView(player);
         question.display(hMR);
