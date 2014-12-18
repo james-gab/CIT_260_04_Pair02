@@ -16,9 +16,8 @@ public class EventsControl {
 
     public static int eVrowCount = 8;
     public static int eVcolumCount = 2;
-    protected final PrintWriter console = WalkTheDog.getOutFile();
 
-    public static Events createEvents() {
+    public static Events createEvents() throws EventsControlException {
         Events event = new Events(eVrowCount, eVcolumCount);                     // Create Events
         EventsScene[] scenes = createEventScenes();                              // create sceans for the game
         GameControl.assignEventScenesToEventTypes(event, scenes);                // assign sceans to eventTypes
@@ -145,35 +144,35 @@ public class EventsControl {
 
     } // END of private static EventsScene[] createEventScenes() 
 
-    public void displayEvents() throws EventsControlException {
-
-        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvent().getEventTypes();
-
-        if (eventTypes == null) {
-            throw new EventsControlException("*** Our appologies, something went wrong. ***"
-                    + "\n*** ERROR in EventsControl.java ***"
-                    + "\nin       public void displayEvents() if (eventTypes == null)");
-        } else {
-            this.console.println("     Events in The Park\n");
-            this.console.print("          ");
-            this.console.println("     The Park is full of different Events\n"
-                    + "They are:           Good (good dog!!!)    and             Bad (bad dog!!!)");
-
-            for (int row = 0; row < eVrowCount; row++) {
-                int z = row + 1;
-                this.console.print("      " + z);
-                for (int column = 0; column < eVcolumCount; column++) {
-                    this.console.print(" | ");
-                    EventsType eventType = eventTypes[row][column];
-                    if (!eventType.equals("")) {
-                        this.console.print(eventTypes[row][column].getEventScene().getEventsSymbol());
-                    } else {
-                        this.console.print("   x      ");                           // place event symbol here
-                    }
-                }
-                this.console.print(" |\n");
-            }
-        }
-    }   // END of public void displayEvents()
+//    public void displayEvents() throws EventsControlException {
+//
+//        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvent().getEventTypes();
+//
+//        if (eventTypes == null) {
+//            throw new EventsControlException("*** Our appologies, something went wrong. ***"
+//                    + "\n*** ERROR in EventsControl.java ***"
+//                    + "\nin       public void displayEvents() if (eventTypes == null)");
+//        } else {
+//            this.console.println("     Events in The Park\n");
+//            this.console.print("          ");
+//            this.console.println("     The Park is full of different Events\n"
+//                    + "They are:           Good (good dog!!!)    and             Bad (bad dog!!!)");
+//
+//            for (int row = 0; row < eVrowCount; row++) {
+//                int z = row + 1;
+//                this.console.print("      " + z);
+//                for (int column = 0; column < eVcolumCount; column++) {
+//                    this.console.print(" | ");
+//                    EventsType eventType = eventTypes[row][column];
+//                    if (!eventType.equals("")) {
+//                        this.console.print(eventTypes[row][column].getEventScene().getEventsSymbol());
+//                    } else {
+//                        this.console.print("   x      ");                           // place event symbol here
+//                    }
+//                }
+//                this.console.print(" |\n");
+//            }
+//        }
+//    }   // END of public void displayEvents()
 
 }   // END of public class EventsControl

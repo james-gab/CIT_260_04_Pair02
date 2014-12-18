@@ -2,10 +2,7 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.GameControl;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
-import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import walkthedog.WalkTheDog;
 
 /**
@@ -121,13 +118,13 @@ public class MainMenuView extends View {
     }
 
     public void youWin(Player player) {
-        Game game = new Game();
+
         this.console.println("\nYou Win! Your score was " + player.getPlayerCurrentScore());
         GameControl newHighScore = new GameControl();
         try {
-            if(newHighScore.userNewHighScore(player, game.getHighScore()) == true){
+            if(newHighScore.userNewHighScore(player) == true){
                 this.console.println("\nCongratulations! New High Score!"
-                        + "\nThe new high score is " + game.getHighScore() + " points!");
+                        + "\nThe new high score is " + player.getHighScore() + " points!");
             }
             
         } catch (GameControlException ex) {

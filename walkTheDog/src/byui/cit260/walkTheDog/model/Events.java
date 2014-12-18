@@ -1,5 +1,6 @@
 package byui.cit260.walkTheDog.model;
 
+import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -16,18 +17,17 @@ public class Events implements Serializable {
     public EventsType[][] eventTypes;
     int noOfRows;
     int noOfColums;
-    protected final PrintWriter console = WalkTheDog.getOutFile();
+//    protected final PrintWriter console = WalkTheDog.getOutFile();
 
     public Events() {
     }
 
     
 
-    public Events(int noOfRows, int noOfColums) {
+    public Events(int noOfRows, int noOfColums) throws EventsControlException {
 
         if (noOfRows < 1 || noOfColums < 1) {
-            this.console.println("Enter a Number greater than zero");
-            return;
+            throw new EventsControlException ("Enter a Number greater than zero");
         }
 
         this.eventTypes = new EventsType[noOfRows][noOfColums];
@@ -46,9 +46,9 @@ public class Events implements Serializable {
 
     }   // END     public Events(int noOfRows, int noOfColums) 
 
-    public PrintWriter getConsole() {
-        return console;
-    }
+//    public PrintWriter getConsole() {
+//        return console;
+//    }
     
     public int getEventTypeInPark() {
         return eventTypeInPark;
@@ -89,7 +89,7 @@ public class Events implements Serializable {
         hash = 97 * hash + Arrays.deepHashCode(this.eventTypes);
         hash = 97 * hash + this.noOfRows;
         hash = 97 * hash + this.noOfColums;
-        hash = 97 * hash + Objects.hashCode(this.console);
+//        hash = 97 * hash + Objects.hashCode(this.console);
         return hash;
     }
 
@@ -114,15 +114,19 @@ public class Events implements Serializable {
         if (this.noOfColums != other.noOfColums) {
             return false;
         }
-        if (!Objects.equals(this.console, other.console)) {
-            return false;
-        }
+//        if (!Objects.equals(this.console, other.console)) {
+//            return false;
+//        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Events{" + "eventTypeInPark=" + eventTypeInPark + ", eventTypes=" + eventTypes + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + ", console=" + console + '}';
+        return "Events{" + "eventTypeInPark=" + eventTypeInPark + ", eventTypes=" + eventTypes + ", noOfRows=" + noOfRows + ", noOfColums=" + noOfColums + '}';
+    }
+
+    private Exception EventsControlException(String enter_a_Number_greater_than_zero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

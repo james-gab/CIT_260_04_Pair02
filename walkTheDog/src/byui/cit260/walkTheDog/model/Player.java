@@ -25,6 +25,8 @@ public class Player implements Serializable {
     public int playerSatisfaction;
     public char playedMiniGame;
     public int winLose;
+    public int highScore;
+    
 
     public Player() {
     }
@@ -43,6 +45,14 @@ public class Player implements Serializable {
 
     public void setPlayerCurrentScore(int playerCurrentScore) {
         this.playerCurrentScore = playerCurrentScore;
+    }
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
     }
 
     public char getGameDidUserExplore() {
@@ -120,17 +130,18 @@ public class Player implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + this.playerCurrentScore;
-        hash = 89 * hash + this.gameDidUserExplore;
-        hash = 89 * hash + this.gameUserExploreCounter;
-        hash = 89 * hash + this.playerLeashLenght;
-        hash = 89 * hash + this.gameNumberOfTurns;
-        hash = 89 * hash + this.gameFidoMood;
-        hash = 89 * hash + this.gameIdealLeashLength;
-        hash = 89 * hash + this.playerSatisfaction;
-        hash = 89 * hash + this.playedMiniGame;
-        hash = 89 * hash + this.winLose;
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + this.playerCurrentScore;
+        hash = 37 * hash + this.gameDidUserExplore;
+        hash = 37 * hash + this.gameUserExploreCounter;
+        hash = 37 * hash + this.playerLeashLenght;
+        hash = 37 * hash + this.gameNumberOfTurns;
+        hash = 37 * hash + this.gameFidoMood;
+        hash = 37 * hash + this.gameIdealLeashLength;
+        hash = 37 * hash + this.playerSatisfaction;
+        hash = 37 * hash + this.playedMiniGame;
+        hash = 37 * hash + this.winLose;
+        hash = 37 * hash + this.highScore;
         return hash;
     }
 
@@ -176,13 +187,17 @@ public class Player implements Serializable {
         if (this.winLose != other.winLose) {
             return false;
         }
+        if (this.highScore != other.highScore) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", playerCurrentScore=" + playerCurrentScore + ", gameDidUserExplore=" + gameDidUserExplore + ", gameUserExploreCounter=" + gameUserExploreCounter + ", playerLeashLenght=" + playerLeashLenght + ", gameNumberOfTurns=" + gameNumberOfTurns + ", gameFidoMood=" + gameFidoMood + ", gameIdealLeashLength=" + gameIdealLeashLength + ", playerSatisfaction=" + playerSatisfaction + ", playedMiniGame=" + playedMiniGame + ", winLose=" + winLose + '}';
+        return "Player{" + "name=" + name + ", playerCurrentScore=" + playerCurrentScore + ", gameDidUserExplore=" + gameDidUserExplore + ", gameUserExploreCounter=" + gameUserExploreCounter + ", playerLeashLenght=" + playerLeashLenght + ", gameNumberOfTurns=" + gameNumberOfTurns + ", gameFidoMood=" + gameFidoMood + ", gameIdealLeashLength=" + gameIdealLeashLength + ", playerSatisfaction=" + playerSatisfaction + ", playedMiniGame=" + playedMiniGame + ", winLose=" + winLose + ", highScore=" + highScore + '}';
     }
+
 
    
     

@@ -13,6 +13,7 @@ import byui.cit260.walkTheDog.model.Events;
 import byui.cit260.walkTheDog.model.Map;
 import byui.cit260.walkTheDog.model.Player;
 import byui.cit260.walkTheDog.enums.Scene;
+import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
 import byui.cit260.walkTheDog.view.MainMenuView;
 import java.io.FileInputStream;
@@ -30,7 +31,7 @@ import walkthedog.WalkTheDog;
  */
 public class GameControl {
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws EventsControlException {
         ExploringControl numbernumber = new ExploringControl();
 
 //        this.console.println("\n*** createNewGame stub function called ***"
@@ -162,20 +163,19 @@ public class GameControl {
         }
     }
 
-    public boolean userNewHighScore(Player player, int game) 
+    public boolean userNewHighScore(Player player) 
             throws GameControlException {
          
         if(player.getPlayerCurrentScore() < 0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
-         if(game < 0){
+         if(player.getHighScore() < 0){
            throw new GameControlException("*** Our appologies, something went wrong. ***");
         }
         
-         if (player.getPlayerCurrentScore() > game || player.getPlayerCurrentScore() == game){
+         if (player.getPlayerCurrentScore() > player.getHighScore() || player.getPlayerCurrentScore() == player.getHighScore()){
             
-             Game passGame = new Game();
-             passGame.setHighScore(player.getPlayerCurrentScore());
+             player.setHighScore(player.getPlayerCurrentScore());
              
             return true;
          }

@@ -6,7 +6,6 @@
 package byui.cit260.walkTheDog.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -22,7 +21,6 @@ public class Game implements Serializable {
     private char didUserExplore;                  //did the user explore? y/n
     private int userExploreCounter;               //number of times the user did not explore and passed locations                      
     private int shortLeashNumberOfTurns;          //number of turns the leash is below 4
-    public int highScore;
     public Events event;
 
     
@@ -86,14 +84,6 @@ public class Game implements Serializable {
         this.shortLeashNumberOfTurns = shortLeashNumberOfTurns;
     }
 
-    public int getHighScore() {
-        return highScore;
-    }
-
-    public void setHighScore(int highScore) {
-        this.highScore = highScore;
-    }
-
     public Events getEvent() {
         return event;
     }
@@ -112,7 +102,6 @@ public class Game implements Serializable {
         hash = 89 * hash + this.didUserExplore;
         hash = 89 * hash + this.userExploreCounter;
         hash = 89 * hash + this.shortLeashNumberOfTurns;
-        hash = 89 * hash + this.highScore;
         hash = 89 * hash + Objects.hashCode(this.event);
         return hash;
     }
@@ -147,9 +136,6 @@ public class Game implements Serializable {
         if (this.shortLeashNumberOfTurns != other.shortLeashNumberOfTurns) {
             return false;
         }
-        if (this.highScore != other.highScore) {
-            return false;
-        }
         if (!Objects.equals(this.event, other.event)) {
             return false;
         }
@@ -158,7 +144,7 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "player=" + player + ", map=" + map + ", idealLeashLength=" + idealLeashLength + ", currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + ", highScore=" + highScore + ", event=" + event + '}';
+        return "Game{" + "player=" + player + ", map=" + map + ", idealLeashLength=" + idealLeashLength + ", currentScore=" + currentScore + ", didUserExplore=" + didUserExplore + ", userExploreCounter=" + userExploreCounter + ", shortLeashNumberOfTurns=" + shortLeashNumberOfTurns + ", event=" + event + '}';
     }
     
     

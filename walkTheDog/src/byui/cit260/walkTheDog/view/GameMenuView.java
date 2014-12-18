@@ -7,22 +7,21 @@ package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.MapControl;
 import byui.cit260.walkTheDog.control.ExploringControl;
-import byui.cit260.walkTheDog.control.EventsControl;
+import static byui.cit260.walkTheDog.control.EventsControl.eVcolumCount;
+import static byui.cit260.walkTheDog.control.EventsControl.eVrowCount;
 import byui.cit260.walkTheDog.control.GameControl;
-import byui.cit260.walkTheDog.control.LeashLengthControl;
 import byui.cit260.walkTheDog.control.MiniGameControl;
 import byui.cit260.walkTheDog.control.ProgramControl;
 import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.ExploringControlException;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
-import byui.cit260.walkTheDog.exceptions.MapControlException;
 import byui.cit260.walkTheDog.exceptions.MiniGameControlException;
 import byui.cit260.walkTheDog.exceptions.PrintControlException;
 import byui.cit260.walkTheDog.exceptions.ProgramControlException;
+import byui.cit260.walkTheDog.model.EventsType;
 import byui.cit260.walkTheDog.model.Game;
 import byui.cit260.walkTheDog.model.Player;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import walkthedog.WalkTheDog;
 
 /**
  *
@@ -76,7 +75,6 @@ public class GameMenuView extends View {
     @Override
     public void doAction(char choice) {
         
-        Game game = new Game();
         
 
         if (player.playerCurrentScore <= 0) {
@@ -86,9 +84,9 @@ public class GameMenuView extends View {
         ProgramControl check = new ProgramControl();
         try {
             // Check for new High Score
-            game.setHighScore(check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore()));
-            System.err.println("GMV line 90 - High Score returned as "+(check.checkHighScore(player.getPlayerCurrentScore(), game.getHighScore())));
-            System.err.println("\ngame.getHighScore is now = "+game.getHighScore()+"\n");
+            player.setHighScore(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore()));
+            System.err.println("GMV line 90 - High Score returned as "+(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore())));
+            System.err.println("\ngame.getHighScore is now = "+player.getHighScore()+"\n");
         } catch (ProgramControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
@@ -183,19 +181,19 @@ public class GameMenuView extends View {
         }
 
     }
-
-    private void userLeashLength() {
-//        this.console.println("*** userLeashLength function called ***");
-        LeashLengthControl leash = new LeashLengthControl();
-        player.setPlayerLeashLenght(leash.displayLeashLengthInput());
-
-        ExploringControl check = new ExploringControl();
-        try {
-            check.shortLeash(player);
-        } catch (ExploringControlException ex) {
-            ErrorView.display(this.getClass().getName(), ex.getMessage());
-        }
-    }       // END userLeashLength()
+//
+//    private void userLeashLength() {
+////        this.console.println("*** userLeashLength function called ***");
+//        LeashLengthView leash = new LeashLengthView();
+//        player.setPlayerLeashLenght(leash.displayLeashLengthInput());
+//
+//        ExploringControl check = new ExploringControl();
+//        try {
+//            check.shortLeash(player);
+//        } catch (ExploringControlException ex) {
+//            ErrorView.display(this.getClass().getName(), ex.getMessage());
+//        }
+//    }       // END userLeashLength()
 
     private void displayHelpMenu() {
         HelpMenuView gameMenuHelp = new HelpMenuView();
@@ -208,14 +206,48 @@ public class GameMenuView extends View {
     }
 
     private void displayActors() {
-        EventsControl gameEvents = new EventsControl();
+//        EventsControl gameEvents = new EventsControl();
         try {
-            gameEvents.displayEvents();
+            this.displayEvents();
         } catch (EventsControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
     }
 
+        public void displayEvents() throws EventsControlException {
+
+        EventsType[][] eventTypes = WalkTheDog.getCurrentGame().getEvent().getEventTypes();
+
+        if (eventTypes == null) {
+            throw new EventsControlException("*** Our appologies, something went wrong. ***"
+                    + "\n*** ERROR in EventsControl.java ***"
+                    + "\nin       public void displayEvents() if (eventTypes == null)");
+        } else {
+            this.console.println("     Events in The Park\n");
+            this.console.print("          ");
+            this.console.println("     The Park is full of different Events\n"
+                    + "They are:           Good (good dog!!!)    and             Bad (bad dog!!!)");
+
+            for (int row = 0; row < eVrowCount; row++) {
+                int z = row + 1;
+                this.console.print("      " + z);
+                for (int column = 0; column < eVcolumCount; column++) {
+                    this.console.print(" | ");
+                    EventsType eventType = eventTypes[row][column];
+                    if (!eventType.equals("")) {
+                        this.console.print(eventTypes[row][column].getEventScene().getEventsSymbol());
+                    } else {
+                        this.console.print("   x      ");                           // place event symbol here
+                    }
+                }
+                this.console.print(" |\n");
+            }
+        }
+    }   // END of public void displayEvents()
+
+    
+    
+    
     private void saveGame() {
         MainMenuView savedGame = new MainMenuView(player);
         savedGame.saveGame();
