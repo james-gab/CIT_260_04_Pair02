@@ -1,8 +1,11 @@
 package byui.cit260.walkTheDog.view;
 
 import byui.cit260.walkTheDog.control.GameControl;
+import byui.cit260.walkTheDog.exceptions.EventsControlException;
 import byui.cit260.walkTheDog.exceptions.GameControlException;
 import byui.cit260.walkTheDog.model.Player;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import walkthedog.WalkTheDog;
 
 /**
@@ -40,8 +43,14 @@ public class MainMenuView extends View {
             case 'R': // resume saved game
                 this.startExistingGame();
                 break;
-            case 'H': // display the Help Menu
+            case 'H': {
+            try {
+                // display the Help Menu
                 this.displayHelpMenu();
+            } catch (EventsControlException ex) {
+            ErrorView.display("\nMainMenView", ex.getMessage());
+            }
+        }
                 break;
             case 'S': // save the current Game
                 this.saveGame();
@@ -56,10 +65,14 @@ public class MainMenuView extends View {
     }
     
     private void startNewGame(){
-//        this.console.println("\n*** startNewGame function called ***"
+        try {
+            //        this.console.println("\n*** startNewGame function called ***"
 //                + "in MainMenuView.java     startNewGame()");
-        
-        GameControl.createNewGame(WalkTheDog.getPlayer());
+            
+            GameControl.createNewGame(WalkTheDog.getPlayer());
+        } catch (EventsControlException ex) {
+            ErrorView.display("\nMainMenView", ex.getMessage());
+        }
         
         
         GameMenuView gameMenu = new GameMenuView(player);
@@ -67,8 +80,8 @@ public class MainMenuView extends View {
     }   
      
     private void startExistingGame(){
-        this.console.println("\n*** startExistingGame function called ***"
-                + "in MainMenuView.java     startExistingGame()");
+//        this.console.println("\n*** startExistingGame function called ***"
+//                + "in MainMenuView.java     startExistingGame()");
         // prompt for and get the nameof the file to save the game
         this.console.println("\n\nEnter the file path for the saved game.");
         
@@ -87,7 +100,7 @@ public class MainMenuView extends View {
         gameMenu.display(hMR);
     }
     
-    private void displayHelpMenu(){
+    private void displayHelpMenu() throws EventsControlException{
         GameControl.createNewGame(WalkTheDog.getPlayer());
         
         HelpMenuView gameMenuHelp = new HelpMenuView();

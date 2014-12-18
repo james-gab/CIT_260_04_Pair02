@@ -58,7 +58,7 @@ public class GameControl {
         variable.setPlayerLeashLenght(numbernumber.randomNumberGenerator16_0to15());
         variable.setGameNumberOfTurns(0);
         variable.setGameIdealLeashLength(numbernumber.randomIdealLeashGenerator());
-        variable.setPlayerSatisfaction(2 + numbernumber.randomNumberGenerator(5));
+        variable.setPlayerSatisfaction(5);
         variable.setWinLose(0);
 
     }

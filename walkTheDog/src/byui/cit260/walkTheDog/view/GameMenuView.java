@@ -56,17 +56,17 @@ public class GameMenuView extends View {
 
         this.player = players;
 
-        this.console.println("\n\nYour current statistics:\nfor testing only\n"
-                + player + "\n"
+        this.console.println("\n\nYour current statistics:\n"
+//                + player + "\n"
                 + "\n"
-                + player.getPlayerCurrentScore() + "\t=  playerCurrentScore\n"
-                + player.getGameDidUserExplore() + "\t=  gameDidUserExplore\n"
-                + player.getGameUserExploreCounter() + "\t=  gameUserExploreCounter\n"
-                + player.getGameFidoMood() + "\t=  gameFidoMood\n"
-                + player.getGameNumberOfTurns() + "\t=  gameNumberOfTurns\n"
-                + player.getGameIdealLeashLength() + "\t=  gameIdealLeashLength\n"
-                + player.getPlayerLeashLenght() + "\t=  playerLeashLenght\n"
-                + player.getPlayerSatisfaction() + "\t=  playerSatisfaction\n"
+                + "Your current score is: " + player.getPlayerCurrentScore()
+//                + player.getGameDidUserExplore() + "\t=  gameDidUserExplore\n"
+//                + player.getGameUserExploreCounter() + "\t=  gameUserExploreCounter\n"
+                + "\nFido's mood is now: "+player.getGameFidoMood()
+                + "\nNumber of turns: "+player.getWinLose() + " out of 11"
+//                + player.getGameIdealLeashLength() + "\t=  gameIdealLeashLength\n"
+//                + player.getPlayerLeashLenght() + "\t=  playerLeashLenght\n"
+                + "\nYou satisfation level is currently: " +player.getPlayerSatisfaction()
         );
         
 
@@ -85,8 +85,8 @@ public class GameMenuView extends View {
         try {
             // Check for new High Score
             player.setHighScore(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore()));
-            System.err.println("GMV line 90 - High Score returned as "+(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore())));
-            System.err.println("\ngame.getHighScore is now = "+player.getHighScore()+"\n");
+//            System.err.println("GMV line 90 - High Score returned as "+(check.checkHighScore(player.getPlayerCurrentScore(), player.getHighScore())));
+//            System.err.println("\ngame.getHighScore is now = "+player.getHighScore()+"\n");
         } catch (ProgramControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
@@ -139,7 +139,7 @@ public class GameMenuView extends View {
 //                + "\n Location Menu will be called");
 
         ExploringControl check = new ExploringControl();
-        Game game = new Game();
+//        Game game = new Game();
 
         try {
             check.didUserExplore(player);

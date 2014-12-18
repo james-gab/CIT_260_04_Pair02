@@ -237,7 +237,7 @@ public class ExploringControl {
                 player.setGameNumberOfTurns(player.getGameNumberOfTurns() + 1);
             } else if (getFidoMood == player.getGameFidoMood()) {
                 this.console.println("\nFido fido does not like a short leash "
-                        + "\nlucily Fido is not that mad yet."
+                        + "\nluckily Fido is not that mad yet."
                         + "\nConsider keeping the leash longer than 3.");
                 player.setGameNumberOfTurns(player.getGameNumberOfTurns() + 1);
             } else {
